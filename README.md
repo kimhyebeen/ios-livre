@@ -1,5 +1,5 @@
 # iOS_BookStory
-인터파크도서 Open API를 사용한 책 검색 애플리케이션
+네이버 검색 Open API를 사용한 책 검색 애플리케이션
 
 ## Technology Stack
 * Architecture: MVVM

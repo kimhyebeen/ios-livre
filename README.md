@@ -1,8 +1,11 @@
 # iOS_BookStory
 인터파크도서 Open API를 사용한 책 검색 애플리케이션
 
-## Information
-❗️Tech Stack
+## Technology Stack
+* Architecture: MVVM
+* Language: Swift
+* UI: UIKit
+* Networking: Alamofire, RxSwift/RxCocoa
 
 ## Reference
 * 책 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/book/)

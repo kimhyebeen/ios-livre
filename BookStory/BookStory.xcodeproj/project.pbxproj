@@ -21,6 +21,7 @@
 		EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D548925B460310064C274 /* BaseViewController.swift */; };
 		EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54CF25B496220064C274 /* BookSearchResponse.swift */; };
 		EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54D725B498A60064C274 /* BlogSearchResponse.swift */; };
+		EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54DC25B499B20064C274 /* ShoppingSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		EE3D548925B460310064C274 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EE3D54CF25B496220064C274 /* BookSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchResponse.swift; sourceTree = "<group>"; };
 		EE3D54D725B498A60064C274 /* BlogSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogSearchResponse.swift; sourceTree = "<group>"; };
+		EE3D54DC25B499B20064C274 /* ShoppingSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingSearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			children = (
 				EE3D54CF25B496220064C274 /* BookSearchResponse.swift */,
 				EE3D54D725B498A60064C274 /* BlogSearchResponse.swift */,
+				EE3D54DC25B499B20064C274 /* ShoppingSearchResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 			files = (
 				EE3D544925B45E470064C274 /* ViewController.swift in Sources */,
 				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,
+				EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */,
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */,

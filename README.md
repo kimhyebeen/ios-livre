@@ -4,8 +4,9 @@
 ## Technology Stack
 * Architecture: MVVM
 * Language: Swift
-* UI: UIKit
+* UI: Storyboard, UIKit
 * Networking: Alamofire, RxSwift/RxCocoa
+* Others: Lottie, Then
 
 ## Reference
 * 책 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/book/)

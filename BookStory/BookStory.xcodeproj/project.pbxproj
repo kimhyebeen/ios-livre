@@ -18,6 +18,7 @@
 		EE3D545125B45E490064C274 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE3D544F25B45E490064C274 /* LaunchScreen.storyboard */; };
 		EE3D545C25B45E490064C274 /* BookStoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D545B25B45E490064C274 /* BookStoryTests.swift */; };
 		EE3D546725B45E490064C274 /* BookStoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D546625B45E490064C274 /* BookStoryUITests.swift */; };
+		EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D548925B460310064C274 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		EE3D546225B45E490064C274 /* BookStoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookStoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D546625B45E490064C274 /* BookStoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoryUITests.swift; sourceTree = "<group>"; };
 		EE3D546825B45E490064C274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE3D548925B460310064C274 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		EE3D544325B45E470064C274 /* BookStory */ = {
 			isa = PBXGroup;
 			children = (
+				EE3D548525B460180064C274 /* Base */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,
 				EE3D544625B45E470064C274 /* SceneDelegate.swift */,
 				EE3D544825B45E470064C274 /* ViewController.swift */,
@@ -166,6 +169,14 @@
 				EE3D546825B45E490064C274 /* Info.plist */,
 			);
 			path = BookStoryUITests;
+			sourceTree = "<group>";
+		};
+		EE3D548525B460180064C274 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D548925B460310064C274 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE3D544925B45E470064C274 /* ViewController.swift in Sources */,
+				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */,
 				EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */,
 			);

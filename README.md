@@ -11,6 +11,6 @@
 ## Reference
 * 책 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/book/)
 * 블로그 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/blog/)
-* 지식in 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/kin/)
-* 출간예정도서 API : [국립 중앙도서관 Open API](https://nl.go.kr/NL/contents/N31101030500.do)
+* 뉴스 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/news/)
+* 쇼핑 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/shopping/)
 * 키워드 분석 API : [AI Cloud Open API](https://www.saltlux.ai/)

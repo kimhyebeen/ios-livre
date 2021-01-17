@@ -5,6 +5,8 @@
 .DS_Store
 /.DS_Store
 
+BookStory/SecretKeySet.swift
+
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
 

@@ -9,6 +9,10 @@ import UIKit
 import Then
 
 class BaseViewController: UIViewController {
+    func log(where: String,_ msg: String) {
+        print("\(`where`)에서 로그발생 : \(msg)")
+    }
+    
     func showToast(view: UIView, message : String, color: UIColor = .black, font: UIFont = UIFont.systemFont(ofSize: 14.0)) {
         OperationQueue.main.addOperation {
             let toastLabel = self.getToastLabel(view: view, message, color, font)

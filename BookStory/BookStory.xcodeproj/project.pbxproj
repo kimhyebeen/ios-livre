@@ -19,6 +19,7 @@
 		EE3D545C25B45E490064C274 /* BookStoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D545B25B45E490064C274 /* BookStoryTests.swift */; };
 		EE3D546725B45E490064C274 /* BookStoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D546625B45E490064C274 /* BookStoryUITests.swift */; };
 		EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D548925B460310064C274 /* BaseViewController.swift */; };
+		EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54CF25B496220064C274 /* BookSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		EE3D546625B45E490064C274 /* BookStoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoryUITests.swift; sourceTree = "<group>"; };
 		EE3D546825B45E490064C274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE3D548925B460310064C274 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EE3D54CF25B496220064C274 /* BookSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		EE3D544325B45E470064C274 /* BookStory */ = {
 			isa = PBXGroup;
 			children = (
+				EE3D54CD25B496010064C274 /* Data */,
 				EE3D548525B460180064C274 /* Base */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,
 				EE3D544625B45E470064C274 /* SceneDelegate.swift */,
@@ -177,6 +180,22 @@
 				EE3D548925B460310064C274 /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		EE3D54CD25B496010064C274 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D54CE25B4960C0064C274 /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EE3D54CE25B4960C0064C274 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D54CF25B496220064C274 /* BookSearchResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE3D544925B45E470064C274 /* ViewController.swift in Sources */,
+				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */,
 				EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */,

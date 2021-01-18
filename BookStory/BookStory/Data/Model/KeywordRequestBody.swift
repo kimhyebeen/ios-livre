@@ -8,8 +8,8 @@
 import Foundation
 
 struct KeywordRequestBody: Codable {
-    var key: String = SecretKeySet.keywordKey.rawValue
-    var serviceId: String = SecretKeySet.keywordServiceId.rawValue
+    var key: String = SecretKeySet.keywordKey
+    var serviceId: String = SecretKeySet.keywordServiceId
     var argument: KeywordRequestArgument
 }
 

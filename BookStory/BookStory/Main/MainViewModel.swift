@@ -6,17 +6,16 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class MainViewModel {
-    let input = Input()
     let output = Output()
-    let disposeBag = DisposeBag()
-    
-    struct Input {
-        
-    }
     
     struct Output {
-        
+        let recentSearchString = ReplayRelay<String>.create(bufferSize: 5)
+    }
+    
+    func saveRecentSearchString(value: String) {
+        output.recentSearchString.accept(value)
     }
 }

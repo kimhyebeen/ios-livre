@@ -11,6 +11,8 @@ import Lottie
 class MainViewController: UIViewController {
     let animationView = AnimationView(name: "main-book")
     let searchFieldView = SearchField()
+    let basicLabel = UILabel()
+    let rewardView = RewardView()
     
     private let spaceForLeftRight: CGFloat = 25
 
@@ -25,6 +27,8 @@ class MainViewController: UIViewController {
         
         setupAnimationView()
         setupSearchFieldView()
+        setupBasicLabel()
+        setupRewardView()
     }
     
     func setupAnimationView() {
@@ -49,6 +53,27 @@ class MainViewController: UIViewController {
         searchFieldView.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 40).isActive = true
         searchFieldView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: spaceForLeftRight).isActive = true
         searchFieldView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1).isActive = true
+    }
+    
+    func setupBasicLabel() {
+        basicLabel.text = "책을 검색해보세요!\n검색할수록 더 많은 포인트가 지급됩니다!"
+        basicLabel.numberOfLines = 0
+        basicLabel.textAlignment = .center
+        basicLabel.textColor = UIColor(named: "light_gray_blue")
+        self.view.addSubview(basicLabel)
+        
+        basicLabel.translatesAutoresizingMaskIntoConstraints = false
+        basicLabel.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 20).isActive = true
+        basicLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+    
+    func setupRewardView() {
+        self.view.addSubview(rewardView)
+        
+        rewardView.translatesAutoresizingMaskIntoConstraints = false
+        rewardView.topAnchor.constraint(equalTo: basicLabel.bottomAnchor, constant: 30).isActive = true
+        rewardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: spaceForLeftRight + 10).isActive = true
+        rewardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1 - 10).isActive = true
     }
 
 }

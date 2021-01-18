@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
         rewardView.setProgress(value: reward.point/lists[reward.level], width: self.view.frame.width - 70)
         startLevelLabel.text = "lv.\(reward.level)"
         endLevelLabel.text = "lv.\(reward.level+1)"
-        pointLabel.text = "\(reward.point)/\(lists[reward.level])"
+        pointLabel.text = "\(Int(reward.point)) / \(Int(lists[reward.level]))"
     }
 
 }

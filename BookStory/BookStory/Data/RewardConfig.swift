@@ -26,22 +26,22 @@ struct RewardConfig {
         return UserDefaults.standard.integer(forKey: currentLevel)
     }
 
-    static func getCurrentPoint() -> Int {
-        return UserDefaults.standard.integer(forKey: currentPoint)
+    static func getCurrentPoint() -> Float {
+        return UserDefaults.standard.float(forKey: currentPoint)
     }
     
-    static func getPointList() -> [Int]? {
-        return UserDefaults.standard.array(forKey: points) as? [Int]
+    static func getPointList() -> [Float]? {
+        return UserDefaults.standard.array(forKey: points) as? [Float]
     }
     
-    static func addPoint(point: Int) {
+    static func addPoint(point: Float) {
         guard let list = getPointList() else {
             return
         }
         let level = getCurrentLevel()
         let total = getCurrentPoint() + point
         if total >= list[level] {
-            setCurrentPoint(point: total % list[level])
+            setCurrentPoint(point: total - list[level])
             setCurrentLevel(level: level+1)
         }
     }
@@ -50,7 +50,7 @@ struct RewardConfig {
         UserDefaults.standard.set(level, forKey: currentLevel)
     }
     
-    private static func setCurrentPoint(point: Int) {
+    private static func setCurrentPoint(point: Float) {
         UserDefaults.standard.set(point, forKey: currentPoint)
     }
 }

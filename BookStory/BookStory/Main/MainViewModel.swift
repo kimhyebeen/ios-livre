@@ -30,6 +30,6 @@ class MainViewModel {
     }
     
     func addRewardPoint(value: String, curPoint: Int, curLevel: Int) {
-        RewardConfig.addPoint(point: value.count * 2)
+        RewardConfig.addPoint(point: Float(value.count * 2))
     }
 }

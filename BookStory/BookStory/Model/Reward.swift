@@ -9,6 +9,6 @@ import Foundation
 
 struct Reward {
     var level: Int
-    var point: Int
-    var points: [Int]?
+    var point: Float
+    var points: [Float]?
 }

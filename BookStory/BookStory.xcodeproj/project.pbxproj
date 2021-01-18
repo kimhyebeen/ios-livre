@@ -26,6 +26,7 @@
 		EE3D54E725B49D940064C274 /* KeywordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54E625B49D940064C274 /* KeywordResponse.swift */; };
 		EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */; };
 		EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */; };
+		EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D94A25B54BBC0095D94E /* URLConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		EE3D54E625B49D940064C274 /* KeywordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordResponse.swift; sourceTree = "<group>"; };
 		EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordRequestBody.swift; sourceTree = "<group>"; };
 		EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeySet.swift; sourceTree = "<group>"; };
+		EEF3D94A25B54BBC0095D94E /* URLConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		EE3D54CD25B496010064C274 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EEF3D94A25B54BBC0095D94E /* URLConfig.swift */,
 				EE3D54CE25B4960C0064C274 /* Model */,
 			);
 			path = Data;
@@ -516,6 +519,7 @@
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
+				EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */,
 				EE3D54E225B49B080064C274 /* NewsSearchResponse.swift in Sources */,
 				EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */,
 				EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */,

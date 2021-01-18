@@ -36,6 +36,7 @@
 		EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D98025B59E230095D94E /* RewardConfig.swift */; };
 		EEF3D98A25B5A1300095D94E /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D98925B5A1300095D94E /* Reward.swift */; };
 		EEF3D9AF25B5C88B0095D94E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D9AE25B5C88B0095D94E /* ViewExtension.swift */; };
+		EEF3D9BF25B5CF0F0095D94E /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D9BE25B5CF0F0095D94E /* SearchField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		EEF3D98025B59E230095D94E /* RewardConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardConfig.swift; sourceTree = "<group>"; };
 		EEF3D98925B5A1300095D94E /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		EEF3D9AE25B5C88B0095D94E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		EEF3D9BE25B5CF0F0095D94E /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				EEF3D9AE25B5C88B0095D94E /* ViewExtension.swift */,
+				EEF3D9BE25B5CF0F0095D94E /* SearchField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				EEF3D95C25B54F1E0095D94E /* RequestBookSearch.swift in Sources */,
 				EE3D544925B45E470064C274 /* MainViewController.swift in Sources */,
 				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,
+				EEF3D9BF25B5CF0F0095D94E /* SearchField.swift in Sources */,
 				EE3D54E725B49D940064C274 /* KeywordResponse.swift in Sources */,
 				EEF3D96625B5539C0095D94E /* RequestShoppings.swift in Sources */,
 				EEF3D9AF25B5C88B0095D94E /* ViewExtension.swift in Sources */,

@@ -1,5 +1,7 @@
 # iOS_BookStory
-네이버 검색 Open API를 사용한 책 검색 애플리케이션
+* 네이버 검색 Open API를 사용한 책 검색 애플리케이션
+* 기획 및 디자인 : 1/14 ~ 1/17
+* 개발 기간 : 1/17 ~
 
 ## Technology Stack
 * Architecture: MVVM
@@ -7,6 +9,9 @@
 * UI: Storyboard, UIKit
 * Networking: Alamofire, RxSwift/RxCocoa
 * Others: Lottie, Then
+
+## ScreenShot
+<img src="./screen.png" width=200 />
 
 ## Reference
 * 책 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/book/)

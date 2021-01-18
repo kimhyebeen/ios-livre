@@ -31,15 +31,16 @@ class SearchField: UIView {
     }
     
     func setupButton() {
-        button.setBackgroundImage(UIImage(named: "search"), for: .normal)
+        button.setImage(UIImage(named: "search"), for: .normal)
         self.addSubview(button)
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: self.topAnchor, constant: spaceForTopBottom).isActive = true
-        button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: spaceForTopBottom * -1).isActive = true
-        button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: spaceForTopBottom * -1).isActive = true
+        button.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
         button.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     func setupTextField() {
@@ -50,7 +51,7 @@ class SearchField: UIView {
         textfield.topAnchor.constraint(equalTo: self.topAnchor, constant: spaceForTopBottom).isActive = true
         textfield.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: spaceForTopBottom * -1).isActive = true
         textfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: spaceForTopBottom * 2).isActive = true
-        textfield.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -16).isActive = true
+        textfield.trailingAnchor.constraint(equalTo: button.leadingAnchor).isActive = true
     }
     
 }

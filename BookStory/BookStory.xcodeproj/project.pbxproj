@@ -31,6 +31,7 @@
 		EEF3D95C25B54F1E0095D94E /* RequestBookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */; };
 		EEF3D96125B552F90095D94E /* RequestBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96025B552F90095D94E /* RequestBlogs.swift */; };
 		EEF3D96625B5539C0095D94E /* RequestShoppings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96525B5539C0095D94E /* RequestShoppings.swift */; };
+		EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96A25B5541F0095D94E /* RequestNews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBookSearch.swift; sourceTree = "<group>"; };
 		EEF3D96025B552F90095D94E /* RequestBlogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBlogs.swift; sourceTree = "<group>"; };
 		EEF3D96525B5539C0095D94E /* RequestShoppings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestShoppings.swift; sourceTree = "<group>"; };
+		EEF3D96A25B5541F0095D94E /* RequestNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */,
 				EEF3D96025B552F90095D94E /* RequestBlogs.swift */,
 				EEF3D96525B5539C0095D94E /* RequestShoppings.swift */,
+				EEF3D96A25B5541F0095D94E /* RequestNews.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
+				EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */,
 				EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */,
 				EE3D54E225B49B080064C274 /* NewsSearchResponse.swift in Sources */,
 				EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */,

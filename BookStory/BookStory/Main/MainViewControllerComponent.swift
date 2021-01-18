@@ -14,8 +14,8 @@ extension MainViewController {
         self.view.addSubview(animationView) // 애니메이션뷰를 메인뷰에 추가
         
         animationView.translatesAutoresizingMaskIntoConstraints = false
-        animationView.widthAnchor.constraint(equalToConstant: 170).isActive = true
-        animationView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        animationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        animationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         animationView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         animationView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height * 0.15).isActive = true
         animationView.play() // 애미메이션뷰 실행
@@ -34,6 +34,7 @@ extension MainViewController {
     
     func setupBasicLabel() {
         basicLabel.text = "책을 검색해보세요!\n검색할수록 더 많은 포인트가 지급됩니다!"
+        basicLabel.font = UIFont.systemFont(ofSize: 16)
         basicLabel.numberOfLines = 0
         basicLabel.textAlignment = .center
         basicLabel.textColor = UIColor(named: "pale_gray")
@@ -48,7 +49,7 @@ extension MainViewController {
         self.view.addSubview(rewardView)
         
         rewardView.translatesAutoresizingMaskIntoConstraints = false
-        rewardView.topAnchor.constraint(equalTo: basicLabel.bottomAnchor, constant: 30).isActive = true
+        rewardView.bottomAnchor.constraint(equalTo: pointLabel.topAnchor, constant: -30).isActive = true
         rewardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: spaceForLeftRight + 10).isActive = true
         rewardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1 - 10).isActive = true
     }
@@ -82,7 +83,7 @@ extension MainViewController {
         self.view.addSubview(pointLabel)
         
         pointLabel.translatesAutoresizingMaskIntoConstraints = false
-        pointLabel.topAnchor.constraint(equalTo: rewardView.bottomAnchor, constant: 30).isActive = true
-        pointLabel.centerXAnchor.constraint(equalTo: rewardView.centerXAnchor).isActive = true
+        pointLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.view.frame.height * 0.15 * -1).isActive = true
+        pointLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 }

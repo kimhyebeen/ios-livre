@@ -38,10 +38,10 @@ class MainViewController: UIViewController {
         setupAnimationView()
         setupSearchFieldView()
         setupBasicLabel()
+        setupPointLabel()
         setupRewardView()
         setupStartLevelLabel()
         setupEndLevelLabel()
-        setupPointLabel()
     }
     
     func setupReward(reward: Reward) {

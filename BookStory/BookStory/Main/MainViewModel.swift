@@ -18,4 +18,18 @@ class MainViewModel {
     func saveRecentSearchString(value: String) {
         output.recentSearchString.accept(value)
     }
+    
+    func getReward() -> Reward {
+        if RewardConfig.isDataEmpty { RewardConfig.initReward() }
+        
+        return Reward(
+            level: RewardConfig.getCurrentLevel(),
+            point: RewardConfig.getCurrentPoint(),
+            points: RewardConfig.getPointList()
+        )
+    }
+    
+    func addRewardPoint(value: String, curPoint: Int, curLevel: Int) {
+        RewardConfig.addPoint(point: value.count * 2)
+    }
 }

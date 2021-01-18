@@ -33,6 +33,8 @@
 		EEF3D96625B5539C0095D94E /* RequestShoppings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96525B5539C0095D94E /* RequestShoppings.swift */; };
 		EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96A25B5541F0095D94E /* RequestNews.swift */; };
 		EEF3D97425B55DC60095D94E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D97325B55DC60095D94E /* MainViewModel.swift */; };
+		EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D98025B59E230095D94E /* RewardConfig.swift */; };
+		EEF3D98A25B5A1300095D94E /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D98925B5A1300095D94E /* Reward.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		EEF3D96525B5539C0095D94E /* RequestShoppings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestShoppings.swift; sourceTree = "<group>"; };
 		EEF3D96A25B5541F0095D94E /* RequestNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNews.swift; sourceTree = "<group>"; };
 		EEF3D97325B55DC60095D94E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EEF3D98025B59E230095D94E /* RewardConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardConfig.swift; sourceTree = "<group>"; };
+		EEF3D98925B5A1300095D94E /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 			children = (
 				EE3D54CD25B496010064C274 /* Data */,
 				EE3D548525B460180064C274 /* Base */,
+				EEF3D98E25B5A1EC0095D94E /* Model */,
 				EEF3D97225B55D970095D94E /* Main */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,
 				EE3D544625B45E470064C274 /* SceneDelegate.swift */,
@@ -213,6 +218,7 @@
 			children = (
 				EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */,
 				EEF3D94A25B54BBC0095D94E /* URLConfig.swift */,
+				EEF3D98025B59E230095D94E /* RewardConfig.swift */,
 				EEF3D95225B54D1A0095D94E /* Requests */,
 				EE3D54CE25B4960C0064C274 /* Model */,
 			);
@@ -251,6 +257,14 @@
 				EEF3D97325B55DC60095D94E /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		EEF3D98E25B5A1EC0095D94E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEF3D98925B5A1300095D94E /* Reward.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +569,7 @@
 				EEF3D95425B54D2E0095D94E /* RequestKeywords.swift in Sources */,
 				EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */,
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
+				EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */,
@@ -563,6 +578,7 @@
 				EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */,
 				EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */,
 				EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */,
+				EEF3D98A25B5A1300095D94E /* Reward.swift in Sources */,
 				EEF3D97425B55DC60095D94E /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,7 +35,6 @@
 		EEF3D97425B55DC60095D94E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D97325B55DC60095D94E /* MainViewModel.swift */; };
 		EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D98025B59E230095D94E /* RewardConfig.swift */; };
 		EEF3D98A25B5A1300095D94E /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D98925B5A1300095D94E /* Reward.swift */; };
-		EEF3D9A525B5A6600095D94E /* RoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D9A425B5A6600095D94E /* RoundedRectangle.swift */; };
 		EEF3D9AF25B5C88B0095D94E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D9AE25B5C88B0095D94E /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +96,6 @@
 		EEF3D97325B55DC60095D94E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EEF3D98025B59E230095D94E /* RewardConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardConfig.swift; sourceTree = "<group>"; };
 		EEF3D98925B5A1300095D94E /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
-		EEF3D9A425B5A6600095D94E /* RoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangle.swift; sourceTree = "<group>"; };
 		EEF3D9AE25B5C88B0095D94E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,7 +273,6 @@
 		EEF3D9A325B5A6460095D94E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EEF3D9A425B5A6600095D94E /* RoundedRectangle.swift */,
 				EEF3D9AE25B5C88B0095D94E /* ViewExtension.swift */,
 			);
 			path = View;
@@ -582,7 +579,6 @@
 				EEF3D96625B5539C0095D94E /* RequestShoppings.swift in Sources */,
 				EEF3D9AF25B5C88B0095D94E /* ViewExtension.swift in Sources */,
 				EEF3D95425B54D2E0095D94E /* RequestKeywords.swift in Sources */,
-				EEF3D9A525B5A6600095D94E /* RoundedRectangle.swift in Sources */,
 				EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */,
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */,

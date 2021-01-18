@@ -15,6 +15,10 @@ class MainViewModel {
         let recentSearchString = ReplayRelay<String>.create(bufferSize: 5)
     }
     
+    func getRandomMainImageName() -> String {
+        return "book-\(Int.random(in: 1...15))"
+    }
+    
     func saveRecentSearchString(value: String) {
         output.recentSearchString.accept(value)
     }

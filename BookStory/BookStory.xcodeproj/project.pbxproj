@@ -30,6 +30,7 @@
 		EEF3D95425B54D2E0095D94E /* RequestKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D95325B54D2E0095D94E /* RequestKeywords.swift */; };
 		EEF3D95C25B54F1E0095D94E /* RequestBookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */; };
 		EEF3D96125B552F90095D94E /* RequestBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96025B552F90095D94E /* RequestBlogs.swift */; };
+		EEF3D96625B5539C0095D94E /* RequestShoppings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D96525B5539C0095D94E /* RequestShoppings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		EEF3D95325B54D2E0095D94E /* RequestKeywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestKeywords.swift; sourceTree = "<group>"; };
 		EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBookSearch.swift; sourceTree = "<group>"; };
 		EEF3D96025B552F90095D94E /* RequestBlogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBlogs.swift; sourceTree = "<group>"; };
+		EEF3D96525B5539C0095D94E /* RequestShoppings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestShoppings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				EEF3D95325B54D2E0095D94E /* RequestKeywords.swift */,
 				EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */,
 				EEF3D96025B552F90095D94E /* RequestBlogs.swift */,
+				EEF3D96525B5539C0095D94E /* RequestShoppings.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				EE3D544925B45E470064C274 /* ViewController.swift in Sources */,
 				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,
 				EE3D54E725B49D940064C274 /* KeywordResponse.swift in Sources */,
+				EEF3D96625B5539C0095D94E /* RequestShoppings.swift in Sources */,
 				EEF3D95425B54D2E0095D94E /* RequestKeywords.swift in Sources */,
 				EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */,
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,

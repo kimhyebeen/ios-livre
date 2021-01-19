@@ -22,6 +22,12 @@ class BookCollectionCell: UICollectionViewCell {
             $0.textColor = UIColor(named: "blight_gray")
             $0.font = UIFont.systemFont(ofSize: 14)
         }
+    let publishDate = UILabel()
+        .then {
+            $0.text = "출간일: -"
+            $0.textColor = UIColor(named: "blight_gray")
+            $0.font = UIFont.systemFont(ofSize: 14)
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,7 +74,13 @@ class BookCollectionCell: UICollectionViewCell {
     }
     
     private func setupPublishDateLabel() {
+        self.addSubview(publishDate)
         
+        publishDate.translatesAutoresizingMaskIntoConstraints = false
+        publishDate.topAnchor.constraint(equalTo: author.bottomAnchor, constant: 6).isActive = true
+        publishDate.leadingAnchor.constraint(equalTo: author.leadingAnchor).isActive = true
+        publishDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -10).isActive = true
+        publishDate.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
     }
     
     private func setupImageView() {

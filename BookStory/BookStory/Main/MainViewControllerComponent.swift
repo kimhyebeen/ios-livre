@@ -55,7 +55,7 @@ extension MainViewController {
     
     func setupStartLevelLabel() {
         startLevelLabel.text = "lv."
-        startLevelLabel.font = UIFont.systemFont(ofSize: 14)
+        startLevelLabel.font = UIFont.boldSystemFont(ofSize: 17)
         startLevelLabel.textColor = UIColor(named: "light_gray_blue")
         self.view.addSubview(startLevelLabel)
         
@@ -66,7 +66,7 @@ extension MainViewController {
     
     func setupEndLevelLabel() {
         endLevelLabel.text = "lv."
-        endLevelLabel.font = UIFont.systemFont(ofSize: 14)
+        endLevelLabel.font = UIFont.boldSystemFont(ofSize: 17)
         endLevelLabel.textColor = UIColor(named: "light_gray_blue")
         self.view.addSubview(endLevelLabel)
         
@@ -77,8 +77,8 @@ extension MainViewController {
     
     func setupPointLabel() {
         pointLabel.text = "-/-"
-        pointLabel.font = UIFont.systemFont(ofSize: 16)
-        pointLabel.textColor = UIColor(named: "pale_gray")
+        pointLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        pointLabel.textColor = UIColor(named: "light_gray_blue")
         self.view.addSubview(pointLabel)
         
         pointLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -40,6 +40,7 @@ class MainViewController: BaseViewController {
         animationView.play()
         rewardView.setupLevel()
         rewardView.startAnimation()
+        searchFieldView.textfield.text = ""
     }
 
     func setupView() {
@@ -84,12 +85,19 @@ class MainViewController: BaseViewController {
         }
         vm.saveRecentSearchString(value: text)
         vm.addRewardPoint(value: text)
-        searchFieldView.textfield.text = ""
         recentSearchDisposable?.dispose()
         
         let nextVC = DetailViewController()
         nextVC.modalPresentationStyle = .fullScreen
         self.show(nextVC, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextVC: DetailViewController = segue.destination as? DetailViewController else {
+            return
+        }
+        
+        nextVC.initSearchText = searchFieldView.textfield.text ?? ""
     }
 
 }

@@ -17,7 +17,7 @@ class BlogTableCell: UITableViewCell {
         }
     let postDate = UILabel()
         .then {
-            $0.text = "작성일: -"
+            $0.text = "(작성일)"
             $0.textColor = .systemGray
             $0.font = UIFont.systemFont(ofSize: 12)
         }
@@ -54,7 +54,10 @@ class BlogTableCell: UITableViewCell {
     }
     
     func setBlogInformtaion(item: BlogItem) {
-        
+        title.text = item.title
+        postDate.text = item.postDateString
+        descriptionLabel.text = item.description
+        bloggerName.text = item.bloggername
     }
 }
 

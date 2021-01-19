@@ -129,6 +129,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let count = recentSearchList.count - 1
         cell.selectionStyle = .none
         cell.setupCellInformation(value: recentSearchList[count - indexPath.row])
+        if (indexPath.row == count) {
+            cell.layer.cornerRadius = 10
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        } else {
+            cell.layer.cornerRadius = 0
+        }
         return cell
     }
     

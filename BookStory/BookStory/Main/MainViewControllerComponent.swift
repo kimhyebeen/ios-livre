@@ -91,6 +91,8 @@ extension MainViewController {
         recentSearchTable.dataSource = self
         recentSearchTable.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)
         recentSearchTable.isHidden = true
+        recentSearchTable.layer.cornerRadius = 10
+        recentSearchTable.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         self.view.addSubview(recentSearchTable)
         
         recentSearchTable.translatesAutoresizingMaskIntoConstraints = false

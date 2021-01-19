@@ -16,6 +16,12 @@ class BookCollectionCell: UICollectionViewCell {
             $0.textColor = UIColor(named: "pale_gray")
             $0.font = UIFont.boldSystemFont(ofSize: 17)
         }
+    let author = UILabel()
+        .then {
+            $0.text = "저자: -"
+            $0.textColor = UIColor(named: "blight_gray")
+            $0.font = UIFont.systemFont(ofSize: 14)
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,11 +55,16 @@ class BookCollectionCell: UICollectionViewCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
         title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: screenWidth * 0.5 * 0.35).isActive = true
-        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -16).isActive = true
+        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setupAuthorLabel() {
+        self.addSubview(author)
         
+        author.translatesAutoresizingMaskIntoConstraints = false
+        author.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 12).isActive = true
+        author.leadingAnchor.constraint(equalTo: title.leadingAnchor).isActive = true
+        author.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setupPublishDateLabel() {

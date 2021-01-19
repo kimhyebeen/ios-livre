@@ -29,6 +29,27 @@ class BookCollectionCell: UICollectionViewCell {
         self.layer.shadowOpacity = 1
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        setupTitleLabel()
+        setupAuthorLabel()
+        setupPublishDateLabel()
+        setupImageView()
+    }
+    
+    private func setupTitleLabel() {
+        
+    }
+    
+    private func setupAuthorLabel() {
+        
+    }
+    
+    private func setupPublishDateLabel() {
+        
+    }
+    
+    private func setupImageView() {
+        
     }
 }
 

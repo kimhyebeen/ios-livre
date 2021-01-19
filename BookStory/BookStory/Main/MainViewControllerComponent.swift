@@ -85,4 +85,18 @@ extension MainViewController {
         pointLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.view.frame.height * 0.15 * -1).isActive = true
         pointLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
+    
+    func setupRecentSearchTable() {
+        recentSearchTable.delegate = self
+        recentSearchTable.dataSource = self
+        recentSearchTable.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)
+        recentSearchTable.isHidden = true
+        self.view.addSubview(recentSearchTable)
+        
+        recentSearchTable.translatesAutoresizingMaskIntoConstraints = false
+        recentSearchTable.topAnchor.constraint(equalTo: searchFieldView.bottomAnchor).isActive = true
+        recentSearchTable.leadingAnchor.constraint(equalTo: searchFieldView.textfield.leadingAnchor).isActive = true
+        recentSearchTable.trailingAnchor.constraint(equalTo: searchFieldView.textfield.trailingAnchor).isActive = true
+        recentSearchTable.heightAnchor.constraint(equalToConstant: 225).isActive = true
+    }
 }

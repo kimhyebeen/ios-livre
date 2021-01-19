@@ -17,7 +17,7 @@ class MainViewController: BaseViewController {
     let startLevelLabel = UILabel()
     let endLevelLabel = UILabel()
     let pointLabel = UILabel()
-//    let recentSearchTable = UITableView()
+    let recentSearchTable = UITableView()
     
     var recentSearchDisposable: Disposable?
     let spaceForLeftRight: CGFloat = 25
@@ -51,6 +51,10 @@ class MainViewController: BaseViewController {
         setupRewardView()
         setupStartLevelLabel()
         setupEndLevelLabel()
+        setupRecentSearchTable()
+        
+        recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
+        searchFieldView.textfield.delegate = self
         searchFieldView.button.addTarget(self, action: #selector(clickSearchButton(_:)), for: .touchUpInside)
     }
     
@@ -70,8 +74,6 @@ class MainViewController: BaseViewController {
         recentSearchDisposable = vm.output.recentSearchString.subscribe(onNext: { [weak self] text in
             self?.recentSearchList.append(text)
         })
-        recentSearchList.reverse()
-        print("recent list : \(recentSearchList)")
     }
     
     @objc func clickSearchButton(_ sender: UIButton) {
@@ -91,3 +93,27 @@ class MainViewController: BaseViewController {
 
 }
 
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recentSearchList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: RecentSearchTableCell = tableView.dequeueReusableCell(withIdentifier: RecentSearchTableCell.identifier, for: indexPath) as? RecentSearchTableCell else {
+            print("recent search table cell을 불러올 수 없습니다.")
+            return RecentSearchTableCell()
+        }
+        let count = recentSearchList.count - 1
+        cell.selectionStyle = .none
+        cell.setupCellInformation(value: recentSearchList[count - indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let count = recentSearchList.count - 1
+        searchFieldView.textfield.text = recentSearchList[count - indexPath.row]
+        self.view.endEditing(true)
+        
+        return indexPath
+    }
+}

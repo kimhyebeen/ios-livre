@@ -47,6 +47,6 @@ class DetailViewModel {
     }
     
     private func requestNewsItems(value: String) {
-        
+        requestNews(query: value, relay: output.newsResult)
     }
 }

@@ -11,12 +11,14 @@ struct NewsItem {
     var title: String
     var link: String
     var description: String
-    var publishDate: Date
+    var publishDate: Date?
     
     var publishDateString: String {
         let formatter = DateFormatter().then {
             $0.dateFormat = "yyyy.MM.dd"
         }
-        return "\(formatter.string(from: publishDate))"
+        if let pd = publishDate {
+            return "\(formatter.string(from: pd))"
+        } else { return "" }
     }
 }

@@ -298,8 +298,8 @@
 				EEF3D95325B54D2E0095D94E /* RequestKeywords.swift */,
 				EEF3D95B25B54F1E0095D94E /* RequestBookSearch.swift */,
 				EEF3D96025B552F90095D94E /* RequestBlogs.swift */,
-				EEF3D96525B5539C0095D94E /* RequestShoppings.swift */,
 				EEF3D96A25B5541F0095D94E /* RequestNews.swift */,
+				EEF3D96525B5539C0095D94E /* RequestShoppings.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";

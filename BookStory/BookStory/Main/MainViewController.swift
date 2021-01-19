@@ -88,13 +88,15 @@ class MainViewController: BaseViewController {
             self.showToast(view: self.view, message: "검색어를 입력해주세요")
             return
         }
-        vm.saveRecentSearchString(value: text)
-        vm.addRewardPoint(value: text)
-        recentSearchDisposable?.dispose()
+        DispatchQueue.global().async {
+            self.vm.saveRecentSearchString(value: text)
+            self.vm.addRewardPoint(value: text)
+            self.recentSearchDisposable?.dispose()
+        }
         
-        let nextVC = DetailViewController()
-        nextVC.modalPresentationStyle = .fullScreen
-        self.show(nextVC, sender: nil)
+        let rootViewcontroller = UINavigationController(rootViewController: DetailViewController())
+        rootViewcontroller.modalPresentationStyle = .fullScreen
+        self.show(rootViewcontroller, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

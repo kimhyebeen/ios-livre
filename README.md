@@ -11,7 +11,7 @@
 * Others: Lottie, Then
 
 ## ScreenShot
-<img src="./screen.png" width=1000 />
+<img src="./screen-main.png" width=1000 />
 
 ## Reference
 * 책 검색 API : [네이버 검색 Open API](https://developers.naver.com/docs/search/book/)

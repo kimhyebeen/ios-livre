@@ -14,6 +14,10 @@ struct SimpleBookItem {
     var publishDate: Date?
     var isbn: String
     
+    var authorString: String {
+        "저자: \(author)"
+    }
+    
     var publishDateString: String {
         let formatter = DateFormatter().then {
             $0.dateFormat = "yyyy-MM-dd"

@@ -46,7 +46,7 @@ class BookCollectionCell: UICollectionViewCell {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
         self.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0.2)
         self.layer.cornerRadius = 10
         self.layer.shadowRadius = 10
@@ -60,6 +60,26 @@ class BookCollectionCell: UICollectionViewCell {
         setupImageView()
     }
     
+    func setBookInformation(item: SimpleBookItem) {
+        title.text = item.title
+        author.text = item.author
+        publishDate.text = item.publishDateString
+        loadImage(link: item.image)
+    }
+    
+    private func loadImage(link: String) {
+        DispatchQueue.global().async {
+            guard let url: URL = URL(string: link) else { return }
+            guard let imageData: Data = try? Data(contentsOf: url) else { return }
+            
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+}
+
+extension BookCollectionCell {
     private func setupTitleLabel() {
         self.addSubview(title)
         

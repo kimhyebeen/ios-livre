@@ -44,6 +44,7 @@
 		EE729BDA25B6D67F00EF7AE3 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BD925B6D67F00EF7AE3 /* NewsItem.swift */; };
 		EE729BF025B731CF00EF7AE3 /* HomeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BEF25B731CF00EF7AE3 /* HomeIcon.swift */; };
 		EE729BFB25B7374400EF7AE3 /* home-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EE729BFA25B7374400EF7AE3 /* home-icon.json */; };
+		EE729C0025B73D6D00EF7AE3 /* home-icon2.json in Resources */ = {isa = PBXBuildFile; fileRef = EE729BFF25B73D6D00EF7AE3 /* home-icon2.json */; };
 		EED0D4A225B5E7380057CE90 /* reward-0.json in Resources */ = {isa = PBXBuildFile; fileRef = EED0D4A125B5E7380057CE90 /* reward-0.json */; };
 		EED0D4AA25B5F4440057CE90 /* MainViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED0D4A925B5F4440057CE90 /* MainViewController+UI.swift */; };
 		EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D94A25B54BBC0095D94E /* URLConfig.swift */; };
@@ -127,6 +128,7 @@
 		EE729BD925B6D67F00EF7AE3 /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		EE729BEF25B731CF00EF7AE3 /* HomeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIcon.swift; sourceTree = "<group>"; };
 		EE729BFA25B7374400EF7AE3 /* home-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-icon.json"; sourceTree = "<group>"; };
+		EE729BFF25B73D6D00EF7AE3 /* home-icon2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-icon2.json"; sourceTree = "<group>"; };
 		EED0D4A125B5E7380057CE90 /* reward-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-0.json"; sourceTree = "<group>"; };
 		EED0D4A925B5F4440057CE90 /* MainViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UI.swift"; sourceTree = "<group>"; };
 		EEF3D94A25B54BBC0095D94E /* URLConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConfig.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		EEF7A44325B5D58600FBBDCF /* LottieJson */ = {
 			isa = PBXGroup;
 			children = (
+				EE729BFF25B73D6D00EF7AE3 /* home-icon2.json */,
 				EE729BFA25B7374400EF7AE3 /* home-icon.json */,
 				EE0D65E625B67C3D009EF472 /* reward-1.json */,
 				EE0D65E925B67C3D009EF472 /* reward-2.json */,
@@ -479,6 +482,7 @@
 				EE0D65F525B67C3E009EF472 /* reward-7.json in Resources */,
 				EE3D544E25B45E490064C274 /* Assets.xcassets in Resources */,
 				EE0D65F125B67C3E009EF472 /* reward-9.json in Resources */,
+				EE729C0025B73D6D00EF7AE3 /* home-icon2.json in Resources */,
 				EE3D544C25B45E470064C274 /* Main.storyboard in Resources */,
 				EE0D65F025B67C3E009EF472 /* reward-5.json in Resources */,
 				EE0D65EE25B67C3E009EF472 /* reward-4.json in Resources */,

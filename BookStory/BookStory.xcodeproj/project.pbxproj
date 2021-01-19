@@ -10,6 +10,16 @@
 		67465318C6CE9B8C6951BD06 /* Pods_BookStoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A057D2E3EF5765514C847F9 /* Pods_BookStoryUITests.framework */; };
 		B5D1A25690838538D74C9DDB /* Pods_BookStory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A590FF806A1E16E2CD75D6A4 /* Pods_BookStory.framework */; };
 		E4A9819AE1EC310E1422CA9A /* Pods_BookStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422B2A85205B1E4E61932131 /* Pods_BookStoryTests.framework */; };
+		EE0D65E125B674B9009EF472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D65E025B674B9009EF472 /* DetailViewController.swift */; };
+		EE0D65EE25B67C3E009EF472 /* reward-4.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E525B67C3D009EF472 /* reward-4.json */; };
+		EE0D65EF25B67C3E009EF472 /* reward-1.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E625B67C3D009EF472 /* reward-1.json */; };
+		EE0D65F025B67C3E009EF472 /* reward-5.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E725B67C3D009EF472 /* reward-5.json */; };
+		EE0D65F125B67C3E009EF472 /* reward-9.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E825B67C3D009EF472 /* reward-9.json */; };
+		EE0D65F225B67C3E009EF472 /* reward-2.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E925B67C3D009EF472 /* reward-2.json */; };
+		EE0D65F325B67C3E009EF472 /* reward-3.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65EA25B67C3D009EF472 /* reward-3.json */; };
+		EE0D65F425B67C3E009EF472 /* reward-6.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65EB25B67C3D009EF472 /* reward-6.json */; };
+		EE0D65F525B67C3E009EF472 /* reward-7.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65EC25B67C3D009EF472 /* reward-7.json */; };
+		EE0D65F625B67C3E009EF472 /* reward-8.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65ED25B67C3E009EF472 /* reward-8.json */; };
 		EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544425B45E470064C274 /* AppDelegate.swift */; };
 		EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544625B45E470064C274 /* SceneDelegate.swift */; };
 		EE3D544925B45E470064C274 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544825B45E470064C274 /* MainViewController.swift */; };
@@ -70,6 +80,16 @@
 		D0ED7849731772BF64F9D92E /* Pods-BookStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStory.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookStory/Pods-BookStory.release.xcconfig"; sourceTree = "<group>"; };
 		DCD59DD39D3EAEBE94AE720D /* Pods-BookStoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookStoryUITests/Pods-BookStoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCE8304494C1856FE221A1C9 /* Pods-BookStoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookStoryTests/Pods-BookStoryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EE0D65E025B674B9009EF472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EE0D65E525B67C3D009EF472 /* reward-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-4.json"; sourceTree = "<group>"; };
+		EE0D65E625B67C3D009EF472 /* reward-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-1.json"; sourceTree = "<group>"; };
+		EE0D65E725B67C3D009EF472 /* reward-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-5.json"; sourceTree = "<group>"; };
+		EE0D65E825B67C3D009EF472 /* reward-9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-9.json"; sourceTree = "<group>"; };
+		EE0D65E925B67C3D009EF472 /* reward-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-2.json"; sourceTree = "<group>"; };
+		EE0D65EA25B67C3D009EF472 /* reward-3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-3.json"; sourceTree = "<group>"; };
+		EE0D65EB25B67C3D009EF472 /* reward-6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-6.json"; sourceTree = "<group>"; };
+		EE0D65EC25B67C3D009EF472 /* reward-7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-7.json"; sourceTree = "<group>"; };
+		EE0D65ED25B67C3E009EF472 /* reward-8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-8.json"; sourceTree = "<group>"; };
 		EE3D544125B45E470064C274 /* BookStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D544425B45E470064C274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3D544625B45E470064C274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +180,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EE0D65DF25B6749E009EF472 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EE0D65E025B674B9009EF472 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		EE3D543825B45E470064C274 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +219,7 @@
 				EEF3D98E25B5A1EC0095D94E /* Model */,
 				EEF3D9A325B5A6460095D94E /* View */,
 				EEF3D97225B55D970095D94E /* Main */,
+				EE0D65DF25B6749E009EF472 /* Detail */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,
 				EE3D544625B45E470064C274 /* SceneDelegate.swift */,
 				EE3D544A25B45E470064C274 /* Main.storyboard */,
@@ -295,6 +324,15 @@
 		EEF7A44325B5D58600FBBDCF /* LottieJson */ = {
 			isa = PBXGroup;
 			children = (
+				EE0D65E625B67C3D009EF472 /* reward-1.json */,
+				EE0D65E925B67C3D009EF472 /* reward-2.json */,
+				EE0D65EA25B67C3D009EF472 /* reward-3.json */,
+				EE0D65E525B67C3D009EF472 /* reward-4.json */,
+				EE0D65E725B67C3D009EF472 /* reward-5.json */,
+				EE0D65EB25B67C3D009EF472 /* reward-6.json */,
+				EE0D65EC25B67C3D009EF472 /* reward-7.json */,
+				EE0D65ED25B67C3E009EF472 /* reward-8.json */,
+				EE0D65E825B67C3D009EF472 /* reward-9.json */,
 				EED0D4A125B5E7380057CE90 /* reward-0.json */,
 				EEF7A44425B5D5AC00FBBDCF /* main-book.json */,
 			);
@@ -412,11 +450,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE0D65F325B67C3E009EF472 /* reward-3.json in Resources */,
+				EE0D65F625B67C3E009EF472 /* reward-8.json in Resources */,
 				EE3D545125B45E490064C274 /* LaunchScreen.storyboard in Resources */,
+				EE0D65EF25B67C3E009EF472 /* reward-1.json in Resources */,
+				EE0D65F525B67C3E009EF472 /* reward-7.json in Resources */,
 				EE3D544E25B45E490064C274 /* Assets.xcassets in Resources */,
+				EE0D65F125B67C3E009EF472 /* reward-9.json in Resources */,
 				EE3D544C25B45E470064C274 /* Main.storyboard in Resources */,
+				EE0D65F025B67C3E009EF472 /* reward-5.json in Resources */,
+				EE0D65EE25B67C3E009EF472 /* reward-4.json in Resources */,
 				EED0D4A225B5E7380057CE90 /* reward-0.json in Resources */,
+				EE0D65F425B67C3E009EF472 /* reward-6.json in Resources */,
 				EEF7A44525B5D5AC00FBBDCF /* main-book.json in Resources */,
+				EE0D65F225B67C3E009EF472 /* reward-2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +645,7 @@
 			files = (
 				EEF3D96125B552F90095D94E /* RequestBlogs.swift in Sources */,
 				EED0D4AA25B5F4440057CE90 /* MainViewControllerComponent.swift in Sources */,
+				EE0D65E125B674B9009EF472 /* DetailViewController.swift in Sources */,
 				EEF3D95C25B54F1E0095D94E /* RequestBookSearch.swift in Sources */,
 				EE3D544925B45E470064C274 /* MainViewController.swift in Sources */,
 				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 import Lottie
 
 class RewardView: UIView {
-    private let startAnimationView = AnimationView(name: "reward-0")
+    private var startAnimationView: AnimationView!
     private let progressView = UIProgressView()
     
     private let rewardSize: CGFloat = 120
@@ -17,12 +17,16 @@ class RewardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        let level = RewardConfig.getCurrentLevel()
+        startAnimationView = AnimationView(name: "reward-\(level-1)")
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
+        let level = RewardConfig.getCurrentLevel()
+        startAnimationView = AnimationView(name: "reward-\(level-1)")
         setupView()
     }
     

@@ -19,10 +19,9 @@ class MainViewController: BaseViewController {
     let pointLabel = UILabel()
     let recentSearchTable = UITableView()
     
-    var recentSearchDisposable: Disposable?
-    let spaceForLeftRight: CGFloat = 25
     private let vm = MainViewModel()
-    
+    let spaceForLeftRight: CGFloat = 25
+    var recentSearchDisposable: Disposable?
     var recentSearchList: [String] = []
 
     override func viewDidLoad() {
@@ -53,7 +52,7 @@ class MainViewController: BaseViewController {
         }
     }
 
-    func setupView() {
+    private func setupView() {
         self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
         
         setupAnimationView()
@@ -64,13 +63,9 @@ class MainViewController: BaseViewController {
         setupStartLevelLabel()
         setupEndLevelLabel()
         setupRecentSearchTable()
-        
-        recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
-        searchFieldView.textfield.delegate = self
-        searchFieldView.button.addTarget(self, action: #selector(clickSearchButton(_:)), for: .touchUpInside)
     }
     
-    func setupReward(reward: Reward) {
+    private func setupReward(reward: Reward) {
         guard let lists = reward.points else {
             print("리워드 리스트가 없네요.")
             return
@@ -81,7 +76,7 @@ class MainViewController: BaseViewController {
         pointLabel.text = "\(Int(reward.point)) / \(Int(lists[reward.level]))"
     }
     
-    func bindViewModel() {
+    private func bindViewModel() {
         recentSearchList = []
         recentSearchDisposable = vm.output.recentSearchString.subscribe(onNext: { [weak self] text in
             self?.recentSearchList.append(text)
@@ -112,7 +107,7 @@ class MainViewController: BaseViewController {
 
 }
 
-// MARK: Delegate
+// MARK: TextField Delegate
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.recentSearchTable.reloadData()
@@ -132,6 +127,7 @@ extension MainViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: TableView Delegate
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recentSearchList.count

@@ -7,7 +7,8 @@
 
 import UIKit
 
-extension MainViewController {    
+extension MainViewController {
+    // MARK: AnimationView
     func setupAnimationView() {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
@@ -20,7 +21,10 @@ extension MainViewController {
         animationView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height * 0.15).isActive = true
     }
     
+    // MARK: SearchFieldView
     func setupSearchFieldView() {
+        searchFieldView.textfield.delegate = self
+        searchFieldView.button.addTarget(self, action: #selector(clickSearchButton(_:)), for: .touchUpInside)
         searchFieldView.setRoundedRectangle()
         searchFieldView.backgroundColor = UIColor(named: "pale_gray")
         self.view.addSubview(searchFieldView)
@@ -31,6 +35,7 @@ extension MainViewController {
         searchFieldView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1).isActive = true
     }
     
+    // MARK: BasicLabel
     func setupBasicLabel() {
         basicLabel.text = "책을 검색해보세요!\n검색할수록 더 많은 포인트가 지급됩니다!"
         basicLabel.font = UIFont.systemFont(ofSize: 16)
@@ -44,6 +49,7 @@ extension MainViewController {
         basicLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
+    // MARK: RewardView
     func setupRewardView() {
         self.view.addSubview(rewardView)
         
@@ -53,6 +59,7 @@ extension MainViewController {
         rewardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1 - 10).isActive = true
     }
     
+    // MARK: StartLevelLabel
     func setupStartLevelLabel() {
         startLevelLabel.text = "lv."
         startLevelLabel.font = UIFont.boldSystemFont(ofSize: 17)
@@ -64,6 +71,7 @@ extension MainViewController {
         startLevelLabel.centerXAnchor.constraint(equalTo: rewardView.leadingAnchor).isActive = true
     }
     
+    // MARK: EndLevelLabel
     func setupEndLevelLabel() {
         endLevelLabel.text = "lv."
         endLevelLabel.font = UIFont.boldSystemFont(ofSize: 17)
@@ -75,6 +83,7 @@ extension MainViewController {
         endLevelLabel.centerXAnchor.constraint(equalTo: rewardView.trailingAnchor).isActive = true
     }
     
+    // MARK: PointLabel
     func setupPointLabel() {
         pointLabel.text = "-/-"
         pointLabel.font = UIFont.boldSystemFont(ofSize: 18)
@@ -86,7 +95,9 @@ extension MainViewController {
         pointLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
+    // MARK: RecentSearchTable
     func setupRecentSearchTable() {
+        recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
         recentSearchTable.delegate = self
         recentSearchTable.dataSource = self
         recentSearchTable.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)

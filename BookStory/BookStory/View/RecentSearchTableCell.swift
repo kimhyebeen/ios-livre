@@ -9,13 +9,16 @@ import UIKit
 
 class RecentSearchTableCell: UITableViewCell {
     static let identifier: String = "RecentSearchTableCell"
-    let label = UILabel()
+    private let label = UILabel()
+        .then {
+            $0.text = ""
+            $0.textColor = UIColor(named: "light_gray_blue")
+            $0.font = UIFont.systemFont(ofSize: 16)
+        }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.contentView.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)
-        self.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0.8)
         setupView()
     }
     
@@ -23,10 +26,14 @@ class RecentSearchTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView() {
-        label.text = ""
-        label.textColor = UIColor(named: "light_gray_blue")
-        label.font = UIFont.systemFont(ofSize: 16)
+    private func setupView() {
+        self.contentView.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)
+        self.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0.8)
+        
+        setupLabel()
+    }
+    
+    private func setupLabel() {
         self.contentView.addSubview(label)
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -38,12 +45,6 @@ class RecentSearchTableCell: UITableViewCell {
     
     func setupCellInformation(value: String) {
         label.text = value
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

@@ -21,6 +21,13 @@ class BlogTableCell: UITableViewCell {
             $0.textColor = .systemGray
             $0.font = UIFont.systemFont(ofSize: 12)
         }
+    let descriptionLabel = UILabel()
+        .then {
+            $0.text = "블로그 내용"
+            $0.textColor = UIColor(named: "normal_gray")
+            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.numberOfLines = 0
+        }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -65,7 +72,12 @@ extension BlogTableCell {
     }
     
     private func setupDescriptionLabel() {
+        self.addSubview(descriptionLabel)
         
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.topAnchor.constraint(equalTo: postDate.bottomAnchor, constant: 12).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
+        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12).isActive = true
     }
     
     private func setupBloggerNameLabel() {

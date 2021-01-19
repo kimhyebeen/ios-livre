@@ -42,6 +42,10 @@ class MainViewController: BaseViewController {
         rewardView.startAnimation()
         searchFieldView.textfield.text = ""
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     func setupView() {
         self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
@@ -112,6 +116,12 @@ extension MainViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         self.recentSearchTable.isHidden = true
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        clickSearchButton(searchFieldView.button)
+        self.view.endEditing(true)
         return true
     }
 }

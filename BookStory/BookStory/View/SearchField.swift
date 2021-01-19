@@ -45,6 +45,7 @@ class SearchField: UIView {
     
     func setupTextField() {
         textfield.placeholder = "검색어를 입력해주세요"
+        textfield.textColor = UIColor(named: "deep_gray")
         self.addSubview(textfield)
         
         textfield.translatesAutoresizingMaskIntoConstraints = false

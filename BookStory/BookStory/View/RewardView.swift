@@ -13,6 +13,7 @@ class RewardView: UIView {
     private let progressView = UIProgressView()
     
     private let rewardSize: CGFloat = 120
+    private var level = RewardConfig.getCurrentLevel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +34,7 @@ class RewardView: UIView {
     private func setupView() {
         setupStartAnimationView()
         setupProgressView()
+        self.bringSubviewToFront(startAnimationView)
     }
     
     private func setupStartAnimationView() {
@@ -66,6 +68,11 @@ class RewardView: UIView {
     
     func startAnimation() {
         startAnimationView.play()
+    }
+    
+    func setupLevel() {
+        level = RewardConfig.getCurrentLevel()
+        startAnimationView.animation = Animation.named("reward-\(level-1)")
     }
 
 }

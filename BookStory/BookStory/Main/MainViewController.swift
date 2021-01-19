@@ -38,6 +38,7 @@ class MainViewController: BaseViewController {
         bindViewModel()
         
         animationView.play()
+        rewardView.setupLevel()
         rewardView.startAnimation()
     }
 
@@ -91,6 +92,20 @@ class MainViewController: BaseViewController {
         self.show(nextVC, sender: nil)
     }
 
+}
+
+// MARK: Delegate
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.recentSearchTable.reloadData()
+        self.recentSearchTable.isHidden = false
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.recentSearchTable.isHidden = true
+        return true
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {

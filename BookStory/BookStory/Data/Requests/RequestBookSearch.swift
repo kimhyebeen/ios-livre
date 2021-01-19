@@ -7,8 +7,9 @@
 
 import Alamofire
 import RxSwift
+import RxCocoa
 
-func requestBookSearch(query: String, start: Int = 1, display: Int = 10) {
+func requestBookSearch<T>(query: String, start: Int = 1, display: Int = 10, relay: PublishRelay<T>) {
     let url = URLConfig.book
     
     AF.request(url,
@@ -21,5 +22,21 @@ func requestBookSearch(query: String, start: Int = 1, display: Int = 10) {
             guard let data = json.data else { return }
             let response = try? JSONDecoder().decode(BookSearchResponse.self, from: data)
             // todo - response 데이터 활용
+            guard let items = response?.items else { return }
+            if T.self == [SimpleBookItem].self {
+                relay.accept(
+                    items.map { item in
+                        SimpleBookItem(
+                            title: item.title,
+                            image: item.image,
+                            author: item.author,
+                            publishDate: item.publishDate,
+                            isbn: item.isbn
+                        )
+                    } as! T
+                )
+            } else if T.self == [BookSearchItem].self {
+                // todo - BookDetailInfoViewController
+            } else { print("request book search - 왜 다 타입이 안맞을까???") }
     }
 }

@@ -9,6 +9,13 @@ import UIKit
 
 class BookCollectionCell: UICollectionViewCell {
     static let identifier = "BookCollectionCell"
+    let screenWidth = UIScreen.main.bounds.width
+    let title = UILabel()
+        .then {
+            $0.text = "책 제목"
+            $0.textColor = UIColor(named: "pale_gray")
+            $0.font = UIFont.boldSystemFont(ofSize: 17)
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +44,12 @@ class BookCollectionCell: UICollectionViewCell {
     }
     
     private func setupTitleLabel() {
+        self.addSubview(title)
         
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: screenWidth * 0.5 * 0.35).isActive = true
+        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -16).isActive = true
     }
     
     private func setupAuthorLabel() {

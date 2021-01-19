@@ -13,7 +13,13 @@ class BlogTableCell: UITableViewCell {
         .then {
             $0.text = "블로그 제목"
             $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 18)
+            $0.font = UIFont.boldSystemFont(ofSize: 17)
+        }
+    let postDate = UILabel()
+        .then {
+            $0.text = "작성일: -"
+            $0.textColor = .systemGray
+            $0.font = UIFont.systemFont(ofSize: 12)
         }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -50,7 +56,12 @@ extension BlogTableCell {
     }
     
     private func setupPostDateLabel() {
+        self.addSubview(postDate)
         
+        postDate.translatesAutoresizingMaskIntoConstraints = false
+        postDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 6).isActive = true
+        postDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
+        postDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12).isActive = true
     }
     
     private func setupDescriptionLabel() {

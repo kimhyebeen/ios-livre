@@ -98,19 +98,3 @@ class BookCollectionCell: UICollectionViewCell {
         imageView.trailingAnchor.constraint(equalTo: title.leadingAnchor, constant: -12).isActive = true
     }
 }
-
-/*
- var title: String
- var image: String
- var author: String
- var publishDate: Date?
- var isbn: String
- 
- var publishDateString: String {
-     let formatter = DateFormatter().then {
-         $0.dateFormat = "yyyy-MM-dd"
-     }
-     if let pd = publishDate { return "출간일: \(formatter.string(from: pd))" }
-     else { return "출간일: -" }
- }
- */

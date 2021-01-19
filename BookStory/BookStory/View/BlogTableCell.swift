@@ -28,6 +28,12 @@ class BlogTableCell: UITableViewCell {
             $0.font = UIFont.systemFont(ofSize: 14)
             $0.numberOfLines = 0
         }
+    let bloggerName = UILabel()
+        .then {
+            $0.text = "블로거 이름"
+            $0.textColor = .systemGray
+            $0.font = UIFont.systemFont(ofSize: 12)
+        }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -81,6 +87,12 @@ extension BlogTableCell {
     }
     
     private func setupBloggerNameLabel() {
+        self.addSubview(bloggerName)
         
+        bloggerName.translatesAutoresizingMaskIntoConstraints = false
+        bloggerName.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 12).isActive = true
+        bloggerName.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 12).isActive = true
+        bloggerName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12).isActive = true
+        bloggerName.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
     }
 }

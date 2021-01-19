@@ -21,7 +21,32 @@ class BlogTableCell: UITableViewCell {
     }
     
     private func setupView() {
+        self.layer.cornerRadius = 10
+        setupTitleLabel()
+        setupPostDateLabel()
+        setupDescriptionLabel()
+        setupBloggerNameLabel()
+    }
+    
+    func setBlogInformtaion(item: BlogItem) {
         
     }
+}
 
+extension BlogTableCell {
+    private func setupTitleLabel() {
+        
+    }
+    
+    private func setupPostDateLabel() {
+        
+    }
+    
+    private func setupDescriptionLabel() {
+        
+    }
+    
+    private func setupBloggerNameLabel() {
+        
+    }
 }

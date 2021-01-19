@@ -28,6 +28,11 @@ class BookCollectionCell: UICollectionViewCell {
             $0.textColor = UIColor(named: "blight_gray")
             $0.font = UIFont.systemFont(ofSize: 14)
         }
+    let imageView = UIImageView()
+        .then {
+            $0.image = UIImage(named: "empty_image")
+            $0.contentMode = .scaleAspectFit
+        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,7 +89,13 @@ class BookCollectionCell: UICollectionViewCell {
     }
     
     private func setupImageView() {
+        self.addSubview(imageView)
         
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: title.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: publishDate.bottomAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: title.leadingAnchor, constant: -12).isActive = true
     }
 }
 

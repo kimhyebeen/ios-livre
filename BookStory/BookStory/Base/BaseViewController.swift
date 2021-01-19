@@ -19,7 +19,7 @@ class BaseViewController: UIViewController {
             view.addSubview(toastLabel)
             UIView.animate(
                 withDuration: 2.0,
-                delay: 1.5,
+                delay: 1.0,
                 options: .curveEaseOut,
                 animations: { toastLabel.alpha = 0.0 },
                 completion: {(isCompleted) in toastLabel.removeFromSuperview() }

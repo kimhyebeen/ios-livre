@@ -59,5 +59,9 @@ class RewardView: UIView {
         if dx < 0 { dx = (rewardSize/2) * -1 }
         startAnimationView.frame.origin = CGPoint(x: width * CGFloat(progressView.progress) - (rewardSize/2), y: 0)
     }
+    
+    func startAnimation() {
+        startAnimationView.play()
+    }
 
 }

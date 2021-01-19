@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import RxSwift
 import Lottie
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     let animationView = AnimationView(name: "main-book")
     let searchFieldView = SearchField()
     let basicLabel = UILabel()
@@ -16,9 +17,13 @@ class MainViewController: UIViewController {
     let startLevelLabel = UILabel()
     let endLevelLabel = UILabel()
     let pointLabel = UILabel()
+//    let recentSearchTable = UITableView()
     
+    var recentSearchDisposable: Disposable?
     let spaceForLeftRight: CGFloat = 25
     private let vm = MainViewModel()
+    
+    var recentSearchList: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,10 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setupReward(reward: vm.getReward())
+        bindViewModel()
+        
+        animationView.play()
+        rewardView.startAnimation()
     }
 
     func setupView() {
@@ -42,6 +51,7 @@ class MainViewController: UIViewController {
         setupRewardView()
         setupStartLevelLabel()
         setupEndLevelLabel()
+        searchFieldView.button.addTarget(self, action: #selector(clickSearchButton(_:)), for: .touchUpInside)
     }
     
     func setupReward(reward: Reward) {
@@ -53,6 +63,30 @@ class MainViewController: UIViewController {
         startLevelLabel.text = "lv.\(reward.level)"
         endLevelLabel.text = "lv.\(reward.level+1)"
         pointLabel.text = "\(Int(reward.point)) / \(Int(lists[reward.level]))"
+    }
+    
+    func bindViewModel() {
+        recentSearchList = []
+        recentSearchDisposable = vm.output.recentSearchString.subscribe(onNext: { [weak self] text in
+            self?.recentSearchList.append(text)
+        })
+        recentSearchList.reverse()
+        print("recent list : \(recentSearchList)")
+    }
+    
+    @objc func clickSearchButton(_ sender: UIButton) {
+        guard let text = searchFieldView.textfield.text, !text.isEmpty else {
+            self.showToast(view: self.view, message: "검색어를 입력해주세요")
+            return
+        }
+        vm.saveRecentSearchString(value: text)
+        vm.addRewardPoint(value: text)
+        searchFieldView.textfield.text = ""
+        recentSearchDisposable?.dispose()
+        
+        let nextVC = DetailViewController()
+        nextVC.modalPresentationStyle = .fullScreen
+        self.show(nextVC, sender: nil)
     }
 
 }

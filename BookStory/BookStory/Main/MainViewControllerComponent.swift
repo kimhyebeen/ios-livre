@@ -18,7 +18,6 @@ extension MainViewController {
         animationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         animationView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         animationView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height * 0.15).isActive = true
-        animationView.play() // 애미메이션뷰 실행
     }
     
     func setupSearchFieldView() {

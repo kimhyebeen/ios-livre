@@ -43,6 +43,8 @@ struct RewardConfig {
         if total >= list[level] {
             setCurrentPoint(point: total - list[level])
             setCurrentLevel(level: level+1)
+        } else {
+            setCurrentPoint(point: total)
         }
     }
     

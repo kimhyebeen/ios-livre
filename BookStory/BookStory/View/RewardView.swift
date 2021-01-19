@@ -14,6 +14,10 @@ class RewardView: UIView {
     
     private let rewardSize: CGFloat = 120
     private var level = RewardConfig.getCurrentLevel()
+    
+    var isAnimationPlaying: Bool {
+        return startAnimationView.isAnimationPlaying
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +77,7 @@ class RewardView: UIView {
     func setupLevel() {
         level = RewardConfig.getCurrentLevel()
         startAnimationView.animation = Animation.named("reward-\(level-1)")
+        startAnimationView.play()
     }
 
 }

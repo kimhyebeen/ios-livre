@@ -38,13 +38,19 @@ class MainViewController: BaseViewController {
         bindViewModel()
         
         animationView.play()
-        rewardView.setupLevel()
         rewardView.startAnimation()
+        rewardView.setupLevel()
         searchFieldView.textfield.text = ""
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        if !animationView.isAnimationPlaying {
+            animationView.play()
+        }
+        if !rewardView.isAnimationPlaying {
+            rewardView.startAnimation()
+        }
     }
 
     func setupView() {

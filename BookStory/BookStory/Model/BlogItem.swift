@@ -12,12 +12,14 @@ struct BlogItem {
     var link: String
     var description: String
     var bloggername: String
-    var postDate: Date
+    var postDate: Date?
     
     var postDateString: String {
         let formatter = DateFormatter().then {
             $0.dateFormat = "yyyy.MM.dd"
         }
-        return "\(formatter.string(from: postDate))"
+        if let pd = postDate {
+            return "\(formatter.string(from: pd))"
+        } else { return "" }
     }
 }

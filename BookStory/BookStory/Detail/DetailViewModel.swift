@@ -33,20 +33,20 @@ class DetailViewModel {
     }
     
     func requestAllSearchData(value: String) {
-        requestBooks(value: value)
-        requestBlogs(value: value)
-        requestNews(value: value)
+        requestBookItems(value: value)
+        requestBlogItems(value: value)
+        requestNewsItems(value: value)
     }
     
-    private func requestBooks(value: String) {
+    private func requestBookItems(value: String) {
         requestBookSearch(query: value, relay: output.booksResult)
     }
     
-    private func requestBlogs(value: String) {
-        
+    private func requestBlogItems(value: String) {
+        requestBlogs(query: value, relay: output.blogsResult)
     }
     
-    private func requestNews(value: String) {
+    private func requestNewsItems(value: String) {
         
     }
 }

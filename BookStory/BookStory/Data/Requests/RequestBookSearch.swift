@@ -6,7 +6,6 @@
 //
 
 import Alamofire
-import RxSwift
 import RxCocoa
 
 func requestBookSearch<T>(query: String, start: Int = 1, display: Int = 10, relay: PublishRelay<T>) {
@@ -21,7 +20,7 @@ func requestBookSearch<T>(query: String, start: Int = 1, display: Int = 10, rela
         .responseJSON { (json) in
             guard let data = json.data else { return }
             let response = try? JSONDecoder().decode(BookSearchResponse.self, from: data)
-            // todo - response 데이터 활용
+            
             guard let items = response?.items else { return }
             if T.self == [SimpleBookItem].self {
                 relay.accept(

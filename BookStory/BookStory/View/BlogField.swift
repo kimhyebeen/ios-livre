@@ -12,6 +12,8 @@ class BlogField: UIView {
         .then {
             $0.backgroundColor = .systemGray
         }
+    let moreInformationButtonView = MoreInformationButtonView()
+    let moreBlogButton = UIButton()
     let title = UILabel()
         .then {
             $0.text = "BLOG"
@@ -36,6 +38,8 @@ class BlogField: UIView {
         self.backgroundColor = UIColor(named: "pale_gray")
         
         setupDivider()
+        setupMoreBlogButton()
+        setupTitleLabel()
     }
     
     func setTableViewItem() {
@@ -59,8 +63,8 @@ extension BlogField {
         self.addSubview(title)
         
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = false
-        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = false
+        title.centerYAnchor.constraint(equalTo: moreBlogButton.centerYAnchor).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
     }
     
     private func setupMoreBlogButton() {

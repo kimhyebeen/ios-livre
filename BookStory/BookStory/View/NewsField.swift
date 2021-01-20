@@ -48,6 +48,11 @@ class NewsField: UIView {
         setupMoreNewsButton()
         setupTableView()
     }
+    
+    func setTableViewItem(items: [NewsItem]) {
+        news = items
+        tableView.reloadData()
+    }
 
 }
 

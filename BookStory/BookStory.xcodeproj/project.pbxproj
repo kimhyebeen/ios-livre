@@ -28,6 +28,7 @@
 		EE34730E25B8273C0048C0CF /* home-icon3.json in Resources */ = {isa = PBXBuildFile; fileRef = EE34730D25B8273C0048C0CF /* home-icon3.json */; };
 		EE34731325B828430048C0CF /* DetailViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34731225B828430048C0CF /* DetailViewController+UI.swift */; };
 		EE34731825B834180048C0CF /* BookCollectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34731725B834180048C0CF /* BookCollectionField.swift */; };
+		EE34732025B85EBE0048C0CF /* splash-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EE34731F25B85EBE0048C0CF /* splash-icon.json */; };
 		EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544425B45E470064C274 /* AppDelegate.swift */; };
 		EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544625B45E470064C274 /* SceneDelegate.swift */; };
 		EE3D544925B45E470064C274 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544825B45E470064C274 /* MainViewController.swift */; };
@@ -115,6 +116,7 @@
 		EE34730D25B8273C0048C0CF /* home-icon3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-icon3.json"; sourceTree = "<group>"; };
 		EE34731225B828430048C0CF /* DetailViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+UI.swift"; sourceTree = "<group>"; };
 		EE34731725B834180048C0CF /* BookCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionField.swift; sourceTree = "<group>"; };
+		EE34731F25B85EBE0048C0CF /* splash-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "splash-icon.json"; sourceTree = "<group>"; };
 		EE3D544125B45E470064C274 /* BookStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D544425B45E470064C274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3D544625B45E470064C274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		EEF7A44325B5D58600FBBDCF /* LottieJson */ = {
 			isa = PBXGroup;
 			children = (
+				EE34731F25B85EBE0048C0CF /* splash-icon.json */,
 				EE34730D25B8273C0048C0CF /* home-icon3.json */,
 				EE729BFF25B73D6D00EF7AE3 /* home-icon2.json */,
 				EE729BFA25B7374400EF7AE3 /* home-icon.json */,
@@ -518,6 +521,7 @@
 				EE0D65F425B67C3E009EF472 /* reward-6.json in Resources */,
 				EEF7A44525B5D5AC00FBBDCF /* main-book.json in Resources */,
 				EE0D65F225B67C3E009EF472 /* reward-2.json in Resources */,
+				EE34732025B85EBE0048C0CF /* splash-icon.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

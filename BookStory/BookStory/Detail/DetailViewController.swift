@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Lottie
 
 class DetailViewController: BaseViewController {
     let homeIcon = HomeIcon()
@@ -17,6 +18,11 @@ class DetailViewController: BaseViewController {
         }
     let scrollView = UIScrollView()
     let scrollContentsView = UIView()
+    let animationOnBCF = AnimationView(name: "splash-icon")
+        .then {
+            $0.loopMode = .loop
+            $0.contentMode = .scaleAspectFit
+        }
     let bookCollectionField = BookCollectionField()
     let backPageButton = UIButton()
         .then {
@@ -50,7 +56,7 @@ class DetailViewController: BaseViewController {
         setupHomeIcon()
         setupSearchField()
         setupScrollView()
-        setupBookCollectionView()
+        setupBookCollectionField()
         setupBackPageButton()
         setupNextPageButton()
         setupAnimationView()

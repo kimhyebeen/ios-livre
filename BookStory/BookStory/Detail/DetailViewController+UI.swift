@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 extension DetailViewController {
     func setupHomeIcon() {
@@ -48,7 +49,7 @@ extension DetailViewController {
         scrollView.delegate = self
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 40).isActive = true
+        scrollView.topAnchor.constraint(equalTo: searchField.bottomAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -65,16 +66,27 @@ extension DetailViewController {
         scrollContentsView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
     
-    func setupBookCollectionView() {
+    func setupBookCollectionField() {
         scrollContentsView.addSubview(bookCollectionField)
         
         bookCollectionField.translatesAutoresizingMaskIntoConstraints = false
         bookCollectionField.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.7).isActive = true
         bookCollectionField.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        bookCollectionField.topAnchor.constraint(equalTo: scrollContentsView.topAnchor).isActive = true
+        bookCollectionField.topAnchor.constraint(equalTo: scrollContentsView.topAnchor, constant: 80).isActive = true
         bookCollectionField.centerXAnchor.constraint(equalTo: scrollContentsView.centerXAnchor).isActive = true
+    
+        setupAnimationViewOnBookCollectionField()
+    }
+    
+    func setupAnimationViewOnBookCollectionField() {
+        scrollContentsView.addSubview(animationOnBCF)
+        animationOnBCF.play()
         
-        scrollContentsView.bringSubviewToFront(bookCollectionField)
+        animationOnBCF.translatesAutoresizingMaskIntoConstraints = false
+        animationOnBCF.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        animationOnBCF.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        animationOnBCF.centerXAnchor.constraint(equalTo: bookCollectionField.centerXAnchor).isActive = true
+        animationOnBCF.bottomAnchor.constraint(equalTo: bookCollectionField.topAnchor, constant: 35).isActive = true
     }
     
     func setupBackPageButton() {

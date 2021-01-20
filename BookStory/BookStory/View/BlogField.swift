@@ -8,6 +8,10 @@
 import UIKit
 
 class BlogField: UIView {
+    let divider = UIView()
+        .then {
+            $0.backgroundColor = .systemGray
+        }
     let title = UILabel()
         .then {
             $0.text = "BLOG"
@@ -30,6 +34,8 @@ class BlogField: UIView {
     private func setupView() {
         self.setRoundedRectangle(radius: 20)
         self.backgroundColor = UIColor(named: "pale_gray")
+        
+        setupDivider()
     }
     
     func setTableViewItem() {
@@ -39,6 +45,16 @@ class BlogField: UIView {
 }
 
 extension BlogField {
+    private func setupDivider() {
+        self.addSubview(divider)
+        
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        divider.topAnchor.constraint(equalTo: self.topAnchor, constant: 45).isActive = true
+        divider.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
+    }
+    
     private func setupTitleLabel() {
         self.addSubview(title)
         
@@ -48,10 +64,6 @@ extension BlogField {
     }
     
     private func setupMoreBlogButton() {
-        
-    }
-    
-    private func setupDivider() {
         
     }
     

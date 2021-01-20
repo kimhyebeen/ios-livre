@@ -25,5 +25,27 @@ class BlogField: UIView {
         self.setRoundedRectangle(radius: 20)
         self.backgroundColor = UIColor(named: "pale_gray")
     }
+    
+    func setTableViewItem() {
+        
+    }
 
+}
+
+extension BlogField {
+    private func setupTitleLabel() {
+        
+    }
+    
+    private func setupMoreBlogButton() {
+        
+    }
+    
+    private func setupDivider() {
+        
+    }
+    
+    private func setupBlogTableView() {
+        
+    }
 }

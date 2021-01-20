@@ -20,6 +20,12 @@ class BlogField: UIView {
             $0.textColor = UIColor(named: "navy")
             $0.font = UIFont.boldSystemFont(ofSize: 17)
         }
+    let tableView = UITableView()
+        .then {
+            $0.backgroundColor = UIColor.white.withAlphaComponent(0)
+        }
+    
+    var blogs: [BlogItem] = []
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +46,7 @@ class BlogField: UIView {
         setupDivider()
         setupTitleLabel()
         setupMoreBlogButton()
+        setupBlogTableView()
     }
     
     func setTableViewItem() {
@@ -87,6 +94,30 @@ extension BlogField {
     }
     
     private func setupBlogTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(BlogTableCell.self, forCellReuseIdentifier: BlogTableCell.identifier)
+        self.addSubview(tableView)
         
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: divider.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+}
+
+extension BlogField: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return blogs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableCell.identifier, for: indexPath) as? BlogTableCell else {
+            return BlogTableCell()
+        }
+        
+        cell.setBlogInformtaion(item: blogs[indexPath.row])
+        return cell
     }
 }

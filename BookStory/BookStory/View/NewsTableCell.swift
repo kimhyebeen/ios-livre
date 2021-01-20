@@ -17,9 +17,16 @@ class NewsTableCell: UITableViewCell {
         }
     let publishDate = UILabel()
         .then {
-            $0.text = "작성일"
+            $0.text = "(작성일)"
             $0.textColor = .systemGray
             $0.font = UIFont.systemFont(ofSize: 12)
+        }
+    let descriptionLabel = UILabel()
+        .then {
+            $0.text = "뉴스 내용"
+            $0.textColor = UIColor(named: "normal_gray")
+            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.numberOfLines = 0
         }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -64,6 +71,12 @@ extension NewsTableCell {
     }
     
     private func setupDescriptionLabel() {
+        self.addSubview(descriptionLabel)
         
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.topAnchor.constraint(equalTo: publishDate.bottomAnchor, constant: 12).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
+        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
     }
 }

@@ -39,6 +39,7 @@ class DetailViewController: BaseViewController {
         
         setupHomeIcon()
         setupSearchField()
+        setupScrollView()
         setupAnimationView()
         setupBookCollectionView()
         setupBlogField()

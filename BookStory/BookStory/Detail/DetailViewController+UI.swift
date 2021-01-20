@@ -39,6 +39,10 @@ extension DetailViewController {
         searchField.topAnchor.constraint(equalTo: homeIcon.bottomAnchor, constant: -20).isActive = true
     }
     
+    func setupScrollView() {
+        
+    }
+    
     func setupAnimationView() {
         
     }

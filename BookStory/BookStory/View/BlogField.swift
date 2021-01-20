@@ -8,6 +8,12 @@
 import UIKit
 
 class BlogField: UIView {
+    let title = UILabel()
+        .then {
+            $0.text = "BLOG"
+            $0.textColor = UIColor(named: "navy")
+            $0.font = UIFont.boldSystemFont(ofSize: 17)
+        }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +40,11 @@ class BlogField: UIView {
 
 extension BlogField {
     private func setupTitleLabel() {
+        self.addSubview(title)
         
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = false
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = false
     }
     
     private func setupMoreBlogButton() {

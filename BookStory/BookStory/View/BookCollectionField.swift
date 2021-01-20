@@ -11,13 +11,14 @@ class BookCollectionField: UIView {
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
         .then {
-            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.6, height: 90)
+            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.55, height: 90)
             $0.scrollDirection = .horizontal
         }
     
-    let spaceForLeftRight = (UIScreen.main.bounds.width * 0.9 - UIScreen.main.bounds.width * 0.6) / 2
+    let spaceForLeftRight = (UIScreen.main.bounds.width * 0.7 - UIScreen.main.bounds.width * 0.55) / 2
     var currentIndex: CGFloat = 0
-    var books: [SimpleBookItem] = []
+//    var books: [SimpleBookItem] = []
+    var books: [SimpleBookItem] = [SimpleBookItem(title: "분노 수업", image: "https://bookthumb-phinf.pstatic.net/cover/124/967/12496719.jpg?type=m1&udate=20190212", author: "아룬 간디", publishDate: Date(), isbn: "8984076546 9788984076549"), SimpleBookItem(title: "협상가를 위한 감정 수업", image: "https://bookthumb-phinf.pstatic.net/cover/148/275/14827516.jpg?type=m1&udate=20190514", author: "에얄 빈테르", publishDate: Date(), isbn: "8984077585 9788984077584"), SimpleBookItem(title: "일상의 무기가 되는 논리 수업", image: "https://bookthumb-phinf.pstatic.net/cover/163/781/16378159.jpg?type=m1&udate=20201029", author: "반니", publishDate: Date(), isbn: "1190467593 9791190467599")]
 
     override init(frame: CGRect) {
         super.init(frame: frame)

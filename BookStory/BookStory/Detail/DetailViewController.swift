@@ -17,6 +17,15 @@ class DetailViewController: BaseViewController {
         }
     let scrollView = UIScrollView()
     let scrollContentsView = UIView()
+    let bookCollectionField = BookCollectionField()
+    let backPageButton = UIButton()
+        .then {
+            $0.setImage(UIImage(named: "arrow_left"), for: .normal)
+        }
+    let nextPageButton = UIButton()
+        .then {
+            $0.setImage(UIImage(named: "arrow_right"), for: .normal)
+        }
     
     let disposeBag = DisposeBag()
     let vm = DetailViewModel()
@@ -29,7 +38,7 @@ class DetailViewController: BaseViewController {
         bindViewModel()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         homeIcon.startAnimation()
     }
@@ -61,5 +70,20 @@ class DetailViewController: BaseViewController {
     @objc func clickHomeIcon(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @objc func clickBackButton(_ sender: UIButton) {
+        bookCollectionField.movePrePage()
+    }
+    
+    @objc func clickNextButton(_ sender: UIButton) {
+        bookCollectionField.moveNextPage()
+    }
 
+}
+
+extension DetailViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+        homeIcon.startAnimation()
+    }
 }

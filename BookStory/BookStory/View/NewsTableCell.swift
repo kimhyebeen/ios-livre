@@ -40,6 +40,7 @@ class NewsTableCell: UITableViewCell {
     }
     
     private func setupView() {
+        self.backgroundColor = UIColor.white.withAlphaComponent(0)
         setupTitleLabel()
         setupPublishDateLabel()
         setupDescriptionLabel()
@@ -59,26 +60,26 @@ extension NewsTableCell {
         
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
-        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupPublishDateLabel() {
         self.addSubview(publishDate)
         
         publishDate.translatesAutoresizingMaskIntoConstraints = false
-        publishDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 6).isActive = true
-        publishDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
-        publishDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12).isActive = true
+        publishDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2).isActive = true
+        publishDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        publishDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupDescriptionLabel() {
         self.addSubview(descriptionLabel)
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.topAnchor.constraint(equalTo: publishDate.bottomAnchor, constant: 12).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
-        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: publishDate.bottomAnchor, constant: 8).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
     }
 }

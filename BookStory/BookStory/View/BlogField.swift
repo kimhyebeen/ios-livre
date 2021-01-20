@@ -49,8 +49,9 @@ class BlogField: UIView {
         setupBlogTableView()
     }
     
-    func setTableViewItem() {
-        
+    func setTableViewItem(items: [BlogItem]) {
+        blogs = items
+        tableView.reloadData()
     }
 
 }

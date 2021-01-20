@@ -21,6 +21,27 @@ class NewsTableCell: UITableViewCell {
     }
     
     private func setupView() {
+        setupTitleLabel()
+        setupPublishDateLabel()
+        setupDescriptionLabel()
+    }
+    
+    private func setNewsInformation(item: NewsItem) {
+        
     }
 
+}
+
+extension NewsTableCell {
+    private func setupTitleLabel() {
+        
+    }
+    
+    private func setupPublishDateLabel() {
+        
+    }
+    
+    private func setupDescriptionLabel() {
+        
+    }
 }

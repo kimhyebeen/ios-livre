@@ -61,7 +61,8 @@ class BookCollectionCell: UICollectionViewCell {
     }
     
     func setBookInformation(item: SimpleBookItem) {
-        title.text = item.title
+        title.attributedText = item.title
+            .htmlEscaped(font: UIFont.boldSystemFont(ofSize: 17), colorHex: "F2F2F2", lineSpacing: 1)
         author.text = item.author
         publishDate.text = item.publishDateString
         loadImage(link: item.image)
@@ -82,7 +83,6 @@ class BookCollectionCell: UICollectionViewCell {
 extension BookCollectionCell {
     private func setupTitleLabel() {
         self.addSubview(title)
-        
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
         title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: screenWidth * 0.5 * 0.35).isActive = true

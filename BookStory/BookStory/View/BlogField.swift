@@ -54,6 +54,10 @@ class BlogField: UIView {
         blogs = items
         tableView.reloadData()
     }
+    
+    func moveToFirstRow() {
+        tableView.setContentOffset(.zero, animated: true)
+    }
 
 }
 

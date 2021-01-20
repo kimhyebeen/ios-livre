@@ -47,9 +47,11 @@ class NewsTableCell: UITableViewCell {
     }
     
     func setNewsInformation(item: NewsItem) {
-        title.text = item.title
+        title.attributedText = item.title
+            .htmlEscaped(font: UIFont.boldSystemFont(ofSize: 17), colorHex: "2C2C2C", lineSpacing: 1)
         publishDate.text = item.publishDateString
-        descriptionLabel.text = item.description
+        descriptionLabel.attributedText = item.description
+            .htmlEscaped(font: UIFont.systemFont(ofSize: 14), colorHex: "4C4C4C", lineSpacing: 1)
     }
 
 }

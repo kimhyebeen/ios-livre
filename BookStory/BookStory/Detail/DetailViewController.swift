@@ -44,6 +44,7 @@ class DetailViewController: BaseViewController {
         
         setupView()
         bindViewModel()
+        vm.requestAllSearchData(value: initSearchText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,24 +78,44 @@ class DetailViewController: BaseViewController {
     }
     
     private func bindViewModel() {
-//        vm.output.newsResult.subscribe(onNext: { items in
-//            for item in items {
-//                print("\(item.title), \(item.publishDateString)")
-//            }
-//        }).disposed(by: disposeBag)
-//        vm.requestAllSearchData(value: "달러구트")
+        searchField.textfield.rx.text.orEmpty
+            .bind(to: vm.input.searchWord)
+            .disposed(by: disposeBag)
+        
+        searchField.button.rx.tap
+            .bind(to: vm.input.searchButton)
+            .disposed(by: disposeBag)
+        
+        vm.output.booksResult.subscribe(onNext: { [weak self] items in
+            self?.bookCollectionField.setBookItems(items: items)
+        }).disposed(by: disposeBag)
+        
+        vm.output.blogsResult.subscribe(onNext: { [weak self] items in
+            self?.blogField.setTableViewItem(items: items)
+        }).disposed(by: disposeBag)
+        
+        vm.output.newsResult.subscribe(onNext: { [weak self] items in
+            self?.newsField.setTableViewItem(items: items)
+        }).disposed(by: disposeBag)
     }
     
     @objc func clickHomeIcon(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @objc func clickSearchButton(_ sender: UIButton) {
+        self.view.endEditing(true)
+        bookCollectionField.moveToFirstPage()
+        blogField.moveToFirstRow()
+        newsField.moveToFirstRow()
+    }
+    
     @objc func clickBackButton(_ sender: UIButton) {
-        bookCollectionField.movePrePage()
+        bookCollectionField.moveToPrePage()
     }
     
     @objc func clickNextButton(_ sender: UIButton) {
-        bookCollectionField.moveNextPage()
+        bookCollectionField.moveToNextPage()
     }
 
 }

@@ -54,6 +54,10 @@ class NewsField: UIView {
         news = items
         tableView.reloadData()
     }
+    
+    func moveToFirstRow() {
+        tableView.setContentOffset(.zero, animated: true)
+    }
 
 }
 

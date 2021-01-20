@@ -10,6 +10,7 @@
 		67465318C6CE9B8C6951BD06 /* Pods_BookStoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A057D2E3EF5765514C847F9 /* Pods_BookStoryUITests.framework */; };
 		B5D1A25690838538D74C9DDB /* Pods_BookStory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A590FF806A1E16E2CD75D6A4 /* Pods_BookStory.framework */; };
 		E4A9819AE1EC310E1422CA9A /* Pods_BookStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422B2A85205B1E4E61932131 /* Pods_BookStoryTests.framework */; };
+		EE04B8A225B896ED00970F6F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04B8A125B896ED00970F6F /* String+.swift */; };
 		EE0D65E125B674B9009EF472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D65E025B674B9009EF472 /* DetailViewController.swift */; };
 		EE0D65EE25B67C3E009EF472 /* reward-4.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E525B67C3D009EF472 /* reward-4.json */; };
 		EE0D65EF25B67C3E009EF472 /* reward-1.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65E625B67C3D009EF472 /* reward-1.json */; };
@@ -98,6 +99,7 @@
 		D0ED7849731772BF64F9D92E /* Pods-BookStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStory.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookStory/Pods-BookStory.release.xcconfig"; sourceTree = "<group>"; };
 		DCD59DD39D3EAEBE94AE720D /* Pods-BookStoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookStoryUITests/Pods-BookStoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCE8304494C1856FE221A1C9 /* Pods-BookStoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookStoryTests/Pods-BookStoryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EE04B8A125B896ED00970F6F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EE0D65E025B674B9009EF472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EE0D65E525B67C3D009EF472 /* reward-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-4.json"; sourceTree = "<group>"; };
 		EE0D65E625B67C3D009EF472 /* reward-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-1.json"; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		EEF3D9A325B5A6460095D94E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE04B8A125B896ED00970F6F /* String+.swift */,
 				EEF3D9AE25B5C88B0095D94E /* UIView+.swift */,
 				EE5E942125B5E03D00B135DA /* RewardView.swift */,
 				EE729BEF25B731CF00EF7AE3 /* HomeIcon.swift */,
@@ -703,6 +706,7 @@
 			files = (
 				EEF3D96125B552F90095D94E /* RequestBlogs.swift in Sources */,
 				EE729BDA25B6D67F00EF7AE3 /* NewsItem.swift in Sources */,
+				EE04B8A225B896ED00970F6F /* String+.swift in Sources */,
 				EED0D4AA25B5F4440057CE90 /* MainViewController+UI.swift in Sources */,
 				EE3472E925B7E1250048C0CF /* NewsTableCell.swift in Sources */,
 				EE0D65E125B674B9009EF472 /* DetailViewController.swift in Sources */,

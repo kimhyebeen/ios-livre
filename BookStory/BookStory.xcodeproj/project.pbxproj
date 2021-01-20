@@ -25,6 +25,8 @@
 		EE3472EE25B7E5590048C0CF /* BlogField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3472ED25B7E5590048C0CF /* BlogField.swift */; };
 		EE3472F625B806A40048C0CF /* MoreInformationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3472F525B806A40048C0CF /* MoreInformationButtonView.swift */; };
 		EE3472FE25B8147F0048C0CF /* NewsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3472FD25B8147F0048C0CF /* NewsField.swift */; };
+		EE34730E25B8273C0048C0CF /* home-icon3.json in Resources */ = {isa = PBXBuildFile; fileRef = EE34730D25B8273C0048C0CF /* home-icon3.json */; };
+		EE34731325B828430048C0CF /* DetailViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34731225B828430048C0CF /* DetailViewController+UI.swift */; };
 		EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544425B45E470064C274 /* AppDelegate.swift */; };
 		EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544625B45E470064C274 /* SceneDelegate.swift */; };
 		EE3D544925B45E470064C274 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544825B45E470064C274 /* MainViewController.swift */; };
@@ -109,6 +111,8 @@
 		EE3472ED25B7E5590048C0CF /* BlogField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogField.swift; sourceTree = "<group>"; };
 		EE3472F525B806A40048C0CF /* MoreInformationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationButtonView.swift; sourceTree = "<group>"; };
 		EE3472FD25B8147F0048C0CF /* NewsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsField.swift; sourceTree = "<group>"; };
+		EE34730D25B8273C0048C0CF /* home-icon3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-icon3.json"; sourceTree = "<group>"; };
+		EE34731225B828430048C0CF /* DetailViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+UI.swift"; sourceTree = "<group>"; };
 		EE3D544125B45E470064C274 /* BookStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D544425B45E470064C274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3D544625B45E470064C274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			children = (
 				EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */,
 				EE0D65E025B674B9009EF472 /* DetailViewController.swift */,
+				EE34731225B828430048C0CF /* DetailViewController+UI.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 		EEF7A44325B5D58600FBBDCF /* LottieJson */ = {
 			isa = PBXGroup;
 			children = (
+				EE34730D25B8273C0048C0CF /* home-icon3.json */,
 				EE729BFF25B73D6D00EF7AE3 /* home-icon2.json */,
 				EE729BFA25B7374400EF7AE3 /* home-icon.json */,
 				EE0D65E625B67C3D009EF472 /* reward-1.json */,
@@ -502,6 +508,7 @@
 				EE0D65F125B67C3E009EF472 /* reward-9.json in Resources */,
 				EE729C0025B73D6D00EF7AE3 /* home-icon2.json in Resources */,
 				EE3D544C25B45E470064C274 /* Main.storyboard in Resources */,
+				EE34730E25B8273C0048C0CF /* home-icon3.json in Resources */,
 				EE0D65F025B67C3E009EF472 /* reward-5.json in Resources */,
 				EE0D65EE25B67C3E009EF472 /* reward-4.json in Resources */,
 				EED0D4A225B5E7380057CE90 /* reward-0.json in Resources */,
@@ -694,6 +701,7 @@
 				EE0D65E125B674B9009EF472 /* DetailViewController.swift in Sources */,
 				EEF3D95C25B54F1E0095D94E /* RequestBookSearch.swift in Sources */,
 				EE729BC825B6D2E000EF7AE3 /* DetailViewModel.swift in Sources */,
+				EE34731325B828430048C0CF /* DetailViewController+UI.swift in Sources */,
 				EE3D544925B45E470064C274 /* MainViewController.swift in Sources */,
 				EE729BF025B731CF00EF7AE3 /* HomeIcon.swift in Sources */,
 				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,

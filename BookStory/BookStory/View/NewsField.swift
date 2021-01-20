@@ -14,6 +14,10 @@ class NewsField: UIView {
             $0.textColor = UIColor(named: "navy")
             $0.font = UIFont.boldSystemFont(ofSize: 17)
         }
+    let divider = UIView()
+        .then {
+            $0.backgroundColor = .systemGray
+        }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +54,13 @@ extension NewsField {
     }
     
     private func setupDivider() {
+        self.addSubview(divider)
         
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        divider.topAnchor.constraint(equalTo: self.topAnchor, constant: 45).isActive = true
+        divider.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupMoreNewsButton() {

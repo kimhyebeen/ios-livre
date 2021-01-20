@@ -32,6 +32,8 @@ class DetailViewController: BaseViewController {
         .then {
             $0.setImage(UIImage(named: "arrow_right"), for: .normal)
         }
+    let blogField = BlogField()
+    let newsField = NewsField()
     
     let disposeBag = DisposeBag()
     let vm = DetailViewModel()
@@ -44,24 +46,34 @@ class DetailViewController: BaseViewController {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startAnimation()
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        startAnimation()
+    }
+    
+    func startAnimation() {
         homeIcon.startAnimation()
+        if !animationOnBCF.isAnimationPlaying { animationOnBCF.play() }
     }
     
     private func setupView() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.view.setGradient(colors: [UIColor(named: "dull_blue")!.cgColor, UIColor(named: "soft_navy")!.cgColor], sx: 1, sy: 0, ex: 0, ey: 0.6)
         
+        setupBackgroundImage()
         setupHomeIcon()
         setupSearchField()
-        setupScrollView()
         setupBookCollectionField()
         setupBackPageButton()
         setupNextPageButton()
-        setupAnimationView()
         setupBlogField()
         setupNewsField()
+        setupContentsView()
+        setupScrollView()
     }
     
     private func bindViewModel() {

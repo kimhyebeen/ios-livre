@@ -9,6 +9,7 @@ import UIKit
 import Lottie
 
 extension DetailViewController {
+    // MARK: Home Icon
     func setupHomeIcon() {
         self.view.addSubview(homeIcon)
         
@@ -31,6 +32,7 @@ extension DetailViewController {
         button.trailingAnchor.constraint(equalTo: homeIcon.trailingAnchor).isActive = true
     }
     
+    // MARK: Search Field
     func setupSearchField() {
         searchField.textfield.text = initSearchText
         self.view.addSubview(searchField)
@@ -41,6 +43,7 @@ extension DetailViewController {
         searchField.topAnchor.constraint(equalTo: homeIcon.bottomAnchor, constant: -20).isActive = true
     }
     
+    // MARK: Scroll View
     func setupScrollView() {
         setupContentsView()
         self.view.addSubview(scrollView)
@@ -66,6 +69,7 @@ extension DetailViewController {
         scrollContentsView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
     
+    // MARK: Book Collection Field
     func setupBookCollectionField() {
         scrollContentsView.addSubview(bookCollectionField)
         
@@ -78,6 +82,7 @@ extension DetailViewController {
         setupAnimationViewOnBookCollectionField()
     }
     
+    // MARK: Animation View
     func setupAnimationViewOnBookCollectionField() {
         scrollContentsView.addSubview(animationOnBCF)
         animationOnBCF.play()
@@ -89,6 +94,7 @@ extension DetailViewController {
         animationOnBCF.bottomAnchor.constraint(equalTo: bookCollectionField.topAnchor, constant: 35).isActive = true
     }
     
+    // MARK: Back Button
     func setupBackPageButton() {
         scrollContentsView.addSubview(backPageButton)
         backPageButton.imageView?.backgroundColor = UIColor(named: "coral")?.withAlphaComponent(0.6)
@@ -103,6 +109,7 @@ extension DetailViewController {
         backPageButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
     }
     
+    // MARK: Next Button
     func setupNextPageButton() {
         scrollContentsView.addSubview(nextPageButton)
         nextPageButton.imageView?.backgroundColor = UIColor(named: "coral")?.withAlphaComponent(0.6)

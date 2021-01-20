@@ -56,6 +56,7 @@ class BlogField: UIView {
 
 }
 
+// MARK: +UI
 extension BlogField {
     private func setupDivider() {
         self.addSubview(divider)
@@ -108,6 +109,7 @@ extension BlogField {
     }
 }
 
+// MARK: +Delegate
 extension BlogField: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blogs.count

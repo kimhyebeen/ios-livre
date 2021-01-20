@@ -18,11 +18,12 @@ class BlogField: UIView {
         .then {
             $0.text = "BLOG"
             $0.textColor = UIColor(named: "coral")
-            $0.font = UIFont.boldSystemFont(ofSize: 17)
+            $0.font = UIFont.boldSystemFont(ofSize: 20)
         }
     let tableView = UITableView()
         .then {
             $0.backgroundColor = UIColor.white.withAlphaComponent(0)
+            $0.separatorColor = UIColor.systemGray
         }
     
     var blogs: [BlogItem] = []

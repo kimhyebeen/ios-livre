@@ -26,7 +26,7 @@ class NewsTableCell: UITableViewCell {
             $0.text = "뉴스 내용"
             $0.textColor = UIColor(named: "normal_gray")
             $0.font = UIFont.systemFont(ofSize: 14)
-            $0.numberOfLines = 0
+            $0.numberOfLines = 3
         }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

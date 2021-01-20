@@ -11,7 +11,7 @@ class NewsField: UIView {
     let title = UILabel()
         .then {
             $0.text = "NEWS"
-            $0.textColor = UIColor(named: "navy")
+            $0.textColor = UIColor(named: "coral")
             $0.font = UIFont.boldSystemFont(ofSize: 17)
         }
     let divider = UIView()

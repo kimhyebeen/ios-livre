@@ -16,7 +16,7 @@ class HomeIcon: UIView {
         }
     let label = UILabel()
         .then {
-            $0.text = "채기야기"
+            $0.text = "Livstoire"
             $0.textColor = UIColor(named: "pale_gray")
             $0.font = UIFont.boldSystemFont(ofSize: 20)
             $0.shadowOffset = CGSize(width: 3, height: 3)

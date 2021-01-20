@@ -41,8 +41,8 @@ class NewsField: UIView {
     }
     
     private func setupView() {
-        self.setRoundedRectangle(radius: 20)
-        self.backgroundColor = UIColor(named: "pale_gray")
+        self.setRoundedRectangle(radius: 15)
+        self.backgroundColor = UIColor(named: "pale_gray")?.withAlphaComponent(0.9)
         
         setupTitleLabel()
         setupDivider()

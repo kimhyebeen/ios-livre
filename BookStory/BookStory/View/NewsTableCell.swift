@@ -46,7 +46,7 @@ class NewsTableCell: UITableViewCell {
         setupDescriptionLabel()
     }
     
-    private func setNewsInformation(item: NewsItem) {
+    func setNewsInformation(item: NewsItem) {
         title.text = item.title
         publishDate.text = item.publishDateString
         descriptionLabel.text = item.description

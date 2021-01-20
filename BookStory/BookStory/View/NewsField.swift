@@ -20,6 +20,12 @@ class NewsField: UIView {
         }
     let moreInformationButtonView = MoreInformationButtonView()
     let moreNewsButton = UIButton()
+    let tableView = UITableView()
+        .then {
+            $0.backgroundColor = UIColor.white.withAlphaComponent(0)
+        }
+    
+    var news: [NewsItem] = []
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -85,6 +91,31 @@ extension NewsField {
     }
     
     private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(NewsTableCell.self, forCellReuseIdentifier: NewsTableCell.identifier)
+        self.addSubview(tableView)
         
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: divider.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+}
+
+// MARK: +Delegate
+extension NewsField: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.identifier, for: indexPath) as? NewsTableCell else {
+            return NewsTableCell()
+        }
+        
+        cell.setNewsInformation(item: news[indexPath.row])
+        return cell
     }
 }

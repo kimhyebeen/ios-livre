@@ -40,6 +40,18 @@ class BookCollectionField: UIView {
         books = items
         collectionView.reloadData()
     }
+    
+    func moveNextPage() {
+        if currentIndex == CGFloat(books.count-1) { return }
+        collectionView.scrollToItem(at: IndexPath(row: Int(currentIndex) + 1, section: 0), at: .centeredHorizontally, animated: true)
+        currentIndex += 1
+    }
+    
+    func movePrePage() {
+        if currentIndex == 0 { return }
+        collectionView.scrollToItem(at: IndexPath(row: Int(currentIndex) - 1, section: 0), at: .centeredHorizontally, animated: true)
+        currentIndex -= 1
+    }
 
 }
 

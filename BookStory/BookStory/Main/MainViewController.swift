@@ -94,17 +94,11 @@ class MainViewController: BaseViewController {
             self.recentSearchDisposable?.dispose()
         }
         
-        let rootViewcontroller = UINavigationController(rootViewController: DetailViewController())
+        let nextVC = DetailViewController()
+        nextVC.initSearchText = searchFieldView.textfield.text ?? ""
+        let rootViewcontroller = UINavigationController(rootViewController: nextVC)
         rootViewcontroller.modalPresentationStyle = .fullScreen
         self.show(rootViewcontroller, sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextVC: DetailViewController = segue.destination as? DetailViewController else {
-            return
-        }
-        
-        nextVC.initSearchText = searchFieldView.textfield.text ?? ""
     }
 
 }

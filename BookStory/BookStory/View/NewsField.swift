@@ -18,6 +18,8 @@ class NewsField: UIView {
         .then {
             $0.backgroundColor = .systemGray
         }
+    let moreInformationButtonView = MoreInformationButtonView()
+    let moreNewsButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,11 +67,21 @@ extension NewsField {
     
     private func setupMoreNewsButton() {
         setupMoreInformationButtonView()
+        self.addSubview(moreNewsButton)
         
+        moreNewsButton.translatesAutoresizingMaskIntoConstraints = false
+        moreNewsButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        moreNewsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
     private func setupMoreInformationButtonView() {
+        moreNewsButton.addSubview(moreInformationButtonView)
         
+        moreInformationButtonView.translatesAutoresizingMaskIntoConstraints = false
+        moreInformationButtonView.topAnchor.constraint(equalTo: moreNewsButton.topAnchor, constant: 10).isActive = true
+        moreInformationButtonView.bottomAnchor.constraint(equalTo: moreNewsButton.bottomAnchor, constant: -10).isActive = true
+        moreInformationButtonView.leadingAnchor.constraint(equalTo: moreNewsButton.leadingAnchor).isActive = true
+        moreInformationButtonView.trailingAnchor.constraint(equalTo: moreNewsButton.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setupTableView() {

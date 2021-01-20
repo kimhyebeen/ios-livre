@@ -15,10 +15,11 @@ class DetailViewController: BaseViewController {
             $0.backgroundColor = UIColor(named: "pale_gray")
             $0.setRoundedRectangle()
         }
+    let scrollView = UIScrollView()
+    let scrollContentsView = UIView()
     
     let disposeBag = DisposeBag()
     let vm = DetailViewModel()
-    
     var initSearchText = ""
     
     override func viewDidLoad() {
@@ -40,8 +41,10 @@ class DetailViewController: BaseViewController {
         setupHomeIcon()
         setupSearchField()
         setupScrollView()
-        setupAnimationView()
         setupBookCollectionView()
+        setupBackPageButton()
+        setupNextPageButton()
+        setupAnimationView()
         setupBlogField()
         setupNewsField()
     }

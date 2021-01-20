@@ -31,6 +31,7 @@ extension DetailViewController {
     }
     
     func setupSearchField() {
+        searchField.textfield.text = initSearchText
         self.view.addSubview(searchField)
         
         searchField.translatesAutoresizingMaskIntoConstraints = false
@@ -40,14 +41,42 @@ extension DetailViewController {
     }
     
     func setupScrollView() {
+        setupContentsView()
+        self.view.addSubview(scrollView)
+        scrollContentsView.bounds.size = CGSize(width: scrollView.frame.width, height: 1200)
+        scrollView.contentSize = scrollContentsView.bounds.size
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 30).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+    }
+    
+    func setupContentsView() {
+        scrollView.addSubview(scrollContentsView)
+        
+        scrollContentsView.translatesAutoresizingMaskIntoConstraints = false
+        scrollContentsView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollContentsView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollContentsView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        scrollContentsView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollContentsView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    }
+    
+    func setupBookCollectionView() {
+        
+    }
+    
+    func setupBackPageButton() {
+        
+    }
+    
+    func setupNextPageButton() {
         
     }
     
     func setupAnimationView() {
-        
-    }
-    
-    func setupBookCollectionView() {
         
     }
     

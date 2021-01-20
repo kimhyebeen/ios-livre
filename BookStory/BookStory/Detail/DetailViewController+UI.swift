@@ -29,4 +29,29 @@ extension DetailViewController {
         button.leadingAnchor.constraint(equalTo: homeIcon.leadingAnchor).isActive = true
         button.trailingAnchor.constraint(equalTo: homeIcon.trailingAnchor).isActive = true
     }
+    
+    func setupSearchField() {
+        self.view.addSubview(searchField)
+        
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.9).isActive = true
+        searchField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        searchField.topAnchor.constraint(equalTo: homeIcon.bottomAnchor, constant: -20).isActive = true
+    }
+    
+    func setupAnimationView() {
+        
+    }
+    
+    func setupBookCollectionView() {
+        
+    }
+    
+    func setupBlogField() {
+        
+    }
+    
+    func setupNewsField() {
+        
+    }
 }

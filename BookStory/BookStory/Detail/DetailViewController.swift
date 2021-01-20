@@ -10,6 +10,11 @@ import RxSwift
 
 class DetailViewController: BaseViewController {
     let homeIcon = HomeIcon()
+    let searchField = SearchField()
+        .then {
+            $0.backgroundColor = UIColor(named: "pale_gray")
+            $0.setRoundedRectangle()
+        }
     
     let disposeBag = DisposeBag()
     let vm = DetailViewModel()
@@ -23,11 +28,21 @@ class DetailViewController: BaseViewController {
         bindViewModel()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        homeIcon.startAnimation()
+    }
+    
     private func setupView() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.view.setGradient(colors: [UIColor(named: "dull_blue")!.cgColor, UIColor(named: "soft_navy")!.cgColor], sx: 1, sy: 0, ex: 0, ey: 0.6)
         
         setupHomeIcon()
+        setupSearchField()
+        setupAnimationView()
+        setupBookCollectionView()
+        setupBlogField()
+        setupNewsField()
     }
     
     private func bindViewModel() {

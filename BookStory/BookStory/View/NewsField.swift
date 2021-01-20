@@ -8,6 +8,12 @@
 import UIKit
 
 class NewsField: UIView {
+    let title = UILabel()
+        .then {
+            $0.text = "NEWS"
+            $0.textColor = UIColor(named: "navy")
+            $0.font = UIFont.boldSystemFont(ofSize: 17)
+        }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +42,11 @@ class NewsField: UIView {
 // MARK: +UI
 extension NewsField {
     private func setupTitleLabel() {
+        self.addSubview(title)
         
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 22.5).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
     }
     
     private func setupDivider() {

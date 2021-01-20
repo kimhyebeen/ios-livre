@@ -22,7 +22,8 @@ class BlogField: UIView {
     }
     
     private func setupView() {
-        
+        self.setRoundedRectangle(radius: 20)
+        self.backgroundColor = UIColor(named: "pale_gray")
     }
 
 }

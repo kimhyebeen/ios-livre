@@ -8,8 +8,8 @@
 import UIKit
 
 extension UIView {
-    func setRoundedRectangle() {
-        layer.cornerRadius = 10
+    func setRoundedRectangle(radius: CGFloat = 10) {
+        layer.cornerRadius = radius
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 4
         layer.shadowOpacity = 1

@@ -115,6 +115,14 @@ extension DetailViewController {
         nextPageButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
     }
     
+    func setupEmptyLabel() {
+        scrollContentsView.addSubview(emptyLabel)
+        
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptyLabel.centerXAnchor.constraint(equalTo: bookCollectionField.centerXAnchor).isActive = true
+        emptyLabel.centerYAnchor.constraint(equalTo: bookCollectionField.centerYAnchor).isActive = true
+    }
+    
     // MARK: Blog Field
     func setupBlogField() {
         blogField.moreBlogButton.addTarget(self, action: #selector(self.moveToBlogListViewController(_:)), for: .touchUpInside)

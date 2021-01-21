@@ -15,10 +15,6 @@ class DetailViewModel {
     
     var currentWord = ""
     
-    init(value: String) {
-        currentWord = value
-    }
-    
     struct Input {
         let searchWord = PublishSubject<String>()
         let searchButton = PublishSubject<Void>()
@@ -31,16 +27,17 @@ class DetailViewModel {
         let pointResult = BehaviorRelay<String>(value: "lv \(RewardConfig.getCurrentLevel()). \(Int(RewardConfig.getCurrentPoint()))/\(Int(RewardConfig.getPointList()![RewardConfig.getCurrentLevel()]))")
     }
     
-    init() {
+    init(value: String) {
+        currentWord = value
         input.searchButton.withLatestFrom(input.searchWord)
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
-                self?.currentWord = text
                 self?.requestAllSearchData(value: text)
             }).disposed(by: disposeBag)
     }
     
     func requestAllSearchData(value: String) {
+        currentWord = value
         requestBookItems(value: value)
         requestBlogItems(value: value)
         requestNewsItems(value: value)

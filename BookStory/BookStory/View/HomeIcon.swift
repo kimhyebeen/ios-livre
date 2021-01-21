@@ -20,7 +20,7 @@ class HomeIcon: UIView {
         }
     let label = UILabel()
         .then {
-            $0.text = "Home"
+            $0.text = "HOME"
             $0.textColor = UIColor(named: "navy")
             $0.font = UIFont(name: "Montserrat-Medium", size: 27)
             $0.layer.shadowRadius = 4

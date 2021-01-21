@@ -32,6 +32,12 @@ class DetailViewController: BaseViewController {
         .then {
             $0.setImage(UIImage(named: "arrow_right"), for: .normal)
         }
+    let emptyLabel = UILabel()
+        .then {
+            $0.text = "검색 결과가 존재하지 않습니다"
+            $0.font = UIFont(name: "GmarketSansTTFLight", size: 14)
+            $0.textColor = UIColor(named: "pale_gray")
+        }
     let blogField = BlogField()
     let newsField = NewsField()
     
@@ -72,6 +78,7 @@ class DetailViewController: BaseViewController {
         setupBookCollectionField()
         setupBackPageButton()
         setupNextPageButton()
+        setupEmptyLabel()
         setupBlogField()
         setupNewsField()
         setupContentsView()
@@ -88,6 +95,8 @@ class DetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         vm.output.booksResult.subscribe(onNext: { [weak self] items in
+            if items.count == 0 { self?.emptyLabel.isHidden = false }
+            else { self?.emptyLabel.isHidden = true }
             self?.bookCollectionField.setBookItems(items: items)
         }).disposed(by: disposeBag)
         

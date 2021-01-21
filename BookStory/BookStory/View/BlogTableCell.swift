@@ -64,6 +64,7 @@ class BlogTableCell: UITableViewCell {
     }
 }
 
+// MARK: +UI
 extension BlogTableCell {
     private func setupTitleLabel() {
         self.addSubview(title)
@@ -71,7 +72,7 @@ extension BlogTableCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
         title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: 15).isActive = true
+        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupPostDateLabel() {
@@ -80,7 +81,7 @@ extension BlogTableCell {
         postDate.translatesAutoresizingMaskIntoConstraints = false
         postDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2).isActive = true
         postDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        postDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: 15).isActive = true
+        postDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupDescriptionLabel() {

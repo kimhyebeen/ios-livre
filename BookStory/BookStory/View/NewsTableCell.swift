@@ -56,6 +56,7 @@ class NewsTableCell: UITableViewCell {
 
 }
 
+// MARK: +UI
 extension NewsTableCell {
     private func setupTitleLabel() {
         self.addSubview(title)

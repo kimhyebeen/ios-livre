@@ -120,9 +120,10 @@ class DetailViewController: BaseViewController {
 
 }
 
+// MARK: +Delegate
 extension DetailViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
-        homeIcon.startAnimation()
+        startAnimation()
     }
 }

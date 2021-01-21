@@ -126,6 +126,19 @@ extension BlogField: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.setBlogInformtaion(item: blogs[indexPath.row])
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let url = URL(string: blogs[indexPath.row].link) else { return indexPath }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("BlogField - 블로그 url에 연결하지 못했습니다.")
+        }
+        
+        return indexPath
     }
 }

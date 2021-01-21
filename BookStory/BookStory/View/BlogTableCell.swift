@@ -48,6 +48,7 @@ class BlogTableCell: UITableViewCell {
     private func setupView() {
         self.layer.cornerRadius = 10
         self.backgroundColor = UIColor.white.withAlphaComponent(0)
+        
         setupTitleLabel()
         setupPostDateLabel()
         setupDescriptionLabel()

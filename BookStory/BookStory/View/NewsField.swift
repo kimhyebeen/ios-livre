@@ -126,6 +126,19 @@ extension NewsField: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.setNewsInformation(item: news[indexPath.row])
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let url = URL(string: news[indexPath.row].link) else { return indexPath }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("NewsField - 뉴스 url에 연결하지 못했습니다.")
+        }
+        
+        return indexPath
     }
 }

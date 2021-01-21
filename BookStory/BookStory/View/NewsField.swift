@@ -12,7 +12,7 @@ class NewsField: UIView {
         .then {
             $0.text = "NEWS"
             $0.textColor = UIColor(named: "coral")
-            $0.font = UIFont.boldSystemFont(ofSize: 20)
+            $0.font = UIFont(name: "Montserrat-Medium", size: 20)
         }
     let divider = UIView()
         .then {

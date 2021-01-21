@@ -22,7 +22,7 @@ class HomeIcon: UIView {
         .then {
             $0.text = "Home"
             $0.textColor = UIColor(named: "navy")
-            $0.font = UIFont.boldSystemFont(ofSize: 24)
+            $0.font = UIFont(name: "Montserrat-Medium", size: 27)
             $0.layer.shadowRadius = 4
             $0.layer.shadowOpacity = 1
             $0.layer.shadowColor = UIColor.white.cgColor

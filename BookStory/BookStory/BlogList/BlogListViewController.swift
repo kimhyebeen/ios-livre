@@ -20,12 +20,12 @@ class BlogListViewController: UIViewController {
     let titleLabel = UILabel()
         .then {
             $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 24)
+            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 24)
         }
     let resultLabel = UILabel()
         .then {
             $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 20)
+            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 20)
             $0.text = "검색결과"
         }
 

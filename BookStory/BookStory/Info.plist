@@ -6,6 +6,9 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NotoSansKR-Medium.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>GmarketSansTTFMedium.ttf</string>
 		<string>GmarketSansTTFLight.ttf</string>
 		<string>Montserrat-Medium.ttf</string>
 	</array>

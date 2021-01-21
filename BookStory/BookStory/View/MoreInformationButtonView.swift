@@ -12,7 +12,7 @@ class MoreInformationButtonView: UIView {
         .then {
             $0.text = "더보기"
             $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 14)
+            $0.font = UIFont(name: "NotoSansKR-Medium", size: 15)
         }
     let imageView = UIImageView()
         .then {

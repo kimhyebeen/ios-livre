@@ -51,6 +51,9 @@
 		EE67DE8F25B9D6A500ED0F98 /* BlogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */; };
 		EE67DE9E25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */; };
 		EE67DE9F25B9F17F00ED0F98 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DE9D25B9F17F00ED0F98 /* Montserrat-Medium.ttf */; };
+		EE67DEA425B9F29800ED0F98 /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DEA325B9F29800ED0F98 /* GmarketSansTTFMedium.ttf */; };
+		EE67DEB125B9F42300ED0F98 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DEB025B9F42300ED0F98 /* NotoSansKR-Regular.otf */; };
+		EE67DEB925B9F48C00ED0F98 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DEB825B9F48C00ED0F98 /* NotoSansKR-Medium.otf */; };
 		EE729BC825B6D2E000EF7AE3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */; };
 		EE729BCD25B6D5EE00EF7AE3 /* SimpleBookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */; };
 		EE729BD525B6D60A00EF7AE3 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */; };
@@ -150,6 +153,9 @@
 		EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewModel.swift; sourceTree = "<group>"; };
 		EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
 		EE67DE9D25B9F17F00ED0F98 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		EE67DEA325B9F29800ED0F98 /* GmarketSansTTFMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFMedium.ttf; sourceTree = "<group>"; };
+		EE67DEB025B9F42300ED0F98 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		EE67DEB825B9F48C00ED0F98 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBookItem.swift; sourceTree = "<group>"; };
 		EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
@@ -343,6 +349,9 @@
 		EE67DE9B25B9F16400ED0F98 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				EE67DEB825B9F48C00ED0F98 /* NotoSansKR-Medium.otf */,
+				EE67DEB025B9F42300ED0F98 /* NotoSansKR-Regular.otf */,
+				EE67DEA325B9F29800ED0F98 /* GmarketSansTTFMedium.ttf */,
 				EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */,
 				EE67DE9D25B9F17F00ED0F98 /* Montserrat-Medium.ttf */,
 			);
@@ -537,12 +546,15 @@
 			files = (
 				EE0D65F325B67C3E009EF472 /* reward-3.json in Resources */,
 				EE729BFB25B7374400EF7AE3 /* home-icon.json in Resources */,
+				EE67DEA425B9F29800ED0F98 /* GmarketSansTTFMedium.ttf in Resources */,
 				EE0D65F625B67C3E009EF472 /* reward-8.json in Resources */,
 				EE67DE9E25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf in Resources */,
 				EE3D545125B45E490064C274 /* LaunchScreen.storyboard in Resources */,
 				EE0D65EF25B67C3E009EF472 /* reward-1.json in Resources */,
 				EE67DE9F25B9F17F00ED0F98 /* Montserrat-Medium.ttf in Resources */,
+				EE67DEB925B9F48C00ED0F98 /* NotoSansKR-Medium.otf in Resources */,
 				EE0D65F525B67C3E009EF472 /* reward-7.json in Resources */,
+				EE67DEB125B9F42300ED0F98 /* NotoSansKR-Regular.otf in Resources */,
 				EE3D544E25B45E490064C274 /* Assets.xcassets in Resources */,
 				EE0D65F125B67C3E009EF472 /* reward-9.json in Resources */,
 				EE729C0025B73D6D00EF7AE3 /* home-icon2.json in Resources */,

@@ -38,7 +38,7 @@ extension MainViewController {
     // MARK: BasicLabel
     func setupBasicLabel() {
         basicLabel.text = "책을 검색해보세요!\n검색할수록 더 많은 포인트가 지급됩니다!"
-        basicLabel.font = UIFont.systemFont(ofSize: 16)
+        basicLabel.font = UIFont(name: "NotoSansKR-Regular", size: 15)
         basicLabel.numberOfLines = 0
         basicLabel.textAlignment = .center
         basicLabel.textColor = UIColor(named: "pale_gray")

@@ -105,6 +105,7 @@ class DetailViewController: BaseViewController {
     
     @objc func clickSearchButton(_ sender: UIButton) {
         self.view.endEditing(true)
+        scrollView.setContentOffset(.zero, animated: true)
         bookCollectionField.moveToFirstPage()
         blogField.moveToFirstRow()
         newsField.moveToFirstRow()

@@ -92,7 +92,9 @@ extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionCell.identifier, for: indexPath) as? BookCollectionCell else {
-            return BookCollectionCell()
+            return BookCollectionCell().then {
+                $0.setBookInformation(item: books[indexPath.item])
+            }
         }
         
         cell.setBookInformation(item: books[indexPath.item])

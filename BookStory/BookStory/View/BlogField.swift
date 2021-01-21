@@ -56,7 +56,7 @@ class BlogField: UIView {
     }
     
     func moveToFirstRow() {
-        tableView.setContentOffset(.zero, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 
 }
@@ -122,7 +122,10 @@ extension BlogField: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableCell.identifier, for: indexPath) as? BlogTableCell else {
-            return BlogTableCell()
+            return BlogTableCell().then {
+                $0.setBlogInformtaion(item: blogs[indexPath.row])
+                $0.selectionStyle = .none
+            }
         }
         
         cell.setBlogInformtaion(item: blogs[indexPath.row])

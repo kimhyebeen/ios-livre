@@ -56,7 +56,7 @@ class NewsField: UIView {
     }
     
     func moveToFirstRow() {
-        tableView.setContentOffset(.zero, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 
 }
@@ -122,7 +122,10 @@ extension NewsField: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.identifier, for: indexPath) as? NewsTableCell else {
-            return NewsTableCell()
+            return NewsTableCell().then {
+                $0.setNewsInformation(item: news[indexPath.row])
+                $0.selectionStyle = .none
+            }
         }
         
         cell.setNewsInformation(item: news[indexPath.row])

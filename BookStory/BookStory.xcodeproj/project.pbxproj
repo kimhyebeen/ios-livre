@@ -54,6 +54,7 @@
 		EE67DEA425B9F29800ED0F98 /* GmarketSansTTFMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DEA325B9F29800ED0F98 /* GmarketSansTTFMedium.ttf */; };
 		EE67DEB125B9F42300ED0F98 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DEB025B9F42300ED0F98 /* NotoSansKR-Regular.otf */; };
 		EE67DEB925B9F48C00ED0F98 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DEB825B9F48C00ED0F98 /* NotoSansKR-Medium.otf */; };
+		EE67DEBE25B9F61A00ED0F98 /* BlogListViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DEBD25B9F61A00ED0F98 /* BlogListViewController+UI.swift */; };
 		EE729BC825B6D2E000EF7AE3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */; };
 		EE729BCD25B6D5EE00EF7AE3 /* SimpleBookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */; };
 		EE729BD525B6D60A00EF7AE3 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */; };
@@ -156,6 +157,7 @@
 		EE67DEA325B9F29800ED0F98 /* GmarketSansTTFMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFMedium.ttf; sourceTree = "<group>"; };
 		EE67DEB025B9F42300ED0F98 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		EE67DEB825B9F48C00ED0F98 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		EE67DEBD25B9F61A00ED0F98 /* BlogListViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlogListViewController+UI.swift"; sourceTree = "<group>"; };
 		EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBookItem.swift; sourceTree = "<group>"; };
 		EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
@@ -340,8 +342,9 @@
 		EE67DE8525B945AD00ED0F98 /* BlogList */ = {
 			isa = PBXGroup;
 			children = (
-				EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */,
 				EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */,
+				EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */,
+				EE67DEBD25B9F61A00ED0F98 /* BlogListViewController+UI.swift */,
 			);
 			path = BlogList;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */,
 				EE729C0F25B74D0800EF7AE3 /* BlogTableCell.swift in Sources */,
+				EE67DEBE25B9F61A00ED0F98 /* BlogListViewController+UI.swift in Sources */,
 				EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */,
 				EE3D54E225B49B080064C274 /* NewsSearchResponse.swift in Sources */,
 				EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */,

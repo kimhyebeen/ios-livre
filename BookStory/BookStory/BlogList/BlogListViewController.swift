@@ -28,6 +28,9 @@ class BlogListViewController: UIViewController {
             $0.font = UIFont(name: "GmarketSansTTFMedium", size: 20)
             $0.text = "검색결과"
         }
+    let tableView = UITableView()
+    
+    var blogs: [BlogItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,37 +46,38 @@ class BlogListViewController: UIViewController {
         setupBarView()
         setupTitleLabel()
         setupResultLabel()
+        setupTableView()
     }
 }
 
-// MARK: +UI
-extension BlogListViewController {
-    func setupBarView() {
-        self.view.addSubview(barView)
-        
-        barView.translatesAutoresizingMaskIntoConstraints = false
-        barView.widthAnchor.constraint(equalToConstant: deviceWidth * 0.3).isActive = true
-        barView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        barView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 8).isActive = true
-        barView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+// MARK: +Delegate
+extension BlogListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return blogs.count
     }
     
-    func setupTitleLabel() {
-        titleLabel.text = "\'\(word)\' "
-        self.view.addSubview(titleLabel)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableCell.identifier, for: indexPath) as? BlogTableCell else {
+            return BlogTableCell().then {
+                $0.setBlogInformtaion(item: blogs[indexPath.row])
+                $0.selectionStyle = .none
+            }
+        }
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15).isActive = true
-        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: (resultLabel.frame.width + 15) * -1).isActive = true
+        cell.setBlogInformtaion(item: blogs[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
     }
     
-    func setupResultLabel() {
-        self.view.addSubview(resultLabel)
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let url = URL(string: blogs[indexPath.row].link) else { return indexPath }
         
-        resultLabel.translatesAutoresizingMaskIntoConstraints = false
-        resultLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        resultLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
-        resultLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: -15).isActive = true
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("BlogListViewController - 블로그 url에 연결하지 못했습니다.")
+        }
+
+        return indexPath
     }
 }

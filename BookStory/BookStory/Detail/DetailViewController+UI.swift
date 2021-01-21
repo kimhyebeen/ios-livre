@@ -50,6 +50,7 @@ extension DetailViewController {
     // MARK: Search Field
     func setupSearchField() {
         searchField.textfield.text = initSearchText
+        searchField.textfield.delegate = self
         searchField.button.addTarget(self, action: #selector(clickSearchButton(_:)), for: .touchUpInside)
         self.view.addSubview(searchField)
         

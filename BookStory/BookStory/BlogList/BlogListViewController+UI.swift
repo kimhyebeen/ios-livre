@@ -45,6 +45,7 @@ extension BlogListViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(BlogTableCell.self, forCellReuseIdentifier: BlogTableCell.identifier)
+        tableView.register(MoreButtonTableCell.self, forCellReuseIdentifier: MoreButtonTableCell.identifier)
         self.view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false

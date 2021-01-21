@@ -12,6 +12,7 @@ class BlogTableCell: UITableViewCell {
     let title = UILabel()
         .then {
             $0.text = "블로그 제목"
+            $0.numberOfLines = 0
             $0.textColor = UIColor(named: "deep_gray")
             $0.font = UIFont.boldSystemFont(ofSize: 17)
         }
@@ -32,7 +33,7 @@ class BlogTableCell: UITableViewCell {
         .then {
             $0.text = "블로거 이름"
             $0.textColor = .systemGray
-            $0.font = UIFont.systemFont(ofSize: 12)
+            $0.font = UIFont.systemFont(ofSize: 13)
         }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -63,6 +64,13 @@ class BlogTableCell: UITableViewCell {
             .htmlEscaped(font: UIFont.systemFont(ofSize: 14), colorHex: "4C4C4C", lineSpacing: 1)
         bloggerName.text = item.bloggername
     }
+    
+    func setLightMode() {
+        title.textColor = UIColor(named: "deep_gray")
+        postDate.textColor = UIColor(named: "blight_gray")
+        descriptionLabel.textColor = UIColor(named: "deep_gray")
+        bloggerName.textColor = UIColor(named: "blight_gray")
+    }
 }
 
 // MARK: +UI
@@ -80,7 +88,7 @@ extension BlogTableCell {
         self.addSubview(postDate)
         
         postDate.translatesAutoresizingMaskIntoConstraints = false
-        postDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2).isActive = true
+        postDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: -35).isActive = true
         postDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
         postDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }

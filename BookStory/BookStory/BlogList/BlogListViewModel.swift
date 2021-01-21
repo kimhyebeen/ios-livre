@@ -9,15 +9,12 @@ import RxCocoa
 
 class BlogListViewModel {
     var word: String = ""
-    var total = 0
     var startIndex = 1
     
-    let blogs = PublishRelay<BlogItem>()
-    let hasMoreBlogs = PublishRelay<Bool>()
+    let blogs = PublishRelay<[BlogItem]>()
     
-    init(word: String, total: Int) {
+    init(word: String) {
         self.word = word
-        self.total = total
     }
     
     func requestBlogItems() {
@@ -27,10 +24,6 @@ class BlogListViewModel {
     
     func requestMoreBlogItems() {
         startIndex += 10
-        if (startIndex > total - 10) {
-            startIndex = total - 10
-            hasMoreBlogs.accept(false)
-        }
         requestBlogs(query: word, start: startIndex, relay: blogs)
     }
 }

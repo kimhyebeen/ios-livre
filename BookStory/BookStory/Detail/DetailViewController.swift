@@ -36,18 +36,20 @@ class DetailViewController: BaseViewController {
     let newsField = NewsField()
     
     let disposeBag = DisposeBag()
-    let vm = DetailViewModel()
+    var vm: DetailViewModel!
     var initSearchText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        vm = DetailViewModel(value: initSearchText)
         setupView()
         bindViewModel()
         vm.requestAllSearchData(value: initSearchText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
         startAnimation()
     }
@@ -63,7 +65,6 @@ class DetailViewController: BaseViewController {
     }
     
     private func setupView() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         setupBackgroundImage()
         setupHomeIcon()
@@ -117,6 +118,12 @@ class DetailViewController: BaseViewController {
     
     @objc func clickNextButton(_ sender: UIButton) {
         bookCollectionField.moveToNextPage()
+    }
+    
+    @objc func moveToBlogListViewController(_ sender: UIButton) {
+        let nextVC = BlogListViewController()
+        nextVC.word = vm.currentWord
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
 }

@@ -13,6 +13,12 @@ class DetailViewModel {
     let output = Output()
     private let disposeBag = DisposeBag()
     
+    var currentWord = ""
+    
+    init(value: String) {
+        currentWord = value
+    }
+    
     struct Input {
         let searchWord = PublishSubject<String>()
         let searchButton = PublishSubject<Void>()
@@ -29,6 +35,7 @@ class DetailViewModel {
         input.searchButton.withLatestFrom(input.searchWord)
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
+                self?.currentWord = text
                 self?.requestAllSearchData(value: text)
             }).disposed(by: disposeBag)
     }

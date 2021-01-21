@@ -46,6 +46,7 @@ class BlogField: UIView {
         
         setupDivider()
         setupTitleLabel()
+        setupMoreInformationButtonView()
         setupMoreBlogButton()
         setupBlogTableView()
     }
@@ -82,22 +83,21 @@ extension BlogField {
     }
     
     private func setupMoreBlogButton() {
-        setupMoreInformationButtonView()
         self.addSubview(moreBlogButton)
         
         moreBlogButton.translatesAutoresizingMaskIntoConstraints = false
+        moreBlogButton.widthAnchor.constraint(equalTo: moreInformationButtonView.widthAnchor, constant: 10).isActive = true
+        moreBlogButton.heightAnchor.constraint(equalTo: moreInformationButtonView.heightAnchor, constant: 20).isActive = true
         moreBlogButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         moreBlogButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
     private func setupMoreInformationButtonView() {
-        moreBlogButton.addSubview(moreInformationButtonView)
+        self.addSubview(moreInformationButtonView)
         
         moreInformationButtonView.translatesAutoresizingMaskIntoConstraints = false
-        moreInformationButtonView.topAnchor.constraint(equalTo: moreBlogButton.topAnchor, constant: 10).isActive = true
-        moreInformationButtonView.bottomAnchor.constraint(equalTo: moreBlogButton.bottomAnchor, constant: -10).isActive = true
-        moreInformationButtonView.leadingAnchor.constraint(equalTo: moreBlogButton.leadingAnchor).isActive = true
-        moreInformationButtonView.trailingAnchor.constraint(equalTo: moreBlogButton.trailingAnchor, constant: -10).isActive = true
+        moreInformationButtonView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        moreInformationButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setupBlogTableView() {

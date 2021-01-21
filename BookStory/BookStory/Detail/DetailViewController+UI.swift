@@ -117,6 +117,7 @@ extension DetailViewController {
     
     // MARK: Blog Field
     func setupBlogField() {
+        blogField.moreBlogButton.addTarget(self, action: #selector(self.moveToBlogListViewController(_:)), for: .touchUpInside)
         scrollContentsView.addSubview(blogField)
         
         blogField.translatesAutoresizingMaskIntoConstraints = false

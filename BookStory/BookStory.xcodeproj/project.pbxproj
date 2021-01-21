@@ -47,6 +47,8 @@
 		EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */; };
 		EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */; };
 		EE5E942225B5E03D00B135DA /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E942125B5E03D00B135DA /* RewardView.swift */; };
+		EE67DE8725B945D500ED0F98 /* BlogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */; };
+		EE67DE8F25B9D6A500ED0F98 /* BlogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */; };
 		EE729BC825B6D2E000EF7AE3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */; };
 		EE729BCD25B6D5EE00EF7AE3 /* SimpleBookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */; };
 		EE729BD525B6D60A00EF7AE3 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */; };
@@ -142,6 +144,8 @@
 		EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordRequestBody.swift; sourceTree = "<group>"; };
 		EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeySet.swift; sourceTree = "<group>"; };
 		EE5E942125B5E03D00B135DA /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewController.swift; sourceTree = "<group>"; };
+		EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewModel.swift; sourceTree = "<group>"; };
 		EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBookItem.swift; sourceTree = "<group>"; };
 		EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				EE3D548525B460180064C274 /* Base */,
 				EEF3D97225B55D970095D94E /* Main */,
 				EE0D65DF25B6749E009EF472 /* Detail */,
+				EE67DE8525B945AD00ED0F98 /* BlogList */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,
 				EE3D544625B45E470064C274 /* SceneDelegate.swift */,
 				EE3D544A25B45E470064C274 /* Main.storyboard */,
@@ -319,6 +324,15 @@
 				EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */,
 			);
 			path = APIModel;
+			sourceTree = "<group>";
+		};
+		EE67DE8525B945AD00ED0F98 /* BlogList */ = {
+			isa = PBXGroup;
+			children = (
+				EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */,
+				EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */,
+			);
+			path = BlogList;
 			sourceTree = "<group>";
 		};
 		EEF3D95225B54D1A0095D94E /* Requests */ = {
@@ -714,6 +728,7 @@
 				EE729BC825B6D2E000EF7AE3 /* DetailViewModel.swift in Sources */,
 				EE34731325B828430048C0CF /* DetailViewController+UI.swift in Sources */,
 				EE3D544925B45E470064C274 /* MainViewController.swift in Sources */,
+				EE67DE8F25B9D6A500ED0F98 /* BlogListViewModel.swift in Sources */,
 				EE729BF025B731CF00EF7AE3 /* HomeIcon.swift in Sources */,
 				EE3D54D025B496220064C274 /* BookSearchResponse.swift in Sources */,
 				EEF3D9BF25B5CF0F0095D94E /* SearchField.swift in Sources */,
@@ -725,6 +740,7 @@
 				EE3472FE25B8147F0048C0CF /* NewsField.swift in Sources */,
 				EE729BD525B6D60A00EF7AE3 /* BlogItem.swift in Sources */,
 				EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */,
+				EE67DE8725B945D500ED0F98 /* BlogListViewController.swift in Sources */,
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,

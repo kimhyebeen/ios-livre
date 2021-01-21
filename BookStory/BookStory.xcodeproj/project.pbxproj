@@ -49,6 +49,8 @@
 		EE5E942225B5E03D00B135DA /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E942125B5E03D00B135DA /* RewardView.swift */; };
 		EE67DE8725B945D500ED0F98 /* BlogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */; };
 		EE67DE8F25B9D6A500ED0F98 /* BlogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */; };
+		EE67DE9E25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */; };
+		EE67DE9F25B9F17F00ED0F98 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DE9D25B9F17F00ED0F98 /* Montserrat-Medium.ttf */; };
 		EE729BC825B6D2E000EF7AE3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */; };
 		EE729BCD25B6D5EE00EF7AE3 /* SimpleBookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */; };
 		EE729BD525B6D60A00EF7AE3 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */; };
@@ -146,6 +148,8 @@
 		EE5E942125B5E03D00B135DA /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewController.swift; sourceTree = "<group>"; };
 		EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewModel.swift; sourceTree = "<group>"; };
+		EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
+		EE67DE9D25B9F17F00ED0F98 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		EE729BC725B6D2E000EF7AE3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBookItem.swift; sourceTree = "<group>"; };
 		EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 		EE3D544325B45E470064C274 /* BookStory */ = {
 			isa = PBXGroup;
 			children = (
+				EE67DE9B25B9F16400ED0F98 /* Font */,
 				EEF7A44325B5D58600FBBDCF /* LottieJson */,
 				EE3D54CD25B496010064C274 /* Data */,
 				EEF3D98E25B5A1EC0095D94E /* Model */,
@@ -333,6 +338,15 @@
 				EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */,
 			);
 			path = BlogList;
+			sourceTree = "<group>";
+		};
+		EE67DE9B25B9F16400ED0F98 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */,
+				EE67DE9D25B9F17F00ED0F98 /* Montserrat-Medium.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		EEF3D95225B54D1A0095D94E /* Requests */ = {
@@ -524,8 +538,10 @@
 				EE0D65F325B67C3E009EF472 /* reward-3.json in Resources */,
 				EE729BFB25B7374400EF7AE3 /* home-icon.json in Resources */,
 				EE0D65F625B67C3E009EF472 /* reward-8.json in Resources */,
+				EE67DE9E25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf in Resources */,
 				EE3D545125B45E490064C274 /* LaunchScreen.storyboard in Resources */,
 				EE0D65EF25B67C3E009EF472 /* reward-1.json in Resources */,
+				EE67DE9F25B9F17F00ED0F98 /* Montserrat-Medium.ttf in Resources */,
 				EE0D65F525B67C3E009EF472 /* reward-7.json in Resources */,
 				EE3D544E25B45E490064C274 /* Assets.xcassets in Resources */,
 				EE0D65F125B67C3E009EF472 /* reward-9.json in Resources */,

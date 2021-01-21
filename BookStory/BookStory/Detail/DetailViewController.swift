@@ -131,7 +131,13 @@ extension DetailViewController: UIScrollViewDelegate {
 
 extension DetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        guard let text = textField.text else {
+            clickSearchButton(searchField.button)
+            return true
+        }
+        
+        vm.requestAllSearchData(value: text)
+        clickSearchButton(searchField.button)
         return true
     }
 }

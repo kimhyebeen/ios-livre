@@ -30,7 +30,6 @@ class DetailViewModel {
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
                 self?.requestAllSearchData(value: text)
-                self?.updatePoint(value: text)
             }).disposed(by: disposeBag)
     }
     
@@ -38,6 +37,7 @@ class DetailViewModel {
         requestBookItems(value: value)
         requestBlogItems(value: value)
         requestNewsItems(value: value)
+        updatePoint(value: value)
     }
     
     private func requestBookItems(value: String) {

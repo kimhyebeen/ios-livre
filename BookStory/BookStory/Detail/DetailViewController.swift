@@ -123,7 +123,7 @@ class DetailViewController: BaseViewController {
     @objc func moveToBlogListViewController(_ sender: UIButton) {
         let nextVC = BlogListViewController()
         nextVC.word = vm.currentWord
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.present(nextVC, animated: true, completion: nil)
     }
 
 }

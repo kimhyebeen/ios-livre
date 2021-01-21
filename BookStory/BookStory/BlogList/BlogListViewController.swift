@@ -8,22 +8,40 @@
 import UIKit
 
 class BlogListViewController: UIViewController {
+    let deviceWidth = UIScreen.main.bounds.width
+    let deviceHeight = UIScreen.main.bounds.height
+    var word: String = ""
+    
+    let barView = UIView()
+        .then {
+            $0.backgroundColor = UIColor(named: "pale_gray")
+            $0.layer.cornerRadius = 2
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupView() {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = self.view.frame
+        self.view.addSubview(visualEffectView)
+        
+        setupBarView()
     }
-    */
+}
 
+// MARK: +UI
+extension BlogListViewController {
+    func setupBarView() {
+        self.view.addSubview(barView)
+        
+        barView.translatesAutoresizingMaskIntoConstraints = false
+        barView.widthAnchor.constraint(equalToConstant: deviceWidth * 0.3).isActive = true
+        barView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        barView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+        barView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
 }

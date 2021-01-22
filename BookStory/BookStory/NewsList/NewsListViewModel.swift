@@ -20,12 +20,12 @@ class NewsListViewModel {
     
     func requestNewsItems() {
         startIndex = 1
-        requestBlogs(query: word, start: startIndex, relay: news)
+        requestNews(query: word, start: startIndex, relay: news)
     }
     
     func requestMoreNewsItems() {
         startIndex += 10
-        requestBlogs(query: word, start: startIndex, relay: news)
+        requestNews(query: word, start: startIndex, relay: news)
     }
 }
 

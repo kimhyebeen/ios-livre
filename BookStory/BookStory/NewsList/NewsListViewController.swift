@@ -58,6 +58,11 @@ class NewsListViewController: UIViewController {
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView.frame = self.view.frame
         self.view.addSubview(visualEffectView)
+        
+        setupBarView()
+        setupTitleLabel()
+        setupResultLabel()
+        setupTableView()
     }
     
     func bindViewModel() {
@@ -67,4 +72,59 @@ class NewsListViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
+    func connectBlogUrl(url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("NewsListViewController - 뉴스 url에 연결하지 못했습니다.")
+        }
+    }
+    
+    func clickMoreRequestButton() {
+        vm.requestMoreNewsItems()
+        tableView.reloadData()
+    }
+    
+}
+
+// MARK: +Delegate
+extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count+1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == news.count {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MoreButtonTableCell.identifier, for: indexPath) as? MoreButtonTableCell else {
+                return MoreButtonTableCell()
+            }
+            
+            cell.selectionStyle = .none
+            return cell
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.identifier, for: indexPath) as? NewsTableCell else {
+            return NewsTableCell().then {
+                $0.setNewsInformation(item: news[indexPath.row])
+                $0.selectionStyle = .none
+            }
+        }
+        
+        cell.setNewsInformation(item: news[indexPath.row])
+        cell.setLightMode()
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.row == news.count {
+            self.clickMoreRequestButton()
+            return indexPath
+        }
+        
+        guard let url = URL(string: news[indexPath.row].link) else { return indexPath }
+        self.connectBlogUrl(url: url)
+
+        return indexPath
+    }
 }

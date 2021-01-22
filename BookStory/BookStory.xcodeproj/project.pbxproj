@@ -32,6 +32,7 @@
 		EE34732025B85EBE0048C0CF /* splash-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EE34731F25B85EBE0048C0CF /* splash-icon.json */; };
 		EE34ADD425BACC660071575C /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADD325BACC660071575C /* NewsListViewController.swift */; };
 		EE34ADD925BACDC90071575C /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADD825BACDC90071575C /* NewsListViewModel.swift */; };
+		EE34ADE125BACEC70071575C /* NewsListViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */; };
 		EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544425B45E470064C274 /* AppDelegate.swift */; };
 		EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544625B45E470064C274 /* SceneDelegate.swift */; };
 		EE3D544925B45E470064C274 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544825B45E470064C274 /* MainViewController.swift */; };
@@ -132,6 +133,7 @@
 		EE34731F25B85EBE0048C0CF /* splash-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "splash-icon.json"; sourceTree = "<group>"; };
 		EE34ADD325BACC660071575C /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		EE34ADD825BACDC90071575C /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
+		EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsListViewController+UI.swift"; sourceTree = "<group>"; };
 		EE3D544125B45E470064C274 /* BookStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D544425B45E470064C274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3D544625B45E470064C274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			children = (
 				EE34ADD825BACDC90071575C /* NewsListViewModel.swift */,
 				EE34ADD325BACC660071575C /* NewsListViewController.swift */,
+				EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */,
 			);
 			path = NewsList;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,
+				EE34ADE125BACEC70071575C /* NewsListViewController+UI.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */,
 				EE729C0F25B74D0800EF7AE3 /* BlogTableCell.swift in Sources */,

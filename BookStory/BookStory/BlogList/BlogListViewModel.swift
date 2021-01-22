@@ -15,6 +15,7 @@ class BlogListViewModel {
     
     init(word: String) {
         self.word = word
+        self.requestBlogItems()
     }
     
     func requestBlogItems() {

@@ -22,14 +22,22 @@ class BlogListViewController: UIViewController {
         }
     let titleLabel = UILabel()
         .then {
-            $0.textColor = UIColor(named: "deep_gray")
+            $0.textColor = UIColor(named: "golden_yellow")
             $0.font = UIFont(name: "GmarketSansTTFMedium", size: 24)
+            $0.layer.shadowColor = UIColor.black.cgColor
+            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
+            $0.layer.shadowRadius = 3
+            $0.layer.shadowOpacity = 0.6
         }
     let resultLabel = UILabel()
         .then {
-            $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 20)
             $0.text = "검색결과"
+            $0.textColor = UIColor(named: "golden_yellow")
+            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 20)
+            $0.layer.shadowColor = UIColor.black.cgColor
+            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
+            $0.layer.shadowRadius = 3
+            $0.layer.shadowOpacity = 0.6
         }
     let tableView = UITableView()
         .then {
@@ -44,7 +52,7 @@ class BlogListViewController: UIViewController {
         vm = BlogListViewModel(word: word)
         setupView()
         bindViewModel()
-        vm.requestBlogItems()
+//        vm.requestBlogItems()
     }
     
     private func setupView() {
@@ -66,7 +74,7 @@ class BlogListViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
-    func clickBlogCell(url: URL) {
+    func connectBlogUrl(url: URL) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
@@ -116,7 +124,7 @@ extension BlogListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         guard let url = URL(string: blogs[indexPath.row].link) else { return indexPath }
-        self.clickBlogCell(url: url)
+        self.connectBlogUrl(url: url)
 
         return indexPath
     }

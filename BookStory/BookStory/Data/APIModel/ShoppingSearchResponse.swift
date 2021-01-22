@@ -42,8 +42,4 @@ struct ShoppingSearchItem: Codable {
         let result = numberFormatter.string(from: NSNumber(value: price))! + "원"
         return result
     }
-    
-    var category: String {
-        return "\(category1)/\(category2)/\(category3)/\(category4)"
-    }
 }

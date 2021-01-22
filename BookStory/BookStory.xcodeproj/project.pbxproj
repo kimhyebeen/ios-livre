@@ -33,6 +33,8 @@
 		EE34ADD425BACC660071575C /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADD325BACC660071575C /* NewsListViewController.swift */; };
 		EE34ADD925BACDC90071575C /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADD825BACDC90071575C /* NewsListViewModel.swift */; };
 		EE34ADE125BACEC70071575C /* NewsListViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */; };
+		EE34ADE625BAD6710071575C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADE525BAD6710071575C /* Book.swift */; };
+		EE34ADF025BAEBBA0071575C /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADEF25BAEBBA0071575C /* Shopping.swift */; };
 		EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544425B45E470064C274 /* AppDelegate.swift */; };
 		EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544625B45E470064C274 /* SceneDelegate.swift */; };
 		EE3D544925B45E470064C274 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544825B45E470064C274 /* MainViewController.swift */; };
@@ -134,6 +136,8 @@
 		EE34ADD325BACC660071575C /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		EE34ADD825BACDC90071575C /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
 		EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsListViewController+UI.swift"; sourceTree = "<group>"; };
+		EE34ADE525BAD6710071575C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		EE34ADEF25BAEBBA0071575C /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		EE3D544125B45E470064C274 /* BookStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D544425B45E470064C274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3D544625B45E470064C274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 				EE729BCC25B6D5EE00EF7AE3 /* SimpleBookItem.swift */,
 				EE729BD425B6D60A00EF7AE3 /* BlogItem.swift */,
 				EE729BD925B6D67F00EF7AE3 /* NewsItem.swift */,
+				EE34ADE525BAD6710071575C /* Book.swift */,
+				EE34ADEF25BAEBBA0071575C /* Shopping.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -797,10 +803,12 @@
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,
+				EE34ADF025BAEBBA0071575C /* Shopping.swift in Sources */,
 				EE34ADE125BACEC70071575C /* NewsListViewController+UI.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,
 				EEF3D96B25B5541F0095D94E /* RequestNews.swift in Sources */,
 				EE729C0F25B74D0800EF7AE3 /* BlogTableCell.swift in Sources */,
+				EE34ADE625BAD6710071575C /* Book.swift in Sources */,
 				EE67DEBE25B9F61A00ED0F98 /* BlogListViewController+UI.swift in Sources */,
 				EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */,
 				EE3D54E225B49B080064C274 /* NewsSearchResponse.swift in Sources */,

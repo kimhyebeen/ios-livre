@@ -35,8 +35,12 @@ func requestBookSearch<T>(query: String, start: Int = 1, display: Int = 10, rela
                     )
                 } as! T
             )
-        } else if T.self == [BookSearchItem].self {
-            // todo - BookDetailInfoViewController
+        } else if T.self == [Book].self {
+            relay.accept(
+                items.map { item in
+                    Book(title: item.title, image: item.image, author: item.author, price: item.price, description: item.description, publisher: item.publisher, publishDate: item.publishDate)
+                } as! T
+            )
         } else { print("request book search - 왜 다 타입이 안맞을까???") }
     }
 }

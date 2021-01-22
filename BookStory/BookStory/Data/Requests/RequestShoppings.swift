@@ -6,9 +6,9 @@
 //
 
 import Alamofire
-import RxSwift
+import RxCocoa
 
-func requestShoppings(query: String, start: Int = 1, display: Int = 10) {
+func requestShoppings<T>(query: String, start: Int = 1, display: Int = 10, relay: PublishRelay<T>) {
     let url = URLConfig.shopping
     
     AF.request(url,
@@ -20,6 +20,20 @@ func requestShoppings(query: String, start: Int = 1, display: Int = 10) {
         .responseJSON { (json) in
             guard let data = json.data else { return }
             let response = try? JSONDecoder().decode(ShoppingSearchResponse.self, from: data)
-            // todo - response 데이터 활용
+            
+            guard let items = response?.items else { return }
+            if T.self == [Shopping].self {
+                relay.accept(
+                    items.map { item in
+                        Shopping(
+                            title: item.title,
+                            link: item.link,
+                            image: item.image,
+                            price: item.priceString,
+                            mallName: item.mallName
+                        )
+                    } as! T
+                )
+            } else { print("request shoppings - 왜 타입이 안맞을까???") }
     }
 }

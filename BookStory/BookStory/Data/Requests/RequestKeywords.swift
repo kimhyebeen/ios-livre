@@ -5,10 +5,10 @@
 //  Created by 김혜빈 on 2021/01/18.
 //
 
-import RxSwift
+import RxCocoa
 import Alamofire
 
-func requestKeywords(body: KeywordRequestBody) {
+func requestKeywords(body: KeywordRequestBody, relay: PublishRelay<[String]>) {
     let url = URLConfig.keyword
     var request = URLRequest(url: URL(string: url)!)
     request.httpMethod = "POST"
@@ -25,9 +25,10 @@ func requestKeywords(body: KeywordRequestBody) {
         switch response.result {
         case .success:
             if let data = response.data, let item = try? JSONDecoder().decode(KeywordResponse.self, from: data) {
-                print(item)
-                // todo - 아래처럼 응답 데이터 매핑 후 subject.onNext()
-                // subject.onNext(item.return_object.keylists[0].keyword)
+                
+                relay.accept(
+                    item.returnObject.keywords.map { $0.keyword }
+                )
             }
         case .failure(let error):
             print("🚫 Keyword - Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")

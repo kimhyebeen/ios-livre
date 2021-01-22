@@ -14,6 +14,7 @@ class BlogListViewController: UIViewController {
     let disposeBag = DisposeBag()
     var word: String = ""
     var vm: BlogListViewModel!
+    var blogs: [BlogItem] = []
     
     let barView = UIView()
         .then {
@@ -43,8 +44,6 @@ class BlogListViewController: UIViewController {
         .then {
             $0.backgroundColor = UIColor.white.withAlphaComponent(0)
         }
-    
-    var blogs: [BlogItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +51,6 @@ class BlogListViewController: UIViewController {
         vm = BlogListViewModel(word: word)
         setupView()
         bindViewModel()
-//        vm.requestBlogItems()
     }
     
     private func setupView() {

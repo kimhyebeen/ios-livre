@@ -12,6 +12,7 @@ class NewsTableCell: UITableViewCell {
     let title = UILabel()
         .then {
             $0.text = "뉴스 제목"
+            $0.numberOfLines = 0
             $0.textColor = UIColor(named: "deep_gray")
             $0.font = UIFont.boldSystemFont(ofSize: 17)
         }
@@ -41,6 +42,7 @@ class NewsTableCell: UITableViewCell {
     
     private func setupView() {
         self.backgroundColor = UIColor.white.withAlphaComponent(0)
+        
         setupTitleLabel()
         setupPublishDateLabel()
         setupDescriptionLabel()
@@ -52,6 +54,12 @@ class NewsTableCell: UITableViewCell {
         publishDate.text = item.publishDateString
         descriptionLabel.attributedText = item.description
             .htmlEscaped(font: UIFont.systemFont(ofSize: 14), colorHex: "4C4C4C", lineSpacing: 1)
+    }
+    
+    func setLightMode() {
+        title.textColor = UIColor(named: "deep_gray")
+        publishDate.textColor = UIColor(named: "blight_gray")
+        descriptionLabel.textColor = UIColor(named: "deep_gray")
     }
 
 }
@@ -71,7 +79,7 @@ extension NewsTableCell {
         self.addSubview(publishDate)
         
         publishDate.translatesAutoresizingMaskIntoConstraints = false
-        publishDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2).isActive = true
+        publishDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: -35).isActive = true
         publishDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
         publishDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }

@@ -8,18 +8,18 @@
 import UIKit
 
 class NewsField: UIView {
-    let title = UILabel()
-        .then {
-            $0.text = "NEWS"
-            $0.textColor = UIColor(named: "coral")
-            $0.font = UIFont(name: "Montserrat-Medium", size: 20)
-        }
     let divider = UIView()
         .then {
             $0.backgroundColor = .systemGray
         }
     let moreInformationButtonView = MoreInformationButtonView()
     let moreNewsButton = UIButton()
+    let title = UILabel()
+        .then {
+            $0.text = "NEWS"
+            $0.textColor = UIColor(named: "coral")
+            $0.font = UIFont(name: "Montserrat-Medium", size: 20)
+        }
     let tableView = UITableView()
         .then {
             $0.backgroundColor = UIColor.white.withAlphaComponent(0)
@@ -44,8 +44,9 @@ class NewsField: UIView {
         self.setRoundedRectangle(radius: 15)
         self.backgroundColor = UIColor(named: "pale_gray")?.withAlphaComponent(0.9)
         
-        setupTitleLabel()
         setupDivider()
+        setupTitleLabel()
+        setupMoreInformationButtonView()
         setupMoreNewsButton()
         setupTableView()
     }
@@ -63,14 +64,6 @@ class NewsField: UIView {
 
 // MARK: +UI
 extension NewsField {
-    private func setupTitleLabel() {
-        self.addSubview(title)
-        
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 22.5).isActive = true
-        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-    }
-    
     private func setupDivider() {
         self.addSubview(divider)
         
@@ -81,23 +74,30 @@ extension NewsField {
         divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    private func setupTitleLabel() {
+        self.addSubview(title)
+        
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 22.5).isActive = true
+        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+    }
+    
     private func setupMoreNewsButton() {
-        setupMoreInformationButtonView()
         self.addSubview(moreNewsButton)
         
         moreNewsButton.translatesAutoresizingMaskIntoConstraints = false
+        moreNewsButton.widthAnchor.constraint(equalTo: moreInformationButtonView.widthAnchor, constant: 10).isActive = true
+        moreNewsButton.heightAnchor.constraint(equalTo: moreInformationButtonView.heightAnchor, constant: 20).isActive = true
         moreNewsButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         moreNewsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
     private func setupMoreInformationButtonView() {
-        moreNewsButton.addSubview(moreInformationButtonView)
+        self.addSubview(moreInformationButtonView)
         
         moreInformationButtonView.translatesAutoresizingMaskIntoConstraints = false
-        moreInformationButtonView.topAnchor.constraint(equalTo: moreNewsButton.topAnchor, constant: 10).isActive = true
-        moreInformationButtonView.bottomAnchor.constraint(equalTo: moreNewsButton.bottomAnchor, constant: -10).isActive = true
-        moreInformationButtonView.leadingAnchor.constraint(equalTo: moreNewsButton.leadingAnchor).isActive = true
-        moreInformationButtonView.trailingAnchor.constraint(equalTo: moreNewsButton.trailingAnchor, constant: -10).isActive = true
+        moreInformationButtonView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        moreInformationButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setupTableView() {

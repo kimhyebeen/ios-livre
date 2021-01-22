@@ -134,6 +134,12 @@ class DetailViewController: BaseViewController {
         nextVC.word = vm.currentWord
         self.present(nextVC, animated: true, completion: nil)
     }
+    
+    @objc func moveToNewsListViewController(_ sender: UIButton) {
+        let nextVC = NewsListViewController()
+        nextVC.word = vm.currentWord
+        self.present(nextVC, animated: true, completion: nil)
+    }
 
 }
 

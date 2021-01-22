@@ -137,6 +137,7 @@ extension DetailViewController {
     
     // MARK: News Field
     func setupNewsField() {
+        newsField.moreNewsButton.addTarget(self, action: #selector(self.moveToNewsListViewController(_:)), for: .touchUpInside)
         scrollContentsView.addSubview(newsField)
         
         newsField.translatesAutoresizingMaskIntoConstraints = false

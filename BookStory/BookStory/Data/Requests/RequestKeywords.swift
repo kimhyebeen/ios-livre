@@ -8,7 +8,7 @@
 import RxCocoa
 import Alamofire
 
-func requestKeywords(body: KeywordRequestBody, relay: PublishRelay<[String]>) {
+func requestKeywords<T>(body: KeywordRequestBody, relay: PublishRelay<T>) {
     let url = URLConfig.keyword
     var request = URLRequest(url: URL(string: url)!)
     request.httpMethod = "POST"
@@ -25,9 +25,9 @@ func requestKeywords(body: KeywordRequestBody, relay: PublishRelay<[String]>) {
         switch response.result {
         case .success:
             if let data = response.data, let item = try? JSONDecoder().decode(KeywordResponse.self, from: data) {
-                
+
                 relay.accept(
-                    item.returnObject.keywords.map { $0.keyword }
+                    item.returnObject.keywords.map { $0.keyword } as! T
                 )
             }
         case .failure(let error):

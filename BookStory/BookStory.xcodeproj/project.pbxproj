@@ -35,6 +35,8 @@
 		EE34ADE125BACEC70071575C /* NewsListViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */; };
 		EE34ADE625BAD6710071575C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADE525BAD6710071575C /* Book.swift */; };
 		EE34ADF025BAEBBA0071575C /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADEF25BAEBBA0071575C /* Shopping.swift */; };
+		EE34ADF625BAF0B40071575C /* BookInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADF525BAF0B40071575C /* BookInfoViewModel.swift */; };
+		EE34ADFB25BB0ACF0071575C /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE34ADFA25BB0ACF0071575C /* BookInfoViewController.swift */; };
 		EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544425B45E470064C274 /* AppDelegate.swift */; };
 		EE3D544725B45E470064C274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544625B45E470064C274 /* SceneDelegate.swift */; };
 		EE3D544925B45E470064C274 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D544825B45E470064C274 /* MainViewController.swift */; };
@@ -138,6 +140,8 @@
 		EE34ADE025BACEC70071575C /* NewsListViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsListViewController+UI.swift"; sourceTree = "<group>"; };
 		EE34ADE525BAD6710071575C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		EE34ADEF25BAEBBA0071575C /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
+		EE34ADF525BAF0B40071575C /* BookInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewModel.swift; sourceTree = "<group>"; };
+		EE34ADFA25BB0ACF0071575C /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 		EE3D544125B45E470064C274 /* BookStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D544425B45E470064C274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE3D544625B45E470064C274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +270,15 @@
 			path = NewsList;
 			sourceTree = "<group>";
 		};
+		EE34ADF425BAF0A00071575C /* BookInfo */ = {
+			isa = PBXGroup;
+			children = (
+				EE34ADF525BAF0B40071575C /* BookInfoViewModel.swift */,
+				EE34ADFA25BB0ACF0071575C /* BookInfoViewController.swift */,
+			);
+			path = BookInfo;
+			sourceTree = "<group>";
+		};
 		EE3D543825B45E470064C274 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +312,7 @@
 				EE3D548525B460180064C274 /* Base */,
 				EEF3D97225B55D970095D94E /* Main */,
 				EE0D65DF25B6749E009EF472 /* Detail */,
+				EE34ADF425BAF0A00071575C /* BookInfo */,
 				EE67DE8525B945AD00ED0F98 /* BlogList */,
 				EE34ADD225BACC500071575C /* NewsList */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,
@@ -797,6 +811,7 @@
 				EEF3D9AF25B5C88B0095D94E /* UIView+.swift in Sources */,
 				EEF3D95425B54D2E0095D94E /* RequestKeywords.swift in Sources */,
 				EE3472FE25B8147F0048C0CF /* NewsField.swift in Sources */,
+				EE34ADFB25BB0ACF0071575C /* BookInfoViewController.swift in Sources */,
 				EE729BD525B6D60A00EF7AE3 /* BlogItem.swift in Sources */,
 				EE3D54DD25B499B20064C274 /* ShoppingSearchResponse.swift in Sources */,
 				EE67DE8725B945D500ED0F98 /* BlogListViewController.swift in Sources */,
@@ -812,6 +827,7 @@
 				EE67DEBE25B9F61A00ED0F98 /* BlogListViewController+UI.swift in Sources */,
 				EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */,
 				EE3D54E225B49B080064C274 /* NewsSearchResponse.swift in Sources */,
+				EE34ADF625BAF0B40071575C /* BookInfoViewModel.swift in Sources */,
 				EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */,
 				EE5E942225B5E03D00B135DA /* RewardView.swift in Sources */,
 				EE3D544525B45E470064C274 /* AppDelegate.swift in Sources */,

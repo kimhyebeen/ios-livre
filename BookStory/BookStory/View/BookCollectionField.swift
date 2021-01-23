@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol BookCollectionFieldDelegate: class {
+    func moveToBookInfoViewController(VC: UIViewController)
+}
+
 class BookCollectionField: UIView {
+    weak var delegate: BookCollectionFieldDelegate?
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
         .then {
@@ -136,5 +141,12 @@ extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDeleg
         // 위 코드를 통해 페이징 될 좌표값을 targetContentOffset에 대입하면 된다.
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - spaceForLeftRight, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let nextVC = BookInfoViewController()
+        nextVC.isbn = self.books[indexPath.item].isbn
+        self.delegate?.moveToBookInfoViewController(VC: nextVC)
+        return true
     }
 }

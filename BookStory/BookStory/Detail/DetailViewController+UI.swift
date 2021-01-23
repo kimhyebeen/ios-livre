@@ -62,6 +62,7 @@ extension DetailViewController {
     
     // MARK: Book Collection Field
     func setupBookCollectionField() {
+        bookCollectionField.delegate = self
         scrollContentsView.addSubview(bookCollectionField)
         
         bookCollectionField.translatesAutoresizingMaskIntoConstraints = false

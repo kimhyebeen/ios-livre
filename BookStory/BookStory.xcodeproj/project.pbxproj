@@ -54,6 +54,7 @@
 		EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */; };
 		EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */; };
 		EE5E942225B5E03D00B135DA /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E942125B5E03D00B135DA /* RewardView.swift */; };
+		EE6406E725BD6F61002E49DF /* BookInfoVeiwController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6406E625BD6F61002E49DF /* BookInfoVeiwController+UI.swift */; };
 		EE67DE8725B945D500ED0F98 /* BlogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */; };
 		EE67DE8F25B9D6A500ED0F98 /* BlogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */; };
 		EE67DE9E25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */; };
@@ -165,6 +166,7 @@
 		EE3D54EB25B4A0720064C274 /* KeywordRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordRequestBody.swift; sourceTree = "<group>"; };
 		EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeySet.swift; sourceTree = "<group>"; };
 		EE5E942125B5E03D00B135DA /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		EE6406E625BD6F61002E49DF /* BookInfoVeiwController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookInfoVeiwController+UI.swift"; sourceTree = "<group>"; };
 		EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewController.swift; sourceTree = "<group>"; };
 		EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewModel.swift; sourceTree = "<group>"; };
 		EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				EE34ADF525BAF0B40071575C /* BookInfoViewModel.swift */,
 				EE34ADFA25BB0ACF0071575C /* BookInfoViewController.swift */,
+				EE6406E625BD6F61002E49DF /* BookInfoVeiwController+UI.swift */,
 			);
 			path = BookInfo;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				EE3D54D825B498A60064C274 /* BlogSearchResponse.swift in Sources */,
 				EEF3D98125B59E230095D94E /* RewardConfig.swift in Sources */,
 				EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */,
+				EE6406E725BD6F61002E49DF /* BookInfoVeiwController+UI.swift in Sources */,
 				EE34ADF025BAEBBA0071575C /* Shopping.swift in Sources */,
 				EE34ADE125BACEC70071575C /* NewsListViewController+UI.swift in Sources */,
 				EE3D548A25B460310064C274 /* BaseViewController.swift in Sources */,

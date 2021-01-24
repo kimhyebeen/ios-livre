@@ -9,6 +9,15 @@ import UIKit
 import RxSwift
 
 class BookInfoViewController: UIViewController {
+    let backButton = UIButton()
+        .then {
+            $0.imageView?.frame.size = CGSize(width: 24, height: 24)
+            $0.imageView?.backgroundColor = UIColor(named: "light_gray_blue")
+            $0.imageView?.layer.cornerRadius = 12
+            $0.setImage(UIImage(named: "arrow_left"), for: .normal)
+            $0.imageEdgeInsets = UIEdgeInsets(top: 10.5, left: 10.5, bottom: 10.5, right: 10.5)
+        }
+    
     var isbn: String = ""
     var vm: BookInfoViewModel!
     var shoppings: [Shopping] = []
@@ -25,6 +34,8 @@ class BookInfoViewController: UIViewController {
     
     func setupView() {
         self.view.backgroundColor = UIColor(named: "pale_gray")
+        
+        setupBackButton()
     }
     
     func bindViewModel() {
@@ -43,5 +54,9 @@ class BookInfoViewController: UIViewController {
             self?.vm.requestShoppingList(book.title)
             self?.vm.requestKeywordList(book.description)
         }).disposed(by: disposeBag)
+    }
+    
+    @objc func clickBackButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

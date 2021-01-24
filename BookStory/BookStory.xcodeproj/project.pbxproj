@@ -55,6 +55,7 @@
 		EE3D54F125B4A0A20064C274 /* SecretKeySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */; };
 		EE5E942225B5E03D00B135DA /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5E942125B5E03D00B135DA /* RewardView.swift */; };
 		EE6406E725BD6F61002E49DF /* BookInfoVeiwController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6406E625BD6F61002E49DF /* BookInfoVeiwController+UI.swift */; };
+		EE6406ED25BD71DB002E49DF /* TagStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6406EC25BD71DB002E49DF /* TagStack.swift */; };
 		EE67DE8725B945D500ED0F98 /* BlogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */; };
 		EE67DE8F25B9D6A500ED0F98 /* BlogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */; };
 		EE67DE9E25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */; };
@@ -167,6 +168,7 @@
 		EE3D54F025B4A0A20064C274 /* SecretKeySet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeySet.swift; sourceTree = "<group>"; };
 		EE5E942125B5E03D00B135DA /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
 		EE6406E625BD6F61002E49DF /* BookInfoVeiwController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookInfoVeiwController+UI.swift"; sourceTree = "<group>"; };
+		EE6406EC25BD71DB002E49DF /* TagStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStack.swift; sourceTree = "<group>"; };
 		EE67DE8625B945D500ED0F98 /* BlogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewController.swift; sourceTree = "<group>"; };
 		EE67DE8E25B9D6A500ED0F98 /* BlogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogListViewModel.swift; sourceTree = "<group>"; };
 		EE67DE9C25B9F17F00ED0F98 /* GmarketSansTTFLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansTTFLight.ttf; sourceTree = "<group>"; };
@@ -379,6 +381,18 @@
 			path = APIModel;
 			sourceTree = "<group>";
 		};
+		EE6406EB25BD71A9002E49DF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EE0D65FA25B681DD009EF472 /* RecentSearchTableCell.swift */,
+				EE729C0425B73F3800EF7AE3 /* BookCollectionCell.swift */,
+				EE729C0E25B74D0800EF7AE3 /* BlogTableCell.swift */,
+				EE3472E825B7E1250048C0CF /* NewsTableCell.swift */,
+				EE67DEC225B9F82E00ED0F98 /* MoreButtonTableCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		EE67DE8525B945AD00ED0F98 /* BlogList */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +453,7 @@
 		EEF3D9A325B5A6460095D94E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE6406EB25BD71A9002E49DF /* Cell */,
 				EE04B8A125B896ED00970F6F /* String+.swift */,
 				EEF3D9AE25B5C88B0095D94E /* UIView+.swift */,
 				EE5E942125B5E03D00B135DA /* RewardView.swift */,
@@ -448,11 +463,7 @@
 				EE3472ED25B7E5590048C0CF /* BlogField.swift */,
 				EE3472FD25B8147F0048C0CF /* NewsField.swift */,
 				EE34731725B834180048C0CF /* BookCollectionField.swift */,
-				EE0D65FA25B681DD009EF472 /* RecentSearchTableCell.swift */,
-				EE729C0425B73F3800EF7AE3 /* BookCollectionCell.swift */,
-				EE729C0E25B74D0800EF7AE3 /* BlogTableCell.swift */,
-				EE3472E825B7E1250048C0CF /* NewsTableCell.swift */,
-				EE67DEC225B9F82E00ED0F98 /* MoreButtonTableCell.swift */,
+				EE6406EC25BD71DB002E49DF /* TagStack.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -841,6 +852,7 @@
 				EE0D65FB25B681DD009EF472 /* RecentSearchTableCell.swift in Sources */,
 				EE34731825B834180048C0CF /* BookCollectionField.swift in Sources */,
 				EEF3D98A25B5A1300095D94E /* Reward.swift in Sources */,
+				EE6406ED25BD71DB002E49DF /* TagStack.swift in Sources */,
 				EE3472EE25B7E5590048C0CF /* BlogField.swift in Sources */,
 				EEF3D97425B55DC60095D94E /* MainViewModel.swift in Sources */,
 				EE729BCD25B6D5EE00EF7AE3 /* SimpleBookItem.swift in Sources */,

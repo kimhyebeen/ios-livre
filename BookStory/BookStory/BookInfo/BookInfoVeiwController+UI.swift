@@ -16,6 +16,22 @@ extension BookInfoViewController {
         backButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         backButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         backButton.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 7).isActive = true
+    }
+    
+    func setupTagView() {
+        self.view.addSubview(tagView)
+        
+        tagView.translatesAutoresizingMaskIntoConstraints = false
+        tagView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        tagView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+    }
+    
+    func setupBookCard() {
+        
+    }
+    
+    func setupShoppingTableView() {
+        
     }
 }

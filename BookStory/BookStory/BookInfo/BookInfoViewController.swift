@@ -17,11 +17,11 @@ class BookInfoViewController: UIViewController {
             $0.setImage(UIImage(named: "arrow_left"), for: .normal)
             $0.imageEdgeInsets = UIEdgeInsets(top: 10.5, left: 10.5, bottom: 10.5, right: 10.5)
         }
+    let tagView = TagStack()
     
     var isbn: String = ""
     var vm: BookInfoViewModel!
     var shoppings: [Shopping] = []
-    var keywords: [String] = []
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -36,6 +36,7 @@ class BookInfoViewController: UIViewController {
         self.view.backgroundColor = UIColor(named: "pale_gray")
         
         setupBackButton()
+        setupTagView()
     }
     
     func bindViewModel() {
@@ -45,8 +46,7 @@ class BookInfoViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         vm.keywords.subscribe(onNext: { [weak self] keyword in
-            print("keyword : \(keyword)")
-            self?.keywords.append(keyword)
+            self?.tagView.addLabel(value: keyword)
         }).disposed(by: disposeBag)
         
         vm.requestBookItem().subscribe(onNext: { [weak self] book in

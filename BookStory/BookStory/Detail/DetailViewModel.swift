@@ -45,15 +45,21 @@ class DetailViewModel {
     }
     
     private func requestBookItems(value: String) {
-        requestBookSearch(query: value, relay: output.booksResult)
+        requestBookSearch(query: value).subscribe(onNext: { [weak self] item in
+            self?.output.booksResult.accept(item)
+        }).disposed(by: disposeBag)
     }
     
     private func requestBlogItems(value: String) {
-        requestBlogs(query: value, relay: output.blogsResult)
+        requestBlogs(query: value).subscribe(onNext: { [weak self] items in
+            self?.output.blogsResult.accept(items)
+        }).disposed(by: disposeBag)
     }
     
     private func requestNewsItems(value: String) {
-        requestNews(query: value, relay: output.newsResult)
+        requestNews(query: value).subscribe(onNext: { [weak self] items in
+            self?.output.newsResult.accept(items)
+        }).disposed(by: disposeBag)
     }
     
     private func updatePoint(value: String) {

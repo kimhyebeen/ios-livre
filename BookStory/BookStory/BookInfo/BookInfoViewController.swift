@@ -33,12 +33,12 @@ class BookInfoViewController: UIViewController {
             self?.shoppings.append(contentsOf: shoppings)
         }).disposed(by: disposeBag)
         
-        vm.keywords.subscribe(onNext: { [weak self] keywords in
-            print("keyword : \(keywords)")
-            self?.keywords = keywords
+        vm.keywords.subscribe(onNext: { [weak self] keyword in
+            print("keyword : \(keyword)")
+            self?.keywords.append(keyword)
         }).disposed(by: disposeBag)
         
-        vm.requestBookItem().subscribe(onSuccess: { [weak self] book in
+        vm.requestBookItem().subscribe(onNext: { [weak self] book in
             print("book : \(book.title)")
             self?.vm.requestShoppingList(book.title)
             self?.vm.requestKeywordList(book.description)

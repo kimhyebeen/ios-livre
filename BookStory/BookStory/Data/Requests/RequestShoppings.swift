@@ -6,24 +6,24 @@
 //
 
 import Alamofire
-import RxCocoa
+import RxSwift
 
-func requestShoppings<T>(query: String, start: Int = 1, display: Int = 10, relay: PublishRelay<T>) {
-    let url = URLConfig.shopping
+func requestShoppings(query: String, start: Int = 1, display: Int = 10) -> Observable<[Shopping]> {
     
-    AF.request(url,
-       method: .get,
-       parameters: ["query" : query, "start" : start, "display" : display],
-       encoding: URLEncoding.default,
-       headers: ["X-Naver-Client-Id":SecretKeySet.naverClientId, "X-Naver-Client-Secret":SecretKeySet.naverClientSecret])
-        .validate(statusCode: 200..<300)
-        .responseJSON { (json) in
-            guard let data = json.data else { return }
-            let response = try? JSONDecoder().decode(ShoppingSearchResponse.self, from: data)
-            
-            guard let items = response?.items else { return }
-            if T.self == [Shopping].self {
-                relay.accept(
+    return Observable.create { (observable) in
+        let request = AF.request(
+            URLConfig.shopping,
+            method: .get,
+            parameters: ["query" : query, "start" : start, "display" : display],
+            encoding: URLEncoding.default,
+            headers: ["X-Naver-Client-Id":SecretKeySet.naverClientId, "X-Naver-Client-Secret":SecretKeySet.naverClientSecret])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (json) in
+                guard let data = json.data else { return }
+                let response = try? JSONDecoder().decode(ShoppingSearchResponse.self, from: data)
+                
+                guard let items = response?.items else { return }
+                observable.onNext(
                     items.map { item in
                         Shopping(
                             title: item.title,
@@ -32,8 +32,11 @@ func requestShoppings<T>(query: String, start: Int = 1, display: Int = 10, relay
                             price: item.priceString,
                             mallName: item.mallName
                         )
-                    } as! T
+                    }
                 )
-            } else { print("request shoppings - 왜 타입이 안맞을까???") }
+        }
+        return Disposables.create {
+            request.cancel()
+        }
     }
 }

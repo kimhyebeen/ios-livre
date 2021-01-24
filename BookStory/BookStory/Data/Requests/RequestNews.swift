@@ -6,25 +6,25 @@
 //
 
 import Alamofire
-import RxCocoa
+import RxSwift
 
-func requestNews<T>(query: String, start: Int = 1, display: Int = 10, relay: PublishRelay<T>) {
-    let url = URLConfig.news
+func requestNews(query: String, start: Int = 1, display: Int = 10) -> Observable<[NewsItem]> {
     
-    AF.request(url,
-       method: .get,
-       parameters: ["query" : query, "start" : start, "display" : display],
-       encoding: URLEncoding.default,
-       headers: ["X-Naver-Client-Id":SecretKeySet.naverClientId, "X-Naver-Client-Secret":SecretKeySet.naverClientSecret]
-    )
-    .validate(statusCode: 200..<300)
-    .responseJSON { (json) in
-        guard let data = json.data else { return }
-        let response = try? JSONDecoder().decode(NewsSearchResponse.self, from: data)
-        
-        guard let items = response?.items else { return }
-        if T.self == [NewsItem].self {
-            relay.accept(
+    return Observable.create { (observable) in
+        let request = AF.request(
+            URLConfig.news,
+            method: .get,
+            parameters: ["query" : query, "start" : start, "display" : display],
+            encoding: URLEncoding.default,
+            headers: ["X-Naver-Client-Id":SecretKeySet.naverClientId, "X-Naver-Client-Secret":SecretKeySet.naverClientSecret]
+        )
+        .validate(statusCode: 200..<300)
+        .responseJSON { (json) in
+            guard let data = json.data else { return }
+            let response = try? JSONDecoder().decode(NewsSearchResponse.self, from: data)
+            
+            guard let items = response?.items else { return }
+            observable.onNext(
                 items.map { item in
                     NewsItem(
                         title: item.title,
@@ -32,8 +32,11 @@ func requestNews<T>(query: String, start: Int = 1, display: Int = 10, relay: Pub
                         description: item.description,
                         publishDate: item.publishDate
                     )
-                } as! T
+                }
             )
-        } else { print("request news - 왜 타입이 안맞을까???") }
+        }
+        return Disposables.create {
+            request.cancel()
+        }
     }
 }

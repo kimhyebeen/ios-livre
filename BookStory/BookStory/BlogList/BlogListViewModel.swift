@@ -6,11 +6,12 @@
 //
 
 import RxCocoa
+import RxSwift
 
 class BlogListViewModel {
     var word: String = ""
     var startIndex = 1
-    
+    let disposeBag = DisposeBag()
     let blogs = PublishRelay<[BlogItem]>()
     
     init(word: String) {
@@ -19,12 +20,10 @@ class BlogListViewModel {
     }
     
     func requestBlogItems() {
-        startIndex = 1
-        requestBlogs(query: word, start: startIndex, relay: blogs)
-    }
-    
-    func requestMoreBlogItems() {
+        requestBlogs(query: word, start: startIndex)
+            .subscribe(onNext: { [weak self] items in
+                self?.blogs.accept(items)
+            }).disposed(by: disposeBag)
         startIndex += 10
-        requestBlogs(query: word, start: startIndex, relay: blogs)
     }
 }

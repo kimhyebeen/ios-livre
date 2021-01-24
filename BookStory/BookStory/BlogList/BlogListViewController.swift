@@ -81,7 +81,7 @@ class BlogListViewController: UIViewController {
     }
     
     func clickMoreRequestButton() {
-        vm.requestMoreBlogItems()
+        vm.requestBlogItems()
         tableView.reloadData()
     }
 }

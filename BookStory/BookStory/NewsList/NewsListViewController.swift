@@ -81,7 +81,7 @@ class NewsListViewController: UIViewController {
     }
     
     func clickMoreRequestButton() {
-        vm.requestMoreNewsItems()
+        vm.requestNewsItems()
         tableView.reloadData()
     }
     

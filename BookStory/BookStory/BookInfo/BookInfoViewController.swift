@@ -18,6 +18,7 @@ class BookInfoViewController: UIViewController {
             $0.imageEdgeInsets = UIEdgeInsets(top: 10.5, left: 10.5, bottom: 10.5, right: 10.5)
         }
     let tagView = TagStack()
+    let bookCard = BookCard()
     
     var isbn: String = ""
     var vm: BookInfoViewModel!
@@ -37,10 +38,13 @@ class BookInfoViewController: UIViewController {
         
         setupBackButton()
         setupTagView()
+        setupBookCard()
+        setupShoppingTableView()
     }
     
     func bindViewModel() {
         vm.shoppings.subscribe(onNext: { [weak self] shoppings in
+            if shoppings.count == 0 { return }
             print("shopping : \(shoppings[0].mallName)")
             self?.shoppings.append(contentsOf: shoppings)
         }).disposed(by: disposeBag)
@@ -50,9 +54,9 @@ class BookInfoViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         vm.requestBookItem().subscribe(onNext: { [weak self] book in
-            print("book : \(book.title)")
             self?.vm.requestShoppingList(book.title)
             self?.vm.requestKeywordList(book.description)
+            self?.bookCard.setBookInformation(item: book)
         }).disposed(by: disposeBag)
     }
     

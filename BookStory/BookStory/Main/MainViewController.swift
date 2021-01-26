@@ -36,10 +36,11 @@ class MainViewController: BaseViewController {
         setupReward(reward: vm.getReward())
         bindViewModel()
         
-        animationView.play()
-        rewardView.startAnimation()
-        rewardView.setupLevel()
-        searchFieldView.textfield.text = ""
+        DispatchQueue.main.async {
+            self.animationView.play()
+            self.rewardView.startAnimation()
+            self.rewardView.setupLevel()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

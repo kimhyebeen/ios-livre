@@ -12,7 +12,7 @@ class BookInfoViewController: UIViewController {
     let backButton = UIButton()
         .then {
             $0.imageView?.frame.size = CGSize(width: 24, height: 24)
-            $0.imageView?.backgroundColor = UIColor(named: "light_gray_blue")
+            $0.imageView?.backgroundColor = UIColor(named: "pale_gray")
             $0.imageView?.layer.cornerRadius = 12
             $0.setImage(UIImage(named: "arrow_left"), for: .normal)
             $0.imageEdgeInsets = UIEdgeInsets(top: 10.5, left: 10.5, bottom: 10.5, right: 10.5)
@@ -40,7 +40,7 @@ class BookInfoViewController: UIViewController {
     }
     
     func setupView() {
-        self.view.backgroundColor = UIColor(named: "pale_gray")
+        setupBackground()
         
         setupBackButton()
         setupTagView()

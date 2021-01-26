@@ -8,6 +8,21 @@
 import UIKit
 
 extension BookInfoViewController {
+    func setupBackground() {
+        let bg = UIImageView()
+            .then {
+                $0.image = UIImage(named: "bg_book")
+                $0.contentMode = .scaleToFill
+            }
+        self.view.addSubview(bg)
+        
+        bg.translatesAutoresizingMaskIntoConstraints = false
+        bg.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        bg.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        bg.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        bg.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+    }
+    
     func setupBackButton() {
         backButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backButton)

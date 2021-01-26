@@ -37,6 +37,14 @@ extension BookInfoViewController {
     }
     
     func setupShoppingTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.view.addSubview(tableView)
         
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: bookCard.bottomAnchor, constant: 20).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
     }
 }

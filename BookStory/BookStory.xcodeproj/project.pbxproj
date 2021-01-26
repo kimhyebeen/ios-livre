@@ -22,6 +22,7 @@
 		EE0D65F525B67C3E009EF472 /* reward-7.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65EC25B67C3D009EF472 /* reward-7.json */; };
 		EE0D65F625B67C3E009EF472 /* reward-8.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0D65ED25B67C3E009EF472 /* reward-8.json */; };
 		EE0D65FB25B681DD009EF472 /* RecentSearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D65FA25B681DD009EF472 /* RecentSearchTableCell.swift */; };
+		EE15314825BFD94C008E471E /* ShoppingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15314725BFD94C008E471E /* ShoppingTableCell.swift */; };
 		EE3472E925B7E1250048C0CF /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3472E825B7E1250048C0CF /* NewsTableCell.swift */; };
 		EE3472EE25B7E5590048C0CF /* BlogField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3472ED25B7E5590048C0CF /* BlogField.swift */; };
 		EE3472F625B806A40048C0CF /* MoreInformationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3472F525B806A40048C0CF /* MoreInformationButtonView.swift */; };
@@ -130,6 +131,7 @@
 		EE0D65EC25B67C3D009EF472 /* reward-7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-7.json"; sourceTree = "<group>"; };
 		EE0D65ED25B67C3E009EF472 /* reward-8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-8.json"; sourceTree = "<group>"; };
 		EE0D65FA25B681DD009EF472 /* RecentSearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableCell.swift; sourceTree = "<group>"; };
+		EE15314725BFD94C008E471E /* ShoppingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableCell.swift; sourceTree = "<group>"; };
 		EE3472E825B7E1250048C0CF /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
 		EE3472ED25B7E5590048C0CF /* BlogField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogField.swift; sourceTree = "<group>"; };
 		EE3472F525B806A40048C0CF /* MoreInformationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInformationButtonView.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				EE729C0E25B74D0800EF7AE3 /* BlogTableCell.swift */,
 				EE3472E825B7E1250048C0CF /* NewsTableCell.swift */,
 				EE67DEC225B9F82E00ED0F98 /* MoreButtonTableCell.swift */,
+				EE15314725BFD94C008E471E /* ShoppingTableCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				EE67DEBE25B9F61A00ED0F98 /* BlogListViewController+UI.swift in Sources */,
 				EEF3D94B25B54BBC0095D94E /* URLConfig.swift in Sources */,
 				EE3D54E225B49B080064C274 /* NewsSearchResponse.swift in Sources */,
+				EE15314825BFD94C008E471E /* ShoppingTableCell.swift in Sources */,
 				EE34ADF625BAF0B40071575C /* BookInfoViewModel.swift in Sources */,
 				EE3D54EC25B4A0720064C274 /* KeywordRequestBody.swift in Sources */,
 				EE5E942225B5E03D00B135DA /* RewardView.swift in Sources */,

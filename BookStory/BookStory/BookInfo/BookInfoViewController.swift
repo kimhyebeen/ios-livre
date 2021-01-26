@@ -19,6 +19,7 @@ class BookInfoViewController: UIViewController {
         }
     let tagView = TagStack()
     let bookCard = BookCard()
+    let tableView = UITableView()
     
     var isbn: String = ""
     var vm: BookInfoViewModel!
@@ -45,7 +46,6 @@ class BookInfoViewController: UIViewController {
     func bindViewModel() {
         vm.shoppings.subscribe(onNext: { [weak self] shoppings in
             if shoppings.count == 0 { return }
-            print("shopping : \(shoppings[0].mallName)")
             self?.shoppings.append(contentsOf: shoppings)
         }).disposed(by: disposeBag)
         
@@ -60,7 +60,37 @@ class BookInfoViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
+    func connectShoppingUrl(url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("BookInfoViewController - 쇼핑 url에 연결하지 못했습니다.")
+        }
+    }
+    
     @objc func clickBackButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension BookInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.shoppings.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: ShoppingTableCell = tableView.dequeueReusableCell(withIdentifier: ShoppingTableCell.identifier, for: indexPath) as? ShoppingTableCell else {
+            return ShoppingTableCell()
+        }
+        cell.setShoppingInformation(item: self.shoppings[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let url = URL(string: self.shoppings[indexPath.row].link) else { return indexPath }
+        
+        self.connectShoppingUrl(url: url)
+        return indexPath
     }
 }

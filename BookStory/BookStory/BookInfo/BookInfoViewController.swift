@@ -38,8 +38,6 @@ class BookInfoViewController: UIViewController {
         vm = BookInfoViewModel(isbn: isbn, word: word)
         setupView()
         bindViewModel()
-        
-        vm.requestShoppingList()
     }
     
     func setupView() {
@@ -63,6 +61,7 @@ class BookInfoViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         vm.requestBookItem().subscribe(onNext: { [weak self] book in
+            self?.vm.requestShoppingList(author: book.author)
             self?.vm.requestKeywordList(book.description)
             self?.bookCard.setBookInformation(item: book)
         }).disposed(by: disposeBag)

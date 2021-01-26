@@ -34,8 +34,8 @@ class BookInfoViewModel {
             .disposed(by: disposeBag)
     }
     
-    func requestShoppingList() {
-        requestShoppings(query: word, start: startShoppingIndex)
+    func requestShoppingList(author: String) {
+        requestShoppings(query: "책 \(word) \(author)", start: startShoppingIndex)
             .subscribe(onNext: { [weak self] items in
                 self?.shoppings.accept(items)
             })

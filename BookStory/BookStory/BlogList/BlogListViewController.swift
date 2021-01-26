@@ -54,7 +54,7 @@ class BlogListViewController: UIViewController {
     }
     
     private func setupView() {
-        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffect = UIBlurEffect(style: .light)
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView.frame = self.view.frame
         self.view.addSubview(visualEffectView)

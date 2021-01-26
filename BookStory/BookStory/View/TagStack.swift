@@ -31,8 +31,8 @@ class TagStack: UIStackView {
         let label = UILabel()
             .then {
                 $0.text = "# \(value)"
-                $0.textColor = UIColor(named: "dull_blue")
-                $0.font = UIFont(name: "GmarketSansTTFMedium", size: 17)
+                $0.textColor = UIColor(named: "coral")
+                $0.font = UIFont(name: "GmarketSansTTFMedium", size: 18)
             }
         self.addArrangedSubview(label)
     }

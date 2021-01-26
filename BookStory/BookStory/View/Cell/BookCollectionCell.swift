@@ -70,8 +70,18 @@ class BookCollectionCell: UICollectionViewCell {
     
     private func loadImage(link: String) {
         DispatchQueue.global().async {
-            guard let url: URL = URL(string: link) else { return }
-            guard let imageData: Data = try? Data(contentsOf: url) else { return }
+            guard let url: URL = URL(string: link) else {
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(named: "empty_image")
+                }
+                return
+            }
+            guard let imageData: Data = try? Data(contentsOf: url) else {
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(named: "empty_image")
+                }
+                return
+            }
             
             DispatchQueue.main.async {
                 self.imageView.image = UIImage(data: imageData)

@@ -8,12 +8,6 @@
 import UIKit
 
 class BookCard: UIView {
-    let hole = UIView()
-        .then {
-            $0.backgroundColor = UIColor(named: "pale_gray")
-            $0.frame.size = CGSize(width: 24, height: 24)
-            $0.layer.cornerRadius = 12
-        }
     let labelStack = UIStackView()
         .then {
             $0.alignment = .leading
@@ -78,7 +72,6 @@ class BookCard: UIView {
         self.layer.cornerRadius = 20
         self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
         
-//        setupHole()
         setupLabelStack()
         setupImageView()
         setupContents()
@@ -109,16 +102,6 @@ class BookCard: UIView {
 
 // MARK: +UI
 extension BookCard {
-    func setupHole() {
-        self.addSubview(hole)
-        
-        hole.translatesAutoresizingMaskIntoConstraints = false
-        hole.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        hole.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        hole.topAnchor.constraint(equalTo: self.topAnchor, constant: 15).isActive = true
-        hole.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
-    }
-    
     func setupLabelStack() {
         labelStack.addArrangedSubview(titleLabel)
         labelStack.addArrangedSubview(author)
@@ -148,8 +131,8 @@ extension BookCard {
         contents.translatesAutoresizingMaskIntoConstraints = false
         let topWithImage = contents.topAnchor.constraint(greaterThanOrEqualTo: imageView.bottomAnchor, constant: 15)
         let topWithLabel = contents.topAnchor.constraint(greaterThanOrEqualTo: labelStack.bottomAnchor, constant: 15)
-        topWithImage.priority = UILayoutPriority(900)
-        topWithLabel.priority = UILayoutPriority(800)
+//        topWithImage.priority = UILayoutPriority(900)
+//        topWithLabel.priority = UILayoutPriority(800)
         topWithImage.isActive = true
         topWithLabel.isActive = true
         contents.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true

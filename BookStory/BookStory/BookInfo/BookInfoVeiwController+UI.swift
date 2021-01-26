@@ -47,7 +47,6 @@ extension BookInfoViewController {
         self.view.addSubview(shoppingCollectionView)
         
         shoppingCollectionView.translatesAutoresizingMaskIntoConstraints = false
-//        shoppingCollectionView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 70).isActive = true
         shoppingCollectionView.topAnchor.constraint(equalTo: bookCard.bottomAnchor, constant: 20).isActive = true
         shoppingCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         shoppingCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true

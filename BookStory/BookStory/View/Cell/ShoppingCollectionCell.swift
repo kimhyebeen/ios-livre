@@ -23,10 +23,12 @@ class ShoppingCollectionCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        self.backgroundColor = .yellow
+        self.backgroundColor = UIColor(named: "blight_gray")?.withAlphaComponent(0.4)
+        self.layer.cornerRadius = 20
         
         setupPrice()
         setupMallName()
+        setupIcon()
     }
 
     func setShoppingInformation(item: Shopping) {
@@ -41,6 +43,10 @@ extension ShoppingCollectionCell {
     }
     
     func setupMallName() {
+        
+    }
+    
+    func setupIcon() {
         
     }
 }

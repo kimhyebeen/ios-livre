@@ -7,21 +7,24 @@
 
 import UIKit
 
-class ShoppingTableCell: UITableViewCell {
-    static let identifier = "ShoppingTableCell"
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+class ShoppingCollectionCell: UICollectionViewCell {
+    static let identifier = "ShoppingCollectionCell"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setupView()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        
+        setupView()
     }
     
     private func setupView() {
-        setupImageView()
+        self.backgroundColor = .yellow
+        
         setupPrice()
         setupMallName()
     }
@@ -32,11 +35,7 @@ class ShoppingTableCell: UITableViewCell {
 }
 
 // MARK: +UI
-extension ShoppingTableCell {
-    func setupImageView() {
-        
-    }
-    
+extension ShoppingCollectionCell {
     func setupPrice() {
         
     }

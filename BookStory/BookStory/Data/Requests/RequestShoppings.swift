@@ -8,7 +8,7 @@
 import Alamofire
 import RxSwift
 
-func requestShoppings(query: String, start: Int = 1, display: Int = 10) -> Observable<[Shopping]> {
+func requestShoppings(query: String, start: Int = 1, display: Int = 30) -> Observable<[Shopping]> {
     
     return Observable.create { (observable) in
         let request = AF.request(

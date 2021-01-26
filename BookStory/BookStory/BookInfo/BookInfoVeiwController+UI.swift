@@ -5,7 +5,7 @@
 //  Created by 김혜빈 on 2021/01/24.
 //
 
-import Foundation
+import UIKit
 
 extension BookInfoViewController {
     func setupBackButton() {
@@ -36,15 +36,21 @@ extension BookInfoViewController {
         bookCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
     }
     
-    func setupShoppingTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.view.addSubview(tableView)
+    func setupShoppingCollectionView() {
+        shoppingCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: flowLayout)
+            .then {
+                $0.register(ShoppingCollectionCell.self, forCellWithReuseIdentifier: ShoppingCollectionCell.identifier)
+                $0.delegate = self
+                $0.dataSource = self
+                $0.backgroundColor = UIColor(named: "pale_gray")
+            }
+        self.view.addSubview(shoppingCollectionView)
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: bookCard.bottomAnchor, constant: 20).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+        shoppingCollectionView.translatesAutoresizingMaskIntoConstraints = false
+//        shoppingCollectionView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 70).isActive = true
+        shoppingCollectionView.topAnchor.constraint(equalTo: bookCard.bottomAnchor, constant: 20).isActive = true
+        shoppingCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        shoppingCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        shoppingCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
     }
 }

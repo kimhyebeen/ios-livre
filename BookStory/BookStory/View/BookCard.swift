@@ -54,6 +54,8 @@ class BookCard: UIView {
             $0.font = UIFont(name: "GmarketSansTTFMedium", size: 15)
             $0.numberOfLines = 0
         }
+    var topWithImage: NSLayoutConstraint!
+    var topWithLabel: NSLayoutConstraint!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,6 +85,14 @@ class BookCard: UIView {
         publishDate.text = "출간일: \(item.publishDateString)"
         price.text = item.price
         contents.text = item.description
+        
+        if CGFloat(titleLabel.text?.count ?? 0) <= (UIScreen.main.bounds.width - 40) * 0.6 / 19 * 2 + 2 {
+            topWithImage.isActive = true
+            topWithLabel.isActive = false
+        } else {
+            topWithImage.isActive = false
+            topWithLabel.isActive = true
+        }
         
         loadImage(link: item.image)
     }
@@ -129,12 +139,10 @@ extension BookCard {
         self.addSubview(contents)
         
         contents.translatesAutoresizingMaskIntoConstraints = false
-        let topWithImage = contents.topAnchor.constraint(greaterThanOrEqualTo: imageView.bottomAnchor, constant: 15)
-        let topWithLabel = contents.topAnchor.constraint(greaterThanOrEqualTo: labelStack.bottomAnchor, constant: 15)
-//        topWithImage.priority = UILayoutPriority(900)
-//        topWithLabel.priority = UILayoutPriority(800)
+        topWithImage = contents.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15)
+        topWithLabel = contents.topAnchor.constraint(equalTo: labelStack.bottomAnchor, constant: 15)
         topWithImage.isActive = true
-        topWithLabel.isActive = true
+        topWithLabel.isActive = false
         contents.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
         contents.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
         contents.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true

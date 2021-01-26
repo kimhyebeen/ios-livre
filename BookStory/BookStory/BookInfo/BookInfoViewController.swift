@@ -19,7 +19,12 @@ class BookInfoViewController: UIViewController {
         }
     let tagView = TagStack()
     let bookCard = BookCard()
-    let tableView = UITableView()
+    var shoppingCollectionView: UICollectionView!
+    let flowLayout = UICollectionViewFlowLayout()
+        .then {
+            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.43, height: 60)
+            $0.scrollDirection = .vertical
+        }
     
     var isbn: String = ""
     var vm: BookInfoViewModel!
@@ -40,13 +45,14 @@ class BookInfoViewController: UIViewController {
         setupBackButton()
         setupTagView()
         setupBookCard()
-        setupShoppingTableView()
+        setupShoppingCollectionView()
     }
     
     func bindViewModel() {
         vm.shoppings.subscribe(onNext: { [weak self] shoppings in
             if shoppings.count == 0 { return }
             self?.shoppings.append(contentsOf: shoppings)
+            self?.shoppingCollectionView.reloadData()
         }).disposed(by: disposeBag)
         
         vm.keywords.subscribe(onNext: { [weak self] keyword in
@@ -73,24 +79,24 @@ class BookInfoViewController: UIViewController {
     }
 }
 
-extension BookInfoViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.shoppings.count
+extension BookInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return shoppings.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ShoppingTableCell = tableView.dequeueReusableCell(withIdentifier: ShoppingTableCell.identifier, for: indexPath) as? ShoppingTableCell else {
-            return ShoppingTableCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell: ShoppingCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShoppingCollectionCell.identifier, for: indexPath) as? ShoppingCollectionCell else {
+            return ShoppingCollectionCell()
         }
-        cell.setShoppingInformation(item: self.shoppings[indexPath.row])
-        cell.selectionStyle = .none
+        
+        cell.setShoppingInformation(item: shoppings[indexPath.item])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        guard let url = URL(string: self.shoppings[indexPath.row].link) else { return indexPath }
-        
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let url = URL(string: self.shoppings[indexPath.row].link) else { return true }
         self.connectShoppingUrl(url: url)
-        return indexPath
+
+        return true
     }
 }

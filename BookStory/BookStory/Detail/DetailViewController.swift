@@ -166,6 +166,8 @@ extension DetailViewController: UITextFieldDelegate {
 
 extension DetailViewController: BookCollectionFieldDelegate {
     func moveToBookInfoViewController(VC: UIViewController) {
-        self.navigationController?.pushViewController(VC, animated: true)
+        guard let nextVC: BookInfoViewController = VC as? BookInfoViewController else { return }
+        nextVC.word = vm.currentWord
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

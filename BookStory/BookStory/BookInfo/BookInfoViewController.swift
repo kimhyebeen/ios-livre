@@ -26,6 +26,7 @@ class BookInfoViewController: UIViewController {
             $0.scrollDirection = .vertical
         }
     
+    var word: String = ""
     var isbn: String = ""
     var vm: BookInfoViewModel!
     var shoppings: [Shopping] = []
@@ -34,9 +35,11 @@ class BookInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        vm = BookInfoViewModel(isbn: isbn)
+        vm = BookInfoViewModel(isbn: isbn, word: word)
         setupView()
         bindViewModel()
+        
+        vm.requestShoppingList()
     }
     
     func setupView() {
@@ -60,7 +63,6 @@ class BookInfoViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         vm.requestBookItem().subscribe(onNext: { [weak self] book in
-            self?.vm.requestShoppingList(book.title)
             self?.vm.requestKeywordList(book.description)
             self?.bookCard.setBookInformation(item: book)
         }).disposed(by: disposeBag)

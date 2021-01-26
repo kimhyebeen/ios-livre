@@ -9,13 +9,15 @@ import RxSwift
 import RxCocoa
 
 class BookInfoViewModel {
+    var word: String = ""
     var isbn: String = ""
     var startShoppingIndex = 1
     let disposeBag = DisposeBag()
     let shoppings = PublishRelay<[Shopping]>()
     let keywords = PublishRelay<String>()
     
-    init(isbn: String) {
+    init(isbn: String, word: String) {
+        self.word = word
         self.isbn = isbn
     }
     
@@ -32,8 +34,8 @@ class BookInfoViewModel {
             .disposed(by: disposeBag)
     }
     
-    func requestShoppingList(_ title: String) {
-        requestShoppings(query: title, start: startShoppingIndex)
+    func requestShoppingList() {
+        requestShoppings(query: word, start: startShoppingIndex)
             .subscribe(onNext: { [weak self] items in
                 self?.shoppings.accept(items)
             })

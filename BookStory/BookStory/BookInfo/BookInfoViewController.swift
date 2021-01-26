@@ -22,7 +22,7 @@ class BookInfoViewController: UIViewController {
     var shoppingCollectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
         .then {
-            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.43, height: 60)
+            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.43, height: 57)
             $0.scrollDirection = .vertical
         }
     

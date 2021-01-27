@@ -46,7 +46,12 @@ extension BookInfoViewController {
         self.view.addSubview(bookCard)
         
         bookCard.translatesAutoresizingMaskIntoConstraints = false
-        bookCard.topAnchor.constraint(equalTo: tagView.bottomAnchor, constant: 35).isActive = true
+        let topWithTag = bookCard.topAnchor.constraint(equalTo: tagView.bottomAnchor, constant: 35)
+        let topWithView = bookCard.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60)
+        topWithTag.priority = UILayoutPriority(500)
+        topWithView.priority = UILayoutPriority(450)
+        topWithTag.isActive = true
+        topWithView.isActive = true
         bookCard.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
         bookCard.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
     }
@@ -57,7 +62,7 @@ extension BookInfoViewController {
                 $0.register(ShoppingCollectionCell.self, forCellWithReuseIdentifier: ShoppingCollectionCell.identifier)
                 $0.delegate = self
                 $0.dataSource = self
-                $0.backgroundColor = UIColor(named: "pale_gray")
+                $0.backgroundColor = UIColor(named: "pale_gray")?.withAlphaComponent(0)
             }
         self.view.addSubview(shoppingCollectionView)
         

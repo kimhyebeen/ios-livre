@@ -129,7 +129,6 @@ extension BookCard {
         self.addSubview(contents)
         
         contents.translatesAutoresizingMaskIntoConstraints = false
-        contents.setContentHuggingPriority(UILayoutPriority(450), for: .vertical)
         let topWithImage = contents.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15)
         let topWithLabel = contents.topAnchor.constraint(equalTo: labelStack.bottomAnchor, constant: 15)
         topWithImage.priority = UILayoutPriority(450)

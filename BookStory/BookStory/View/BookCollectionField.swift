@@ -69,6 +69,7 @@ class BookCollectionField: UIView {
 
 }
 
+// MARK: +UI
 extension BookCollectionField {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
@@ -92,6 +93,7 @@ extension BookCollectionField {
     }
 }
 
+// MARK: +Delegate
 extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return books.count
@@ -99,6 +101,7 @@ extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionCell.identifier, for: indexPath) as? BookCollectionCell else {
+            print("BookCollectionField - 재사용큐에서 cell을 찾지 못했습니다.")
             return BookCollectionCell().then {
                 $0.setBookInformation(item: books[indexPath.item])
             }

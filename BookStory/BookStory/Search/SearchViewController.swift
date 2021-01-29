@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import Lottie
 
-class DetailViewController: BaseViewController {
+class SearchViewController: BaseViewController {
     let homeIcon = HomeIcon()
     let searchField = SearchField()
         .then {
@@ -42,13 +42,13 @@ class DetailViewController: BaseViewController {
     let newsField = NewsField()
     
     let disposeBag = DisposeBag()
-    var vm: DetailViewModel!
+    var vm: SearchViewModel!
     var initSearchText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vm = DetailViewModel(value: initSearchText)
+        vm = SearchViewModel(value: initSearchText)
         setupView()
         bindViewModel()
         vm.requestAllSearchData(value: initSearchText)
@@ -144,14 +144,14 @@ class DetailViewController: BaseViewController {
 }
 
 // MARK: +Delegate
-extension DetailViewController: UIScrollViewDelegate {
+extension SearchViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
         startAnimation()
     }
 }
 
-extension DetailViewController: UITextFieldDelegate {
+extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else {
             clickSearchButton(searchField.button)
@@ -164,9 +164,9 @@ extension DetailViewController: UITextFieldDelegate {
     }
 }
 
-extension DetailViewController: BookCollectionFieldDelegate {
+extension SearchViewController: BookCollectionFieldDelegate {
     func moveToBookInfoViewController(VC: UIViewController) {
-        guard let nextVC: BookInfoViewController = VC as? BookInfoViewController else { return }
+        guard let nextVC: DetailViewController = VC as? DetailViewController else { return }
         nextVC.word = vm.currentWord
         self.navigationController?.pushViewController(nextVC, animated: true)
     }

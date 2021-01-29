@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class BookInfoViewModel {
+class DetailViewModel {
     var word: String = ""
     var isbn: String = ""
     var startShoppingIndex = 1

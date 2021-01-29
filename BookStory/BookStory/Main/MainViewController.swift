@@ -95,7 +95,7 @@ class MainViewController: BaseViewController {
             self.recentSearchDisposable?.dispose()
         }
         
-        let nextVC = DetailViewController()
+        let nextVC = SearchViewController()
         nextVC.initSearchText = searchFieldView.textfield.text ?? ""
         let rootViewcontroller = UINavigationController(rootViewController: nextVC)
         rootViewcontroller.modalPresentationStyle = .fullScreen

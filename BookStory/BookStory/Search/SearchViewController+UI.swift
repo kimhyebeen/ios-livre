@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-extension DetailViewController {
+extension SearchViewController {
     func setupBackgroundImage() {
         let imageView = UIImageView()
             .then {

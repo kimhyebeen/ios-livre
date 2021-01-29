@@ -147,7 +147,7 @@ extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        let nextVC = BookInfoViewController()
+        let nextVC = DetailViewController()
         nextVC.isbn = self.books[indexPath.item].isbn
         self.delegate?.moveToBookInfoViewController(VC: nextVC)
         return true

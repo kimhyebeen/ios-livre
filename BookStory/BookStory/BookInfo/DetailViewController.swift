@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class BookInfoViewController: UIViewController {
+class DetailViewController: UIViewController {
     let backButton = UIButton()
         .then {
             $0.imageView?.frame.size = CGSize(width: 24, height: 24)
@@ -28,14 +28,14 @@ class BookInfoViewController: UIViewController {
     
     var word: String = ""
     var isbn: String = ""
-    var vm: BookInfoViewModel!
+    var vm: DetailViewModel!
     var shoppings: [Shopping] = []
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        vm = BookInfoViewModel(isbn: isbn, word: word)
+        vm = DetailViewModel(isbn: isbn, word: word)
         setupView()
         bindViewModel()
     }
@@ -80,7 +80,8 @@ class BookInfoViewController: UIViewController {
     }
 }
 
-extension BookInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+// MARK: +Delegate
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return shoppings.count
     }

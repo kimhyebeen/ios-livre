@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BookInfoViewController {
+extension DetailViewController {
     func setupBackground() {
         let bg = UIImageView()
             .then {

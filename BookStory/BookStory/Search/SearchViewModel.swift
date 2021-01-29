@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class DetailViewModel {
+class SearchViewModel {
     let input = Input()
     let output = Output()
     private let disposeBag = DisposeBag()

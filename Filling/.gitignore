@@ -2,11 +2,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods
 # Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,cocoapods
 
-.DS_Store
-/.DS_Store
-
-BookStory/SecretKeySet.swift
-
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
 
@@ -14,6 +9,11 @@ BookStory/SecretKeySet.swift
 #           - Also handy if you have a large number of dependant pods
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
 Pods/
+
+.DS_Store
+/.DS_Store
+
+Filling/SecretKeySet.swift
 
 ### Swift ###
 # Xcode

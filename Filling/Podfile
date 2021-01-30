@@ -1,25 +1,25 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '13.0'
 
-target 'BookStory' do
+target 'Filling' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for BookStory
+  # Pods for Filling
     pod 'RxSwift', '6.0.0'
     pod 'RxCocoa', '6.0.0'
     pod 'Alamofire', '~> 5.2'
     pod 'lottie-ios'
     pod 'Then'
 
-  target 'BookStoryTests' do
+  target 'FillingTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RxBlocking', '6.0.0'
     pod 'RxTest', '6.0.0'
   end
 
-  target 'BookStoryUITests' do
+  target 'FillingUITests' do
     inherit! :search_paths
     # Pods for testing
   end

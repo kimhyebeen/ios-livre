@@ -9,15 +9,13 @@ import RxSwift
 import RxCocoa
 
 class DetailViewModel {
-    var word: String = ""
     var isbn: String = ""
     var startShoppingIndex = 1
     let disposeBag = DisposeBag()
     let shoppings = PublishRelay<[Shopping]>()
     let keywords = PublishRelay<String>()
     
-    init(isbn: String, word: String) {
-        self.word = word
+    init(isbn: String) {
         self.isbn = isbn
     }
     
@@ -34,8 +32,10 @@ class DetailViewModel {
             .disposed(by: disposeBag)
     }
     
-    func requestShoppingList(author: String) {
-        requestShoppings(query: "책 \(word) \(author)", start: startShoppingIndex)
+    func requestShoppingList(author: String, word: String) {
+        let searchWord = word.count > 10 ? String(word[...word.index(word.startIndex, offsetBy: 10)]) : word
+        
+        requestShoppings(query: "책 \(author) \(searchWord)", start: startShoppingIndex)
             .subscribe(onNext: { [weak self] items in
                 self?.shoppings.accept(items)
             })

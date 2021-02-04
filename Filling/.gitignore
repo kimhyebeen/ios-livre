@@ -14,6 +14,7 @@ Pods/
 /.DS_Store
 
 Filling/SecretKeySet.swift
+Filling.xcworkspace/
 
 ### Swift ###
 # Xcode
@@ -70,7 +71,8 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
 # Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+*.xcworkspace
+Podfile.lock
 
 # Carthage
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
@@ -111,9 +113,9 @@ iOSInjectionProject/
 
 ### Xcode Patch ###
 *.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
+*.xcodeproj/project.pbxproj
+*.xcodeproj/xcshareddata/
+*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods

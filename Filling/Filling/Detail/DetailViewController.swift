@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        vm = DetailViewModel(isbn: isbn, word: word)
+        vm = DetailViewModel(isbn: isbn)
         setupView()
         bindViewModel()
     }
@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         vm.requestBookItem().subscribe(onNext: { [weak self] book in
-            self?.vm.requestShoppingList(author: book.author)
+            self?.vm.requestShoppingList(author: book.author, word: book.title)
             self?.vm.requestKeywordList(book.description)
             self?.bookCard.setBookInformation(item: book)
         }).disposed(by: disposeBag)

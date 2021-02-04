@@ -276,14 +276,14 @@
 			path = NewsList;
 			sourceTree = "<group>";
 		};
-		EE34ADF425BAF0A00071575C /* BookInfo */ = {
+		EE34ADF425BAF0A00071575C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				EE34ADF525BAF0B40071575C /* DetailViewModel.swift */,
 				EE34ADFA25BB0ACF0071575C /* DetailViewController.swift */,
 				EE6406E625BD6F61002E49DF /* DetailVeiwController+UI.swift */,
 			);
-			path = BookInfo;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		EE3D543825B45E470064C274 = {
@@ -319,7 +319,7 @@
 				EE3D548525B460180064C274 /* Base */,
 				EEF3D97225B55D970095D94E /* Main */,
 				EE0D65DF25B6749E009EF472 /* Search */,
-				EE34ADF425BAF0A00071575C /* BookInfo */,
+				EE34ADF425BAF0A00071575C /* Detail */,
 				EE67DE8525B945AD00ED0F98 /* BlogList */,
 				EE34ADD225BACC500071575C /* NewsList */,
 				EE3D544425B45E470064C274 /* AppDelegate.swift */,

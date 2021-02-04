@@ -34,6 +34,7 @@ class MainViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         setupReward(reward: vm.getReward())
+        searchFieldView.textfield.text = ""
         bindViewModel()
         
         DispatchQueue.main.async {

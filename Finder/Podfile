@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '13.0'
 
-target 'Filling' do
+target 'Finder' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -12,14 +12,14 @@ target 'Filling' do
     pod 'lottie-ios'
     pod 'Then'
 
-  target 'FillingTests' do
+  target 'FinderTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RxBlocking', '6.0.0'
     pod 'RxTest', '6.0.0'
   end
 
-  target 'FillingUITests' do
+  target 'FinderUITests' do
     inherit! :search_paths
     # Pods for testing
   end

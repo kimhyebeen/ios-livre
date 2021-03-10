@@ -2,7 +2,7 @@
 .DS_Store
 */.DS_Store
 
-./Data/SecretKeySet.swift
+/livre/Data/SecretKeySet.swift
 
 # Xcode
 #

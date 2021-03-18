@@ -201,6 +201,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EE17260C25FE31CA00B79E80 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EEBCE32225F85FB700BA6749 /* Model */,
+				EEBCE2CB25F85DE300BA6749 /* Base */,
+				EEBCE2DC25F85EBB00BA6749 /* View */,
+				EEBCE2D025F85E0600BA6749 /* Main */,
+				EEBCE30225F85F1800BA6749 /* Search */,
+				EEBCE30325F85F2100BA6749 /* BlogList */,
+				EEBCE30425F85F2E00BA6749 /* NewsList */,
+				EEBCE31A25F85F9600BA6749 /* Detail */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		EEBCE2A225F85C5400BA6749 = {
 			isa = PBXGroup;
 			children = (
@@ -225,14 +240,7 @@
 				EEBCE35425F8605500BA6749 /* Font */,
 				EEBCE35325F8604D00BA6749 /* LottieJson */,
 				EEBCE33025F85FE100BA6749 /* Data */,
-				EEBCE32225F85FB700BA6749 /* Model */,
-				EEBCE2CB25F85DE300BA6749 /* Base */,
-				EEBCE2DC25F85EBB00BA6749 /* View */,
-				EEBCE2D025F85E0600BA6749 /* Main */,
-				EEBCE30225F85F1800BA6749 /* Search */,
-				EEBCE30325F85F2100BA6749 /* BlogList */,
-				EEBCE30425F85F2E00BA6749 /* NewsList */,
-				EEBCE31A25F85F9600BA6749 /* Detail */,
+				EE17260C25FE31CA00B79E80 /* Presenter */,
 				EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */,
 				EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */,
 				EEBCE2B725F85C5700BA6749 /* Assets.xcassets */,
@@ -325,8 +333,8 @@
 		EEBCE31A25F85F9600BA6749 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				EEBCE31B25F85FAE00BA6749 /* DetailVeiwController+UI.swift */,
 				EEBCE31C25F85FAE00BA6749 /* DetailViewController.swift */,
+				EEBCE31B25F85FAE00BA6749 /* DetailVeiwController+UI.swift */,
 				EEBCE31D25F85FAE00BA6749 /* DetailViewModel.swift */,
 			);
 			path = Detail;

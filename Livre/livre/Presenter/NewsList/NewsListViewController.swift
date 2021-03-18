@@ -1,20 +1,20 @@
 //
-//  BlogListViewController.swift
+//  NewsListViewController.swift
 //  BookStory
 //
-//  Created by 김혜빈 on 2021/01/21.
+//  Created by 김혜빈 on 2021/01/22.
 //
 
 import UIKit
 import RxSwift
 
-class BlogListViewController: UIViewController {
+class NewsListViewController: BaseViewController {
     let deviceWidth = UIScreen.main.bounds.width
     let deviceHeight = UIScreen.main.bounds.height
     let disposeBag = DisposeBag()
     var word: String = ""
-    var vm: BlogListViewModel!
-    var blogs: [BlogItem] = []
+    var vm: NewsListViewModel!
+    var news: [NewsItem] = []
     
     let barView = UIView()
         .then {
@@ -44,16 +44,16 @@ class BlogListViewController: UIViewController {
         .then {
             $0.backgroundColor = UIColor.white.withAlphaComponent(0)
         }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        vm = BlogListViewModel(word: word)
+
+        vm = NewsListViewModel(word: word)
         setupView()
         bindViewModel()
     }
     
-    private func setupView() {
+    func setupView() {
         let blurEffect = UIBlurEffect(style: .light)
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
         visualEffectView.frame = self.view.frame
@@ -65,9 +65,9 @@ class BlogListViewController: UIViewController {
         setupTableView()
     }
     
-    private func bindViewModel() {
-        vm.blogs.subscribe(onNext: { [weak self] items in
-            self?.blogs.append(contentsOf: items)
+    func bindViewModel() {
+        vm.news.subscribe(onNext: { [weak self] items in
+            self?.news.append(contentsOf: items)
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -76,24 +76,25 @@ class BlogListViewController: UIViewController {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         } else {
-            print("BlogListViewController - 블로그 url에 연결하지 못했습니다.")
+            print("NewsListViewController - 뉴스 url에 연결하지 못했습니다.")
         }
     }
     
     func clickMoreRequestButton() {
-        vm.requestBlogItems()
+        vm.requestNewsItems()
         tableView.reloadData()
     }
+    
 }
 
 // MARK: +Delegate
-extension BlogListViewController: UITableViewDataSource, UITableViewDelegate {
+extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return blogs.count+1
+        return news.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == blogs.count {
+        if indexPath.row == news.count {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MoreButtonTableCell.identifier, for: indexPath) as? MoreButtonTableCell else {
                 return MoreButtonTableCell()
             }
@@ -102,26 +103,26 @@ extension BlogListViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableCell.identifier, for: indexPath) as? BlogTableCell else {
-            return BlogTableCell().then {
-                $0.setBlogInformtaion(item: blogs[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.identifier, for: indexPath) as? NewsTableCell else {
+            return NewsTableCell().then {
+                $0.setNewsInformation(item: news[indexPath.row])
                 $0.selectionStyle = .none
             }
         }
         
-        cell.setBlogInformtaion(item: blogs[indexPath.row])
+        cell.setNewsInformation(item: news[indexPath.row])
         cell.setLightMode()
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.row == blogs.count {
+        if indexPath.row == news.count {
             self.clickMoreRequestButton()
             return indexPath
         }
         
-        guard let url = URL(string: blogs[indexPath.row].link) else { return indexPath }
+        guard let url = URL(string: news[indexPath.row].link) else { return indexPath }
         self.connectBlogUrl(url: url)
 
         return indexPath

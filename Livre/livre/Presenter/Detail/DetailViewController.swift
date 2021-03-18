@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class DetailViewController: UIViewController {
+class DetailViewController: BaseViewController {
     let backButton = UIButton()
         .then {
             $0.imageView?.frame.size = CGSize(width: 24, height: 24)

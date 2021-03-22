@@ -51,7 +51,7 @@ class SearchViewController: BaseViewController {
         vm = SearchViewModel(value: initSearchText)
         setupView()
         bindViewModel()
-        vm.requestAllSearchData(value: initSearchText)
+        vm.requestBookItems(value: initSearchText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +124,7 @@ class SearchViewController: BaseViewController {
     @objc func clickSearchButton(_ sender: UIButton) {
         self.view.endEditing(true)
         scrollView.setContentOffset(.zero, animated: true)
+        if bookCollectionField.books.count == 0 { return }
         bookCollectionField.moveToFirstPage()
         blogField.moveToFirstRow()
         newsField.moveToFirstRow()
@@ -166,7 +167,7 @@ extension SearchViewController: UITextFieldDelegate {
             return true
         }
         
-        vm.requestAllSearchData(value: text)
+        vm.requestBookItems(value: text)
         clickSearchButton(searchField.button)
         return true
     }

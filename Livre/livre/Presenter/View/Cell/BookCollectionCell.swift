@@ -62,8 +62,9 @@ class BookCollectionCell: UICollectionViewCell {
     
     func setBookInformation(item: SimpleBookItem) {
         title.attributedText = item.title
-            .htmlEscaped(font: UIFont.boldSystemFont(ofSize: 17), colorHex: "F2F2F2", lineSpacing: 1)
-        author.text = item.author
+            .htmlEscapedAttributedString(font: UIFont.boldSystemFont(ofSize: 17), colorHex: "F2F2F2", lineSpacing: 1)
+        author.attributedText = item.author
+            .htmlEscapedAttributedString(font: UIFont.systemFont(ofSize: 14), colorHex: "D9D9D9", lineSpacing: 1)
         publishDate.text = item.publishDateString
         loadImage(link: item.image)
     }

@@ -58,10 +58,10 @@ class BlogTableCell: UITableViewCell {
     
     func setBlogInformtaion(item: BlogItem) {
         title.attributedText = item.title
-            .htmlEscaped(font: UIFont.boldSystemFont(ofSize: 17), colorHex: "2C2C2C", lineSpacing: 1)
+            .htmlEscapedAttributedString(font: UIFont.boldSystemFont(ofSize: 17), colorHex: "2C2C2C", lineSpacing: 1)
         postDate.text = item.postDateString
         descriptionLabel.attributedText = item.description
-            .htmlEscaped(font: UIFont.systemFont(ofSize: 14), colorHex: "4C4C4C", lineSpacing: 1)
+            .htmlEscapedAttributedString(font: UIFont.systemFont(ofSize: 14), colorHex: "4C4C4C", lineSpacing: 1)
         bloggerName.text = item.bloggername
     }
     

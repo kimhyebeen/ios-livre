@@ -9,7 +9,7 @@ import UIKit
 
 extension String {
     // MARK: Html 문법대로 라벨에 표시하는 메서드
-    func htmlEscaped(font: UIFont, colorHex: String, lineSpacing: CGFloat) -> NSAttributedString {
+    func htmlEscapedAttributedString(font: UIFont, colorHex: String, lineSpacing: CGFloat) -> NSAttributedString {
         let style = """
                     <style>
                     p.normal {

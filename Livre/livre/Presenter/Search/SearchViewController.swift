@@ -95,9 +95,17 @@ class SearchViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         vm.output.booksResult.subscribe(onNext: { [weak self] items in
-            if items.count == 0 { self?.emptyLabel.isHidden = false }
-            else { self?.emptyLabel.isHidden = true }
-            self?.bookCollectionField.setBookItems(items: items)
+            guard let self = self else { return }
+            if items.count == 0 {
+                self.emptyLabel.isHidden = false
+                self.blogField.setTableViewItem(items: [])
+                self.newsField.setTableViewItem(items: [])
+                self.showToast(view: self.view, message: "관련 정보를 찾을 수 없습니다.")
+            } else {
+                self.emptyLabel.isHidden = true
+                self.vm.requestBlogAndNews()
+            }
+            self.bookCollectionField.setBookItems(items: items)
         }).disposed(by: disposeBag)
         
         vm.output.blogsResult.subscribe(onNext: { [weak self] items in

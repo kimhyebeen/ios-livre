@@ -12,8 +12,11 @@
 <img src="./image/main-screenshot.png" width=900 />
 
 ## 피드백 반영
-### 책 목록 아이템에서 작가명 부분에 html 태그 나오는 현상 제거
+#### 책 목록 아이템에서 작가명 부분에 html 태그 나오는 현상 제거
 <img src="./image/feedback1.png" width=450 />
+
+#### 책 검색 내용이 없을 때, 블로그/뉴스 데이터를 보여주지 않고 메시지 띄우기
+<img src="./image/feedback2.png" width=700 />
 
 
 ## Reference

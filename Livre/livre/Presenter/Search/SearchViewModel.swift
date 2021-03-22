@@ -32,38 +32,37 @@ class SearchViewModel {
         input.searchButton.withLatestFrom(input.searchWord)
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
-                self?.requestAllSearchData(value: text)
+                self?.requestBookItems(value: text)
             }).disposed(by: disposeBag)
     }
     
-    func requestAllSearchData(value: String) {
-        currentWord = value
-        requestBookItems(value: value)
-        requestBlogItems(value: value)
-        requestNewsItems(value: value)
-        updatePoint(value: value)
+    func requestBlogAndNews() {
+        requestBlogItems()
+        requestNewsItems()
+        updatePoint()
     }
     
-    private func requestBookItems(value: String) {
+    func requestBookItems(value: String) {
+        currentWord = value
         requestBookSearch(query: value).subscribe(onNext: { [weak self] item in
             self?.output.booksResult.accept(item)
         }).disposed(by: disposeBag)
     }
     
-    private func requestBlogItems(value: String) {
-        requestBlogs(query: value).subscribe(onNext: { [weak self] items in
+    private func requestBlogItems() {
+        requestBlogs(query: currentWord).subscribe(onNext: { [weak self] items in
             self?.output.blogsResult.accept(items)
         }).disposed(by: disposeBag)
     }
     
-    private func requestNewsItems(value: String) {
-        requestNews(query: value).subscribe(onNext: { [weak self] items in
+    private func requestNewsItems() {
+        requestNews(query: currentWord).subscribe(onNext: { [weak self] items in
             self?.output.newsResult.accept(items)
         }).disposed(by: disposeBag)
     }
     
-    private func updatePoint(value: String) {
-        RewardConfig.addPoint(point: Float(value.count * 2))
+    private func updatePoint() {
+        RewardConfig.addPoint(point: Float(currentWord.count * 2))
         output.pointResult.accept(getPointString())
     }
     

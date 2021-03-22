@@ -13,7 +13,7 @@
 
 ## 피드백 반영
 ### 책 목록 아이템에서 작가명 부분에 html 태그 나오는 현상 제거
-<img src="./image/feedback1.png" width=150 />
+<img src="./image/feedback1.png" width=450 />
 
 
 ## Reference

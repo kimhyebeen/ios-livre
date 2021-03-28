@@ -117,6 +117,7 @@ class SearchViewController: BaseViewController {
         }).disposed(by: disposeBag)
     }
     
+    // MARK: click event
     @objc func clickHomeIcon(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

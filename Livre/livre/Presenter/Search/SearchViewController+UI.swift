@@ -10,18 +10,8 @@ import Lottie
 
 extension SearchViewController {
     func setupBackgroundImage() {
-        let imageView = UIImageView()
-            .then {
-                $0.image = UIImage(named: "bg_detail")
-                $0.contentMode = .scaleAspectFill
-            }
-        self.view.addSubview(imageView)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        let backgroundView = SearchBackgroundView(frame: self.view.frame)
+        self.view.addSubview(backgroundView)
     }
     
     // MARK: Home Icon

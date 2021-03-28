@@ -32,6 +32,7 @@ class MainViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupBackgroundColor()
         
         setupReward(reward: vm.getReward())
         searchFieldView.textfield.text = ""
@@ -53,10 +54,20 @@ class MainViewController: BaseViewController {
             rewardView.startAnimation()
         }
     }
+    
+    private func setupBackgroundColor() {
+        self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
+        self.view.bringSubviewToFront(animationView)
+        self.view.bringSubviewToFront(searchFieldView)
+        self.view.bringSubviewToFront(basicLabel)
+        self.view.bringSubviewToFront(pointLabel)
+        self.view.bringSubviewToFront(rewardView)
+        self.view.bringSubviewToFront(startLevelLabel)
+        self.view.bringSubviewToFront(endLevelLabel)
+        self.view.bringSubviewToFront(recentSearchTable)
+    }
 
     private func setupView() {
-        self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
-        
         setupAnimationView()
         setupSearchFieldView()
         setupBasicLabel()

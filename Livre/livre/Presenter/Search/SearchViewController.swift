@@ -12,16 +12,9 @@ import Lottie
 class SearchViewController: BaseViewController {
     let homeIcon = HomeIcon()
     let searchField = SearchField()
-    let scrollView = UIScrollView()
-    let scrollContentsView = UIView()
-    let animationOnBCF = AnimationView(name: "splash-icon")
-    let bookCollectionField = BookCollectionField()
-    let backPageButton = UIButton()
-    let nextPageButton = UIButton()
+    let bookCardField = BookCardCollectionField()
     let emptyLabel = UILabel()
-    let blogField = BlogField()
-    let newsField = NewsField()
-    
+        
     let disposeBag = DisposeBag()
     var vm: SearchViewModel!
     var initSearchText = ""
@@ -38,32 +31,21 @@ class SearchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
-        startAnimation()
+        homeIcon.startAnimation()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        startAnimation()
-    }
-    
-    func startAnimation() {
         homeIcon.startAnimation()
-        if !animationOnBCF.isAnimationPlaying { animationOnBCF.play() }
     }
     
     private func setupView() {
-        
         setupBackgroundImage()
         setupHomeIcon()
         setupSearchField()
-        setupBookCollectionField()
-        setupBackPageButton()
-        setupNextPageButton()
+        setupBookCardCollectionField()
         setupEmptyLabel()
-        setupBlogField()
-        setupNewsField()
-        setupContentsView()
-        setupScrollView()
+        
     }
     
     private func bindViewModel() {
@@ -79,23 +61,18 @@ class SearchViewController: BaseViewController {
             guard let self = self else { return }
             if items.count == 0 {
                 self.emptyLabel.isHidden = false
-                self.blogField.setTableViewItem(items: [])
-                self.newsField.setTableViewItem(items: [])
                 self.showToast(view: self.view, message: "관련 정보를 찾을 수 없습니다.")
             } else {
                 self.emptyLabel.isHidden = true
-                self.vm.requestBlogAndNews()
+                self.vm.updatePoint(value: self.searchField.textfield.text ?? "")
+                // 블로그 정보 요청
             }
-            self.bookCollectionField.setBookItems(items: items)
+            self.bookCardField.setBookItems(items: items)
         }).disposed(by: disposeBag)
         
-        vm.output.blogsResult.subscribe(onNext: { [weak self] items in
-            self?.blogField.setTableViewItem(items: items)
-        }).disposed(by: disposeBag)
-        
-        vm.output.newsResult.subscribe(onNext: { [weak self] items in
-            self?.newsField.setTableViewItem(items: items)
-        }).disposed(by: disposeBag)
+//        vm.output.blogsResult.subscribe(onNext: { [weak self] items in
+//            self?.blogField.setTableViewItem(items: items)
+//        }).disposed(by: disposeBag)
     }
     
     // MARK: click event
@@ -105,29 +82,20 @@ class SearchViewController: BaseViewController {
     
     @objc func clickSearchButton(_ sender: UIButton) {
         self.view.endEditing(true)
-        scrollView.setContentOffset(.zero, animated: true)
-        if bookCollectionField.books.count == 0 { return }
-        bookCollectionField.moveToFirstPage()
-        blogField.moveToFirstRow()
-        newsField.moveToFirstRow()
+        if bookCardField.books.count == 0 { return }
+        bookCardField.moveToFirstPage()
     }
     
-    @objc func clickBackButton(_ sender: UIButton) {
-        bookCollectionField.moveToPrePage()
-    }
-    
-    @objc func clickNextButton(_ sender: UIButton) {
-        bookCollectionField.moveToNextPage()
-    }
+//    @objc func clickBackButton(_ sender: UIButton) {
+//        bookCollectionField.moveToPrePage()
+//    }
+//
+//    @objc func clickNextButton(_ sender: UIButton) {
+//        bookCollectionField.moveToNextPage()
+//    }
     
     @objc func moveToBlogListViewController(_ sender: UIButton) {
         let nextVC = BlogListViewController()
-        nextVC.word = vm.currentWord
-        self.present(nextVC, animated: true, completion: nil)
-    }
-    
-    @objc func moveToNewsListViewController(_ sender: UIButton) {
-        let nextVC = NewsListViewController()
         nextVC.word = vm.currentWord
         self.present(nextVC, animated: true, completion: nil)
     }
@@ -135,13 +103,6 @@ class SearchViewController: BaseViewController {
 }
 
 // MARK: +Delegate
-extension SearchViewController: UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.view.endEditing(true)
-        startAnimation()
-    }
-}
-
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else {
@@ -152,13 +113,5 @@ extension SearchViewController: UITextFieldDelegate {
         vm.requestBookItems(value: text)
         clickSearchButton(searchField.button)
         return true
-    }
-}
-
-extension SearchViewController: BookCollectionFieldDelegate {
-    func moveToBookInfoViewController(VC: UIViewController) {
-        guard let nextVC: DetailViewController = VC as? DetailViewController else { return }
-        nextVC.word = vm.currentWord
-        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

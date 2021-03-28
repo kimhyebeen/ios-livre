@@ -1,25 +1,28 @@
 //
-//  BookCollectionField.swift
-//  BookStory
+//  BookCardCollectionField.swift
+//  livre
 //
-//  Created by 김혜빈 on 2021/01/20.
+//  Created by 김혜빈 on 2021/03/28.
 //
 
 import UIKit
 
-protocol BookCollectionFieldDelegate: class {
-    func moveToBookInfoViewController(VC: UIViewController)
+protocol BookCardCollectionFieldDelegate: class {
+    func moveToBookShoppingMall()
+    func requestMoreBooks()
 }
 
-class BookCollectionField: UIView {
-    weak var delegate: BookCollectionFieldDelegate?
+class BookCardCollectionField: UIView {
+    weak var delegate: BookCardCollectionFieldDelegate?
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
     
-    let spaceForLeftRight = (UIScreen.main.bounds.width * 0.75 - UIScreen.main.bounds.width * 0.55) / 2
+    let cellWidth: CGFloat = UIScreen.main.bounds.width * 0.76
+    let cellHeight: CGFloat = UIScreen.main.bounds.height * 0.35
+    let spaceForLeftRight = UIScreen.main.bounds.width * 0.12
     var currentIndex: CGFloat = 0
-    var books: [SimpleBookItem] = []
-
+    var books: [Book] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -33,12 +36,17 @@ class BookCollectionField: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = UIColor.white.withAlphaComponent(0)
+        self.backgroundColor = .clear
         setupCollectionView()
     }
     
-    func setBookItems(items: [SimpleBookItem]) {
+    func setBookItems(items: [Book]) {
         books = items
+        collectionView.reloadData()
+    }
+    
+    func addBookItems(items: [Book]) {
+        books.append(contentsOf: items)
         collectionView.reloadData()
     }
     
@@ -51,7 +59,10 @@ class BookCollectionField: UIView {
     
     func moveToNextPage() {
         if books.count <= 1 { return }
-        if currentIndex == CGFloat(books.count-1) { return }
+        if currentIndex == CGFloat(books.count-1) {
+            delegate?.requestMoreBooks()
+            return
+        }
         collectionView.scrollToItem(at: IndexPath(row: Int(currentIndex) + 1, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex += 1
     }
@@ -65,13 +76,12 @@ class BookCollectionField: UIView {
 
 }
 
-extension BookCollectionField {
-    // MARK: Collection View
+extension BookCardCollectionField {
     private func setupCollectionView() {
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.55, height: 90)
+        flowLayout.itemSize = CGSize(width: cellWidth, height: cellHeight - 30)
         flowLayout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
-        collectionView.register(BookCollectionCell.self, forCellWithReuseIdentifier: BookCollectionCell.identifier)
+        collectionView.register(BookCardCell.self, forCellWithReuseIdentifier: BookCardCell.identifier)
         collectionView.backgroundColor = .clear
         collectionView.contentInset.left = spaceForLeftRight
         collectionView.contentInset.right = spaceForLeftRight
@@ -81,30 +91,37 @@ extension BookCollectionField {
         collectionView.dataSource = self
         self.addSubview(collectionView)
         
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        collectionView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
     }
 }
 
-// MARK: +Delegate
-extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return books.count
-    }
+extension BookCardCollectionField: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { books.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionCell.identifier, for: indexPath) as? BookCollectionCell else {
-            print("BookCollectionField - 재사용큐에서 cell을 찾지 못했습니다.")
-            let emptyCell = BookCollectionCell()
-            emptyCell.setBookInformation(item: books[indexPath.item])
-            return emptyCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCardCell.identifier, for: indexPath) as? BookCardCell else {
+            print("BookCardCollectionField - 재사용큐에서 cell을 찾지 못했습니다.")
+            return BookCardCell()
         }
-        
+        cell.tagStack.removeLabels()
         cell.setBookInformation(item: books[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let isbn = books[indexPath.item].isbn.split(separator: " ").map { String($0) }[1]
+        guard let url = URL(string: "http://bsearch.interpark.com/dsearch/book.jsp?sch=all&query=\(isbn)") else { return true }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("BookCardCollectionField - 인터파크 도서 검색 url에 연결하지 못했습니다.")
+        }
+        return true
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -118,34 +135,20 @@ extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDeleg
         let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
         var roundedIndex = round(index)
         
-        // scrollView, targetContentOffset의 좌표 값으로 스크롤 방향을 알 수 있다.
         // index를 반올림하여 사용하면 item의 절반 사이즈만큼 스크롤을 해야 페이징이 된다.
         // 스크로로 방향을 체크하여 올림,내림을 사용하면 좀 더 자연스러운 페이징 효과를 낼 수 있다.
-        if scrollView.contentOffset.x > targetContentOffset.pointee.x {
-            roundedIndex = floor(index)
-        } else if scrollView.contentOffset.x < targetContentOffset.pointee.x {
-            roundedIndex = ceil(index)
-        } else {
-            roundedIndex = round(index)
-        }
-
-        if currentIndex > roundedIndex && currentIndex != 0 {
-            currentIndex -= 1
-            roundedIndex = currentIndex
-        } else if currentIndex < roundedIndex {
-            currentIndex += 1
-            roundedIndex = currentIndex
-        }
+        let touchInX = targetContentOffset.pointee.x
+        let touchOutX = scrollView.contentOffset.x
+        if touchInX < touchOutX { roundedIndex = floor(index) }
+        else if touchInX > touchOutX { roundedIndex = ceil(index) }
+        else { roundedIndex = round(index) }
         
-        // 위 코드를 통해 페이징 될 좌표값을 targetContentOffset에 대입하면 된다.
+        if roundedIndex == currentIndex { return }
+        currentIndex = currentIndex > roundedIndex && currentIndex != 0 ? currentIndex-1 : currentIndex+1
+        roundedIndex = currentIndex
+        
+        // 위 코드를 통해 얻은 페이징 될 좌표값을 targetContentOffset에 대입하면 된다.
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - spaceForLeftRight, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        let nextVC = DetailViewController()
-        nextVC.isbn = self.books[indexPath.item].isbn
-        self.delegate?.moveToBookInfoViewController(VC: nextVC)
-        return true
     }
 }

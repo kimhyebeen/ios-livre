@@ -23,15 +23,22 @@ class TagStack: UIStackView {
     
     private func setupView() {
         self.spacing = 4
-        self.alignment = .trailing
-        self.axis = .vertical
+        self.alignment = .center
+        self.distribution = .equalSpacing
+        self.axis = .horizontal
     }
     
     func addLabel(value: String) {
         let label = UILabel()
         label.text = "# \(value)"
-        label.textColor = UIColor(named: "coral")
-        label.font = UIFont(name: "GmarketSansTTFMedium", size: 18)
+        label.textColor = UIColor(named: "apricot")
+        label.fontGmarketSansMedium(13)
         self.addArrangedSubview(label)
+    }
+    
+    func removeLabels() {
+        for item in self.arrangedSubviews {
+            item.removeFromSuperview()
+        }
     }
 }

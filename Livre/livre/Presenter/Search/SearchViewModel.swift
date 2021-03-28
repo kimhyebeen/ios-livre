@@ -21,9 +21,8 @@ class SearchViewModel {
     }
     
     struct Output {
-        let booksResult = PublishRelay<[SimpleBookItem]>()
-        let blogsResult = PublishRelay<[BlogItem]>()
-        let newsResult = PublishRelay<[NewsItem]>()
+        let booksResult = PublishRelay<[Book]>()
+//        let blogsResult = PublishRelay<[BlogItem]>()
         let pointResult = BehaviorRelay<String>(value: "lv \(RewardConfig.getCurrentLevel()). \(Int(RewardConfig.getCurrentPoint()))/\(Int(RewardConfig.getPointList()![RewardConfig.getCurrentLevel()]))")
     }
     
@@ -37,9 +36,8 @@ class SearchViewModel {
     }
     
     func requestBlogAndNews() {
-        requestBlogItems()
-        requestNewsItems()
-        updatePoint()
+//        requestBlogItems()
+//        updatePoint()
     }
     
     func requestBookItems(value: String) {
@@ -49,20 +47,14 @@ class SearchViewModel {
         }).disposed(by: disposeBag)
     }
     
-    private func requestBlogItems() {
-        requestBlogs(query: currentWord).subscribe(onNext: { [weak self] items in
-            self?.output.blogsResult.accept(items)
-        }).disposed(by: disposeBag)
-    }
+//    private func requestBlogItems() {
+//        requestBlogs(query: currentWord).subscribe(onNext: { [weak self] items in
+//            self?.output.blogsResult.accept(items)
+//        }).disposed(by: disposeBag)
+//    }
     
-    private func requestNewsItems() {
-        requestNews(query: currentWord).subscribe(onNext: { [weak self] items in
-            self?.output.newsResult.accept(items)
-        }).disposed(by: disposeBag)
-    }
-    
-    private func updatePoint() {
-        RewardConfig.addPoint(point: Float(currentWord.count * 2))
+    func updatePoint(value: String) {
+        RewardConfig.addPoint(point: Float(value.count * 2))
         output.pointResult.accept(getPointString())
     }
     

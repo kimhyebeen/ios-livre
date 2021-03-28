@@ -25,8 +25,8 @@ func requestKeywords(body: KeywordRequestBody) -> Observable<String> {
             switch response.result {
             case .success:
                 if let data = response.data, let item = try? JSONDecoder().decode(KeywordResponse.self, from: data) {
-                    for keyword in item.returnObject.keywords {
-                        observable.onNext(keyword.keyword)
+                    for obj in item.returnObject.keywords {
+                        observable.onNext(obj.keyword)
                     }
                 }
                 observable.onCompleted()

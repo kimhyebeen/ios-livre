@@ -33,4 +33,15 @@ extension String {
             return NSAttributedString(string: self)
         }
     }
+    
+    func removeHtml() -> String {
+        let text = self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        return text.replacingOccurrences(of: "&#x0D;", with: "\n", options: .regularExpression, range: nil)
+    }
+    
+    func removeBracket() -> String {
+        if !self.contains("(") { return self}
+        let index = self.firstIndex(of: "(")!
+        return String(self[self.startIndex..<index])
+    }
 }

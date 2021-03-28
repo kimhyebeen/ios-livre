@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import RxSwift
 
 class BookCardCell: UICollectionViewCell {
+    static let identifier = "BookCardCell"
     let imageView = UIImageView()
     let labelStack = UIStackView()
     let titleLabel = UILabel()
     let authorLabel = UILabel()
     let publishDateLabel = UILabel()
     let priceLabel = UILabel()
+    let tagStack = TagStack()
     let contentsLabel = UILabel()
     
     let imageWidth: CGFloat = 102
+    let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,17 +41,24 @@ class BookCardCell: UICollectionViewCell {
         
         setupLabelStack()
         setupImageView()
+        setupTagStack()
         setupContentsLabel()
     }
     
+    func setKeywords(item: String) {
+        tagStack.addLabel(value: item)
+    }
+    
     func setBookInformation(item: Book) {
-        titleLabel.text = item.title
+        titleLabel.text = item.titleString
         authorLabel.text = "저자: \(item.author)"
         publishDateLabel.text = "출간일: \(item.publishDateString)"
         priceLabel.text = item.price
-        contentsLabel.text = item.description
+        contentsLabel.text = item.contentsString
         
         loadImage(link: item.image)
+        
+        requestKeywordList(item.contentsString)
     }
     
     private func loadImage(link: String) {
@@ -56,6 +67,14 @@ class BookCardCell: UICollectionViewCell {
         DispatchQueue.main.async {
             self.imageView.image = UIImage(data: imageData)
         }
+    }
+    
+    private func requestKeywordList(_ description: String) {
+        requestKeywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: description)))
+            .take(3)
+            .subscribe(onNext: { [weak self] item in
+                self?.tagStack.addLabel(value: item)
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -130,6 +149,17 @@ extension BookCardCell {
         }
     }
     
+    // MARK: TagStack
+    private func setupTagStack() {
+        self.addSubview(tagStack)
+        
+        tagStack.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+        }
+    }
+    
     // MARK: Contents Label
     private func setupContentsLabel() {
         contentsLabel.text = "(책 내용)"
@@ -139,11 +169,10 @@ extension BookCardCell {
         self.addSubview(contentsLabel)
         
         contentsLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(15)
-            make.bottom.greaterThanOrEqualToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-20)
+            make.top.equalTo(tagStack.snp.bottom).offset(10)
+            make.bottom.lessThanOrEqualToSuperview().offset(-20)
             make.leading.equalToSuperview().offset(15)
-            make.trailing.greaterThanOrEqualToSuperview().offset(-15)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
         }
     }
 }

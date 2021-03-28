@@ -14,6 +14,8 @@ class SearchViewController: BaseViewController {
     let searchField = SearchField()
     let bookCardField = BookCardCollectionField()
     let emptyLabel = UILabel()
+    let backPageButton = UIButton()
+    let nextPageButton = UIButton()
         
     let disposeBag = DisposeBag()
     var vm: SearchViewModel!
@@ -45,7 +47,8 @@ class SearchViewController: BaseViewController {
         setupSearchField()
         setupBookCardCollectionField()
         setupEmptyLabel()
-        
+        setupBackPageButton()
+        setupNextPageButton()
     }
     
     private func bindViewModel() {
@@ -86,13 +89,13 @@ class SearchViewController: BaseViewController {
         bookCardField.moveToFirstPage()
     }
     
-//    @objc func clickBackButton(_ sender: UIButton) {
-//        bookCollectionField.moveToPrePage()
-//    }
-//
-//    @objc func clickNextButton(_ sender: UIButton) {
-//        bookCollectionField.moveToNextPage()
-//    }
+    @objc func clickBackButton(_ sender: UIButton) {
+        bookCardField.moveToPrePage()
+    }
+
+    @objc func clickNextButton(_ sender: UIButton) {
+        bookCardField.moveToNextPage()
+    }
     
     @objc func moveToBlogListViewController(_ sender: UIButton) {
         let nextVC = BlogListViewController()

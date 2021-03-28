@@ -67,56 +67,6 @@ extension SearchViewController {
         }
     }
     
-//
-//    // MARK: Animation View
-//    func setupAnimationViewOnBookCollectionField() {
-//        animationOnBCF.loopMode = .loop
-//        animationOnBCF.contentMode = .scaleAspectFit
-//        scrollContentsView.addSubview(animationOnBCF)
-//        animationOnBCF.play()
-//
-//        animationOnBCF.snp.makeConstraints { make in
-//            make.width.equalTo(140)
-//            make.height.equalTo(120)
-//            make.centerX.equalTo(bookCollectionField.snp.centerX)
-//            make.bottom.equalTo(bookCollectionField.snp.top).offset(40)
-//        }
-//    }
-//
-//    // MARK: Back Button
-//    func setupBackPageButton() {
-//        backPageButton.setImage(UIImage(named: "arrow_left"), for: .normal)
-//        backPageButton.imageView?.backgroundColor = UIColor(named: "coral")?.withAlphaComponent(0.6)
-//        backPageButton.imageView?.layer.cornerRadius = 10
-//        backPageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//        backPageButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
-//        scrollContentsView.addSubview(backPageButton)
-//
-//        backPageButton.snp.makeConstraints { make in
-//            make.width.equalTo(45)
-//            make.height.equalTo(45)
-//            make.centerY.equalTo(bookCollectionField.snp.centerY)
-//            make.trailing.equalTo(bookCollectionField.snp.leading).offset(-2)
-//        }
-//    }
-//
-//    // MARK: Next Button
-//    func setupNextPageButton() {
-//        nextPageButton.setImage(UIImage(named: "arrow_right"), for: .normal)
-//        nextPageButton.imageView?.backgroundColor = UIColor(named: "coral")?.withAlphaComponent(0.6)
-//        nextPageButton.imageView?.layer.cornerRadius = 10
-//        nextPageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//        nextPageButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
-//        scrollContentsView.addSubview(nextPageButton)
-//
-//        nextPageButton.snp.makeConstraints { make in
-//            make.width.equalTo(45)
-//            make.height.equalTo(45)
-//            make.centerY.equalTo(bookCollectionField.snp.centerY)
-//            make.leading.equalTo(bookCollectionField.snp.trailing).offset(2)
-//        }
-//    }
-//
     // MARK: Empty Label
     func setupEmptyLabel() {
         emptyLabel.text = "검색 결과가 존재하지 않습니다"
@@ -126,6 +76,38 @@ extension SearchViewController {
 
         emptyLabel.snp.makeConstraints { make in
             make.center.equalTo(bookCardField.snp.center)
+        }
+    }
+    
+    // MARK: Back Button
+    func setupBackPageButton() {
+        backPageButton.setImage(UIImage(named: "arrow_left")!.withTintColor(.white), for: .normal)
+        backPageButton.imageView?.layer.cornerRadius = 10
+        backPageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        backPageButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
+        self.view.addSubview(backPageButton)
+
+        backPageButton.snp.makeConstraints { make in
+            make.width.equalTo(bookCardField.spaceForLeftRight)
+            make.height.equalTo(bookCardField.cellHeight)
+            make.bottom.equalTo(bookCardField.snp.bottom)
+            make.leading.equalToSuperview()
+        }
+    }
+
+    // MARK: Next Button
+    func setupNextPageButton() {
+        nextPageButton.setImage(UIImage(named: "arrow_right")!.withTintColor(.white), for: .normal)
+        nextPageButton.imageView?.layer.cornerRadius = 10
+        nextPageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        nextPageButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
+        self.view.addSubview(nextPageButton)
+
+        nextPageButton.snp.makeConstraints { make in
+            make.width.equalTo(bookCardField.spaceForLeftRight)
+            make.height.equalTo(bookCardField.cellHeight)
+            make.bottom.equalTo(bookCardField.snp.bottom)
+            make.trailing.equalToSuperview()
         }
     }
 

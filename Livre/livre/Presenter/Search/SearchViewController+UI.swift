@@ -49,9 +49,9 @@ extension SearchViewController {
         self.view.addSubview(searchField)
         
         searchField.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.9)
-            make.centerX.equalToSuperview()
-            make.top.equalTo(homeIcon.snp.bottom).offset(-20)
+            make.centerY.equalTo(homeIcon.snp.centerY)
+            make.leading.equalTo(homeIcon.snp.trailing).offset(15)
+            make.trailing.equalToSuperview().offset(-15)
         }
     }
     

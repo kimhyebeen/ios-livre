@@ -32,15 +32,16 @@ class SearchField: UIView {
     
     func setupButton() {
         button.setImage(UIImage(named: "search"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         self.addSubview(button)
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        button.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        button.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.snp.makeConstraints { make in
+            make.width.equalTo(buttonSize)
+            make.height.equalTo(buttonSize)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
     }
     
     func setupTextField() {
@@ -48,11 +49,12 @@ class SearchField: UIView {
         textfield.textColor = UIColor(named: "deep_gray")
         self.addSubview(textfield)
         
-        textfield.translatesAutoresizingMaskIntoConstraints = false
-        textfield.topAnchor.constraint(equalTo: self.topAnchor, constant: spaceForTopBottom).isActive = true
-        textfield.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: spaceForTopBottom * -1).isActive = true
-        textfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: spaceForTopBottom * 2).isActive = true
-        textfield.trailingAnchor.constraint(equalTo: button.leadingAnchor).isActive = true
+        textfield.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(spaceForTopBottom)
+            make.bottom.equalToSuperview().offset(spaceForTopBottom * -1)
+            make.leading.equalToSuperview().offset(spaceForTopBottom * 2)
+            make.trailing.equalTo(button.snp.leading)
+        }
     }
     
 }

@@ -11,10 +11,7 @@ extension UIView {
     // MARK: 모서리 둥근 직사각형 배경 구현
     func setRoundedRectangle(radius: CGFloat = 10) {
         layer.cornerRadius = radius
-        layer.shadowColor = UIColor(named: "shadow_color")!.cgColor
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 1
-        layer.shadowOffset = CGSize(width: 0, height: 0)
+        setShadow(radius: 3, opacity: 0.8, color: UIColor(named: "shadow_color")!)
     }
     
     // MARK: 그라디언트 배경 구현

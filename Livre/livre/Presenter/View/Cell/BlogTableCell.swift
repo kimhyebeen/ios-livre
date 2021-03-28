@@ -10,31 +10,9 @@ import UIKit
 class BlogTableCell: UITableViewCell {
     static let identifier = "BlogTableCell"
     let title = UILabel()
-        .then {
-            $0.text = "블로그 제목"
-            $0.numberOfLines = 0
-            $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 17)
-        }
     let postDate = UILabel()
-        .then {
-            $0.text = "(작성일)"
-            $0.textColor = .systemGray
-            $0.font = UIFont.systemFont(ofSize: 12)
-        }
     let descriptionLabel = UILabel()
-        .then {
-            $0.text = "블로그 내용"
-            $0.textColor = UIColor(named: "normal_gray")
-            $0.font = UIFont.systemFont(ofSize: 14)
-            $0.numberOfLines = 3
-        }
     let bloggerName = UILabel()
-        .then {
-            $0.text = "블로거 이름"
-            $0.textColor = .systemGray
-            $0.font = UIFont.systemFont(ofSize: 13)
-        }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -73,9 +51,13 @@ class BlogTableCell: UITableViewCell {
     }
 }
 
-// MARK: +UI
 extension BlogTableCell {
+    // MARK: Title Label
     private func setupTitleLabel() {
+        title.text = "블로그 제목"
+        title.numberOfLines = 0
+        title.textColor = UIColor(named: "deep_gray")
+        title.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(title)
         
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +66,11 @@ extension BlogTableCell {
         title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Post Date Label
     private func setupPostDateLabel() {
+        postDate.text = "(작성일)"
+        postDate.textColor = .systemGray
+        postDate.font = UIFont.systemFont(ofSize: 12)
         self.addSubview(postDate)
         
         postDate.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +79,12 @@ extension BlogTableCell {
         postDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Description Label
     private func setupDescriptionLabel() {
+        descriptionLabel.text = "블로그 내용"
+        descriptionLabel.textColor = UIColor(named: "normal_gray")
+        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
+        descriptionLabel.numberOfLines = 3
         self.addSubview(descriptionLabel)
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +93,11 @@ extension BlogTableCell {
         descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Blogger Name Label
     private func setupBloggerNameLabel() {
+        bloggerName.text = "블로거 이름"
+        bloggerName.textColor = .systemGray
+        bloggerName.font = UIFont.systemFont(ofSize: 13)
         self.addSubview(bloggerName)
         
         bloggerName.translatesAutoresizingMaskIntoConstraints = false

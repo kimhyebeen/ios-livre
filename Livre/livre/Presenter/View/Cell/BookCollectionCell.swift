@@ -11,28 +11,9 @@ class BookCollectionCell: UICollectionViewCell {
     static let identifier = "BookCollectionCell"
     let screenWidth = UIScreen.main.bounds.width
     let title = UILabel()
-        .then {
-            $0.text = "책 제목"
-            $0.textColor = UIColor(named: "pale_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 17)
-        }
     let author = UILabel()
-        .then {
-            $0.text = "저자: -"
-            $0.textColor = UIColor(named: "blight_gray")
-            $0.font = UIFont.systemFont(ofSize: 14)
-        }
     let publishDate = UILabel()
-        .then {
-            $0.text = "출간일: -"
-            $0.textColor = UIColor(named: "blight_gray")
-            $0.font = UIFont.systemFont(ofSize: 14)
-        }
     let imageView = UIImageView()
-        .then {
-            $0.image = UIImage(named: "empty_image")
-            $0.contentMode = .scaleAspectFit
-        }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,7 +73,11 @@ class BookCollectionCell: UICollectionViewCell {
 }
 
 extension BookCollectionCell {
+    // MARK: Title Label
     private func setupTitleLabel() {
+        title.text = "책 제목"
+        title.textColor = UIColor(named: "pale_gray")
+        title.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
@@ -100,7 +85,11 @@ extension BookCollectionCell {
         title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
+    // MARK: Author Label
     private func setupAuthorLabel() {
+        author.text = "저자: -"
+        author.textColor = UIColor(named: "blight_gray")
+        author.font = UIFont.systemFont(ofSize: 14)
         self.addSubview(author)
         
         author.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +98,11 @@ extension BookCollectionCell {
         author.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
+    // MARK: Publish Date Label
     private func setupPublishDateLabel() {
+        publishDate.text = "출간일: -"
+        publishDate.textColor = UIColor(named: "blight_gray")
+        publishDate.font = UIFont.systemFont(ofSize: 14)
         self.addSubview(publishDate)
         
         publishDate.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +112,10 @@ extension BookCollectionCell {
         publishDate.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
     }
     
+    // MARK: ImageView
     private func setupImageView() {
+        imageView.image = UIImage(named: "empty_image")
+        imageView.contentMode = .scaleAspectFit
         self.addSubview(imageView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false

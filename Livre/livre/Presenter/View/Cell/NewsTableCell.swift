@@ -10,25 +10,8 @@ import UIKit
 class NewsTableCell: UITableViewCell {
     static let identifier = "NewsTableCell"
     let title = UILabel()
-        .then {
-            $0.text = "뉴스 제목"
-            $0.numberOfLines = 0
-            $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont.boldSystemFont(ofSize: 17)
-        }
     let publishDate = UILabel()
-        .then {
-            $0.text = "(작성일)"
-            $0.textColor = .systemGray
-            $0.font = UIFont.systemFont(ofSize: 12)
-        }
     let descriptionLabel = UILabel()
-        .then {
-            $0.text = "뉴스 내용"
-            $0.textColor = UIColor(named: "normal_gray")
-            $0.font = UIFont.systemFont(ofSize: 14)
-            $0.numberOfLines = 3
-        }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,9 +47,13 @@ class NewsTableCell: UITableViewCell {
 
 }
 
-// MARK: +UI
 extension NewsTableCell {
+    // MARK: Title
     private func setupTitleLabel() {
+        title.text = "뉴스 제목"
+        title.numberOfLines = 0
+        title.textColor = UIColor(named: "deep_gray")
+        title.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(title)
         
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +62,11 @@ extension NewsTableCell {
         title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Publish Date Label
     private func setupPublishDateLabel() {
+        publishDate.text = "(작성일)"
+        publishDate.textColor = .systemGray
+        publishDate.font = UIFont.systemFont(ofSize: 12)
         self.addSubview(publishDate)
         
         publishDate.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +75,12 @@ extension NewsTableCell {
         publishDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Description Label
     private func setupDescriptionLabel() {
+        descriptionLabel.text = "뉴스 내용"
+        descriptionLabel.textColor = UIColor(named: "normal_gray")
+        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
+        descriptionLabel.numberOfLines = 3
         self.addSubview(descriptionLabel)
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

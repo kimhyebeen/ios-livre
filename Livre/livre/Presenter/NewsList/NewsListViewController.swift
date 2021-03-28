@@ -17,33 +17,9 @@ class NewsListViewController: BaseViewController {
     var news: [NewsItem] = []
     
     let barView = UIView()
-        .then {
-            $0.backgroundColor = UIColor(named: "pale_gray")?.withAlphaComponent(0.5)
-            $0.layer.cornerRadius = 2
-        }
     let titleLabel = UILabel()
-        .then {
-            $0.textColor = UIColor(named: "golden_yellow")
-            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 24)
-            $0.layer.shadowColor = UIColor.black.cgColor
-            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
-            $0.layer.shadowRadius = 3
-            $0.layer.shadowOpacity = 0.6
-        }
     let resultLabel = UILabel()
-        .then {
-            $0.text = "검색결과"
-            $0.textColor = UIColor(named: "golden_yellow")
-            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 20)
-            $0.layer.shadowColor = UIColor.black.cgColor
-            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
-            $0.layer.shadowRadius = 3
-            $0.layer.shadowOpacity = 0.6
-        }
     let tableView = UITableView()
-        .then {
-            $0.backgroundColor = UIColor.white.withAlphaComponent(0)
-        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,10 +80,10 @@ extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.identifier, for: indexPath) as? NewsTableCell else {
-            return NewsTableCell().then {
-                $0.setNewsInformation(item: news[indexPath.row])
-                $0.selectionStyle = .none
-            }
+            let emptyCell = NewsTableCell()
+            emptyCell.setNewsInformation(item: news[indexPath.row])
+            emptyCell.selectionStyle = .none
+            return emptyCell
         }
         
         cell.setNewsInformation(item: news[indexPath.row])

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D860BCF91F2303DEEE910BD /* Pods_livre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AFD25B843DF2649A3681EE /* Pods_livre.framework */; };
 		EE0464E526103140001AB04D /* SearchBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0464E426103140001AB04D /* SearchBackgroundView.swift */; };
+		EE0464F626104987001AB04D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0464F526104987001AB04D /* UILabel+.swift */; };
 		EEBCE2AF25F85C5400BA6749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */; };
 		EEBCE2B125F85C5400BA6749 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */; };
 		EEBCE2B825F85C5700BA6749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE2B725F85C5700BA6749 /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		8BC0E255A4038CC1974E72BD /* Pods-livre.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-livre.debug.xcconfig"; path = "Target Support Files/Pods-livre/Pods-livre.debug.xcconfig"; sourceTree = "<group>"; };
 		8C0121A6DF1BE22A483CF06B /* Pods-livre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-livre.release.xcconfig"; path = "Target Support Files/Pods-livre/Pods-livre.release.xcconfig"; sourceTree = "<group>"; };
 		EE0464E426103140001AB04D /* SearchBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBackgroundView.swift; sourceTree = "<group>"; };
+		EE0464F526104987001AB04D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		EEBCE2AB25F85C5400BA6749 /* livre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = livre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -282,10 +284,11 @@
 				EEBCE2E025F85ED900BA6749 /* NewsField.swift */,
 				EEBCE2E625F85ED900BA6749 /* RewardView.swift */,
 				EEBCE2E325F85ED900BA6749 /* SearchField.swift */,
-				EEBCE2E425F85ED900BA6749 /* String+.swift */,
 				EEBCE2E525F85ED900BA6749 /* TagStack.swift */,
-				EEBCE2E225F85ED900BA6749 /* UIView+.swift */,
 				EE0464E426103140001AB04D /* SearchBackgroundView.swift */,
+				EEBCE2E225F85ED900BA6749 /* UIView+.swift */,
+				EE0464F526104987001AB04D /* UILabel+.swift */,
+				EEBCE2E425F85ED900BA6749 /* String+.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				EEBCE31825F85F8A00BA6749 /* NewsListViewModel.swift in Sources */,
 				EEBCE2EB25F85ED900BA6749 /* NewsField.swift in Sources */,
 				EEBCE34525F8603200BA6749 /* RequestBookSearch.swift in Sources */,
+				EE0464F626104987001AB04D /* UILabel+.swift in Sources */,
 				EEBCE33B25F8602700BA6749 /* KeywordResponse.swift in Sources */,
 				EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */,
 				EEBCE34E25F8603800BA6749 /* RewardConfig.swift in Sources */,

@@ -17,9 +17,8 @@ struct Book {
     var publishDate: Date?
     
     var publishDateString: String {
-        let formatter = DateFormatter().then {
-            $0.dateFormat = "yyyy.MM.dd"
-        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
         if let pd = publishDate {
             return "\(formatter.string(from: pd))"
         } else { return "" }

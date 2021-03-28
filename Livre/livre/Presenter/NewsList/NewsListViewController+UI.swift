@@ -5,11 +5,13 @@
 //  Created by 김혜빈 on 2021/01/22.
 //
 
-import Foundation
+import UIKit
 
 extension NewsListViewController {
     // MARK: Bar View
     func setupBarView() {
+        barView.backgroundColor = UIColor(named: "pale_gray")?.withAlphaComponent(0.5)
+        barView.layer.cornerRadius = 2
         self.view.addSubview(barView)
         
         barView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +23,9 @@ extension NewsListViewController {
     
     // MARK: Title Label
     func setupTitleLabel() {
+        titleLabel.textColor = UIColor(named: "golden_yellow")
+        titleLabel.fontGmarketSansMedium(24)
+        titleLabel.setShadow(radius: 3, opacity: 0.6, color: .black)
         titleLabel.text = "\'\(word)\' "
         self.view.addSubview(titleLabel)
         
@@ -32,6 +37,10 @@ extension NewsListViewController {
     
     // MARK: Result Label
     func setupResultLabel() {
+        resultLabel.text = "검색결과"
+        resultLabel.textColor = UIColor(named: "golden_yellow")
+        resultLabel.fontGmarketSansMedium(20)
+        resultLabel.setShadow(radius: 3, opacity: 0.6, color: .black)
         self.view.addSubview(resultLabel)
         
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +51,7 @@ extension NewsListViewController {
     
     // MARK: Table View
     func setupTableView() {
+        tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(NewsTableCell.self, forCellReuseIdentifier: NewsTableCell.identifier)

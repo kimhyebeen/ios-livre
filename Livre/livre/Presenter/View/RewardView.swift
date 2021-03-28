@@ -11,11 +11,6 @@ import Lottie
 class RewardView: UIView {
     private var startAnimationView: AnimationView!
     private let progressView = UIProgressView()
-        .then {
-            $0.progressTintColor = UIColor(named: "light_gray_blue")
-            $0.backgroundColor = UIColor(named: "navy")
-            $0.setProgress(0.01, animated: true)
-        }
     
     private let rewardSize: CGFloat = 120
     
@@ -68,17 +63,18 @@ extension RewardView {
     private func setupStartAnimationView() {
         let level = RewardConfig.getCurrentLevel()
         startAnimationView = AnimationView(name: "reward-\(level-1)")
-            .then {
-                $0.contentMode = .scaleAspectFit
-                $0.loopMode = .loop
-                $0.frame = CGRect(x: (rewardSize/2) * -1, y: 0, width: rewardSize, height: rewardSize)
-            }
+        startAnimationView.contentMode = .scaleAspectFit
+        startAnimationView.loopMode = .loop
+        startAnimationView.frame = CGRect(x: (rewardSize/2) * -1, y: 0, width: rewardSize, height: rewardSize)
         self.addSubview(startAnimationView)
         
         startAnimationView.play()
     }
     
     private func setupProgressView() {
+        progressView.progressTintColor = UIColor(named: "light_gray_blue")
+        progressView.backgroundColor = UIColor(named: "navy")
+        progressView.setProgress(0.01, animated: true)
         self.addSubview(progressView)
         
         progressView.translatesAutoresizingMaskIntoConstraints = false

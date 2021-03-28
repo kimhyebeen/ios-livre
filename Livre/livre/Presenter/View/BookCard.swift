@@ -9,51 +9,12 @@ import UIKit
 
 class BookCard: UIView {
     let labelStack = UIStackView()
-        .then {
-            $0.alignment = .leading
-            $0.axis = .vertical
-            $0.spacing = 4
-        }
     let titleLabel = UILabel()
-        .then {
-            $0.text = "책 제목"
-            $0.textColor = UIColor(named: "pale_gray")
-            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 19)
-            $0.numberOfLines = 0
-        }
     let author = UILabel()
-        .then {
-            $0.text = "저자: -"
-            $0.textColor = UIColor(named: "blight_gray")
-            $0.font = UIFont.systemFont(ofSize: 14)
-        }
     let publishDate = UILabel()
-        .then {
-            $0.text = "출간일: -"
-            $0.textColor = UIColor(named: "blight_gray")
-            $0.font = UIFont.systemFont(ofSize: 14)
-        }
     let price = UILabel()
-        .then {
-            $0.text = "0"
-            $0.textColor = UIColor(named: "pale_gray")
-            $0.font = UIFont.systemFont(ofSize: 19)
-        }
     let imageView = UIImageView()
-        .then {
-            $0.image = UIImage(named: "empty_image")
-            $0.contentMode = .scaleToFill
-            $0.backgroundColor = UIColor(named: "pale_gray")
-            $0.layer.borderColor = UIColor(named: "blight_gray")?.cgColor
-            $0.layer.borderWidth = 1
-        }
     let contents = UILabel()
-        .then {
-            $0.text = "(책 내용)"
-            $0.textColor = UIColor(named: "blight_gray")
-            $0.font = UIFont(name: "GmarketSansTTFMedium", size: 15)
-            $0.numberOfLines = 0
-        }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,6 +32,11 @@ class BookCard: UIView {
         self.backgroundColor = UIColor(named: "dull_blue")
         self.layer.cornerRadius = 20
         self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
+        
+        setupTitleLabel()
+        setupAuthor()
+        setupPublishDate()
+        setupPrice()
         
         setupLabelStack()
         setupImageView()
@@ -100,43 +66,85 @@ class BookCard: UIView {
 
 }
 
-// MARK: +UI
 extension BookCard {
-    func setupLabelStack() {
+    // MARK: Title Label
+    private func setupTitleLabel() {
+        titleLabel.text = "책 제목"
+        titleLabel.textColor = UIColor(named: "pale_gray")
+        titleLabel.font = UIFont(name: "GmarketSansTTFMedium", size: 19)
+        titleLabel.numberOfLines = 0
+    }
+    
+    // MARK: Author
+    private func setupAuthor() {
+        author.text = "저자: -"
+        author.textColor = UIColor(named: "blight_gray")
+        author.font = UIFont.systemFont(ofSize: 14)
+    }
+    
+    // MARK: Publish Date
+    private func setupPublishDate() {
+        publishDate.text = "출간일: -"
+        publishDate.textColor = UIColor(named: "blight_gray")
+        publishDate.font = UIFont.systemFont(ofSize: 14)
+    }
+    
+    // MARK: Price
+    private func setupPrice() {
+        price.text = "0"
+        price.textColor = UIColor(named: "pale_gray")
+        price.font = UIFont.systemFont(ofSize: 19)
+    }
+    
+    // MARK: Label Stack
+    private func setupLabelStack() {
+        labelStack.alignment = .leading
+        labelStack.axis = .vertical
+        labelStack.spacing = 4
         labelStack.addArrangedSubview(titleLabel)
         labelStack.addArrangedSubview(author)
         labelStack.addArrangedSubview(publishDate)
         labelStack.addArrangedSubview(price)
         self.addSubview(labelStack)
         
-        labelStack.translatesAutoresizingMaskIntoConstraints = false
-        labelStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
-        labelStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.width - 40) * 0.4).isActive = true
-        labelStack.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -10).isActive = true
+        labelStack.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset((UIScreen.main.bounds.width - 40) * 0.4)
+            make.trailing.lessThanOrEqualToSuperview().offset(-10)
+        }
     }
     
-    func setupImageView() {
+    // MARK: ImageView
+    private func setupImageView() {
+        imageView.image = UIImage(named: "empty_image")
+        imageView.contentMode = .scaleToFill
+        imageView.backgroundColor = UIColor(named: "pale_gray")
+        imageView.layer.borderColor = UIColor(named: "blight_gray")?.cgColor
+        imageView.layer.borderWidth = 1
         self.addSubview(imageView)
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 40) * 0.33).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width - 40) * 0.44).isActive = true
-        imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: -15).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: self.leadingAnchor, constant: (UIScreen.main.bounds.width - 40) * 0.2).isActive = true
+        imageView.snp.makeConstraints { make in
+            make.width.equalTo((UIScreen.main.bounds.width - 40) * 0.33)
+            make.height.equalTo((UIScreen.main.bounds.width - 40) * 0.44)
+            make.centerX.equalTo(self.snp.leading).offset((UIScreen.main.bounds.width - 40) * 0.2)
+            make.top.equalToSuperview().offset(-15)
+        }
     }
     
-    func setupContents() {
+    // MARK: Contents
+    private func setupContents() {
+        contents.text = "(책 내용)"
+        contents.textColor = UIColor(named: "blight_gray")
+        contents.fontGmarketSansMedium(15)
+        contents.numberOfLines = 0
         self.addSubview(contents)
         
-        contents.translatesAutoresizingMaskIntoConstraints = false
-        let topWithImage = contents.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15)
-        let topWithLabel = contents.topAnchor.constraint(equalTo: labelStack.bottomAnchor, constant: 15)
-        topWithImage.priority = UILayoutPriority(450)
-        topWithLabel.priority = UILayoutPriority(500)
-        topWithImage.isActive = true
-        topWithLabel.isActive = true
-        contents.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
-        contents.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        contents.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
+        contents.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(15).priority(450)
+            make.top.equalTo(labelStack.snp.bottom).offset(15).priority(500)
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+        }
     }
 }

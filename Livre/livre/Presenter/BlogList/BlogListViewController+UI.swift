@@ -5,11 +5,13 @@
 //  Created by 김혜빈 on 2021/01/22.
 //
 
-import Foundation
+import UIKit
 
 extension BlogListViewController {
     // MARK: Bar View
     func setupBarView() {
+        barView.backgroundColor = UIColor(named: "pale_gray")!.withAlphaComponent(0.5)
+        barView.layer.cornerRadius = 2
         self.view.addSubview(barView)
         
         barView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +23,12 @@ extension BlogListViewController {
     
     // MARK: Title Label
     func setupTitleLabel() {
+        titleLabel.textColor = UIColor(named: "golden_yellow")
+        titleLabel.fontGmarketSansMedium(24)
+        titleLabel.layer.shadowColor = UIColor.black.cgColor
+        titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+        titleLabel.layer.shadowRadius = 3
+        titleLabel.layer.shadowOpacity = 0.6
         titleLabel.text = "\'\(word)\' "
         self.view.addSubview(titleLabel)
         
@@ -32,6 +40,13 @@ extension BlogListViewController {
     
     // MARK: Result Label
     func setupResultLabel() {
+        resultLabel.text = "검색결과"
+        resultLabel.textColor = UIColor(named: "golden_yellow")
+        resultLabel.fontGmarketSansMedium(20)
+        resultLabel.layer.shadowColor = UIColor.black.cgColor
+        resultLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+        resultLabel.layer.shadowRadius = 3
+        resultLabel.layer.shadowOpacity = 0.6
         self.view.addSubview(resultLabel)
         
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +57,7 @@ extension BlogListViewController {
     
     // MARK: Table View
     func setupTableView() {
+        tableView.backgroundColor = UIColor.white.withAlphaComponent(0)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(BlogTableCell.self, forCellReuseIdentifier: BlogTableCell.identifier)

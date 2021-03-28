@@ -12,32 +12,13 @@ import Lottie
 class SearchViewController: BaseViewController {
     let homeIcon = HomeIcon()
     let searchField = SearchField()
-        .then {
-            $0.backgroundColor = UIColor(named: "pale_gray")
-            $0.setRoundedRectangle()
-        }
     let scrollView = UIScrollView()
     let scrollContentsView = UIView()
     let animationOnBCF = AnimationView(name: "splash-icon")
-        .then {
-            $0.loopMode = .loop
-            $0.contentMode = .scaleAspectFit
-        }
     let bookCollectionField = BookCollectionField()
     let backPageButton = UIButton()
-        .then {
-            $0.setImage(UIImage(named: "arrow_left"), for: .normal)
-        }
     let nextPageButton = UIButton()
-        .then {
-            $0.setImage(UIImage(named: "arrow_right"), for: .normal)
-        }
     let emptyLabel = UILabel()
-        .then {
-            $0.text = "검색 결과가 존재하지 않습니다"
-            $0.font = UIFont(name: "GmarketSansTTFLight", size: 14)
-            $0.textColor = UIColor(named: "pale_gray")
-        }
     let blogField = BlogField()
     let newsField = NewsField()
     

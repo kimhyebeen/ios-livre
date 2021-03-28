@@ -15,10 +15,6 @@ class BookCollectionField: UIView {
     weak var delegate: BookCollectionFieldDelegate?
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
-        .then {
-            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.55, height: 90)
-            $0.scrollDirection = .horizontal
-        }
     
     let spaceForLeftRight = (UIScreen.main.bounds.width * 0.75 - UIScreen.main.bounds.width * 0.55) / 2
     var currentIndex: CGFloat = 0
@@ -69,18 +65,18 @@ class BookCollectionField: UIView {
 
 }
 
-// MARK: +UI
 extension BookCollectionField {
+    // MARK: Collection View
     private func setupCollectionView() {
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.55, height: 90)
+        flowLayout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
-            .then {
-                $0.register(BookCollectionCell.self, forCellWithReuseIdentifier: BookCollectionCell.identifier)
-                $0.backgroundColor = UIColor.white.withAlphaComponent(0)
-                $0.contentInset.left = spaceForLeftRight
-                $0.contentInset.right = spaceForLeftRight
-                $0.showsHorizontalScrollIndicator = false
-                $0.decelerationRate = .fast
-            }
+        collectionView.register(BookCollectionCell.self, forCellWithReuseIdentifier: BookCollectionCell.identifier)
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset.left = spaceForLeftRight
+        collectionView.contentInset.right = spaceForLeftRight
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.decelerationRate = .fast
         collectionView.delegate = self
         collectionView.dataSource = self
         self.addSubview(collectionView)
@@ -102,9 +98,9 @@ extension BookCollectionField: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionCell.identifier, for: indexPath) as? BookCollectionCell else {
             print("BookCollectionField - 재사용큐에서 cell을 찾지 못했습니다.")
-            return BookCollectionCell().then {
-                $0.setBookInformation(item: books[indexPath.item])
-            }
+            let emptyCell = BookCollectionCell()
+            emptyCell.setBookInformation(item: books[indexPath.item])
+            return emptyCell
         }
         
         cell.setBookInformation(item: books[indexPath.item])

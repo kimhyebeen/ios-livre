@@ -10,11 +10,6 @@ import UIKit
 class RecentSearchTableCell: UITableViewCell {
     static let identifier: String = "RecentSearchTableCell"
     private let label = UILabel()
-        .then {
-            $0.text = ""
-            $0.textColor = UIColor(named: "light_gray_blue")
-            $0.font = UIFont.systemFont(ofSize: 16)
-        }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,6 +29,9 @@ class RecentSearchTableCell: UITableViewCell {
     }
     
     private func setupLabel() {
+        label.text = ""
+        label.textColor = UIColor(named: "light_gray_blue")
+        label.font = UIFont.systemFont(ofSize: 16)
         self.contentView.addSubview(label)
         
         label.translatesAutoresizingMaskIntoConstraints = false

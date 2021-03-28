@@ -9,15 +9,7 @@ import UIKit
 
 class MoreInformationButtonView: UIView {
     let title = UILabel()
-        .then {
-            $0.text = "더보기"
-            $0.textColor = UIColor(named: "deep_gray")
-            $0.font = UIFont(name: "NotoSansKR-Medium", size: 15)
-        }
     let imageView = UIImageView()
-        .then {
-            $0.image = UIImage(named: "arrow_right")
-        }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +29,7 @@ class MoreInformationButtonView: UIView {
     }
     
     private func setupImageView() {
+        imageView.image = UIImage(named: "arrow_right")
         self.addSubview(imageView)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +41,9 @@ class MoreInformationButtonView: UIView {
     }
     
     private func setupTitleLabel() {
+        title.text = "더보기"
+        title.textColor = UIColor(named: "deep_gray")
+        title.font = UIFont(name: "NotoSansKR-Medium", size: 15)
         self.addSubview(title)
         
         title.translatesAutoresizingMaskIntoConstraints = false

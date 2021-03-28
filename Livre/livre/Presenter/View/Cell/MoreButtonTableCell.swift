@@ -10,11 +10,6 @@ import UIKit
 class MoreButtonTableCell: UITableViewCell {
     static let identifier = "MoreButtonTableCell"
     let label = UILabel()
-        .then {
-            $0.text = "더보기"
-            $0.textColor = .systemBlue
-            $0.font = UIFont.boldSystemFont(ofSize: 17)
-        }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,6 +27,9 @@ class MoreButtonTableCell: UITableViewCell {
     }
     
     private func setupLabel() {
+        label.text = "더보기"
+        label.textColor = .systemBlue
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(label)
         
         label.translatesAutoresizingMaskIntoConstraints = false

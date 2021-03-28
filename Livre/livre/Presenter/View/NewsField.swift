@@ -9,22 +9,10 @@ import UIKit
 
 class NewsField: UIView {
     let divider = UIView()
-        .then {
-            $0.backgroundColor = .systemGray
-        }
     let moreInformationButtonView = MoreInformationButtonView()
     let moreNewsButton = UIButton()
     let title = UILabel()
-        .then {
-            $0.text = "NEWS"
-            $0.textColor = UIColor(named: "coral")
-            $0.font = UIFont(name: "Montserrat-Medium", size: 20)
-        }
     let tableView = UITableView()
-        .then {
-            $0.backgroundColor = UIColor.white.withAlphaComponent(0)
-            $0.separatorColor = UIColor.systemGray
-        }
     
     var news: [NewsItem] = []
 
@@ -62,9 +50,10 @@ class NewsField: UIView {
 
 }
 
-// MARK: +UI
 extension NewsField {
+    // MARK: Divider
     private func setupDivider() {
+        divider.backgroundColor = .systemGray
         self.addSubview(divider)
         
         divider.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +63,11 @@ extension NewsField {
         divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Title Label
     private func setupTitleLabel() {
+        title.text = "NEWS"
+        title.textColor = UIColor(named: "coral")
+        title.font = UIFont(name: "Montserrat-Medium", size: 20)
         self.addSubview(title)
         
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +75,7 @@ extension NewsField {
         title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
     }
     
+    // MARK: More News Button
     private func setupMoreNewsButton() {
         self.addSubview(moreNewsButton)
         
@@ -92,6 +86,7 @@ extension NewsField {
         moreNewsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
+    // MARK: More Information Button View
     private func setupMoreInformationButtonView() {
         self.addSubview(moreInformationButtonView)
         
@@ -100,7 +95,10 @@ extension NewsField {
         moreInformationButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
+    // MARK: Table View
     private func setupTableView() {
+        tableView.backgroundColor = UIColor.white.withAlphaComponent(0)
+        tableView.separatorColor = UIColor.systemGray
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(NewsTableCell.self, forCellReuseIdentifier: NewsTableCell.identifier)
@@ -122,10 +120,10 @@ extension NewsField: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableCell.identifier, for: indexPath) as? NewsTableCell else {
-            return NewsTableCell().then {
-                $0.setNewsInformation(item: news[indexPath.row])
-                $0.selectionStyle = .none
-            }
+            let emptyCell = NewsTableCell()
+            emptyCell.setNewsInformation(item: news[indexPath.row])
+            emptyCell.selectionStyle = .none
+            return emptyCell
         }
         
         cell.setNewsInformation(item: news[indexPath.row])

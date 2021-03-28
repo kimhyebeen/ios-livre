@@ -10,24 +10,7 @@ import Lottie
 
 class HomeIcon: UIView {
     let icon = AnimationView(name: "home-icon3")
-        .then {
-            $0.loopMode = .loop
-            $0.backgroundColor = UIColor.white.withAlphaComponent(0)
-            $0.layer.shadowRadius = 4
-            $0.layer.shadowOpacity = 1
-            $0.layer.shadowColor = UIColor.white.cgColor
-            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
-        }
     let label = UILabel()
-        .then {
-            $0.text = "HOME"
-            $0.textColor = UIColor(named: "navy")
-            $0.font = UIFont(name: "Montserrat-Medium", size: 27)
-            $0.layer.shadowRadius = 4
-            $0.layer.shadowOpacity = 1
-            $0.layer.shadowColor = UIColor.white.cgColor
-            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
-        }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,34 +25,44 @@ class HomeIcon: UIView {
     }
     
     private func setupView() {
-        self.backgroundColor = UIColor.white.withAlphaComponent(0)
+        self.backgroundColor = .clear
         setupIcon()
         setupLabel()
     }
     
     private func setupIcon() {
+        icon.loopMode = .loop
+        icon.backgroundColor = .clear
+        icon.setShadow(radius: 4, opacity: 1, color: .white, offset: CGSize(width: 0, height: 0))
         self.addSubview(icon)
         
-        icon.translatesAutoresizingMaskIntoConstraints = false
-        icon.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        icon.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        icon.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        icon.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        icon.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        icon.snp.makeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(120)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+        }
         icon.play()
     }
     
     private func setupLabel() {
+        label.text = "홈"
+        label.textColor = UIColor(named: "navy")
+        label.font = UIFont(name: "Montserrat-Medium", size: 27)
+        label.setShadow(radius: 4, opacity: 1, color: .white, offset: CGSize(width: 0, height: 0))
         self.addSubview(label)
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerYAnchor.constraint(equalTo: icon.centerYAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: -35).isActive = true
-        label.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        label.snp.makeConstraints { make in
+            make.centerY.equalTo(icon.snp.centerY)
+            make.leading.equalTo(icon.snp.trailing).offset(-40)
+            make.trailing.equalToSuperview()
+        }
     }
     
     func startAnimation() {
-        if !icon.isAnimationPlaying { icon.play() }
+        if icon.isAnimationPlaying { return }
+        icon.play()
     }
 
 }

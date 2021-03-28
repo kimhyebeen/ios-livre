@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Then
 
 class BaseViewController: UIViewController {
     func log(where: String,_ msg: String) {
@@ -40,16 +39,15 @@ class BaseViewController: UIViewController {
                 width: width,
                 height: 35
             )
-        ).then { label in
-            label.backgroundColor = color.withAlphaComponent(0.6)
-            label.textColor = UIColor.white
-            label.font = font
-            label.textAlignment = .center
-            label.text = message
-            label.alpha = 1.0
-            label.layer.cornerRadius = 15;
-            label.clipsToBounds = true
-        }
+        )
+        toastLabel.backgroundColor = color.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 15;
+        toastLabel.clipsToBounds = true
         
         return toastLabel
     }

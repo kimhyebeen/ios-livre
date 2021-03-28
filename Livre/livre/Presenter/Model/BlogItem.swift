@@ -15,9 +15,8 @@ struct BlogItem {
     var postDate: Date?
     
     var postDateString: String {
-        let formatter = DateFormatter().then {
-            $0.dateFormat = "yyyy.MM.dd"
-        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
         if let pd = postDate {
             return "\(formatter.string(from: pd))"
         } else { return "" }

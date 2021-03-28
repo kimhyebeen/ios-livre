@@ -10,21 +10,10 @@ import RxSwift
 
 class DetailViewController: BaseViewController {
     let backButton = UIButton()
-        .then {
-            $0.imageView?.frame.size = CGSize(width: 24, height: 24)
-            $0.imageView?.backgroundColor = UIColor(named: "pale_gray")
-            $0.imageView?.layer.cornerRadius = 12
-            $0.setImage(UIImage(named: "arrow_left"), for: .normal)
-            $0.imageEdgeInsets = UIEdgeInsets(top: 10.5, left: 10.5, bottom: 10.5, right: 10.5)
-        }
     let tagView = TagStack()
     let bookCard = BookCard()
     var shoppingCollectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
-        .then {
-            $0.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.43, height: 57)
-            $0.scrollDirection = .vertical
-        }
     
     var word: String = ""
     var isbn: String = ""

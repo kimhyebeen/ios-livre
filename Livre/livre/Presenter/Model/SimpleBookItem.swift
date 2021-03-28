@@ -19,9 +19,8 @@ struct SimpleBookItem {
     }
     
     var publishDateString: String {
-        let formatter = DateFormatter().then {
-            $0.dateFormat = "yyyy-MM-dd"
-        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         if let pd = publishDate { return "출간일: \(formatter.string(from: pd))" }
         else { return "출간일: -" }
     }

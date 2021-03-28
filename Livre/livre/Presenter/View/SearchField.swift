@@ -9,10 +9,6 @@ import UIKit
 
 class SearchField: UIView {
     let textfield = UITextField()
-        .then {
-            $0.placeholder = "검색어를 입력해주세요"
-            $0.textColor = UIColor(named: "deep_gray")
-        }
     let button = UIButton()
     private let spaceForTopBottom: CGFloat = 8
     private let buttonSize: CGFloat = 45
@@ -48,6 +44,8 @@ class SearchField: UIView {
     }
     
     func setupTextField() {
+        textfield.placeholder = "검색어를 입력해주세요"
+        textfield.textColor = UIColor(named: "deep_gray")
         self.addSubview(textfield)
         
         textfield.translatesAutoresizingMaskIntoConstraints = false

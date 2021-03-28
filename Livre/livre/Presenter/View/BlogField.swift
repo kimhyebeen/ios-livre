@@ -9,22 +9,10 @@ import UIKit
 
 class BlogField: UIView {
     let divider = UIView()
-        .then {
-            $0.backgroundColor = .systemGray
-        }
     let moreInformationButtonView = MoreInformationButtonView()
     let moreBlogButton = UIButton()
     let title = UILabel()
-        .then {
-            $0.text = "BLOG"
-            $0.textColor = UIColor(named: "coral")
-            $0.font = UIFont(name: "Montserrat-Medium", size: 20)
-        }
     let tableView = UITableView()
-        .then {
-            $0.backgroundColor = UIColor.white.withAlphaComponent(0)
-            $0.separatorColor = UIColor.systemGray
-        }
     
     var blogs: [BlogItem] = []
 
@@ -62,9 +50,10 @@ class BlogField: UIView {
 
 }
 
-// MARK: +UI
 extension BlogField {
+    // MARK: Divider
     private func setupDivider() {
+        divider.backgroundColor = .systemGray
         self.addSubview(divider)
         
         divider.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +63,11 @@ extension BlogField {
         divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
     }
     
+    // MARK: Title Label
     private func setupTitleLabel() {
+        title.text = "BLOG"
+        title.textColor = UIColor(named: "coral")
+        title.font = UIFont(name: "Montserrat-Medium", size: 20)
         self.addSubview(title)
         
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +75,7 @@ extension BlogField {
         title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
     }
     
+    // MARK: More Blog Button
     private func setupMoreBlogButton() {
         self.addSubview(moreBlogButton)
         
@@ -92,6 +86,7 @@ extension BlogField {
         moreBlogButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
+    // MARK: More Information Button
     private func setupMoreInformationButtonView() {
         self.addSubview(moreInformationButtonView)
         
@@ -100,7 +95,10 @@ extension BlogField {
         moreInformationButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }
     
+    // MARK: Blog Table View
     private func setupBlogTableView() {
+        tableView.backgroundColor = .clear
+        tableView.separatorColor = UIColor.systemGray
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BlogTableCell.self, forCellReuseIdentifier: BlogTableCell.identifier)
@@ -122,10 +120,10 @@ extension BlogField: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableCell.identifier, for: indexPath) as? BlogTableCell else {
-            return BlogTableCell().then {
-                $0.setBlogInformtaion(item: blogs[indexPath.row])
-                $0.selectionStyle = .none
-            }
+            let cell = BlogTableCell()
+            cell.setBlogInformtaion(item: blogs[indexPath.row])
+            cell.selectionStyle = .none
+            return cell
         }
         
         cell.setBlogInformtaion(item: blogs[indexPath.row])

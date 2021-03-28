@@ -61,9 +61,9 @@ extension SearchViewController {
         
         bookCardField.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
             make.centerX.equalToSuperview()
-            make.top.equalTo(searchField.snp.bottom).offset(40)
+            make.top.equalTo(searchField.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -89,8 +89,8 @@ extension SearchViewController {
 
         backPageButton.snp.makeConstraints { make in
             make.width.equalTo(bookCardField.spaceForLeftRight)
-            make.height.equalTo(bookCardField.cellHeight)
-            make.bottom.equalTo(bookCardField.snp.bottom)
+            make.height.equalTo(UIScreen.main.bounds.width * 0.35)
+            make.top.equalTo(bookCardField.snp.top)
             make.leading.equalToSuperview()
         }
     }
@@ -105,22 +105,9 @@ extension SearchViewController {
 
         nextPageButton.snp.makeConstraints { make in
             make.width.equalTo(bookCardField.spaceForLeftRight)
-            make.height.equalTo(bookCardField.cellHeight)
-            make.bottom.equalTo(bookCardField.snp.bottom)
+            make.height.equalTo(UIScreen.main.bounds.width * 0.35)
+            make.top.equalTo(bookCardField.snp.top)
             make.trailing.equalToSuperview()
         }
     }
-
-//    // MARK: Blog Field
-//    func setupBlogField() {
-//        blogField.moreBlogButton.addTarget(self, action: #selector(self.moveToBlogListViewController(_:)), for: .touchUpInside)
-//        scrollContentsView.addSubview(blogField)
-//
-//        blogField.snp.makeConstraints { make in
-//            make.width.equalToSuperview().multipliedBy(0.9)
-//            make.height.equalTo(300)
-//            make.centerX.equalTo(scrollContentsView.snp.centerX)
-//            make.top.equalTo(bookCollectionField.snp.bottom).offset(20)
-//        }
-//    }
 }

@@ -22,7 +22,7 @@ class SearchViewModel {
     
     struct Output {
         let booksResult = PublishRelay<[Book]>()
-//        let blogsResult = PublishRelay<[BlogItem]>()
+//        let blogsResult = PublishRelay<BlogItem>()
         let pointResult = BehaviorRelay<String>(value: "lv \(RewardConfig.getCurrentLevel()). \(Int(RewardConfig.getCurrentPoint()))/\(Int(RewardConfig.getPointList()![RewardConfig.getCurrentLevel()]))")
     }
     
@@ -35,11 +35,6 @@ class SearchViewModel {
             }).disposed(by: disposeBag)
     }
     
-    func requestBlogAndNews() {
-//        requestBlogItems()
-//        updatePoint()
-    }
-    
     func requestBookItems(value: String) {
         currentWord = value
         requestBookSearch(query: value).subscribe(onNext: { [weak self] item in
@@ -47,9 +42,9 @@ class SearchViewModel {
         }).disposed(by: disposeBag)
     }
     
-//    private func requestBlogItems() {
+//    func requestBlogItems() {
 //        requestBlogs(query: currentWord).subscribe(onNext: { [weak self] items in
-//            self?.output.blogsResult.accept(items)
+//            self?.output.blogsResult.accept(items[0])
 //        }).disposed(by: disposeBag)
 //    }
     

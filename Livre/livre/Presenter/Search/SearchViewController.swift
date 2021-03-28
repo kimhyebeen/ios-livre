@@ -12,7 +12,7 @@ import Lottie
 class SearchViewController: BaseViewController {
     let homeIcon = HomeIcon()
     let searchField = SearchField()
-    let bookCardField = BookCardCollectionField()
+    let bookCardField = BookCardCollectionField(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 180))
     let emptyLabel = UILabel()
     let backPageButton = UIButton()
     let nextPageButton = UIButton()
@@ -49,6 +49,7 @@ class SearchViewController: BaseViewController {
         setupEmptyLabel()
         setupBackPageButton()
         setupNextPageButton()
+//        setupBlogField()
     }
     
     private func bindViewModel() {
@@ -68,13 +69,12 @@ class SearchViewController: BaseViewController {
             } else {
                 self.emptyLabel.isHidden = true
                 self.vm.updatePoint(value: self.searchField.textfield.text ?? "")
-                // 블로그 정보 요청
             }
             self.bookCardField.setBookItems(items: items)
         }).disposed(by: disposeBag)
         
-//        vm.output.blogsResult.subscribe(onNext: { [weak self] items in
-//            self?.blogField.setTableViewItem(items: items)
+//        vm.output.blogsResult.subscribe(onNext: { [weak self] item in
+//            self?.blogField.setTableViewItem(items: [item])
 //        }).disposed(by: disposeBag)
     }
     

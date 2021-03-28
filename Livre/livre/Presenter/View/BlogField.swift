@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class BlogField: UIView {
     let divider = UIView()
@@ -15,6 +16,7 @@ class BlogField: UIView {
     let tableView = UITableView()
     
     var blogs: [BlogItem] = []
+    private let disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +49,6 @@ class BlogField: UIView {
     func moveToFirstRow() {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
-
 }
 
 extension BlogField {
@@ -65,50 +66,54 @@ extension BlogField {
     
     // MARK: Title Label
     private func setupTitleLabel() {
-        title.text = "BLOG"
+        title.text = "블로그 후기"
         title.textColor = UIColor(named: "coral")
-        title.font = UIFont(name: "Montserrat-Medium", size: 20)
+        title.fontMontserratMedium(19)
         self.addSubview(title)
         
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 22.5).isActive = true
-        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
+        title.snp.makeConstraints { make in
+            make.centerY.equalTo(self.snp.top).offset(22.5)
+            make.leading.equalToSuperview().offset(15)
+        }
     }
     
     // MARK: More Blog Button
     private func setupMoreBlogButton() {
         self.addSubview(moreBlogButton)
         
-        moreBlogButton.translatesAutoresizingMaskIntoConstraints = false
-        moreBlogButton.widthAnchor.constraint(equalTo: moreInformationButtonView.widthAnchor, constant: 10).isActive = true
-        moreBlogButton.heightAnchor.constraint(equalTo: moreInformationButtonView.heightAnchor, constant: 20).isActive = true
-        moreBlogButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        moreBlogButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        moreBlogButton.snp.makeConstraints { make in
+            make.width.equalTo(moreInformationButtonView.snp.width).offset(10)
+            make.height.equalTo(moreInformationButtonView.snp.height).offset(20)
+            make.top.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
     }
     
     // MARK: More Information Button
     private func setupMoreInformationButtonView() {
         self.addSubview(moreInformationButtonView)
         
-        moreInformationButtonView.translatesAutoresizingMaskIntoConstraints = false
-        moreInformationButtonView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        moreInformationButtonView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        moreInformationButtonView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+        }
     }
     
     // MARK: Blog Table View
     private func setupBlogTableView() {
         tableView.backgroundColor = .clear
-        tableView.separatorColor = UIColor.systemGray
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BlogTableCell.self, forCellReuseIdentifier: BlogTableCell.identifier)
         self.addSubview(tableView)
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: divider.bottomAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(divider.snp.bottom)
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
     }
 }
 

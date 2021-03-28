@@ -8,7 +8,6 @@
 import UIKit
 
 protocol BookCardCollectionFieldDelegate: class {
-    func moveToBookShoppingMall()
     func requestMoreBooks()
 }
 
@@ -17,9 +16,8 @@ class BookCardCollectionField: UIView {
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
     
-    let cellWidth: CGFloat = UIScreen.main.bounds.width * 0.76
-    let cellHeight: CGFloat = UIScreen.main.bounds.height * 0.35
-    let spaceForLeftRight = UIScreen.main.bounds.width * 0.12
+    let cellWidth: CGFloat = UIScreen.main.bounds.width * 0.8
+    let spaceForLeftRight = UIScreen.main.bounds.width * 0.1
     var currentIndex: CGFloat = 0
     var books: [Book] = []
     
@@ -78,7 +76,7 @@ class BookCardCollectionField: UIView {
 
 extension BookCardCollectionField {
     private func setupCollectionView() {
-        flowLayout.itemSize = CGSize(width: cellWidth, height: cellHeight - 30)
+        flowLayout.itemSize = CGSize(width: cellWidth, height: self.frame.height - 30)
         flowLayout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
         collectionView.register(BookCardCell.self, forCellWithReuseIdentifier: BookCardCell.identifier)
@@ -108,7 +106,6 @@ extension BookCardCollectionField: UICollectionViewDataSource, UICollectionViewD
             print("BookCardCollectionField - 재사용큐에서 cell을 찾지 못했습니다.")
             return BookCardCell()
         }
-        cell.tagStack.removeLabels()
         cell.setBookInformation(item: books[indexPath.item])
         return cell
     }

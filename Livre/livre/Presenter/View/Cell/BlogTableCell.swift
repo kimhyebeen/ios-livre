@@ -84,7 +84,7 @@ extension BlogTableCell {
         descriptionLabel.text = "블로그 내용"
         descriptionLabel.textColor = UIColor(named: "normal_gray")
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
-        descriptionLabel.numberOfLines = 3
+        descriptionLabel.numberOfLines = 2
         self.addSubview(descriptionLabel)
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false

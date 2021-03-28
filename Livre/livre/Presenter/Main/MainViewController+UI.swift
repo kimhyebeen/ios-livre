@@ -41,7 +41,7 @@ extension MainViewController {
         basicLabel.font = UIFont(name: "NotoSansKR-Regular", size: 15)
         basicLabel.numberOfLines = 0
         basicLabel.textAlignment = .center
-        basicLabel.textColor = UIColor(named: "pale_gray")
+        basicLabel.textColor = UIColor(named: "label_color")
         self.view.addSubview(basicLabel)
         
         basicLabel.translatesAutoresizingMaskIntoConstraints = false

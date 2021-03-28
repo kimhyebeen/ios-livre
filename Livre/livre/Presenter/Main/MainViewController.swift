@@ -57,6 +57,7 @@ class MainViewController: BaseViewController {
     
     private func setupBackgroundColor() {
         self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
+        searchFieldView.layer.shadowColor = UIColor(named: "shadow_color")!.cgColor
         self.view.bringSubviewToFront(animationView)
         self.view.bringSubviewToFront(searchFieldView)
         self.view.bringSubviewToFront(basicLabel)

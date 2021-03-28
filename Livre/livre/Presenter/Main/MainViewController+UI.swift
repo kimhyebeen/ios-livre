@@ -100,7 +100,8 @@ extension MainViewController {
         recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
         recentSearchTable.delegate = self
         recentSearchTable.dataSource = self
-        recentSearchTable.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)
+        recentSearchTable.backgroundColor = .clear
+        recentSearchTable.separatorStyle = .none
         recentSearchTable.isHidden = true
         recentSearchTable.layer.cornerRadius = 10
         recentSearchTable.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]

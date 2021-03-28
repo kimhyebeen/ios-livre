@@ -10,6 +10,7 @@
 		3D860BCF91F2303DEEE910BD /* Pods_livre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AFD25B843DF2649A3681EE /* Pods_livre.framework */; };
 		EE0464E526103140001AB04D /* SearchBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0464E426103140001AB04D /* SearchBackgroundView.swift */; };
 		EE0464F626104987001AB04D /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0464F526104987001AB04D /* UILabel+.swift */; };
+		EE0464FC26105A04001AB04D /* BookCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0464FB26105A04001AB04D /* BookCardCell.swift */; };
 		EEBCE2AF25F85C5400BA6749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */; };
 		EEBCE2B125F85C5400BA6749 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */; };
 		EEBCE2B825F85C5700BA6749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE2B725F85C5700BA6749 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		8C0121A6DF1BE22A483CF06B /* Pods-livre.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-livre.release.xcconfig"; path = "Target Support Files/Pods-livre/Pods-livre.release.xcconfig"; sourceTree = "<group>"; };
 		EE0464E426103140001AB04D /* SearchBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBackgroundView.swift; sourceTree = "<group>"; };
 		EE0464F526104987001AB04D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		EE0464FB26105A04001AB04D /* BookCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardCell.swift; sourceTree = "<group>"; };
 		EEBCE2AB25F85C5400BA6749 /* livre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = livre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		EEBCE2F425F85EE100BA6749 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EE0464FB26105A04001AB04D /* BookCardCell.swift */,
 				EEBCE2FA25F85EFD00BA6749 /* BlogTableCell.swift */,
 				EEBCE2F725F85EFD00BA6749 /* BookCollectionCell.swift */,
 				EEBCE2F825F85EFD00BA6749 /* MoreButtonTableCell.swift */,
@@ -617,6 +620,7 @@
 				EEBCE2ED25F85ED900BA6749 /* UIView+.swift in Sources */,
 				EEBCE33C25F8602700BA6749 /* ShoppingSearchResponse.swift in Sources */,
 				EEBCE30A25F85F7600BA6749 /* SearchViewModel.swift in Sources */,
+				EE0464FC26105A04001AB04D /* BookCardCell.swift in Sources */,
 				EEBCE34925F8603200BA6749 /* RequestKeywords.swift in Sources */,
 				EEBCE2B125F85C5400BA6749 /* SceneDelegate.swift in Sources */,
 				EEBCE2D425F85E2C00BA6749 /* MainViewController+UI.swift in Sources */,

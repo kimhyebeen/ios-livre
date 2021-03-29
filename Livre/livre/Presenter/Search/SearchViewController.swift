@@ -12,19 +12,19 @@ import Lottie
 class SearchViewController: BaseViewController {
     let homeIcon = HomeIcon()
     let searchField = SearchField()
-    let bookCardField = BookCardCollectionField(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 180))
+    let bookCardField = BookCardCollectionField(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.35))
     let emptyLabel = UILabel()
     let backPageButton = UIButton()
     let nextPageButton = UIButton()
+    let blogField = BlogField()
         
-    let disposeBag = DisposeBag()
-    var vm: SearchViewModel!
+    private let disposeBag = DisposeBag()
+    let vm: SearchViewModel = SearchViewModel()
     var initSearchText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vm = SearchViewModel(value: initSearchText)
         setupView()
         bindViewModel()
         vm.requestBookItems(value: initSearchText)
@@ -49,7 +49,7 @@ class SearchViewController: BaseViewController {
         setupEmptyLabel()
         setupBackPageButton()
         setupNextPageButton()
-//        setupBlogField()
+        setupBlogField()
     }
     
     private func bindViewModel() {
@@ -65,17 +65,18 @@ class SearchViewController: BaseViewController {
             guard let self = self else { return }
             if items.count == 0 {
                 self.emptyLabel.isHidden = false
-                self.showToast(view: self.view, message: "관련 정보를 찾을 수 없습니다.")
+                self.showToast(view: self.view, message: "관련정보를 찾을 수 없습니다.")
             } else {
                 self.emptyLabel.isHidden = true
-                self.vm.updatePoint(value: self.searchField.textfield.text ?? "")
+                self.vm.updatePoint(value: self.searchField.getTextFromTextField())
+                self.vm.requestBlogItems(value: "책 \(self.searchField.getTextFromTextField())")
             }
             self.bookCardField.setBookItems(items: items)
         }).disposed(by: disposeBag)
         
-//        vm.output.blogsResult.subscribe(onNext: { [weak self] item in
-//            self?.blogField.setTableViewItem(items: [item])
-//        }).disposed(by: disposeBag)
+        vm.output.blogsResult.subscribe(onNext: { [weak self] item in
+            self?.blogField.setTableViewItem(items: item)
+        }).disposed(by: disposeBag)
     }
     
     // MARK: click event
@@ -98,8 +99,12 @@ class SearchViewController: BaseViewController {
     }
     
     @objc func moveToBlogListViewController(_ sender: UIButton) {
+        if searchField.getTextFromTextField().isEmpty {
+            self.showToast(view: self.view, message: "검색어를 입력해주세요")
+            return
+        }
         let nextVC = BlogListViewController()
-        nextVC.word = vm.currentWord
+        nextVC.word = "책 \(searchField.getTextFromTextField())"
         self.present(nextVC, animated: true, completion: nil)
     }
 

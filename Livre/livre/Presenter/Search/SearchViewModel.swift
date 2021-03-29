@@ -13,8 +13,6 @@ class SearchViewModel {
     let output = Output()
     private let disposeBag = DisposeBag()
     
-    var currentWord = ""
-    
     struct Input {
         let searchWord = PublishSubject<String>()
         let searchButton = PublishSubject<Void>()
@@ -22,12 +20,10 @@ class SearchViewModel {
     
     struct Output {
         let booksResult = PublishRelay<[Book]>()
-//        let blogsResult = PublishRelay<BlogItem>()
-        let pointResult = BehaviorRelay<String>(value: "lv \(RewardConfig.getCurrentLevel()). \(Int(RewardConfig.getCurrentPoint()))/\(Int(RewardConfig.getPointList()![RewardConfig.getCurrentLevel()]))")
+        let blogsResult = PublishRelay<[BlogItem]>()
     }
     
-    init(value: String) {
-        currentWord = value
+    init() {
         input.searchButton.withLatestFrom(input.searchWord)
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
@@ -36,24 +32,18 @@ class SearchViewModel {
     }
     
     func requestBookItems(value: String) {
-        currentWord = value
         requestBookSearch(query: value).subscribe(onNext: { [weak self] item in
             self?.output.booksResult.accept(item)
         }).disposed(by: disposeBag)
     }
     
-//    func requestBlogItems() {
-//        requestBlogs(query: currentWord).subscribe(onNext: { [weak self] items in
-//            self?.output.blogsResult.accept(items[0])
-//        }).disposed(by: disposeBag)
-//    }
+    func requestBlogItems(value: String) {
+        requestBlogs(query: value).subscribe(onNext: { [weak self] items in
+            self?.output.blogsResult.accept(items)
+        }).disposed(by: disposeBag)
+    }
     
     func updatePoint(value: String) {
         RewardConfig.addPoint(point: Float(value.count * 2))
-        output.pointResult.accept(getPointString())
-    }
-    
-    private func getPointString() -> String {
-        return "lv \(RewardConfig.getCurrentLevel()). \(Int(RewardConfig.getCurrentPoint()))/\(Int(RewardConfig.getPointList()![RewardConfig.getCurrentLevel()]))"
     }
 }

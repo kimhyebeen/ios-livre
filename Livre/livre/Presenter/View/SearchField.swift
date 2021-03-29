@@ -25,12 +25,19 @@ class SearchField: UIView {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
         setupButton()
         setupTextField()
     }
     
-    func setupButton() {
+    func getTextFromTextField() -> String {
+        return textfield.text!
+    }
+}
+
+extension SearchField {
+    // MARK: Button
+    private func setupButton() {
         button.setImage(UIImage(named: "search"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         self.addSubview(button)
@@ -44,7 +51,8 @@ class SearchField: UIView {
         }
     }
     
-    func setupTextField() {
+    // MARK: TextField
+    private func setupTextField() {
         textfield.placeholder = "검색어를 입력해주세요"
         textfield.textColor = UIColor(named: "deep_gray")
         self.addSubview(textfield)
@@ -56,5 +64,4 @@ class SearchField: UIView {
             make.trailing.equalTo(button.snp.leading)
         }
     }
-    
 }

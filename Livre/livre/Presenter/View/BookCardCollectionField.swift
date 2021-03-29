@@ -49,9 +49,11 @@ class BookCardCollectionField: UIView {
     }
     
     func moveToFirstPage() {
-        if currentIndex > 0 {
-            collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
-            currentIndex = 0
+        if currentIndex == 0 { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
+            self.currentIndex = 0
         }
     }
     
@@ -61,23 +63,44 @@ class BookCardCollectionField: UIView {
             delegate?.requestMoreBooks()
             return
         }
-        collectionView.scrollToItem(at: IndexPath(row: Int(currentIndex) + 1, section: 0), at: .centeredHorizontally, animated: true)
-        currentIndex += 1
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.collectionView.scrollToItem(at: IndexPath(row: Int(self.currentIndex) + 1, section: 0), at: .centeredHorizontally, animated: true)
+            self.currentIndex += 1
+        }
     }
     
     func moveToPrePage() {
-        if books.count <= 1 { return }
-        if currentIndex == 0 { return }
-        collectionView.scrollToItem(at: IndexPath(row: Int(currentIndex) - 1, section: 0), at: .centeredHorizontally, animated: true)
-        currentIndex -= 1
+        if books.count <= 1 || currentIndex == 0 { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.collectionView.scrollToItem(at: IndexPath(row: Int(self.currentIndex) - 1, section: 0), at: .centeredHorizontally, animated: true)
+            self.currentIndex -= 1
+        }
     }
 
 }
 
 extension BookCardCollectionField {
     private func setupCollectionView() {
+        setupFlowLayoutProperties()
+        setupCollectionViewProperties()
+        self.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+    }
+    
+    private func setupFlowLayoutProperties() {
         flowLayout.itemSize = CGSize(width: cellWidth, height: self.frame.height - 30)
         flowLayout.scrollDirection = .horizontal
+    }
+    
+    private func setupCollectionViewProperties() {
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
         collectionView.register(BookCardCell.self, forCellWithReuseIdentifier: BookCardCell.identifier)
         collectionView.backgroundColor = .clear
@@ -87,14 +110,6 @@ extension BookCardCollectionField {
         collectionView.decelerationRate = .fast
         collectionView.delegate = self
         collectionView.dataSource = self
-        self.addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-        }
     }
 }
 

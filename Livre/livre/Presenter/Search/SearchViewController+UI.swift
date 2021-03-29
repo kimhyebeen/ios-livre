@@ -61,9 +61,9 @@ extension SearchViewController {
         
         bookCardField.snp.makeConstraints { make in
             make.width.equalToSuperview()
+            make.height.equalTo(self.view.frame.height * 0.35)
             make.centerX.equalToSuperview()
-            make.top.equalTo(searchField.snp.bottom)
-            make.bottom.equalToSuperview()
+            make.top.equalTo(searchField.snp.bottom).offset(20)
         }
     }
     
@@ -82,15 +82,14 @@ extension SearchViewController {
     // MARK: Back Button
     func setupBackPageButton() {
         backPageButton.setImage(UIImage(named: "arrow_left")!.withTintColor(.white), for: .normal)
-        backPageButton.imageView?.layer.cornerRadius = 10
-        backPageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        backPageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
         backPageButton.addTarget(self, action: #selector(clickBackButton(_:)), for: .touchUpInside)
         self.view.addSubview(backPageButton)
 
         backPageButton.snp.makeConstraints { make in
             make.width.equalTo(bookCardField.spaceForLeftRight)
             make.height.equalTo(UIScreen.main.bounds.width * 0.35)
-            make.top.equalTo(bookCardField.snp.top)
+            make.centerY.equalTo(bookCardField.snp.centerY)
             make.leading.equalToSuperview()
         }
     }
@@ -98,16 +97,28 @@ extension SearchViewController {
     // MARK: Next Button
     func setupNextPageButton() {
         nextPageButton.setImage(UIImage(named: "arrow_right")!.withTintColor(.white), for: .normal)
-        nextPageButton.imageView?.layer.cornerRadius = 10
-        nextPageButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        nextPageButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
         nextPageButton.addTarget(self, action: #selector(clickNextButton(_:)), for: .touchUpInside)
         self.view.addSubview(nextPageButton)
 
         nextPageButton.snp.makeConstraints { make in
             make.width.equalTo(bookCardField.spaceForLeftRight)
             make.height.equalTo(UIScreen.main.bounds.width * 0.35)
-            make.top.equalTo(bookCardField.snp.top)
+            make.centerY.equalTo(bookCardField.snp.centerY)
             make.trailing.equalToSuperview()
+        }
+    }
+    
+    // MARK: BlogField
+    func setupBlogField() {
+        blogField.moreBlogButton.addTarget(self, action: #selector(moveToBlogListViewController(_:)), for: .touchUpInside)
+        self.view.addSubview(blogField)
+        
+        blogField.snp.makeConstraints { make in
+            make.height.equalTo(self.view.frame.height * 0.25)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
         }
     }
 }

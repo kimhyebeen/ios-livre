@@ -50,8 +50,8 @@ class BookCard: UIView {
     
     func setBookInformation(item: Book) {
         titleLabel.text = item.titleString
-        authorLabel.text = "저자: \(item.author)"
-        publishDateLabel.text = "출간일: \(item.publishDateString)"
+        authorLabel.text = item.author
+        publishDateLabel.text = item.publishDateString
         priceLabel.text = item.price
         contentsLabel.text = item.contentsString
         

@@ -35,8 +35,14 @@ extension String {
     }
     
     func removeHtml() -> String {
-        let text = self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        return text.replacingOccurrences(of: "&#x0D;", with: "\n", options: .regularExpression, range: nil)
+        var text = self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        if text.contains("&#x0D;") { text = text.replacingOccurrences(of: "&#x0D;", with: "\n", options: .regularExpression, range: nil) }
+        if text.contains("&quot;") { text = text.replacingOccurrences(of: "&quot;", with: "\"", options: .regularExpression, range: nil) }
+        if text.contains("&lt;") {
+            text = text.replacingOccurrences(of: "&lt;", with: "<", options: .regularExpression, range: nil)
+            text = text.replacingOccurrences(of: "&gt;", with: ">", options: .regularExpression, range: nil)
+        }
+        return text
     }
     
     func removeBracket() -> String {

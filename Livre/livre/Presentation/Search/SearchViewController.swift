@@ -103,7 +103,7 @@ class SearchViewController: BaseViewController {
             self.showToast(view: self.view, message: "검색어를 입력해주세요")
             return
         }
-        let nextVC = BlogListViewController()
+        let nextVC = BlogViewController()
         nextVC.word = "책 \(searchField.getTextFromTextField())"
         self.present(nextVC, animated: true, completion: nil)
     }

@@ -8,12 +8,12 @@
 import UIKit
 import RxSwift
 
-class BlogListViewController: BaseViewController {
+class BlogViewController: BaseViewController {
     let deviceWidth = UIScreen.main.bounds.width
     let deviceHeight = UIScreen.main.bounds.height
     let disposeBag = DisposeBag()
     var word: String = ""
-    var vm: BlogListViewModel!
+    var vm: BlogViewModel!
     var blogs: [BlogItem] = []
     
     let barView = UIView()
@@ -24,7 +24,7 @@ class BlogListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vm = BlogListViewModel(word: word)
+        vm = BlogViewModel(word: word)
         setupView()
         bindViewModel()
     }
@@ -63,7 +63,7 @@ class BlogListViewController: BaseViewController {
 }
 
 // MARK: +Delegate
-extension BlogListViewController: UITableViewDataSource, UITableViewDelegate {
+extension BlogViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blogs.count+1
     }

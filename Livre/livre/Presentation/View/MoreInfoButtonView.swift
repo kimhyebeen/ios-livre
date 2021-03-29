@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoreInformationButtonView: UIView {
+class MoreInfoButtonView: UIView {
     let title = UILabel()
     let imageView = UIImageView()
 

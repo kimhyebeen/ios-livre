@@ -24,21 +24,9 @@ func requestBlogs(query: String, start: Int = 1, display: Int = 10) -> Observabl
             let response = try? JSONDecoder().decode(BlogSearchResponse.self, from: data)
 
             guard let items = response?.items else { return }
-            observable.onNext(
-                items.map { item in
-                    BlogItem(
-                        title: item.title,
-                        link: item.link,
-                        description: item.description,
-                        bloggername: item.bloggername,
-                        postDate: item.postDate
-                    )
-                }
-            )
+            observable.onNext(items.map { BlogItem(title: $0.title, link: $0.link, description: $0.description, bloggername: $0.bloggername, postDate: $0.postDate) })
         }
-        return Disposables.create {
-            request.cancel()
-        }
+        return Disposables.create { request.cancel() }
     }
     
 }

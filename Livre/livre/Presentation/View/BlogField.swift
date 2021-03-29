@@ -10,7 +10,7 @@ import RxSwift
 
 class BlogField: UIView {
     let divider = UIView()
-    let moreInformationButtonView = MoreInformationButtonView()
+    let moreInformationButtonView = MoreInfoButtonView()
     let moreBlogButton = UIButton()
     let title = UILabel()
     let tableView = UITableView()

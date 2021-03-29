@@ -22,7 +22,7 @@
 		EEBCE2D625F85E2C00BA6749 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2D325F85E2C00BA6749 /* MainViewModel.swift */; };
 		EEBCE2E825F85ED900BA6749 /* BlogField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2DD25F85ED900BA6749 /* BlogField.swift */; };
 		EEBCE2E925F85ED900BA6749 /* HomeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2DE25F85ED900BA6749 /* HomeIcon.swift */; };
-		EEBCE2EA25F85ED900BA6749 /* MoreInformationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2DF25F85ED900BA6749 /* MoreInformationButtonView.swift */; };
+		EEBCE2EA25F85ED900BA6749 /* MoreInfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2DF25F85ED900BA6749 /* MoreInfoButtonView.swift */; };
 		EEBCE2ED25F85ED900BA6749 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E225F85ED900BA6749 /* UIView+.swift */; };
 		EEBCE2EE25F85ED900BA6749 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E325F85ED900BA6749 /* SearchField.swift */; };
 		EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E425F85ED900BA6749 /* String+.swift */; };
@@ -35,9 +35,9 @@
 		EEBCE30825F85F7600BA6749 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30525F85F7600BA6749 /* SearchViewController.swift */; };
 		EEBCE30925F85F7600BA6749 /* SearchViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30625F85F7600BA6749 /* SearchViewController+UI.swift */; };
 		EEBCE30A25F85F7600BA6749 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30725F85F7600BA6749 /* SearchViewModel.swift */; };
-		EEBCE30F25F85F7D00BA6749 /* BlogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30C25F85F7D00BA6749 /* BlogListViewController.swift */; };
-		EEBCE31025F85F7D00BA6749 /* BlogListViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30D25F85F7D00BA6749 /* BlogListViewController+UI.swift */; };
-		EEBCE31125F85F7D00BA6749 /* BlogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30E25F85F7D00BA6749 /* BlogListViewModel.swift */; };
+		EEBCE30F25F85F7D00BA6749 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30C25F85F7D00BA6749 /* BlogViewController.swift */; };
+		EEBCE31025F85F7D00BA6749 /* BlogViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30D25F85F7D00BA6749 /* BlogViewController+UI.swift */; };
+		EEBCE31125F85F7D00BA6749 /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE30E25F85F7D00BA6749 /* BlogViewModel.swift */; };
 		EEBCE32925F85FCF00BA6749 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE32325F85FCF00BA6749 /* BlogItem.swift */; };
 		EEBCE32A25F85FCF00BA6749 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE32425F85FCF00BA6749 /* Book.swift */; };
 		EEBCE32C25F85FCF00BA6749 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE32625F85FCF00BA6749 /* Reward.swift */; };
@@ -80,7 +80,7 @@
 		EE0464E426103140001AB04D /* SearchBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBackgroundView.swift; sourceTree = "<group>"; };
 		EE0464F526104987001AB04D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		EE0464FB26105A04001AB04D /* BookCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardCell.swift; sourceTree = "<group>"; };
-		EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCardCollectionField.swift; path = livre/Presenter/View/BookCardCollectionField.swift; sourceTree = SOURCE_ROOT; };
+		EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCardCollectionField.swift; path = livre/Presentation/View/BookCardCollectionField.swift; sourceTree = SOURCE_ROOT; };
 		EEBCE2AB25F85C5400BA6749 /* livre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = livre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		EEBCE2D325F85E2C00BA6749 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		EEBCE2DD25F85ED900BA6749 /* BlogField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogField.swift; sourceTree = "<group>"; };
 		EEBCE2DE25F85ED900BA6749 /* HomeIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeIcon.swift; sourceTree = "<group>"; };
-		EEBCE2DF25F85ED900BA6749 /* MoreInformationButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInformationButtonView.swift; sourceTree = "<group>"; };
+		EEBCE2DF25F85ED900BA6749 /* MoreInfoButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoButtonView.swift; sourceTree = "<group>"; };
 		EEBCE2E225F85ED900BA6749 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EEBCE2E325F85ED900BA6749 /* SearchField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		EEBCE2E425F85ED900BA6749 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -106,9 +106,9 @@
 		EEBCE30525F85F7600BA6749 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EEBCE30625F85F7600BA6749 /* SearchViewController+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchViewController+UI.swift"; sourceTree = "<group>"; };
 		EEBCE30725F85F7600BA6749 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		EEBCE30C25F85F7D00BA6749 /* BlogListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogListViewController.swift; sourceTree = "<group>"; };
-		EEBCE30D25F85F7D00BA6749 /* BlogListViewController+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlogListViewController+UI.swift"; sourceTree = "<group>"; };
-		EEBCE30E25F85F7D00BA6749 /* BlogListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogListViewModel.swift; sourceTree = "<group>"; };
+		EEBCE30C25F85F7D00BA6749 /* BlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		EEBCE30D25F85F7D00BA6749 /* BlogViewController+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlogViewController+UI.swift"; sourceTree = "<group>"; };
+		EEBCE30E25F85F7D00BA6749 /* BlogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
 		EEBCE32325F85FCF00BA6749 /* BlogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
 		EEBCE32425F85FCF00BA6749 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		EEBCE32625F85FCF00BA6749 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		EE17260C25FE31CA00B79E80 /* Presenter */ = {
+		EE17260C25FE31CA00B79E80 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				EEBCE32225F85FB700BA6749 /* Model */,
@@ -181,9 +181,9 @@
 				EEBCE2DC25F85EBB00BA6749 /* View */,
 				EEBCE2D025F85E0600BA6749 /* Main */,
 				EEBCE30225F85F1800BA6749 /* Search */,
-				EEBCE30325F85F2100BA6749 /* BlogList */,
+				EEBCE30325F85F2100BA6749 /* Blog */,
 			);
-			path = Presenter;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		EEBCE2A225F85C5400BA6749 = {
@@ -210,7 +210,7 @@
 				EEBCE35425F8605500BA6749 /* Font */,
 				EEBCE35325F8604D00BA6749 /* LottieJson */,
 				EEBCE33025F85FE100BA6749 /* Data */,
-				EE17260C25FE31CA00B79E80 /* Presenter */,
+				EE17260C25FE31CA00B79E80 /* Presentation */,
 				EEBCE2AE25F85C5400BA6749 /* AppDelegate.swift */,
 				EEBCE2B025F85C5400BA6749 /* SceneDelegate.swift */,
 				EEBCE2B725F85C5700BA6749 /* Assets.xcassets */,
@@ -246,7 +246,7 @@
 				EEBCE2E725F85ED900BA6749 /* BookCard.swift */,
 				EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */,
 				EEBCE2DE25F85ED900BA6749 /* HomeIcon.swift */,
-				EEBCE2DF25F85ED900BA6749 /* MoreInformationButtonView.swift */,
+				EEBCE2DF25F85ED900BA6749 /* MoreInfoButtonView.swift */,
 				EEBCE2E625F85ED900BA6749 /* RewardView.swift */,
 				EEBCE2E325F85ED900BA6749 /* SearchField.swift */,
 				EEBCE2E525F85ED900BA6749 /* TagStack.swift */,
@@ -279,14 +279,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		EEBCE30325F85F2100BA6749 /* BlogList */ = {
+		EEBCE30325F85F2100BA6749 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
-				EEBCE30C25F85F7D00BA6749 /* BlogListViewController.swift */,
-				EEBCE30D25F85F7D00BA6749 /* BlogListViewController+UI.swift */,
-				EEBCE30E25F85F7D00BA6749 /* BlogListViewModel.swift */,
+				EEBCE30C25F85F7D00BA6749 /* BlogViewController.swift */,
+				EEBCE30D25F85F7D00BA6749 /* BlogViewController+UI.swift */,
+				EEBCE30E25F85F7D00BA6749 /* BlogViewModel.swift */,
 			);
-			path = BlogList;
+			path = Blog;
 			sourceTree = "<group>";
 		};
 		EEBCE32225F85FB700BA6749 /* Model */ = {
@@ -499,7 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEBCE2EA25F85ED900BA6749 /* MoreInformationButtonView.swift in Sources */,
+				EEBCE2EA25F85ED900BA6749 /* MoreInfoButtonView.swift in Sources */,
 				EEBCE2D625F85E2C00BA6749 /* MainViewModel.swift in Sources */,
 				EE0464E526103140001AB04D /* SearchBackgroundView.swift in Sources */,
 				EE0464FF26105F2C001AB04D /* BookCardCollectionField.swift in Sources */,
@@ -520,7 +520,7 @@
 				EEBCE33B25F8602700BA6749 /* KeywordResponse.swift in Sources */,
 				EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */,
 				EEBCE34E25F8603800BA6749 /* RewardConfig.swift in Sources */,
-				EEBCE31025F85F7D00BA6749 /* BlogListViewController+UI.swift in Sources */,
+				EEBCE31025F85F7D00BA6749 /* BlogViewController+UI.swift in Sources */,
 				EEBCE2E925F85ED900BA6749 /* HomeIcon.swift in Sources */,
 				EEBCE30825F85F7600BA6749 /* SearchViewController.swift in Sources */,
 				EEBCE32925F85FCF00BA6749 /* BlogItem.swift in Sources */,
@@ -530,9 +530,9 @@
 				EEBCE34625F8603200BA6749 /* RequestBlogs.swift in Sources */,
 				EEBCE30925F85F7600BA6749 /* SearchViewController+UI.swift in Sources */,
 				EEBCE33E25F8602700BA6749 /* BookSearchResponse.swift in Sources */,
-				EEBCE31125F85F7D00BA6749 /* BlogListViewModel.swift in Sources */,
+				EEBCE31125F85F7D00BA6749 /* BlogViewModel.swift in Sources */,
 				EEBCE32A25F85FCF00BA6749 /* Book.swift in Sources */,
-				EEBCE30F25F85F7D00BA6749 /* BlogListViewController.swift in Sources */,
+				EEBCE30F25F85F7D00BA6749 /* BlogViewController.swift in Sources */,
 				EEBCE2D525F85E2C00BA6749 /* MainViewController.swift in Sources */,
 				EEBCE2ED25F85ED900BA6749 /* UIView+.swift in Sources */,
 				EEBCE30A25F85F7600BA6749 /* SearchViewModel.swift in Sources */,

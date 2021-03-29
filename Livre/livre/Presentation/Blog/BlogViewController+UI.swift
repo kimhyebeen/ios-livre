@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BlogListViewController {
+extension BlogViewController {
     // MARK: Bar View
     func setupBarView() {
         barView.backgroundColor = UIColor(named: "pale_gray")!.withAlphaComponent(0.5)

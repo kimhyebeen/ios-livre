@@ -8,7 +8,7 @@
 import RxCocoa
 import RxSwift
 
-class BlogListViewModel {
+class BlogViewModel {
     var word: String = ""
     var startIndex = 1
     let disposeBag = DisposeBag()

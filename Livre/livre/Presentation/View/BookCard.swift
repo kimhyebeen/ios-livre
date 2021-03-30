@@ -127,7 +127,6 @@ extension BookCard {
         imageView.backgroundColor = .clear
         imageView.layer.borderColor = UIColor(named: "blight_gray")!.cgColor
         imageView.layer.borderWidth = 1
-        
         self.addSubview(imageView)
         
         imageView.snp.makeConstraints { make in

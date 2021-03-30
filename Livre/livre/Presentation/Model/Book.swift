@@ -18,7 +18,7 @@ struct Book {
     var publishDate: Date?
     
     var titleString: String { title.removeBracket().removeHtml() }
-    var authorString: String { "저자: \(author.removeHtml())" }
+    var authorString: String { author.removeHtml() }
     var contentsString: String { description.removeHtml() }
     
     var publishDateString: String {

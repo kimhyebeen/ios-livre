@@ -109,6 +109,27 @@ extension SearchViewController {
         }
     }
     
+    // MARK: RecentSearchTable
+    func setupRecentSearchTable() {
+        recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
+        recentSearchTable.isHidden = true
+        recentSearchTable.delegate = self
+        recentSearchTable.dataSource = self
+        recentSearchTable.separatorStyle = .none
+        recentSearchTable.isScrollEnabled = false
+        recentSearchTable.backgroundColor = .clear
+        recentSearchTable.layer.cornerRadius = 10
+        recentSearchTable.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        self.view.addSubview(recentSearchTable)
+        
+        recentSearchTable.snp.makeConstraints { make in
+            make.height.equalTo(225)
+            make.top.equalTo(searchField.snp.bottom)
+            make.leading.equalTo(searchField.snp.leading)
+            make.trailing.equalTo(searchField.snp.trailing)
+        }
+    }
+    
     // MARK: BlogField
     func setupBlogField() {
         blogField.moreBlogButton.addTarget(self, action: #selector(moveToBlogListViewController(_:)), for: .touchUpInside)

@@ -16,11 +16,13 @@ class SearchViewController: BaseViewController {
     let emptyLabel = UILabel()
     let backPageButton = UIButton()
     let nextPageButton = UIButton()
+    let recentSearchTable = UITableView()
     let blogField = BlogField()
         
     private let disposeBag = DisposeBag()
-    let vm: SearchViewModel = SearchViewModel()
+    var vm: SearchViewModel = SearchViewModel()
     var initSearchText = ""
+    var recentSearchList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,8 @@ class SearchViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
+        
         homeIcon.startAnimation()
     }
     
@@ -49,6 +51,7 @@ class SearchViewController: BaseViewController {
         setupEmptyLabel()
         setupBackPageButton()
         setupNextPageButton()
+        setupRecentSearchTable()
         setupBlogField()
     }
     
@@ -65,6 +68,7 @@ class SearchViewController: BaseViewController {
             guard let self = self else { return }
             if items.count == 0 {
                 self.emptyLabel.isHidden = false
+                self.blogField.setTableViewItem(items: [])
                 self.showToast(view: self.view, message: "관련정보를 찾을 수 없습니다.")
             } else {
                 self.emptyLabel.isHidden = true
@@ -76,6 +80,12 @@ class SearchViewController: BaseViewController {
         
         vm.output.blogsResult.subscribe(onNext: { [weak self] item in
             self?.blogField.setTableViewItem(items: item)
+        }).disposed(by: disposeBag)
+        
+        vm.output.recentSearchedText.subscribe(onNext: { [weak self] text in
+            guard let self = self else { return }
+            if self.recentSearchList.count == 5 { self.recentSearchList.removeFirst() }
+            self.recentSearchList.append(text)
         }).disposed(by: disposeBag)
     }
     

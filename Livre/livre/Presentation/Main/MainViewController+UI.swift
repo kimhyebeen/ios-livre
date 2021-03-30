@@ -15,11 +15,12 @@ extension MainViewController {
         animationView.loopMode = .loop
         self.view.addSubview(animationView) // 애니메이션뷰를 메인뷰에 추가
         
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        animationView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        animationView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        animationView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        animationView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height * 0.15).isActive = true
+        animationView.snp.makeConstraints { make in
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(self.view.frame.height * 0.15)
+        }
     }
     
     // MARK: SearchFieldView
@@ -30,10 +31,11 @@ extension MainViewController {
         searchFieldView.backgroundColor = UIColor(named: "pale_gray")
         self.view.addSubview(searchFieldView)
         
-        searchFieldView.translatesAutoresizingMaskIntoConstraints = false
-        searchFieldView.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 40).isActive = true
-        searchFieldView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: spaceForLeftRight).isActive = true
-        searchFieldView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1).isActive = true
+        searchFieldView.snp.makeConstraints { make in
+            make.top.equalTo(animationView.snp.bottom)
+            make.leading.equalToSuperview().offset(spaceForLeftRight)
+            make.trailing.equalToSuperview().offset(spaceForLeftRight * -1)
+        }
     }
     
     // MARK: BasicLabel
@@ -45,19 +47,21 @@ extension MainViewController {
         basicLabel.textColor = UIColor(named: "label_color")
         self.view.addSubview(basicLabel)
         
-        basicLabel.translatesAutoresizingMaskIntoConstraints = false
-        basicLabel.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 20).isActive = true
-        basicLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        basicLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.view.snp.centerY).offset(20)
+        }
     }
     
     // MARK: RewardView
     func setupRewardView() {
         self.view.addSubview(rewardView)
         
-        rewardView.translatesAutoresizingMaskIntoConstraints = false
-        rewardView.bottomAnchor.constraint(equalTo: pointLabel.topAnchor, constant: -30).isActive = true
-        rewardView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: spaceForLeftRight + 10).isActive = true
-        rewardView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: spaceForLeftRight * -1 - 10).isActive = true
+        rewardView.snp.makeConstraints { make in
+            make.bottom.equalTo(pointLabel.snp.top).offset(-30)
+            make.leading.equalToSuperview().offset(spaceForLeftRight + 10)
+            make.trailing.equalToSuperview().offset(spaceForLeftRight * -1 - 10)
+        }
     }
     
     // MARK: StartLevelLabel
@@ -67,9 +71,10 @@ extension MainViewController {
         startLevelLabel.textColor = UIColor(named: "light_gray_blue")
         self.view.addSubview(startLevelLabel)
         
-        startLevelLabel.translatesAutoresizingMaskIntoConstraints = false
-        startLevelLabel.topAnchor.constraint(equalTo: rewardView.bottomAnchor, constant: 4).isActive = true
-        startLevelLabel.centerXAnchor.constraint(equalTo: rewardView.leadingAnchor).isActive = true
+        startLevelLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(rewardView.snp.leading)
+            make.top.equalTo(rewardView.snp.bottom).offset(4)
+        }
     }
     
     // MARK: EndLevelLabel
@@ -79,9 +84,10 @@ extension MainViewController {
         endLevelLabel.textColor = UIColor(named: "light_gray_blue")
         self.view.addSubview(endLevelLabel)
         
-        endLevelLabel.translatesAutoresizingMaskIntoConstraints = false
-        endLevelLabel.topAnchor.constraint(equalTo: rewardView.bottomAnchor, constant: 4).isActive = true
-        endLevelLabel.centerXAnchor.constraint(equalTo: rewardView.trailingAnchor).isActive = true
+        endLevelLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(rewardView.snp.trailing)
+            make.top.equalTo(rewardView.snp.bottom).offset(4)
+        }
     }
     
     // MARK: PointLabel
@@ -91,27 +97,30 @@ extension MainViewController {
         pointLabel.textColor = UIColor(named: "light_gray_blue")
         self.view.addSubview(pointLabel)
         
-        pointLabel.translatesAutoresizingMaskIntoConstraints = false
-        pointLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: self.view.frame.height * 0.15 * -1).isActive = true
-        pointLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        pointLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(self.view.frame.height * 0.15 * -1)
+        }
     }
     
     // MARK: RecentSearchTable
     func setupRecentSearchTable() {
         recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
+        recentSearchTable.isHidden = true
         recentSearchTable.delegate = self
         recentSearchTable.dataSource = self
-        recentSearchTable.backgroundColor = .clear
         recentSearchTable.separatorStyle = .none
-        recentSearchTable.isHidden = true
+        recentSearchTable.isScrollEnabled = false
+        recentSearchTable.backgroundColor = .clear
         recentSearchTable.layer.cornerRadius = 10
         recentSearchTable.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         self.view.addSubview(recentSearchTable)
         
-        recentSearchTable.translatesAutoresizingMaskIntoConstraints = false
-        recentSearchTable.topAnchor.constraint(equalTo: searchFieldView.bottomAnchor).isActive = true
-        recentSearchTable.leadingAnchor.constraint(equalTo: searchFieldView.textfield.leadingAnchor).isActive = true
-        recentSearchTable.trailingAnchor.constraint(equalTo: searchFieldView.textfield.trailingAnchor).isActive = true
-        recentSearchTable.heightAnchor.constraint(equalToConstant: 225).isActive = true
+        recentSearchTable.snp.makeConstraints { make in
+            make.height.equalTo(225)
+            make.top.equalTo(searchFieldView.snp.bottom)
+            make.leading.equalTo(searchFieldView.snp.leading)
+            make.trailing.equalTo(searchFieldView.snp.trailing)
+        }
     }
 }

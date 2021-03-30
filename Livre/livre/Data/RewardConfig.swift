@@ -35,9 +35,7 @@ struct RewardConfig {
     }
     
     static func addPoint(point: Float) {
-        guard let list = getPointList() else {
-            return
-        }
+        guard let list = getPointList() else { return }
         let level = getCurrentLevel()
         let total = getCurrentPoint() + point
         if total >= list[level] {

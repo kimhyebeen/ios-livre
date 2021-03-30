@@ -40,7 +40,7 @@ class BookCardCell: UICollectionViewCell {
     }
     
     private func requestKeywordList(_ description: String) {
-        requestKeywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: description)))
+        RequestNetwork.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: description)))
             .take(3)
             .subscribe(onNext: { [weak self] item in
                 self?.bookCard.tagStack.addLabel(value: item)

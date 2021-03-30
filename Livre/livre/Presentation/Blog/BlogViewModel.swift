@@ -20,7 +20,7 @@ class BlogViewModel {
     }
     
     func requestBlogItems() {
-        requestBlogs(query: word, start: startIndex)
+        RequestNetwork.blogs(query: word, start: startIndex)
             .subscribe(onNext: { [weak self] items in
                 self?.blogs.accept(items)
             }).disposed(by: disposeBag)

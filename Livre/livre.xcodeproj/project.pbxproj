@@ -45,9 +45,6 @@
 		EEBCE33B25F8602700BA6749 /* KeywordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE33525F8602700BA6749 /* KeywordResponse.swift */; };
 		EEBCE33D25F8602700BA6749 /* BlogSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE33725F8602700BA6749 /* BlogSearchResponse.swift */; };
 		EEBCE33E25F8602700BA6749 /* BookSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE33825F8602700BA6749 /* BookSearchResponse.swift */; };
-		EEBCE34525F8603200BA6749 /* RequestBookSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE34025F8603200BA6749 /* RequestBookSearch.swift */; };
-		EEBCE34625F8603200BA6749 /* RequestBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE34125F8603200BA6749 /* RequestBlogs.swift */; };
-		EEBCE34925F8603200BA6749 /* RequestKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE34425F8603200BA6749 /* RequestKeywords.swift */; };
 		EEBCE34E25F8603800BA6749 /* RewardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE34B25F8603800BA6749 /* RewardConfig.swift */; };
 		EEBCE34F25F8603800BA6749 /* SecretKeySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE34C25F8603800BA6749 /* SecretKeySet.swift */; };
 		EEBCE35025F8603800BA6749 /* URLConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE34D25F8603800BA6749 /* URLConfig.swift */; };
@@ -71,6 +68,7 @@
 		EEBCE37B25F860AF00BA6749 /* home-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36C25F860AF00BA6749 /* home-icon.json */; };
 		EEBCE37C25F860AF00BA6749 /* reward-1.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36D25F860AF00BA6749 /* reward-1.json */; };
 		EEBCE37D25F860AF00BA6749 /* reward-0.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36E25F860AF00BA6749 /* reward-0.json */; };
+		EEE464912613336D00AF4A67 /* RequestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE464902613336D00AF4A67 /* RequestNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,9 +114,6 @@
 		EEBCE33525F8602700BA6749 /* KeywordResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordResponse.swift; sourceTree = "<group>"; };
 		EEBCE33725F8602700BA6749 /* BlogSearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogSearchResponse.swift; sourceTree = "<group>"; };
 		EEBCE33825F8602700BA6749 /* BookSearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSearchResponse.swift; sourceTree = "<group>"; };
-		EEBCE34025F8603200BA6749 /* RequestBookSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookSearch.swift; sourceTree = "<group>"; };
-		EEBCE34125F8603200BA6749 /* RequestBlogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBlogs.swift; sourceTree = "<group>"; };
-		EEBCE34425F8603200BA6749 /* RequestKeywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestKeywords.swift; sourceTree = "<group>"; };
 		EEBCE34B25F8603800BA6749 /* RewardConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardConfig.swift; sourceTree = "<group>"; };
 		EEBCE34C25F8603800BA6749 /* SecretKeySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeySet.swift; sourceTree = "<group>"; };
 		EEBCE34D25F8603800BA6749 /* URLConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConfig.swift; sourceTree = "<group>"; };
@@ -142,6 +137,7 @@
 		EEBCE36C25F860AF00BA6749 /* home-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-icon.json"; sourceTree = "<group>"; };
 		EEBCE36D25F860AF00BA6749 /* reward-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-1.json"; sourceTree = "<group>"; };
 		EEBCE36E25F860AF00BA6749 /* reward-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-0.json"; sourceTree = "<group>"; };
+		EEE464902613336D00AF4A67 /* RequestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,22 +299,12 @@
 			isa = PBXGroup;
 			children = (
 				EEBCE33225F85FF700BA6749 /* APIModel */,
-				EEBCE33125F85FEC00BA6749 /* Requests */,
 				EEBCE34B25F8603800BA6749 /* RewardConfig.swift */,
 				EEBCE34C25F8603800BA6749 /* SecretKeySet.swift */,
 				EEBCE34D25F8603800BA6749 /* URLConfig.swift */,
+				EEE464902613336D00AF4A67 /* RequestNetwork.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		EEBCE33125F85FEC00BA6749 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				EEBCE34125F8603200BA6749 /* RequestBlogs.swift */,
-				EEBCE34025F8603200BA6749 /* RequestBookSearch.swift */,
-				EEBCE34425F8603200BA6749 /* RequestKeywords.swift */,
-			);
-			path = Requests;
 			sourceTree = "<group>";
 		};
 		EEBCE33225F85FF700BA6749 /* APIModel */ = {
@@ -515,7 +501,6 @@
 				EEBCE33D25F8602700BA6749 /* BlogSearchResponse.swift in Sources */,
 				EEBCE2CD25F85DEF00BA6749 /* BaseViewController.swift in Sources */,
 				EEBCE30025F85EFD00BA6749 /* BlogTableCell.swift in Sources */,
-				EEBCE34525F8603200BA6749 /* RequestBookSearch.swift in Sources */,
 				EE0464F626104987001AB04D /* UILabel+.swift in Sources */,
 				EEBCE33B25F8602700BA6749 /* KeywordResponse.swift in Sources */,
 				EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */,
@@ -527,17 +512,16 @@
 				EEBCE2FE25F85EFD00BA6749 /* MoreButtonTableCell.swift in Sources */,
 				EEBCE2AF25F85C5400BA6749 /* AppDelegate.swift in Sources */,
 				EEBCE2F025F85ED900BA6749 /* TagStack.swift in Sources */,
-				EEBCE34625F8603200BA6749 /* RequestBlogs.swift in Sources */,
 				EEBCE30925F85F7600BA6749 /* SearchViewController+UI.swift in Sources */,
 				EEBCE33E25F8602700BA6749 /* BookSearchResponse.swift in Sources */,
 				EEBCE31125F85F7D00BA6749 /* BlogViewModel.swift in Sources */,
+				EEE464912613336D00AF4A67 /* RequestNetwork.swift in Sources */,
 				EEBCE32A25F85FCF00BA6749 /* Book.swift in Sources */,
 				EEBCE30F25F85F7D00BA6749 /* BlogViewController.swift in Sources */,
 				EEBCE2D525F85E2C00BA6749 /* MainViewController.swift in Sources */,
 				EEBCE2ED25F85ED900BA6749 /* UIView+.swift in Sources */,
 				EEBCE30A25F85F7600BA6749 /* SearchViewModel.swift in Sources */,
 				EE0464FC26105A04001AB04D /* BookCardCell.swift in Sources */,
-				EEBCE34925F8603200BA6749 /* RequestKeywords.swift in Sources */,
 				EEBCE2B125F85C5400BA6749 /* SceneDelegate.swift in Sources */,
 				EEBCE2D425F85E2C00BA6749 /* MainViewController+UI.swift in Sources */,
 			);

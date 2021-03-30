@@ -32,13 +32,13 @@ class SearchViewModel {
     }
     
     func requestBookItems(value: String) {
-        requestBookSearch(query: value).subscribe(onNext: { [weak self] item in
+        RequestNetwork.books(query: value).subscribe(onNext: { [weak self] item in
             self?.output.booksResult.accept(item)
         }).disposed(by: disposeBag)
     }
     
     func requestBlogItems(value: String) {
-        requestBlogs(query: value).subscribe(onNext: { [weak self] items in
+        RequestNetwork.blogs(query: value).subscribe(onNext: { [weak self] items in
             self?.output.blogsResult.accept(items)
         }).disposed(by: disposeBag)
     }

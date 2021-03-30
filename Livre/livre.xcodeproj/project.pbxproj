@@ -69,6 +69,7 @@
 		EEBCE37C25F860AF00BA6749 /* reward-1.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36D25F860AF00BA6749 /* reward-1.json */; };
 		EEBCE37D25F860AF00BA6749 /* reward-0.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36E25F860AF00BA6749 /* reward-0.json */; };
 		EEE464912613336D00AF4A67 /* RequestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE464902613336D00AF4A67 /* RequestNetwork.swift */; };
+		EEE4649526133F4700AF4A67 /* SearchViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		EEBCE36D25F860AF00BA6749 /* reward-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-1.json"; sourceTree = "<group>"; };
 		EEBCE36E25F860AF00BA6749 /* reward-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-0.json"; sourceTree = "<group>"; };
 		EEE464902613336D00AF4A67 /* RequestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNetwork.swift; sourceTree = "<group>"; };
+		EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+Delegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 			children = (
 				EEBCE30525F85F7600BA6749 /* SearchViewController.swift */,
 				EEBCE30625F85F7600BA6749 /* SearchViewController+UI.swift */,
+				EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */,
 				EEBCE30725F85F7600BA6749 /* SearchViewModel.swift */,
 			);
 			path = Search;
@@ -494,6 +497,7 @@
 				EEBCE2F125F85ED900BA6749 /* RewardView.swift in Sources */,
 				EEBCE35025F8603800BA6749 /* URLConfig.swift in Sources */,
 				EEBCE2EE25F85ED900BA6749 /* SearchField.swift in Sources */,
+				EEE4649526133F4700AF4A67 /* SearchViewController+Delegate.swift in Sources */,
 				EEBCE2F225F85ED900BA6749 /* BookCard.swift in Sources */,
 				EEBCE2FB25F85EFD00BA6749 /* RecentSearchTableCell.swift in Sources */,
 				EEBCE33A25F8602700BA6749 /* KeywordRequestBody.swift in Sources */,

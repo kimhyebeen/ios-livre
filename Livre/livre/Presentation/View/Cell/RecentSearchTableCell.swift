@@ -22,6 +22,7 @@ class RecentSearchTableCell: UITableViewCell {
     }
     
     private func setupView() {
+        self.selectionStyle = .none
         self.contentView.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0)
         self.backgroundColor = UIColor(named: "deep_gray")?.withAlphaComponent(0.8)
         

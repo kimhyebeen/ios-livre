@@ -30,45 +30,9 @@ class MainViewController: BaseViewController {
         setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupBackgroundColor()
-        
-        setupReward(reward: vm.getReward())
-        searchFieldView.textfield.text = ""
-        bindViewModel()
-        
-        DispatchQueue.main.async {
-            self.animationView.play()
-            self.rewardView.startAnimation()
-            self.rewardView.setupLevel()
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-        if !animationView.isAnimationPlaying {
-            animationView.play()
-        }
-        if !rewardView.isAnimationPlaying {
-            rewardView.startAnimation()
-        }
-    }
-    
-    private func setupBackgroundColor() {
-        self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
-        searchFieldView.layer.shadowColor = UIColor(named: "shadow_color")!.cgColor
-        self.view.bringSubviewToFront(animationView)
-        self.view.bringSubviewToFront(searchFieldView)
-        self.view.bringSubviewToFront(basicLabel)
-        self.view.bringSubviewToFront(pointLabel)
-        self.view.bringSubviewToFront(rewardView)
-        self.view.bringSubviewToFront(startLevelLabel)
-        self.view.bringSubviewToFront(endLevelLabel)
-        self.view.bringSubviewToFront(recentSearchTable)
-    }
-
     private func setupView() {
+        self.view.setGradient(colors: [UIColor(named: "gradient_start")!.cgColor, UIColor(named: "gradient_end")!.cgColor])
+        
         setupAnimationView()
         setupSearchFieldView()
         setupBasicLabel()
@@ -77,6 +41,20 @@ class MainViewController: BaseViewController {
         setupStartLevelLabel()
         setupEndLevelLabel()
         setupRecentSearchTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchFieldView.textfield.text = ""
+        setupReward(reward: vm.getReward())
+        bindViewModel()
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.animationView.play()
+            self?.rewardView.startAnimation()
+            self?.rewardView.setupLevel()
+        }
     }
     
     private func setupReward(reward: Reward) {
@@ -97,24 +75,39 @@ class MainViewController: BaseViewController {
         })
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+        if !animationView.isAnimationPlaying { animationView.play() }
+        if !rewardView.isAnimationPlaying { rewardView.startAnimation() }
+    }
+
     @objc func clickSearchButton(_ sender: UIButton) {
         guard let text = searchFieldView.textfield.text, !text.isEmpty else {
             self.showToast(view: self.view, message: "검색어를 입력해주세요")
             return
         }
-        DispatchQueue.global().async {
-            self.vm.saveRecentSearchString(value: text)
-            self.vm.addRewardPoint(value: text)
-            self.recentSearchDisposable?.dispose()
+        
+        DispatchQueue.global().async { [weak self] in
+            self?.vm.saveRecentSearchString(value: text)
+            self?.vm.addRewardPoint(value: text)
         }
         
+        moveToSearchViewController()
+    }
+    
+    private func moveToSearchViewController() {
         let nextVC = SearchViewController()
         nextVC.initSearchText = searchFieldView.textfield.text ?? ""
-        let rootViewcontroller = UINavigationController(rootViewController: nextVC)
-        rootViewcontroller.modalPresentationStyle = .fullScreen
-        self.show(rootViewcontroller, sender: nil)
+        nextVC.modalPresentationStyle = .fullScreen
+        self.show(nextVC, sender: nil)
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        recentSearchDisposable?.dispose()
+    }
 }
 
 // MARK: TextField Delegate
@@ -149,7 +142,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return RecentSearchTableCell()
         }
         let count = recentSearchList.count - 1
-        cell.selectionStyle = .none
         cell.setupCellInformation(value: recentSearchList[count - indexPath.row])
         if (indexPath.row == count) {
             cell.layer.cornerRadius = 10

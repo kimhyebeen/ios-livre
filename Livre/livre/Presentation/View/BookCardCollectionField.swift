@@ -155,9 +155,13 @@ extension BookCardCollectionField: UICollectionViewDataSource, UICollectionViewD
         else if touchInX > touchOutX { roundedIndex = ceil(index) }
         else { roundedIndex = round(index) }
         
-        if roundedIndex == currentIndex { return }
-        currentIndex = currentIndex > roundedIndex && currentIndex != 0 ? currentIndex-1 : currentIndex+1
-        roundedIndex = currentIndex
+        if currentIndex > roundedIndex && currentIndex != 0 {
+            currentIndex -= 1
+            roundedIndex = currentIndex
+        } else if currentIndex < roundedIndex {
+            currentIndex += 1
+            roundedIndex = currentIndex
+        }
         
         // 위 코드를 통해 얻은 페이징 될 좌표값을 targetContentOffset에 대입하면 된다.
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - spaceForLeftRight, y: -scrollView.contentInset.top)

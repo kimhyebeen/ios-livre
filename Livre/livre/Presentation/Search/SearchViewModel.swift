@@ -21,6 +21,7 @@ class SearchViewModel {
     struct Output {
         let booksResult = PublishRelay<[Book]>()
         let blogsResult = PublishRelay<[BlogItem]>()
+        let recentSearchedText = ReplayRelay<String>.create(bufferSize: 5)
     }
     
     init() {
@@ -28,6 +29,7 @@ class SearchViewModel {
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
                 self?.requestBookItems(value: text)
+                self?.output.recentSearchedText.accept(text)
             }).disposed(by: disposeBag)
     }
     

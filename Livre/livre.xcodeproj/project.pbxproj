@@ -70,6 +70,7 @@
 		EEBCE37D25F860AF00BA6749 /* reward-0.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36E25F860AF00BA6749 /* reward-0.json */; };
 		EEE464912613336D00AF4A67 /* RequestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE464902613336D00AF4A67 /* RequestNetwork.swift */; };
 		EEE4649526133F4700AF4A67 /* SearchViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */; };
+		EEE4649926134C2800AF4A67 /* BookImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649826134C2800AF4A67 /* BookImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		EEBCE36E25F860AF00BA6749 /* reward-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-0.json"; sourceTree = "<group>"; };
 		EEE464902613336D00AF4A67 /* RequestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNetwork.swift; sourceTree = "<group>"; };
 		EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+Delegate.swift"; sourceTree = "<group>"; };
+		EEE4649826134C2800AF4A67 /* BookImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				EEBCE2FA25F85EFD00BA6749 /* BlogTableCell.swift */,
 				EEBCE2F825F85EFD00BA6749 /* MoreButtonTableCell.swift */,
 				EEBCE2F525F85EFD00BA6749 /* RecentSearchTableCell.swift */,
+				EEE4649826134C2800AF4A67 /* BookImageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				EEBCE33B25F8602700BA6749 /* KeywordResponse.swift in Sources */,
 				EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */,
 				EEBCE34E25F8603800BA6749 /* RewardConfig.swift in Sources */,
+				EEE4649926134C2800AF4A67 /* BookImageCell.swift in Sources */,
 				EEBCE31025F85F7D00BA6749 /* BlogViewController+UI.swift in Sources */,
 				EEBCE2E925F85ED900BA6749 /* HomeIcon.swift in Sources */,
 				EEBCE30825F85F7600BA6749 /* SearchViewController.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 
 class BookImageCell: UICollectionViewCell {
+    static let identifier = "BookImageCell"
     let imageView = UIImageView()
     let removeButton = UIButton()
     

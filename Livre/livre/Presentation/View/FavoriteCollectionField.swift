@@ -8,9 +8,12 @@
 import UIKit
 
 class FavoriteCollectionField: UIView {
-    let flowLayout = UICollectionViewFlowLayout()
-    var collectionView: UICollectionView!
+    private let emptyLabel = UILabel()
+    private let flowLayout = UICollectionViewFlowLayout()
+    private var collectionView: UICollectionView!
+//    var vm: BookDataViewModel!
 //    var items: [BookData] = []
+    var isEditMode: Bool = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,13 +27,32 @@ class FavoriteCollectionField: UIView {
     
     private func setupView() {
         self.backgroundColor = .clear
+        setupEmptyLabel()
         setupFlowLayout()
         setupCollectionView()
     }
-
+    
+//    func setFavoriteItems(_ items: [BookData]) {
+//        if items.count == 0 { emptyLabel.isHidden = false }
+//        else { emptyLabel.isHidden = true }
+//        collectionView.reloadData()
+//    }
+    
 }
 
 extension FavoriteCollectionField {
+    func setupEmptyLabel() {
+        emptyLabel.text = "즐겨찾는 책이 없어요 😂"
+        emptyLabel.fontGmarketSansLight(14)
+        emptyLabel.textColor = UIColor(named: "label_color")
+        emptyLabel.isHidden = true
+        self.addSubview(emptyLabel)
+        
+        emptyLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
     func setupFlowLayout() {
         flowLayout.itemSize = CGSize(width: 120 + 22.5, height: 160 + 22.5)
         flowLayout.scrollDirection = .horizontal
@@ -72,5 +94,11 @@ extension FavoriteCollectionField: UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if !isEditMode { return true }
+        
+//        vm.removeBookData(items[indexPath.item])
+        return true
+    }
     
 }

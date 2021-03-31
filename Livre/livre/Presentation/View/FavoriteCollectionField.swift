@@ -54,16 +54,17 @@ extension FavoriteCollectionField {
     }
     
     func setupFlowLayout() {
-        flowLayout.itemSize = CGSize(width: 120 + 22.5, height: 160 + 22.5)
+        flowLayout.itemSize = CGSize(width: 75, height: 100)
         flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 8
     }
     
     func setupCollectionView() {
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset.left = 30
-        collectionView.contentInset.right = 30
+        collectionView.contentInset.left = 35
+        collectionView.contentInset.right = 35
         collectionView.backgroundColor = .clear
         collectionView.decelerationRate = .normal
         collectionView.showsHorizontalScrollIndicator = false
@@ -82,7 +83,7 @@ extension FavoriteCollectionField {
 extension FavoriteCollectionField: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return items.count
-        return 3
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

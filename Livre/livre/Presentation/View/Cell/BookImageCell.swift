@@ -45,22 +45,23 @@ extension BookImageCell {
     func setupImageView() {
         imageView.image = UIImage(named: "empty_image")
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = .clear
+        imageView.backgroundColor = UIColor(named: "pale_gray")!
         imageView.layer.borderColor = UIColor(named: "blight_gray")!.cgColor
         imageView.layer.borderWidth = 1
         self.addSubview(imageView)
         
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(22.5)
+            make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-22.5)
+            make.trailing.equalToSuperview()
         }
     }
     
     // MARK: RemoveButton
     func setupRemoveButton() {
         removeButton.setImage(UIImage(named: "remove_button"), for: .normal)
+        removeButton.alpha = 0.6
         removeButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         removeButton.isHidden = true
         self.addSubview(removeButton)
@@ -68,8 +69,7 @@ extension BookImageCell {
         removeButton.snp.makeConstraints { make in
             make.width.equalTo(45)
             make.height.equalTo(45)
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.center.equalToSuperview()
         }
     }
 }

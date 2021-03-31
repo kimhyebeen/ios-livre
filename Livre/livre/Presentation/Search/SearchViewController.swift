@@ -17,6 +17,9 @@ class SearchViewController: BaseViewController {
     let backPageButton = UIButton()
     let nextPageButton = UIButton()
     let recentSearchTable = UITableView()
+    let favoriteLabel = UILabel()
+    let favoriteEditButton = UIButton()
+    let favoriteField = FavoriteCollectionField()
     let blogField = BlogField()
         
     private let disposeBag = DisposeBag()
@@ -47,11 +50,18 @@ class SearchViewController: BaseViewController {
         setupBackgroundImage()
         setupHomeIcon()
         setupSearchField()
+        
         setupBookCardCollectionField()
         setupEmptyLabel()
         setupBackPageButton()
         setupNextPageButton()
+        
         setupRecentSearchTable()
+        
+        setupFavoriteLabel()
+        setupFavoriteEditButton()
+        setupFavoriteField()
+        
         setupBlogField()
     }
     

@@ -130,13 +130,51 @@ extension SearchViewController {
         }
     }
     
+    // MARK: FavoriteLabel
+    func setupFavoriteLabel() {
+        favoriteLabel.text = "즐겨찾는 책"
+        favoriteLabel.textColor = UIColor(named: "coral")!
+        favoriteLabel.fontGmarketSansMedium(19)
+        self.view.addSubview(favoriteLabel)
+        
+        favoriteLabel.snp.makeConstraints { make in
+            make.top.equalTo(bookCardField.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(30)
+        }
+    }
+    
+    // MARK: FavoriteEditButton
+    func setupFavoriteEditButton() {
+        favoriteEditButton.setTitle("편집", for: .normal)
+        favoriteEditButton.setTitleColor(UIColor(named: "apricot")!, for: .normal)
+        self.view.addSubview(favoriteEditButton)
+        
+        favoriteEditButton.snp.makeConstraints { make in
+            make.width.equalTo(50)
+            make.centerY.equalTo(favoriteLabel.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+    }
+    
+    // MARK: FavoriteField
+    func setupFavoriteField() {
+        self.view.addSubview(favoriteField)
+        
+        favoriteField.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.top.equalTo(favoriteLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+    }
+    
     // MARK: BlogField
     func setupBlogField() {
         blogField.moreBlogButton.addTarget(self, action: #selector(moveToBlogListViewController(_:)), for: .touchUpInside)
         self.view.addSubview(blogField)
         
         blogField.snp.makeConstraints { make in
-            make.height.equalTo(self.view.frame.height * 0.25)
+            make.top.equalTo(favoriteField.snp.bottom).offset(40)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             make.leading.equalToSuperview().offset(24)
             make.trailing.equalToSuperview().offset(-24)

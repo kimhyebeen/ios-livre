@@ -8,6 +8,10 @@
 import UIKit
 import RxSwift
 
+protocol BookCardDelegate: class {
+    func changeFavoriteDatabase(_ status: Bool)
+}
+
 class BookCard: UIView {
     let imageView = UIImageView()
     let labelStack = UIStackView()
@@ -15,11 +19,14 @@ class BookCard: UIView {
     let authorLabel = UILabel()
     let publishDateLabel = UILabel()
     let priceLabel = UILabel()
+    let favoriteButton = UIButton()
     let tagStack = TagStack()
     let contentsLabel = UILabel()
     
     let imageWidth: CGFloat = 102
     let disposeBag = DisposeBag()
+    
+    weak var delegate: BookCardDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +47,7 @@ class BookCard: UIView {
         
         setupLabelStack()
         setupImageView()
+        setupFavoriteButton()
         setupTagStack()
         setupContentsLabel()
     }
@@ -64,6 +72,11 @@ class BookCard: UIView {
         DispatchQueue.main.async {
             self.imageView.image = UIImage(data: imageData)
         }
+    }
+    
+    @objc func clickFavoriteButton(_ sender: UIButton) {
+        favoriteButton.isSelected = !favoriteButton.isSelected
+        delegate?.changeFavoriteDatabase(favoriteButton.isSelected)
     }
 }
 
@@ -134,6 +147,22 @@ extension BookCard {
             make.height.equalTo(imageWidth / 3 * 4)
             make.top.equalToSuperview().offset(-15)
             make.leading.equalToSuperview().offset(10)
+        }
+    }
+    
+    // MARK: FavoriteButton
+    private func setupFavoriteButton() {
+        favoriteButton.setImage(UIImage(named: "favorite_normal"), for: .normal)
+        favoriteButton.setImage(UIImage(named: "favorite_selected"), for: .selected)
+        favoriteButton.imageEdgeInsets = UIEdgeInsets(top: 4.5, left: 4.5, bottom: 4.5, right: 4.5)
+        favoriteButton.addTarget(self, action: #selector(clickFavoriteButton(_:)), for: .touchUpInside)
+        self.addSubview(favoriteButton)
+        
+        favoriteButton.snp.makeConstraints { make in
+            make.width.equalTo(45)
+            make.height.equalTo(45)
+            make.bottom.equalTo(imageView.snp.bottom).offset(10)
+            make.trailing.equalToSuperview().offset(-6)
         }
     }
     

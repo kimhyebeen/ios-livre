@@ -104,8 +104,7 @@ class SearchViewController: BaseViewController {
         
         vm.output.favoriteEditMode.subscribe(onNext: { [weak self] mode in
             self?.favoriteField.isEditMode = mode
-            if mode { self?.favoriteEditButton.isSelected = true }
-            else { self?.favoriteEditButton.isSelected = false }
+            self?.favoriteEditButton.isSelected = mode
         }).disposed(by: disposeBag)
     }
     

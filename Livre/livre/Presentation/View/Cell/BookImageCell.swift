@@ -10,7 +10,7 @@ import UIKit
 class BookImageCell: UICollectionViewCell {
     static let identifier = "BookImageCell"
     let imageView = UIImageView()
-    let removeButton = UIButton()
+    let removeImage = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,7 @@ class BookImageCell: UICollectionViewCell {
     }
     
     func editingMode(_ status: Bool) {
-        removeButton.isHidden = !status
+        removeImage.isHidden = !status
     }
 }
 
@@ -60,15 +60,14 @@ extension BookImageCell {
     
     // MARK: RemoveButton
     func setupRemoveButton() {
-        removeButton.setImage(UIImage(named: "remove_button"), for: .normal)
-        removeButton.alpha = 0.6
-        removeButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        removeButton.isHidden = true
-        self.addSubview(removeButton)
+        removeImage.image = UIImage(named: "remove_button")
+        removeImage.alpha = 0.6
+        removeImage.isHidden = true
+        self.addSubview(removeImage)
         
-        removeButton.snp.makeConstraints { make in
-            make.width.equalTo(45)
-            make.height.equalTo(45)
+        removeImage.snp.makeConstraints { make in
+            make.width.equalTo(24)
+            make.height.equalTo(24)
             make.center.equalToSuperview()
         }
     }

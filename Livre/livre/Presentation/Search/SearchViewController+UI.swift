@@ -134,7 +134,7 @@ extension SearchViewController {
     func setupFavoriteLabel() {
         favoriteLabel.text = "즐겨찾는 책"
         favoriteLabel.textColor = UIColor(named: "coral")!
-        favoriteLabel.fontGmarketSansMedium(19)
+        favoriteLabel.fontGmarketSansMedium(21)
         self.view.addSubview(favoriteLabel)
         
         favoriteLabel.snp.makeConstraints { make in
@@ -146,11 +146,12 @@ extension SearchViewController {
     // MARK: FavoriteEditButton
     func setupFavoriteEditButton() {
         favoriteEditButton.setTitle("편집", for: .normal)
+        favoriteEditButton.setTitle("편집취소", for: .selected)
         favoriteEditButton.setTitleColor(UIColor(named: "apricot")!, for: .normal)
         self.view.addSubview(favoriteEditButton)
         
         favoriteEditButton.snp.makeConstraints { make in
-            make.width.equalTo(50)
+            make.width.equalTo(80)
             make.centerY.equalTo(favoriteLabel.snp.centerY)
             make.trailing.equalToSuperview().offset(-20)
         }

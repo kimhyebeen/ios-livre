@@ -74,6 +74,10 @@ class SearchViewController: BaseViewController {
             .bind(to: vm.input.searchButton)
             .disposed(by: disposeBag)
         
+        favoriteEditButton.rx.tap
+            .bind(to: vm.input.favoriteEditButton)
+            .disposed(by: disposeBag)
+        
         vm.output.booksResult.subscribe(onNext: { [weak self] items in
             guard let self = self else { return }
             if items.count == 0 {
@@ -96,6 +100,12 @@ class SearchViewController: BaseViewController {
             guard let self = self else { return }
             if self.recentSearchList.count == 5 { self.recentSearchList.removeFirst() }
             self.recentSearchList.append(text)
+        }).disposed(by: disposeBag)
+        
+        vm.output.favoriteEditMode.subscribe(onNext: { [weak self] mode in
+            self?.favoriteField.isEditMode = mode
+            if mode { self?.favoriteEditButton.isSelected = true }
+            else { self?.favoriteEditButton.isSelected = false }
         }).disposed(by: disposeBag)
     }
     

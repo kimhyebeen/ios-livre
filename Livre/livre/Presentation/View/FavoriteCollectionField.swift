@@ -7,13 +7,24 @@
 
 import UIKit
 
+protocol FavoriteCollectionDelegate: class {
+//    func removeBookData(_ item: BookData)
+    func removeBookData()
+}
+
 class FavoriteCollectionField: UIView {
     private let emptyLabel = UILabel()
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView!
-//    var vm: BookDataViewModel!
 //    var items: [BookData] = []
-    var isEditMode: Bool = false
+    var items: [Int] = [1,2,3,4,5,6]
+    var isEditMode: Bool = false {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    weak var delegate: FavoriteCollectionDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,8 +93,9 @@ extension FavoriteCollectionField {
 
 extension FavoriteCollectionField: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return items.count
-        return 6
+        if items.count == 0 { emptyLabel.isHidden = false }
+        else { emptyLabel.isHidden = true }
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,13 +104,17 @@ extension FavoriteCollectionField: UICollectionViewDataSource, UICollectionViewD
         }
         
 //        cell.loadImage(link: items[indexPath.item].image)
+        cell.editingMode(isEditMode)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if !isEditMode { return true }
-        
-//        vm.removeBookData(items[indexPath.item])
+        items.remove(at: indexPath.item)
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+//        delegate?.removeBookData(items[indexPath.item])
         return true
     }
     

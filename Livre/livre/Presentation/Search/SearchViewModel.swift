@@ -11,17 +11,20 @@ import RxCocoa
 class SearchViewModel {
     let input = Input()
     let output = Output()
+    private var editMode = false
     private let disposeBag = DisposeBag()
     
     struct Input {
         let searchWord = PublishSubject<String>()
         let searchButton = PublishSubject<Void>()
+        let favoriteEditButton = PublishSubject<Void>()
     }
     
     struct Output {
         let booksResult = PublishRelay<[Book]>()
         let blogsResult = PublishRelay<[BlogItem]>()
         let recentSearchedText = PublishRelay<String>()
+        let favoriteEditMode = BehaviorRelay<Bool>(value: false)
     }
     
     init() {
@@ -30,6 +33,12 @@ class SearchViewModel {
             .subscribe(onNext: { [weak self] text in
                 self?.requestBookItems(value: text)
             }).disposed(by: disposeBag)
+        
+        input.favoriteEditButton.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.editMode = !self.editMode
+            self.output.favoriteEditMode.accept(self.editMode)
+        }).disposed(by: disposeBag)
     }
     
     func requestBookItems(value: String) {

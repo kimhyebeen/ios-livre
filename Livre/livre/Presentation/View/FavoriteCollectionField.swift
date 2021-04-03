@@ -17,7 +17,7 @@ class FavoriteCollectionField: UIView {
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView!
 //    var items: [BookData] = []
-    var items: [Int] = [1,2,3,4,5,6]
+    var items: [Int] = []
     var isEditMode: Bool = false {
         didSet {
             collectionView.reloadData()

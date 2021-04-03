@@ -53,7 +53,9 @@ extension SearchField {
     
     // MARK: TextField
     private func setupTextField() {
-        textfield.placeholder = "검색어를 입력해주세요"
+        let ph = NSMutableAttributedString(string: "검색어를 입력해주세요.")
+        ph.addAttribute(.foregroundColor, value: UIColor.systemGray2, range: NSRange(0...11))
+        textfield.attributedPlaceholder = ph
         textfield.textColor = UIColor(named: "deep_gray")
         self.addSubview(textfield)
         

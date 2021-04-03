@@ -188,6 +188,17 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		EE22DD1726185AC100DEEDC4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EEBCE33225F85FF700BA6749 /* APIModel */,
+				EEBCE34C25F8603800BA6749 /* SecretKeySet.swift */,
+				EEBCE34D25F8603800BA6749 /* URLConfig.swift */,
+				EEE464902613336D00AF4A67 /* RequestNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		EEBCE2A225F85C5400BA6749 = {
 			isa = PBXGroup;
 			children = (
@@ -307,11 +318,10 @@
 		EEBCE33025F85FE100BA6749 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				EEBCE33225F85FF700BA6749 /* APIModel */,
+				EE22DD1726185AC100DEEDC4 /* Network */,
 				EEBCE34B25F8603800BA6749 /* RewardConfig.swift */,
-				EEBCE34C25F8603800BA6749 /* SecretKeySet.swift */,
-				EEBCE34D25F8603800BA6749 /* URLConfig.swift */,
-				EEE464902613336D00AF4A67 /* RequestNetwork.swift */,
+				EE22DD1D26185CCE00DEEDC4 /* RequestFavoriteBook.swift */,
+				EE22DD1926185B1E00DEEDC4 /* Favorite.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";

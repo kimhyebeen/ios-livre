@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: TextField
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.recentSearchTable.reloadData()
@@ -34,6 +35,7 @@ extension SearchViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: TableView
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recentSearchList.count
@@ -63,5 +65,25 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         self.view.endEditing(true)
         
         return indexPath
+    }
+}
+
+// MARK: BookCard
+extension SearchViewController: BookCardDelegate {
+    func insertOrDeleteBook(_ status: Bool, _ book: Book?) {
+        guard let book = book else {
+            print("BookCardCell에 등록된 Book이 없어요.")
+            return
+        }
+        if status { vm.insertFavorite(book) }
+        else { vm.deleteForTitle(book.titleString) }
+    }
+    
+    func getKeywords(_ description: String) -> [String] {
+        return vm.getKeywords(value: description)
+    }
+    
+    func isExistInFavorite(_ title: String) -> Bool {
+        return vm.isExistInFavorite(title)
     }
 }

@@ -7,12 +7,13 @@
 
 import UIKit
 
-protocol BookCardCollectionFieldDelegate: class {
-    func requestMoreBooks()
-}
+//protocol BookCardCollectionFieldDelegate: class {
+//    func requestMoreBooks()
+//}
 
 class BookCardCollectionField: UIView {
-    weak var delegate: BookCardCollectionFieldDelegate?
+//    weak var delegate: BookCardCollectionFieldDelegate?
+    weak var bookcardDelegate: BookCardDelegate?
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
     
@@ -60,7 +61,7 @@ class BookCardCollectionField: UIView {
     func moveToNextPage() {
         if books.count <= 1 { return }
         if currentIndex == CGFloat(books.count-1) {
-            delegate?.requestMoreBooks()
+//            delegate?.requestMoreBooks()
             return
         }
         DispatchQueue.main.async { [weak self] in
@@ -121,6 +122,7 @@ extension BookCardCollectionField: UICollectionViewDataSource, UICollectionViewD
             print("BookCardCollectionField - 재사용큐에서 cell을 찾지 못했습니다.")
             return BookCardCell()
         }
+        cell.delegate = bookcardDelegate
         cell.setBookInformation(item: books[indexPath.item])
         return cell
     }

@@ -57,6 +57,7 @@ extension SearchViewController {
     
     // MARK: Book Card Field
     func setupBookCardCollectionField() {
+        bookCardField.bookcardDelegate = self
         self.view.addSubview(bookCardField)
         
         bookCardField.snp.makeConstraints { make in

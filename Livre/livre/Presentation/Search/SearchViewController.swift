@@ -118,7 +118,10 @@ class SearchViewController: BaseViewController {
         
         vm.output.favoriteResult.subscribe(onNext: { books in
             DispatchQueue.main.async { [weak self] in
-                self?.favoriteField.setFavoriteItems(books)
+                guard let self = self else { return }
+                self.favoriteField.setFavoriteItems(books)
+                if books.count > 0 { self.favoriteLabel.text = "즐겨찾는 책 (\(books.count))" }
+                else { self.favoriteLabel.text = "즐겨찾는 책" }
             }
         }).disposed(by: disposeBag)
     }

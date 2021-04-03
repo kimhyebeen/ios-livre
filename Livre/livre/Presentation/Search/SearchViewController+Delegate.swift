@@ -83,7 +83,10 @@ extension SearchViewController: BookCardDelegate {
             return
         }
         if status { vm.insertFavorite(book) }
-        else { vm.deleteForTitle(book.titleString) }
+        else {
+            if !isExistInFavorite(book.titleString) { return }
+            vm.deleteForTitle(book.titleString)
+        }
     }
     
     func getKeywords(_ description: String) -> [String] {

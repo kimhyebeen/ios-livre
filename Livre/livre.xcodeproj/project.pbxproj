@@ -82,7 +82,7 @@
 		EE0464E426103140001AB04D /* SearchBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBackgroundView.swift; sourceTree = "<group>"; };
 		EE0464F526104987001AB04D /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		EE0464FB26105A04001AB04D /* BookCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardCell.swift; sourceTree = "<group>"; };
-		EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCardCollectionField.swift; path = livre/Presentation/View/BookCardCollectionField.swift; sourceTree = SOURCE_ROOT; };
+		EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCardCollectionField.swift; path = livre/Presentation/Search/View/BookCardCollectionField.swift; sourceTree = SOURCE_ROOT; };
 		EE22DD1A26185B1E00DEEDC4 /* Favorite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorite.xcdatamodel; sourceTree = "<group>"; };
 		EE22DD1D26185CCE00DEEDC4 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		EEBCE2AB25F85C5400BA6749 /* livre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = livre.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +182,7 @@
 			children = (
 				EEBCE32225F85FB700BA6749 /* Model */,
 				EEBCE2CB25F85DE300BA6749 /* Base */,
-				EEBCE2DC25F85EBB00BA6749 /* View */,
+				EEBCE2DC25F85EBB00BA6749 /* CommonView */,
 				EEBCE2D025F85E0600BA6749 /* Main */,
 				EEBCE30225F85F1800BA6749 /* Search */,
 				EEBCE30325F85F2100BA6749 /* Blog */,
@@ -199,6 +199,30 @@
 				EEE464902613336D00AF4A67 /* RequestNetwork.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EE22DD362618A8AC00DEEDC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEBCE2DD25F85ED900BA6749 /* BlogField.swift */,
+				EEBCE2FA25F85EFD00BA6749 /* BlogTableCell.swift */,
+				EEE4649B2613521F00AF4A67 /* FavoriteCollectionField.swift */,
+				EEE4649826134C2800AF4A67 /* BookImageCell.swift */,
+				EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */,
+				EE0464FB26105A04001AB04D /* BookCardCell.swift */,
+				EEBCE2DE25F85ED900BA6749 /* HomeIcon.swift */,
+				EEBCE2E525F85ED900BA6749 /* TagStack.swift */,
+				EE0464E426103140001AB04D /* SearchBackgroundView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE22DD372618A90E00DEEDC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEBCE2E625F85ED900BA6749 /* RewardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EEBCE2A225F85C5400BA6749 = {
@@ -246,6 +270,7 @@
 		EEBCE2D025F85E0600BA6749 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EE22DD372618A90E00DEEDC4 /* View */,
 				EEBCE2D225F85E2C00BA6749 /* MainViewController.swift */,
 				EEBCE2D125F85E2C00BA6749 /* MainViewController+UI.swift */,
 				EEBCE2D325F85E2C00BA6749 /* MainViewModel.swift */,
@@ -253,34 +278,24 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		EEBCE2DC25F85EBB00BA6749 /* View */ = {
+		EEBCE2DC25F85EBB00BA6749 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
 				EEBCE2F425F85EE100BA6749 /* Cell */,
-				EEBCE2DD25F85ED900BA6749 /* BlogField.swift */,
-				EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */,
-				EEBCE2DE25F85ED900BA6749 /* HomeIcon.swift */,
 				EEBCE2DF25F85ED900BA6749 /* MoreInfoButtonView.swift */,
-				EEBCE2E625F85ED900BA6749 /* RewardView.swift */,
 				EEBCE2E325F85ED900BA6749 /* SearchField.swift */,
-				EEBCE2E525F85ED900BA6749 /* TagStack.swift */,
-				EE0464E426103140001AB04D /* SearchBackgroundView.swift */,
 				EEBCE2E225F85ED900BA6749 /* UIView+.swift */,
 				EE0464F526104987001AB04D /* UILabel+.swift */,
 				EEBCE2E425F85ED900BA6749 /* String+.swift */,
-				EEE4649B2613521F00AF4A67 /* FavoriteCollectionField.swift */,
 			);
-			path = View;
+			path = CommonView;
 			sourceTree = "<group>";
 		};
 		EEBCE2F425F85EE100BA6749 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				EE0464FB26105A04001AB04D /* BookCardCell.swift */,
-				EEBCE2FA25F85EFD00BA6749 /* BlogTableCell.swift */,
 				EEBCE2F825F85EFD00BA6749 /* MoreButtonTableCell.swift */,
 				EEBCE2F525F85EFD00BA6749 /* RecentSearchTableCell.swift */,
-				EEE4649826134C2800AF4A67 /* BookImageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -288,6 +303,7 @@
 		EEBCE30225F85F1800BA6749 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				EE22DD362618A8AC00DEEDC4 /* View */,
 				EEBCE30525F85F7600BA6749 /* SearchViewController.swift */,
 				EEBCE30625F85F7600BA6749 /* SearchViewController+UI.swift */,
 				EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */,

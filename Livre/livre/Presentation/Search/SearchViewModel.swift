@@ -21,10 +21,12 @@ class SearchViewModel {
     }
     
     struct Output {
+        let executeToast = PublishRelay<String>()
         let booksResult = PublishRelay<[Book]>()
         let blogsResult = PublishRelay<[BlogItem]>()
         let recentSearchedText = PublishRelay<String>()
         let favoriteEditMode = BehaviorRelay<Bool>(value: false)
+        let favoriteResult = PublishRelay<[FavoriteBook]>()
     }
     
     init() {
@@ -54,7 +56,58 @@ class SearchViewModel {
         }).disposed(by: disposeBag)
     }
     
+    func getKeywords(value: String) -> [String] {
+        var result: [String] = []
+        RequestNetwork.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: value)))
+            .take(3)
+            .subscribe(onNext: { text in
+                result.append(text)
+            }).disposed(by: disposeBag)
+        
+        return result
+    }
+    
     func updatePoint(value: String) {
         RewardConfig.addPoint(point: Float(value.count * 2))
+    }
+    
+    func fetchFavorites() {
+        print("Search ViewModel - 즐겨찾기 목록을 가져와요.")
+        let result = PersistenceManager.shared.fetch(request: FavoriteBook.fetchRequest())
+        output.favoriteResult.accept(result)
+    }
+    
+    func isExistInFavorite(_ title: String) -> Bool {
+        return PersistenceManager.shared.fetchBookForTitle(title).count > 0 ? true : false
+    }
+    
+    func deleteForTitle(_ title: String) {
+        let result = PersistenceManager.shared.deleteBookForTitle(title)
+        if !result {
+            output.executeToast.accept("🚫 즐겨찾기 삭제 실패")
+            return
+        }
+        print("Search ViewModel - 타이틀로 즐겨찾기 삭제 성공")
+        fetchFavorites()
+    }
+    
+    func deleteBook(_ item: FavoriteBook) {
+        let result = PersistenceManager.shared.delete(object: item)
+        if !result {
+            output.executeToast.accept("🚫 즐겨찾기 삭제 실패")
+            return
+        }
+        print("Search ViewModel - 즐겨찾기 아이템 삭제 성공")
+        fetchFavorites()
+    }
+    
+    func insertFavorite(_ item: Book) {
+        let result = PersistenceManager.shared.insertBook(item)
+        if !result {
+            output.executeToast.accept("🚫 즐겨찾기에 등록 실패")
+            return
+        }
+        print("Search ViewModel - 즐겨찾기 추가 성공")
+        fetchFavorites()
     }
 }

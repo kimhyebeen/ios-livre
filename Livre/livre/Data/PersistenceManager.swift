@@ -49,6 +49,20 @@ class PersistenceManager {
         return result
     }
     
+    func fetchBookForTitle(_ title: String) -> [FavoriteBook] {
+        let predicate = NSPredicate(format: "title == %@", title)
+        let request = NSFetchRequest<NSFetchRequestResult>.init(entityName: "FavoriteBook")
+        request.predicate = predicate
+        
+        do {
+            let result = try context.fetch(request) as! [FavoriteBook]
+            return result
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
     @discardableResult
     func delete(object: NSManagedObject) -> Bool {
         self.context.delete(object)
@@ -59,6 +73,13 @@ class PersistenceManager {
             print(error.localizedDescription)
             return false
         }
+    }
+    
+    @discardableResult
+    func deleteBookForTitle(_ title: String) -> Bool {
+        let result = fetchBookForTitle(title)
+        result.forEach { delete(object: $0) }
+        return result.count > 0 ? true : false
     }
     
     @discardableResult

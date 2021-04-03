@@ -31,8 +31,10 @@ class SearchViewController: BaseViewController {
         super.viewDidLoad()
         
         setupView()
-        bindViewModel()
+        bindToViewModel()
+        bindFromViewModel()
         vm.requestBookItems(value: initSearchText)
+        vm.fetchFavorites()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +67,7 @@ class SearchViewController: BaseViewController {
         setupBlogField()
     }
     
-    private func bindViewModel() {
+    private func bindToViewModel() {
         searchField.textfield.rx.text.orEmpty
             .bind(to: vm.input.searchWord)
             .disposed(by: disposeBag)
@@ -77,6 +79,13 @@ class SearchViewController: BaseViewController {
         favoriteEditButton.rx.tap
             .bind(to: vm.input.favoriteEditButton)
             .disposed(by: disposeBag)
+    }
+    
+    private func bindFromViewModel() {
+        vm.output.executeToast.subscribe(onNext: { [weak self] text in
+            guard let self = self else { return }
+            self.showToast(view: self.view, message: text)
+        }).disposed(by: disposeBag)
         
         vm.output.booksResult.subscribe(onNext: { [weak self] items in
             guard let self = self else { return }
@@ -105,6 +114,12 @@ class SearchViewController: BaseViewController {
         vm.output.favoriteEditMode.subscribe(onNext: { [weak self] mode in
             self?.favoriteField.isEditMode = mode
             self?.favoriteEditButton.isSelected = mode
+        }).disposed(by: disposeBag)
+        
+        vm.output.favoriteResult.subscribe(onNext: { books in
+            DispatchQueue.main.async { [weak self] in
+                self?.favoriteField.setFavoriteItems(books)
+            }
         }).disposed(by: disposeBag)
     }
     

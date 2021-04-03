@@ -10,64 +10,60 @@ import UIKit
 extension BlogViewController {
     // MARK: Bar View
     func setupBarView() {
-        barView.backgroundColor = UIColor(named: "pale_gray")!.withAlphaComponent(0.5)
+        barView.backgroundColor = UIColor(named: "deep_gray")!.withAlphaComponent(0.5)
         barView.layer.cornerRadius = 2
         self.view.addSubview(barView)
         
-        barView.translatesAutoresizingMaskIntoConstraints = false
-        barView.widthAnchor.constraint(equalToConstant: deviceWidth * 0.3).isActive = true
-        barView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        barView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 8).isActive = true
-        barView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        barView.snp.makeConstraints { make in
+            make.width.equalTo(deviceWidth * 0.3)
+            make.height.equalTo(4)
+            make.top.equalToSuperview().offset(8)
+            make.centerX.equalToSuperview()
+        }
     }
     
     // MARK: Title Label
     func setupTitleLabel() {
-        titleLabel.textColor = UIColor(named: "golden_yellow")
+        titleLabel.textColor = UIColor(named: "coral")
         titleLabel.fontGmarketSansMedium(24)
-        titleLabel.layer.shadowColor = UIColor.black.cgColor
-        titleLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
-        titleLabel.layer.shadowRadius = 3
-        titleLabel.layer.shadowOpacity = 0.6
         titleLabel.text = "\'\(word)\' "
         self.view.addSubview(titleLabel)
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15).isActive = true
-        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: (resultLabel.frame.width + 15) * -1).isActive = true
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.lessThanOrEqualToSuperview().offset((resultLabel.frame.width + 15) * -1)
+        }
     }
     
     // MARK: Result Label
     func setupResultLabel() {
         resultLabel.text = "검색결과"
-        resultLabel.textColor = UIColor(named: "golden_yellow")
+        resultLabel.textColor = UIColor(named: "coral")
         resultLabel.fontGmarketSansMedium(20)
-        resultLabel.layer.shadowColor = UIColor.black.cgColor
-        resultLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
-        resultLabel.layer.shadowRadius = 3
-        resultLabel.layer.shadowOpacity = 0.6
         self.view.addSubview(resultLabel)
         
-        resultLabel.translatesAutoresizingMaskIntoConstraints = false
-        resultLabel.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        resultLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
-        resultLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: -15).isActive = true
+        resultLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(titleLabel.snp.bottom)
+            make.leading.equalTo(titleLabel.snp.trailing)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
+        }
     }
     
     // MARK: Table View
     func setupTableView() {
-        tableView.backgroundColor = UIColor.white.withAlphaComponent(0)
+        tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(BlogTableCell.self, forCellReuseIdentifier: BlogTableCell.identifier)
         tableView.register(MoreButtonTableCell.self, forCellReuseIdentifier: MoreButtonTableCell.identifier)
         self.view.addSubview(tableView)
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15).isActive = true
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+            make.bottom.equalToSuperview().offset(-40)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+        }
     }
 }

@@ -30,10 +30,11 @@ class BlogViewController: BaseViewController {
     }
     
     private func setupView() {
-        let blurEffect = UIBlurEffect(style: .light)
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
+//        let blurEffect = UIBlurEffect(style: .light)
+//        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+//        visualEffectView.frame = self.view.frame
+//        self.view.addSubview(visualEffectView)
+        self.view.backgroundColor = UIColor.white.withAlphaComponent(0.85)
         
         setupBarView()
         setupTitleLabel()
@@ -86,7 +87,6 @@ extension BlogViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell.setBlogInformtaion(item: blogs[indexPath.row])
-        cell.setLightMode()
         cell.selectionStyle = .none
         return cell
     }

@@ -25,8 +25,7 @@ class BlogTableCell: UITableViewCell {
     }
     
     private func setupView() {
-        self.layer.cornerRadius = 10
-        self.backgroundColor = UIColor.white.withAlphaComponent(0)
+        self.backgroundColor = .clear
         
         setupTitleLabel()
         setupPostDateLabel()
@@ -42,13 +41,6 @@ class BlogTableCell: UITableViewCell {
             .htmlEscapedAttributedString(font: UIFont.systemFont(ofSize: 14), colorHex: "4C4C4C", lineSpacing: 1)
         bloggerName.text = item.bloggername
     }
-    
-    func setLightMode() {
-        title.textColor = UIColor(named: "deep_gray")
-        postDate.textColor = UIColor(named: "blight_gray")
-        descriptionLabel.textColor = UIColor(named: "deep_gray")
-        bloggerName.textColor = UIColor(named: "blight_gray")
-    }
 }
 
 extension BlogTableCell {
@@ -60,23 +52,25 @@ extension BlogTableCell {
         title.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(title)
         
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        title.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
+        title.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
+        }
     }
     
     // MARK: Post Date Label
     private func setupPostDateLabel() {
         postDate.text = "(작성일)"
-        postDate.textColor = .systemGray
+        postDate.textColor = UIColor(named: "normal_gray")
         postDate.font = UIFont.systemFont(ofSize: 12)
         self.addSubview(postDate)
         
-        postDate.translatesAutoresizingMaskIntoConstraints = false
-        postDate.topAnchor.constraint(equalTo: title.bottomAnchor, constant: -35).isActive = true
-        postDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        postDate.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
+        postDate.snp.makeConstraints { make in
+            make.top.equalTo(title.snp.bottom).offset(-35)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
+        }
     }
     
     // MARK: Description Label
@@ -87,23 +81,25 @@ extension BlogTableCell {
         descriptionLabel.numberOfLines = 2
         self.addSubview(descriptionLabel)
         
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.topAnchor.constraint(equalTo: postDate.bottomAnchor, constant: 8).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -15).isActive = true
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(postDate.snp.bottom).offset(8)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.lessThanOrEqualToSuperview().offset(-15)
+        }
     }
     
     // MARK: Blogger Name Label
     private func setupBloggerNameLabel() {
         bloggerName.text = "블로거 이름"
-        bloggerName.textColor = .systemGray
+        bloggerName.textColor = UIColor(named: "soft_navy")
         bloggerName.font = UIFont.systemFont(ofSize: 13)
         self.addSubview(bloggerName)
         
-        bloggerName.translatesAutoresizingMaskIntoConstraints = false
-        bloggerName.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8).isActive = true
-        bloggerName.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 15).isActive = true
-        bloggerName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
-        bloggerName.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        bloggerName.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
+            make.leading.greaterThanOrEqualToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.bottom.equalToSuperview().offset(-8)
+        }
     }
 }

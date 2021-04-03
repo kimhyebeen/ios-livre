@@ -30,7 +30,6 @@
 		EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E425F85ED900BA6749 /* String+.swift */; };
 		EEBCE2F025F85ED900BA6749 /* TagStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E525F85ED900BA6749 /* TagStack.swift */; };
 		EEBCE2F125F85ED900BA6749 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E625F85ED900BA6749 /* RewardView.swift */; };
-		EEBCE2F225F85ED900BA6749 /* BookCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2E725F85ED900BA6749 /* BookCard.swift */; };
 		EEBCE2FB25F85EFD00BA6749 /* RecentSearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2F525F85EFD00BA6749 /* RecentSearchTableCell.swift */; };
 		EEBCE2FE25F85EFD00BA6749 /* MoreButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2F825F85EFD00BA6749 /* MoreButtonTableCell.swift */; };
 		EEBCE30025F85EFD00BA6749 /* BlogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2FA25F85EFD00BA6749 /* BlogTableCell.swift */; };
@@ -104,7 +103,6 @@
 		EEBCE2E425F85ED900BA6749 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EEBCE2E525F85ED900BA6749 /* TagStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagStack.swift; sourceTree = "<group>"; };
 		EEBCE2E625F85ED900BA6749 /* RewardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
-		EEBCE2E725F85ED900BA6749 /* BookCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCard.swift; sourceTree = "<group>"; };
 		EEBCE2F525F85EFD00BA6749 /* RecentSearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchTableCell.swift; sourceTree = "<group>"; };
 		EEBCE2F825F85EFD00BA6749 /* MoreButtonTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreButtonTableCell.swift; sourceTree = "<group>"; };
 		EEBCE2FA25F85EFD00BA6749 /* BlogTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogTableCell.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 			children = (
 				EEBCE2F425F85EE100BA6749 /* Cell */,
 				EEBCE2DD25F85ED900BA6749 /* BlogField.swift */,
-				EEBCE2E725F85ED900BA6749 /* BookCard.swift */,
 				EE0464FE26105F2C001AB04D /* BookCardCollectionField.swift */,
 				EEBCE2DE25F85ED900BA6749 /* HomeIcon.swift */,
 				EEBCE2DF25F85ED900BA6749 /* MoreInfoButtonView.swift */,
@@ -520,7 +517,6 @@
 				EEBCE35025F8603800BA6749 /* URLConfig.swift in Sources */,
 				EEBCE2EE25F85ED900BA6749 /* SearchField.swift in Sources */,
 				EEE4649526133F4700AF4A67 /* SearchViewController+Delegate.swift in Sources */,
-				EEBCE2F225F85ED900BA6749 /* BookCard.swift in Sources */,
 				EEBCE2FB25F85EFD00BA6749 /* RecentSearchTableCell.swift in Sources */,
 				EEBCE33A25F8602700BA6749 /* KeywordRequestBody.swift in Sources */,
 				EEBCE34F25F8603800BA6749 /* SecretKeySet.swift in Sources */,

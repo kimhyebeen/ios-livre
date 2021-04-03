@@ -8,16 +8,14 @@
 import UIKit
 
 protocol FavoriteCollectionDelegate: class {
-//    func removeBookData(_ item: BookData)
-    func removeBookData()
+    func removeBookData(_ item: FavoriteBook)
 }
 
 class FavoriteCollectionField: UIView {
     private let emptyLabel = UILabel()
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView!
-//    var items: [BookData] = []
-    var items: [Int] = []
+    var items: [FavoriteBook] = []
     var isEditMode: Bool = false {
         didSet {
             collectionView.reloadData()
@@ -43,11 +41,14 @@ class FavoriteCollectionField: UIView {
         setupCollectionView()
     }
     
-//    func setFavoriteItems(_ items: [BookData]) {
-//        if items.count == 0 { emptyLabel.isHidden = false }
-//        else { emptyLabel.isHidden = true }
-//        collectionView.reloadData()
-//    }
+    func setFavoriteItems(_ items: [FavoriteBook]) {
+        self.items = items
+        if items.count == 0 { emptyLabel.isHidden = false }
+        else { emptyLabel.isHidden = true }
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
     
 }
 
@@ -103,18 +104,19 @@ extension FavoriteCollectionField: UICollectionViewDataSource, UICollectionViewD
             return BookImageCell()
         }
         
-//        cell.loadImage(link: items[indexPath.item].image)
+        cell.loadImage(link: items[indexPath.item].image!)
         cell.editingMode(isEditMode)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         if !isEditMode { return true }
-        items.remove(at: indexPath.item)
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
+        
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.removeBookData(self.items[indexPath.item])
         }
-//        delegate?.removeBookData(items[indexPath.item])
+        
         return true
     }
     

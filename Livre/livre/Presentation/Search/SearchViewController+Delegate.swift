@@ -68,6 +68,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: FavoriteCollectionView
+extension SearchViewController: FavoriteCollectionDelegate {
+    func removeBookData(_ item: FavoriteBook) {
+        vm.deleteBook(item)
+    }
+}
+
 // MARK: BookCard
 extension SearchViewController: BookCardDelegate {
     func insertOrDeleteBook(_ status: Bool, _ book: Book?) {

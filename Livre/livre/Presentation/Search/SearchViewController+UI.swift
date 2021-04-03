@@ -160,6 +160,7 @@ extension SearchViewController {
     
     // MARK: FavoriteField
     func setupFavoriteField() {
+        favoriteField.delegate = self
         self.view.addSubview(favoriteField)
         
         favoriteField.snp.makeConstraints { make in

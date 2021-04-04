@@ -36,15 +36,15 @@ struct SecretKeySet {
 
 <br />
 
-* 기획 및 디자인: 2021.01
+* **기획 및 디자인**: 2021.01
 <!-- * 기획 및 디자인 : 1/14 ~ 1/17 -->
-* 개발 기간
-    + ver 2.0: 2021.03 ~ 2021.04
-    + ver 1.0: 2021.01
+* **개발 기간**
+    + **ver 2.0:** 2021.03 ~ 2021.04
+    + **ver 1.0:** 2021.01
     <!-- + ver 2.0: 3/22 ~ 4/4
     + ver 1.0: 1/17 ~ 1/29 -->
-* ver 2.0 - 피드백 및 사용자 리뷰 : [이슈 #38](https://github.com/kimhyebeen/ios-livre/issues/38)
-* ver 1.0 - 피드백 및 사용자 리뷰 : [이슈 #30](https://github.com/kimhyebeen/ios-livre/issues/30)
+* **ver 2.0 - 피드백 및 사용자 리뷰 :** [이슈 #38](https://github.com/kimhyebeen/ios-livre/issues/38)
+* **ver 1.0 - 피드백 및 사용자 리뷰 :** [이슈 #30](https://github.com/kimhyebeen/ios-livre/issues/30)
 
 <br />
 

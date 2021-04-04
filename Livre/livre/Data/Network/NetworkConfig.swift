@@ -8,15 +8,17 @@
 import Alamofire
 import RxSwift
 
-class RequestNetwork {
+class NetworkConfig {
     
-    static func books(query: String, start: Int = 1, display: Int = 10) -> Observable<[Book]> {
+    static let shared = NetworkConfig()
+    
+    func books(query: String, start: Int = 1, display: Int = 10) -> Observable<[Book]> {
         
         func getBook(_ item: BookSearchItem) -> Book { Book(title: item.title, image: item.image, author: item.author, price: item.priceString, isbn: item.isbn, description: item.description, publisher: item.publisher, publishDate: item.publishDate) }
         
         return Observable.create { (observable) in
             let request = AF.request(
-                URLConfig.book,
+                URLStringSet.book,
                 method: .get,
                 parameters: ["query" : query, "start" : start, "display" : display],
                 encoding: URLEncoding.default,
@@ -35,13 +37,13 @@ class RequestNetwork {
         }
     }
     
-    static func blogs(query: String, start: Int = 1, display: Int = 10) -> Observable<[BlogItem]> {
+    func blogs(query: String, start: Int = 1, display: Int = 10) -> Observable<[BlogItem]> {
         
         func getBlogItem(_ item: BlogSearchItem) -> BlogItem { BlogItem(title: item.title, link: item.link, description: item.description, bloggername: item.bloggername, postDate: item.postDate) }
         
         return Observable.create { (observable) in
             let request = AF.request(
-                URLConfig.blog,
+                URLStringSet.blog,
                 method: .get,
                 parameters: ["query" : query, "start" : start, "display" : display],
                 encoding: URLEncoding.default,
@@ -59,8 +61,8 @@ class RequestNetwork {
         }
     }
     
-    static func keywords(body: KeywordRequestBody) -> Observable<String> {
-        var request = URLRequest(url: URL(string: URLConfig.keyword)!)
+    func keywords(body: KeywordRequestBody) -> Observable<String> {
+        var request = URLRequest(url: URL(string: URLStringSet.keyword)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 10
@@ -69,7 +71,6 @@ class RequestNetwork {
         if let requestBody = try? JSONEncoder().encode(body) {
             request.httpBody = requestBody
         }
-        
         return Observable<String>.create { (observable) in
             let request = AF.request(request).responseString { (response) in
                 switch response.result {

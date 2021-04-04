@@ -45,20 +45,20 @@ class SearchViewModel {
     }
     
     func requestBookItems(value: String) {
-        RequestNetwork.books(query: value).subscribe(onNext: { [weak self] item in
+        NetworkConfig.shared.books(query: value).subscribe(onNext: { [weak self] item in
             self?.output.booksResult.accept(item)
         }).disposed(by: disposeBag)
     }
     
     func requestBlogItems(value: String) {
-        RequestNetwork.blogs(query: value).subscribe(onNext: { [weak self] items in
+        NetworkConfig.shared.blogs(query: value).subscribe(onNext: { [weak self] items in
             self?.output.blogsResult.accept(items)
         }).disposed(by: disposeBag)
     }
     
     func getKeywords(value: String) -> [String] {
         var result: [String] = []
-        RequestNetwork.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: value)))
+        NetworkConfig.shared.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: value)))
             .take(3)
             .subscribe(onNext: { text in
                 result.append(text)

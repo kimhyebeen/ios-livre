@@ -10,7 +10,6 @@ import RxSwift
 
 protocol BookCardDelegate: class {
     func insertOrDeleteBook(_ status: Bool,_ book: Book?)
-    func getKeywords(_ description: String) -> [String]
     func isExistInFavorite(_ title: String) -> Bool
 }
 
@@ -70,9 +69,11 @@ class BookCardCell: UICollectionViewCell {
         
         checkFavorite()
         
-        delegate?.getKeywords(item.contentsString).forEach {
-            tagStack.addLabel(value: $0)
-        }
+        NetworkConfig.shared.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: item.contentsString)))
+            .take(3)
+            .subscribe(onNext: { [weak self] text in
+            self?.tagStack.addLabel(value: text)
+        }).disposed(by: disposeBag)
     }
     
     private func loadImage(link: String) {

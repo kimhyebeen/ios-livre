@@ -91,10 +91,6 @@ extension SearchViewController: BookCardDelegate {
         }
     }
     
-    func getKeywords(_ description: String) -> [String] {
-        return vm.getKeywords(value: description)
-    }
-    
     func isExistInFavorite(_ title: String) -> Bool {
         return vm.isExistInFavorite(title)
     }

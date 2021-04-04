@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct URLConfig {
+struct URLStringSet {
     static let keyword = "http://svc.saltlux.ai:31781"
     static let book = "https://openapi.naver.com/v1/search/book.json"
     static let blog = "https://openapi.naver.com/v1/search/blog"

@@ -62,7 +62,7 @@ struct SecretKeySet {
 <br />
 
 ## ScreenShot - ver 2.0
-<img src="./image/ver-2/screenshot.png" width="900" />
+<img src="./image/ver-2/screenshot2.png" width="900" />
 
 <details>
 <summary>ScreenShot - ver 1.0 (클릭하면 펼쳐집니다)</summary>

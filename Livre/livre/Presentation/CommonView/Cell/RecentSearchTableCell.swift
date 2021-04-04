@@ -35,11 +35,12 @@ class RecentSearchTableCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 16)
         self.contentView.addSubview(label)
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8).isActive = true
-        label.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8).isActive = true
-        label.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16).isActive = true
-        label.trailingAnchor.constraint(greaterThanOrEqualTo: self.contentView.trailingAnchor, constant: -4).isActive = true
+        label.snp.makeConstraints { make in
+            make.top.equalTo(self.contentView.snp.top).offset(8)
+            make.bottom.equalTo(self.contentView.snp.bottom).offset(-8)
+            make.leading.equalTo(self.contentView.snp.leading).offset(16)
+            make.trailing.greaterThanOrEqualTo(self.contentView.snp.trailing).offset(-4)
+        }
     }
     
     func setupCellInformation(value: String) {

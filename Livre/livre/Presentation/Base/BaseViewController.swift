@@ -16,6 +16,7 @@ class BaseViewController: UIViewController {
         OperationQueue.main.addOperation {
             let toastLabel = self.getToastLabel(view: view, message, color, font)
             view.addSubview(toastLabel)
+            
             UIView.animate(
                 withDuration: 2.0,
                 delay: 1.0,
@@ -28,18 +29,9 @@ class BaseViewController: UIViewController {
 
     private func getToastLabel(view: UIView,_ message: String,_ color: UIColor,_ font: UIFont) -> UILabel {
         var width: CGFloat = CGFloat(message.count * 10 + 40)
-        if width > self.view.frame.width * 0.8 {
-            width = self.view.frame.width * 0.8
-        }
+        if width > self.view.frame.width * 0.8 { width = self.view.frame.width * 0.8 }
         
-        let toastLabel = UILabel(
-            frame: CGRect(
-                x: view.frame.size.width/2 - width/2,
-                y: view.frame.size.height-100,
-                width: width,
-                height: 35
-            )
-        )
+        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - width/2, y: view.frame.size.height-100, width: width, height: 35))
         toastLabel.backgroundColor = color.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.font = font

@@ -25,9 +25,7 @@ class BlogField: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        setupView()
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupView() {
@@ -57,11 +55,12 @@ extension BlogField {
         divider.backgroundColor = .systemGray
         self.addSubview(divider)
         
-        divider.translatesAutoresizingMaskIntoConstraints = false
-        divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        divider.topAnchor.constraint(equalTo: self.topAnchor, constant: 45).isActive = true
-        divider.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
-        divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
+        divider.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.top.equalToSuperview().offset(45)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+        }
     }
     
     // MARK: Title Label

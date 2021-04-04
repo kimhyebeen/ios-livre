@@ -18,9 +18,7 @@ class MoreInfoButtonView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        setupView()
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupView() {
@@ -32,12 +30,13 @@ class MoreInfoButtonView: UIView {
         imageView.image = UIImage(named: "arrow_right")
         self.addSubview(imageView)
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        imageView.snp.makeConstraints { make in
+            make.width.equalTo(25)
+            make.height.equalTo(25)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
     }
     
     private func setupTitleLabel() {
@@ -46,10 +45,11 @@ class MoreInfoButtonView: UIView {
         title.font = UIFont(name: "NotoSansKR-Medium", size: 15)
         self.addSubview(title)
         
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
-        title.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        title.trailingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
+        title.snp.makeConstraints { make in
+            make.centerY.equalTo(imageView.snp.centerY)
+            make.leading.equalToSuperview()
+            make.trailing.equalTo(imageView.snp.leading)
+        }
     }
 
 }

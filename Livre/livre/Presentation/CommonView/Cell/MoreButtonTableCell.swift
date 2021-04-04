@@ -32,9 +32,10 @@ class MoreButtonTableCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(label)
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: self.topAnchor, constant: 12).isActive = true
-        label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12).isActive = true
-        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        label.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(12)
+            make.bottom.equalToSuperview().offset(-12)
+            make.centerX.equalToSuperview()
+        }
     }
 }

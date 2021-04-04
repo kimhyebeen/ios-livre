@@ -25,9 +25,7 @@ extension String {
             guard let data = modified.data(using: .unicode) else {
                 return NSAttributedString(string: self)
             }
-            let attributed = try NSAttributedString(data: data,
-                                                    options: [.documentType: NSAttributedString.DocumentType.html],
-                                                    documentAttributes: nil)
+            let attributed = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
             return attributed
         } catch {
             return NSAttributedString(string: self)

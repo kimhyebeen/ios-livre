@@ -30,6 +30,7 @@ extension SearchViewController: UITextFieldDelegate {
         }
         
         vm.requestBookItems(value: text)
+        vm.output.recentSearchedText.accept(text)
         clickSearchButton(searchField.button)
         return true
     }
@@ -61,6 +62,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let count = recentSearchList.count - 1
         searchField.textfield.text = recentSearchList[count - indexPath.row]
         vm.requestBookItems(value: recentSearchList[count - indexPath.row])
+        vm.output.recentSearchedText.accept(recentSearchList[count - indexPath.row])
         clickSearchButton(searchField.button)
         self.view.endEditing(true)
         

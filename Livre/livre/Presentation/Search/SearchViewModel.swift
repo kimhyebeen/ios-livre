@@ -24,7 +24,7 @@ class SearchViewModel {
         let executeToast = PublishRelay<String>()
         let booksResult = PublishRelay<[Book]>()
         let blogsResult = PublishRelay<[BlogItem]>()
-        let recentSearchedText = PublishRelay<String>()
+        let recentSearchedText = RecentSearchConfig.shared.replayRelay
         let favoriteEditMode = BehaviorRelay<Bool>(value: false)
         let favoriteResult = PublishRelay<[FavoriteBook]>()
     }
@@ -34,6 +34,7 @@ class SearchViewModel {
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
                 self?.requestBookItems(value: text)
+                self?.output.recentSearchedText.accept(text)
             }).disposed(by: disposeBag)
         
         input.favoriteEditButton.subscribe(onNext: { [weak self] in
@@ -44,7 +45,6 @@ class SearchViewModel {
     }
     
     func requestBookItems(value: String) {
-        output.recentSearchedText.accept(value)
         RequestNetwork.books(query: value).subscribe(onNext: { [weak self] item in
             self?.output.booksResult.accept(item)
         }).disposed(by: disposeBag)

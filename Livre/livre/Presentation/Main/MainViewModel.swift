@@ -12,7 +12,7 @@ class MainViewModel {
     let output = Output()
     
     struct Output {
-        let recentSearchString = ReplayRelay<String>.create(bufferSize: 5)
+        let recentSearchString = RecentSearchConfig.shared.replayRelay
     }
     
     func saveRecentSearchString(value: String) {

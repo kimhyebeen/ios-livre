@@ -156,6 +156,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let count = recentSearchList.count - 1
         searchFieldView.textfield.text = recentSearchList[count - indexPath.row]
         self.view.endEditing(true)
+        self.clickSearchButton(searchFieldView.button)
         
         return indexPath
     }

@@ -8,33 +8,34 @@
 import Foundation
 
 struct RewardConfig {
-    private static let currentLevel = "currentLevel"
-    private static let currentPoint = "currentPoint"
-    private static let points = "points"
+    static let shared = RewardConfig()
+    private let currentLevel = "currentLevel"
+    private let currentPoint = "currentPoint"
+    private let points = "points"
     
-    static var isDataEmpty: Bool {
+    var isDataEmpty: Bool {
         return UserDefaults.standard.array(forKey: points) == nil
     }
     
-    static func initReward() {
+    func initReward() {
         UserDefaults.standard.set(1, forKey: currentLevel)
         UserDefaults.standard.set(0, forKey: currentPoint)
         UserDefaults.standard.set([0, 100, 300, 700, 1500, 3100, 6300, 12700, 25500, 51100, 200000], forKey: points)
     }
     
-    static func getCurrentLevel() -> Int {
+    func getCurrentLevel() -> Int {
         return UserDefaults.standard.integer(forKey: currentLevel)
     }
 
-    static func getCurrentPoint() -> Float {
+    func getCurrentPoint() -> Float {
         return UserDefaults.standard.float(forKey: currentPoint)
     }
     
-    static func getPointList() -> [Float]? {
+    func getPointList() -> [Float]? {
         return UserDefaults.standard.array(forKey: points) as? [Float]
     }
     
-    static func addPoint(point: Float) {
+    func addPoint(point: Float) {
         guard let list = getPointList() else { return }
         let level = getCurrentLevel()
         let total = getCurrentPoint() + point
@@ -46,11 +47,11 @@ struct RewardConfig {
         }
     }
     
-    private static func setCurrentLevel(level: Int) {
+    private func setCurrentLevel(level: Int) {
         UserDefaults.standard.set(level, forKey: currentLevel)
     }
     
-    private static func setCurrentPoint(point: Float) {
+    private func setCurrentPoint(point: Float) {
         UserDefaults.standard.set(point, forKey: currentPoint)
     }
 }

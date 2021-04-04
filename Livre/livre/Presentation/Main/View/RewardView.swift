@@ -48,7 +48,7 @@ class RewardView: UIView {
     }
     
     func setupLevel() {
-        let level = RewardConfig.getCurrentLevel()
+        let level = RewardConfig.shared.getCurrentLevel()
         rewardAnimation.animation = Animation.named("reward-\(level-1)")
         rewardAnimation.play()
     }
@@ -58,7 +58,7 @@ class RewardView: UIView {
 // MARK: View
 extension RewardView {
     private func setupStartAnimationView() {
-        let level = RewardConfig.getCurrentLevel()
+        let level = RewardConfig.shared.getCurrentLevel()
         rewardAnimation = AnimationView(name: "reward-\(level-1)")
         rewardAnimation.contentMode = .scaleAspectFit
         rewardAnimation.loopMode = .loop

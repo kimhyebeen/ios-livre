@@ -68,7 +68,7 @@ class SearchViewModel {
     }
     
     func updatePoint(value: String) {
-        RewardConfig.addPoint(point: Float(value.count * 2))
+        RewardConfig.shared.addPoint(point: Float(value.count * 2))
     }
     
     func fetchFavorites() {

@@ -20,16 +20,16 @@ class MainViewModel {
     }
     
     func getReward() -> Reward {
-        if RewardConfig.isDataEmpty { RewardConfig.initReward() }
+        if RewardConfig.shared.isDataEmpty { RewardConfig.shared.initReward() }
         
         return Reward(
-            level: RewardConfig.getCurrentLevel(),
-            point: RewardConfig.getCurrentPoint(),
-            points: RewardConfig.getPointList()
+            level: RewardConfig.shared.getCurrentLevel(),
+            point: RewardConfig.shared.getCurrentPoint(),
+            points: RewardConfig.shared.getPointList()
         )
     }
     
     func addRewardPoint(value: String) {
-        RewardConfig.addPoint(point: Float(value.count * 2))
+        RewardConfig.shared.addPoint(point: Float(value.count * 2))
     }
 }

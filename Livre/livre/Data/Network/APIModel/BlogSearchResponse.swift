@@ -12,10 +12,10 @@ struct BlogSearchResponse: Codable {
     let total: Int
     let start: Int
     let display: Int
-    let items: [BlogSearchItem]
+    let items: [BlogResponse]
 }
 
-struct BlogSearchItem: Codable {
+struct BlogResponse: Codable {
     let title: String
     let link: String
     let description: String

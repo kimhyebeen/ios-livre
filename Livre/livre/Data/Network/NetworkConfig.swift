@@ -12,9 +12,7 @@ class NetworkConfig {
     
     static let shared = NetworkConfig()
     
-    func books(query: String, start: Int = 1, display: Int = 10) -> Observable<[Book]> {
-        
-        func getBook(_ item: BookSearchItem) -> Book { Book(title: item.title, image: item.image, author: item.author, price: item.priceString, isbn: item.isbn, description: item.description, publisher: item.publisher, publishDate: item.publishDate) }
+    func books(query: String, start: Int = 1, display: Int = 10) -> Observable<[BookResponse]> {
         
         return Observable.create { (observable) in
             let request = AF.request(
@@ -30,16 +28,14 @@ class NetworkConfig {
                 let response = try? JSONDecoder().decode(BookSearchResponse.self, from: data)
                 
                 guard let items = response?.items else { return }
-                observable.onNext(items.map { getBook($0) })
+                observable.onNext(items)
                 observable.onCompleted()
             }
             return Disposables.create { request.cancel() }
         }
     }
     
-    func blogs(query: String, start: Int = 1, display: Int = 10) -> Observable<[BlogItem]> {
-        
-        func getBlogItem(_ item: BlogSearchItem) -> BlogItem { BlogItem(title: item.title, link: item.link, description: item.description, bloggername: item.bloggername, postDate: item.postDate) }
+    func blogs(query: String, start: Int = 1, display: Int = 10) -> Observable<[BlogResponse]> {
         
         return Observable.create { (observable) in
             let request = AF.request(
@@ -55,7 +51,7 @@ class NetworkConfig {
                 let response = try? JSONDecoder().decode(BlogSearchResponse.self, from: data)
 
                 guard let items = response?.items else { return }
-                observable.onNext(items.map { getBlogItem($0) })
+                observable.onNext(items)
             }
             return Disposables.create { request.cancel() }
         }
@@ -75,7 +71,7 @@ class NetworkConfig {
             let request = AF.request(request).responseString { (response) in
                 switch response.result {
                 case .success:
-                    if let data = response.data, let item = try? JSONDecoder().decode(KeywordResponse.self, from: data) {
+                    if let data = response.data, let item = try? JSONDecoder().decode(KeywordGetResponse.self, from: data) {
                         for obj in item.returnObject.keywords {
                             observable.onNext(obj.keyword)
                         }

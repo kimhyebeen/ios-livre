@@ -12,10 +12,10 @@ struct BookSearchResponse: Codable {
     let total: Int
     let start: Int
     let display: Int
-    let items: [BookSearchItem]
+    let items: [BookResponse]
 }
 
-struct BookSearchItem: Codable {
+struct BookResponse: Codable {
     let title: String
     let link: String
     let image: String

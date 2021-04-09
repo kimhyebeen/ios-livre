@@ -19,10 +19,10 @@ struct KeywordGetResponse: Codable {
 
 struct KeywordReturn: Codable {
     let question: String
-    let keylists: [KeywordItem]
+    let keylists: [KeywordResponse]
     
-    var keywords: [KeywordItem] {
-        var keys: [KeywordItem] = []
+    var keywords: [KeywordResponse] {
+        var keys: [KeywordResponse] = []
         for item in keylists {
             if item.weight < 0.03 { break }
             if keys.count >= 5 { break }
@@ -32,7 +32,7 @@ struct KeywordReturn: Codable {
     }
 }
 
-struct KeywordItem: Codable {
+struct KeywordResponse: Codable {
     let keyword: String
     let weight: Double
 }

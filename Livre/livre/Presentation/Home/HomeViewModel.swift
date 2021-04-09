@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class MainViewModel {
+class HomeViewModel {
     let output = Output()
     
     struct Output {

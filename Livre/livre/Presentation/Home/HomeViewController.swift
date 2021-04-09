@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import Lottie
 
-class MainViewController: BaseViewController {
+class HomeViewController: BaseViewController {
     let animationView = AnimationView(name: "main-book")
     let searchFieldView = SearchField()
     let basicLabel = UILabel()
@@ -19,7 +19,7 @@ class MainViewController: BaseViewController {
     let pointLabel = UILabel()
     let recentSearchTable = UITableView()
     
-    private let vm = MainViewModel()
+    private let vm = HomeViewModel()
     let spaceForLeftRight: CGFloat = 25
     var recentSearchDisposable: Disposable?
     var recentSearchList: [String] = []
@@ -111,7 +111,7 @@ class MainViewController: BaseViewController {
 }
 
 // MARK: TextField Delegate
-extension MainViewController: UITextFieldDelegate {
+extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         self.recentSearchTable.reloadData()
         self.recentSearchTable.isHidden = false
@@ -131,7 +131,7 @@ extension MainViewController: UITextFieldDelegate {
 }
 
 // MARK: TableView Delegate
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recentSearchList.count
     }

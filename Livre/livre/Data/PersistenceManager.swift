@@ -45,7 +45,7 @@ class PersistenceManager {
     
     func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T] {
         guard let result = try? self.context.fetch(request) else { return [] }
-        // 사용법: PersistenceManager.shared.fetch<FavoriteBook>(FavoriteBook.fetchRequest())
+        
         return result
     }
     

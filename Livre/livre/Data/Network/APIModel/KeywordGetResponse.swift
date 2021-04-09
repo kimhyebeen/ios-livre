@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KeywordResponse: Codable {
+struct KeywordGetResponse: Codable {
     let result: String
     let returnObject: KeywordReturn
     

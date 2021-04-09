@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-extension MainViewController {
+extension HomeViewController {
     // MARK: AnimationView
     func setupAnimationView() {
         animationView.contentMode = .scaleAspectFit

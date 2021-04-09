@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = MainViewController(nibName: nil, bundle: nil) // 루트 뷰컨트롤러 생성
+        window?.rootViewController = HomeViewController(nibName: nil, bundle: nil) // 루트 뷰컨트롤러 생성
         window?.makeKeyAndVisible()
     }
 

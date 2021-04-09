@@ -56,17 +56,6 @@ class SearchViewModel {
         }).disposed(by: disposeBag)
     }
     
-    func getKeywords(value: String) -> [String] {
-        var result: [String] = []
-        NetworkConfig.shared.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: value)))
-            .take(3)
-            .subscribe(onNext: { text in
-                result.append(text)
-            }).disposed(by: disposeBag)
-        
-        return result
-    }
-    
     func updatePoint(value: String) {
         RewardConfig.shared.addPoint(point: Float(value.count * 2))
     }

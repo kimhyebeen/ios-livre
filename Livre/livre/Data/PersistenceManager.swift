@@ -11,6 +11,7 @@ import CoreData
 class PersistenceManager {
     
     static var shared: PersistenceManager = PersistenceManager()
+    private init() {}
     
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Favorite") // Favorite.xcdatamodeld의 PersistentContainer를 가져와요.
@@ -25,6 +26,7 @@ class PersistenceManager {
     
     private var context: NSManagedObjectContext { self.persistentContainer.viewContext }
     private var entity: NSEntityDescription { NSEntityDescription.entity(forEntityName: "FavoriteBook", in: self.context)! }
+    
     
     func insertBook(_ item: Book) -> Bool {
         let book = NSManagedObject(entity: entity, insertInto: context)

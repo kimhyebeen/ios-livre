@@ -9,6 +9,7 @@ import RxCocoa
 
 class RecentSearchConfig {
     static let shared = RecentSearchConfig()
+    private init() {}
     
     let replayRelay = ReplayRelay<String>.create(bufferSize: 5)
     

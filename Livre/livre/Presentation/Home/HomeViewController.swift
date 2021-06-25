@@ -19,10 +19,7 @@ class HomeViewController: BaseViewController {
     let pointLabel = UILabel()
     let recentSearchTable = UITableView()
     
-    private let vm = HomeViewModel()
-    let spaceForLeftRight: CGFloat = 25
-    var recentSearchDisposable: Disposable?
-    var recentSearchList: [String] = []
+    private let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +44,9 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         searchFieldView.textfield.text = ""
-        setupReward(reward: vm.getReward())
-        bindViewModel()
+        setupReward(reward: viewModel.getReward())
+        viewModel.recentSearchList = []
+        viewModel.requestRecentSearchString()
         
         DispatchQueue.main.async { [weak self] in
             self?.animationView.play()
@@ -68,13 +66,6 @@ class HomeViewController: BaseViewController {
         pointLabel.text = "\(Int(reward.point)) / \(Int(lists[reward.level]))"
     }
     
-    private func bindViewModel() {
-        recentSearchList = []
-        recentSearchDisposable = vm.output.recentSearchString.subscribe(onNext: { [weak self] text in
-            self?.recentSearchList.append(text)
-        })
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         
@@ -89,8 +80,8 @@ class HomeViewController: BaseViewController {
         }
         
         DispatchQueue.global().async { [weak self] in
-            self?.vm.saveRecentSearchString(value: text)
-            self?.vm.addRewardPoint(value: text)
+            self?.viewModel.saveRecentSearchString(value: text)
+            self?.viewModel.addRewardPoint(value: text)
         }
         
         moveToSearchViewController()
@@ -102,24 +93,18 @@ class HomeViewController: BaseViewController {
         nextVC.modalPresentationStyle = .fullScreen
         self.show(nextVC, sender: nil)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        recentSearchDisposable?.dispose()
-    }
 }
 
 // MARK: TextField Delegate
 extension HomeViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.recentSearchTable.reloadData()
-        self.recentSearchTable.isHidden = false
+        recentSearchTable.reloadData()
+        recentSearchTable.isHidden = false
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        self.recentSearchTable.isHidden = true
+        recentSearchTable.isHidden = true
         return true
     }
     
@@ -133,7 +118,7 @@ extension HomeViewController: UITextFieldDelegate {
 // MARK: TableView Delegate
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentSearchList.count
+        return viewModel.recentSearchList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,8 +126,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             print("recent search table cell을 불러올 수 없습니다.")
             return RecentSearchTableCell()
         }
-        let count = recentSearchList.count - 1
-        cell.setupCellInformation(value: recentSearchList[count - indexPath.row])
+        let count = viewModel.recentSearchList.count - 1
+        cell.setupCellInformation(value: viewModel.recentSearchList[count - indexPath.row])
         if (indexPath.row == count) {
             cell.layer.cornerRadius = 10
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -153,10 +138,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let count = recentSearchList.count - 1
-        searchFieldView.textfield.text = recentSearchList[count - indexPath.row]
+        let count = viewModel.recentSearchList.count - 1
+        searchFieldView.textfield.text = viewModel.recentSearchList[count - indexPath.row]
         self.view.endEditing(true)
-        self.clickSearchButton(searchFieldView.button)
+        clickSearchButton(searchFieldView.button)
         
         return indexPath
     }

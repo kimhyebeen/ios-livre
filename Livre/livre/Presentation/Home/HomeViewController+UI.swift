@@ -33,8 +33,8 @@ extension HomeViewController {
         
         searchFieldView.snp.makeConstraints { make in
             make.top.equalTo(animationView.snp.bottom)
-            make.leading.equalToSuperview().offset(spaceForLeftRight)
-            make.trailing.equalToSuperview().offset(spaceForLeftRight * -1)
+            make.leading.equalToSuperview().offset(25)
+            make.trailing.equalToSuperview().offset(25 * -1)
         }
     }
     
@@ -59,8 +59,8 @@ extension HomeViewController {
         
         rewardView.snp.makeConstraints { make in
             make.bottom.equalTo(pointLabel.snp.top).offset(-30)
-            make.leading.equalToSuperview().offset(spaceForLeftRight + 10)
-            make.trailing.equalToSuperview().offset(spaceForLeftRight * -1 - 10)
+            make.leading.equalToSuperview().offset(25 + 10)
+            make.trailing.equalToSuperview().offset(25 * -1 - 10)
         }
     }
     

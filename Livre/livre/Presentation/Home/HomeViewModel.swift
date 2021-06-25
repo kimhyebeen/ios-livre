@@ -9,14 +9,17 @@ import RxSwift
 import RxCocoa
 
 class HomeViewModel {
-    let output = Output()
+    var recentSearchList: [String] = []
+    private let disposeBag = DisposeBag()
     
-    struct Output {
-        let recentSearchString = RecentSearchConfig.shared.replayRelay
+    func requestRecentSearchString() {
+        RecentSearchConfig.shared.replayRelay.subscribe(onNext: { [weak self] value in
+            self?.recentSearchList.append(value)
+        }).disposed(by: disposeBag)
     }
     
     func saveRecentSearchString(value: String) {
-        output.recentSearchString.accept(value)
+        RecentSearchConfig.shared.replayRelay.accept(value)
     }
     
     func getReward() -> Reward {

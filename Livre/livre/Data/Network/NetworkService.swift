@@ -8,13 +8,13 @@
 import Alamofire
 import RxSwift
 
-protocol BaseServiceInterface: AnyObject {
+protocol BaseNetworkService: AnyObject {
     func books(query: String, start: Int, display: Int,_ handler: @escaping ([BookResponse]) -> ())
     func blogs(query: String, start: Int, display: Int,_ handler: @escaping ([BlogResponse]) -> ())
     func keywords(body: KeywordRequestBody,_ handler: @escaping (String) -> ())
 }
 
-class NetworkService: BaseServiceInterface {
+class NetworkService: BaseNetworkService {
     
     static let shared = NetworkService()
     

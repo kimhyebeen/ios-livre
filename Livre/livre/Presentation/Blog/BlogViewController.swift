@@ -24,7 +24,7 @@ class BlogViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vm = BlogViewModel(word: word)
+        vm = BlogViewModel(word: word, networkService: NetworkService.shared)
         setupView()
         bindViewModel()
     }
@@ -39,7 +39,7 @@ class BlogViewController: BaseViewController {
     }
     
     private func bindViewModel() {
-        vm.blogs.subscribe(onNext: { [weak self] items in
+        vm.output.blogs.subscribe(onNext: { [weak self] items in
             self?.blogs.append(contentsOf: items)
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)

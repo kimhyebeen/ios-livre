@@ -23,7 +23,7 @@ class SearchViewController: BaseViewController {
     let blogField = BlogField()
         
     private let disposeBag = DisposeBag()
-    var vm: SearchViewModel = SearchViewModel()
+    var vm: SearchViewModel = SearchViewModel(networkService: NetworkService.shared)
     var initSearchText = ""
     var recentSearchList: [String] = []
     

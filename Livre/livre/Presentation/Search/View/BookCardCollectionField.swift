@@ -13,7 +13,7 @@ import UIKit
 
 class BookCardCollectionField: UIView {
 //    weak var delegate: BookCardCollectionFieldDelegate?
-    weak var bookcardDelegate: BookCardDelegate?
+    weak var bookcardDelegate: BookCardCellDelegate?
     var collectionView: UICollectionView!
     let flowLayout = UICollectionViewFlowLayout()
     

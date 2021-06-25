@@ -78,7 +78,7 @@ extension SearchViewController: FavoriteCollectionDelegate {
 }
 
 // MARK: BookCard
-extension SearchViewController: BookCardDelegate {
+extension SearchViewController: BookCardCellDelegate {
     func insertOrDeleteBook(_ status: Bool, _ book: Book?) {
         guard let book = book else {
             print("BookCardCell에 등록된 Book이 없어요.")
@@ -93,5 +93,10 @@ extension SearchViewController: BookCardDelegate {
     
     func isExistInFavorite(_ title: String) -> Bool {
         return vm.isExistInFavorite(title)
+    }
+    
+    
+    func requestTags(for text: String, _ handler: @escaping (String) -> ()) {
+        vm.requestKeywordItems(value: text, handler: handler)
     }
 }

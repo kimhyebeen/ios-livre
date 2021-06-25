@@ -12,6 +12,7 @@ class SearchViewModel {
     let input = Input()
     let output = Output()
     private var editMode = false
+    private var networkService: BaseNetworkService?
     private let disposeBag = DisposeBag()
     
     struct Input {
@@ -29,7 +30,9 @@ class SearchViewModel {
         let favoriteResult = PublishRelay<[FavoriteBook]>()
     }
     
-    init() {
+    init(networkService: BaseNetworkService) {
+        self.networkService = networkService
+        
         input.searchButton.withLatestFrom(input.searchWord)
             .filter { !$0.isEmpty }
             .subscribe(onNext: { [weak self] text in
@@ -45,19 +48,23 @@ class SearchViewModel {
     }
     
     func requestBookItems(value: String) {
-        func mappingToBook(_ data: BookResponse) -> Book { Book(title: data.title, image: data.image, author: data.author, price: data.priceString, isbn: data.isbn, description: data.description, publisher: data.publisher, publishDate: data.publishDate)}
+        func mappingToBook(_ data: BookResponse) -> Book { Book(title: data.title, image: data.image, author: data.author, price: data.priceString, isbn: data.isbn, description: data.description, publisher: data.publisher, publishDate: data.publishDate) }
         
-        NetworkService.shared.books(query: value).subscribe(onNext: { [weak self] items in
-            self?.output.booksResult.accept( items.map { mappingToBook($0) } )
-        }).disposed(by: disposeBag)
+        networkService?.books(query: value, start: 1, display: 10) { [weak self] response in
+            self?.output.booksResult.accept(response.map { mappingToBook($0) })
+        }
     }
     
     func requestBlogItems(value: String) {
         func mappingToBlogItem(_ data: BlogResponse) -> BlogItem { BlogItem(title: data.title, link: data.link, description: data.description, bloggername: data.bloggername, postDate: data.postDate) }
         
-        NetworkService.shared.blogs(query: value).subscribe(onNext: { [weak self] items in
-            self?.output.blogsResult.accept( items.map { mappingToBlogItem($0) } )
-        }).disposed(by: disposeBag)
+        networkService?.blogs(query: value, start: 1, display: 10) { [weak self] response in
+            self?.output.blogsResult.accept(response.map { mappingToBlogItem($0)})
+        }
+    }
+    
+    func requestKeywordItems(value: String, handler: @escaping (String) -> ()) {
+        networkService?.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: value)), handler)
     }
     
     func updatePoint(value: String) {

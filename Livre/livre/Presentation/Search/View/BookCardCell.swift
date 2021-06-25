@@ -8,9 +8,10 @@
 import UIKit
 import RxSwift
 
-protocol BookCardDelegate: class {
+protocol BookCardCellDelegate: AnyObject {
     func insertOrDeleteBook(_ status: Bool,_ book: Book?)
     func isExistInFavorite(_ title: String) -> Bool
+    func requestTags(for text: String,_ handler: @escaping (String) -> ())
 }
 
 class BookCardCell: UICollectionViewCell {
@@ -28,7 +29,7 @@ class BookCardCell: UICollectionViewCell {
     let imageWidth: CGFloat = 102
     private let disposeBag = DisposeBag()
     
-    weak var delegate: BookCardDelegate?
+    weak var delegate: BookCardCellDelegate?
     var currentBook: Book? = nil
     
     override init(frame: CGRect) {
@@ -68,12 +69,9 @@ class BookCardCell: UICollectionViewCell {
         }
         
         checkFavorite()
-        
-        NetworkService.shared.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: item.contentsString)))
-            .take(3)
-            .subscribe(onNext: { [weak self] text in
-            self?.tagStack.addLabel(value: text)
-        }).disposed(by: disposeBag)
+        delegate?.requestTags(for: item.contentsString) { [weak self] tag in
+            self?.tagStack.addLabel(value: tag)
+        }
     }
     
     private func loadImage(link: String) {

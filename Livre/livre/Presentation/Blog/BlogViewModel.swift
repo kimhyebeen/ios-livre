@@ -11,21 +11,26 @@ import RxSwift
 class BlogViewModel {
     var word: String = ""
     var startIndex = 1
-    let disposeBag = DisposeBag()
-    let blogs = PublishRelay<[BlogItem]>()
+    let output = Output()
+    private let networkService: BaseNetworkService?
+    private let disposeBag = DisposeBag()
     
-    init(word: String) {
+    struct Output {
+        let blogs = PublishRelay<[BlogItem]>()
+    }
+    
+    init(word: String, networkService: BaseNetworkService) {
         self.word = word
+        self.networkService = networkService
         self.requestBlogItems()
     }
     
     func requestBlogItems() {
         func mappingToBlogItem(_ data: BlogResponse) -> BlogItem { BlogItem(title: data.title, link: data.bloggerlink, description: data.description, bloggername: data.bloggername, postDate: data.postDate)}
         
-        NetworkService.shared.blogs(query: word, start: startIndex)
-            .subscribe(onNext: { [weak self] items in
-                self?.blogs.accept( items.map{ mappingToBlogItem($0) } )
-            }).disposed(by: disposeBag)
-        startIndex += 10
+        networkService?.blogs(query: word, start: startIndex, display: 10) { [weak self] response in
+            self?.output.blogs.accept(response.map { mappingToBlogItem($0) })
+            self?.startIndex += 10
+        }
     }
 }

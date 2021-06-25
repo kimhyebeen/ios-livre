@@ -70,7 +70,7 @@
 		EEBCE37B25F860AF00BA6749 /* home-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36C25F860AF00BA6749 /* home-icon.json */; };
 		EEBCE37C25F860AF00BA6749 /* reward-1.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36D25F860AF00BA6749 /* reward-1.json */; };
 		EEBCE37D25F860AF00BA6749 /* reward-0.json in Resources */ = {isa = PBXBuildFile; fileRef = EEBCE36E25F860AF00BA6749 /* reward-0.json */; };
-		EEE464912613336D00AF4A67 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE464902613336D00AF4A67 /* NetworkConfig.swift */; };
+		EEE464912613336D00AF4A67 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE464902613336D00AF4A67 /* NetworkService.swift */; };
 		EEE4649526133F4700AF4A67 /* SearchViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */; };
 		EEE4649926134C2800AF4A67 /* BookImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649826134C2800AF4A67 /* BookImageCell.swift */; };
 		EEE4649C2613521F00AF4A67 /* FavoriteCollectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649B2613521F00AF4A67 /* FavoriteCollectionField.swift */; };
@@ -144,7 +144,7 @@
 		EEBCE36C25F860AF00BA6749 /* home-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-icon.json"; sourceTree = "<group>"; };
 		EEBCE36D25F860AF00BA6749 /* reward-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-1.json"; sourceTree = "<group>"; };
 		EEBCE36E25F860AF00BA6749 /* reward-0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "reward-0.json"; sourceTree = "<group>"; };
-		EEE464902613336D00AF4A67 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		EEE464902613336D00AF4A67 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+Delegate.swift"; sourceTree = "<group>"; };
 		EEE4649826134C2800AF4A67 /* BookImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageCell.swift; sourceTree = "<group>"; };
 		EEE4649B2613521F00AF4A67 /* FavoriteCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionField.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				EEBCE33225F85FF700BA6749 /* APIModel */,
 				EEBCE34C25F8603800BA6749 /* SecretKeySet.swift */,
 				EEBCE34D25F8603800BA6749 /* URLStringSet.swift */,
-				EEE464902613336D00AF4A67 /* NetworkConfig.swift */,
+				EEE464902613336D00AF4A67 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -567,7 +567,7 @@
 				EEBCE30925F85F7600BA6749 /* SearchViewController+UI.swift in Sources */,
 				EEBCE33E25F8602700BA6749 /* BookSearchResponse.swift in Sources */,
 				EEBCE31125F85F7D00BA6749 /* BlogViewModel.swift in Sources */,
-				EEE464912613336D00AF4A67 /* NetworkConfig.swift in Sources */,
+				EEE464912613336D00AF4A67 /* NetworkService.swift in Sources */,
 				EEBCE32A25F85FCF00BA6749 /* Book.swift in Sources */,
 				EEBCE30F25F85F7D00BA6749 /* BlogViewController.swift in Sources */,
 				EEBCE2D525F85E2C00BA6749 /* HomeViewController.swift in Sources */,

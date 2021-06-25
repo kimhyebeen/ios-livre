@@ -69,7 +69,7 @@ class BookCardCell: UICollectionViewCell {
         
         checkFavorite()
         
-        NetworkConfig.shared.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: item.contentsString)))
+        NetworkService.shared.keywords(body: KeywordRequestBody(argument: KeywordRequestArgument(question: item.contentsString)))
             .take(3)
             .subscribe(onNext: { [weak self] text in
             self?.tagStack.addLabel(value: text)

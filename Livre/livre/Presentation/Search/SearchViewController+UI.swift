@@ -43,7 +43,7 @@ extension SearchViewController {
     func setupSearchField() {
         searchField.backgroundColor = UIColor(named: "pale_gray")
         searchField.setRoundedRectangle()
-        searchField.textfield.text = initSearchText
+        searchField.textfield.text = viewModel.initSearchText
         searchField.textfield.delegate = self
         searchField.button.addTarget(self, action: #selector(clickSearchButton(_:)), for: .touchUpInside)
         self.view.addSubview(searchField)

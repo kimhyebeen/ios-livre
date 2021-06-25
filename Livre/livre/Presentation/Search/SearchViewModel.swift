@@ -11,6 +11,8 @@ import RxCocoa
 class SearchViewModel {
     let input = Input()
     let output = Output()
+    var initSearchText = ""
+    var recentSearchList: [String] = []
     private var editMode = false
     private var networkService: BaseNetworkService?
     private var persistenceService: BasePersistenceService?
@@ -26,7 +28,7 @@ class SearchViewModel {
         let executeToast = PublishRelay<String>()
         let booksResult = PublishRelay<[Book]>()
         let blogsResult = PublishRelay<[BlogItem]>()
-        let recentSearchedText = RecentSearchConfig.shared.replayRelay
+        let recentSearchedText = RecentSearchTextManager.shared.replayRelay
         let favoriteEditMode = BehaviorRelay<Bool>(value: false)
         let favoriteResult = PublishRelay<[FavoriteBook]>()
     }
@@ -70,7 +72,7 @@ class SearchViewModel {
     }
     
     func updatePoint(value: String) {
-        RewardConfig.shared.addPoint(point: Float(value.count * 2))
+        RewardService.shared.addPoint(point: Float(value.count * 2))
     }
     
     func fetchFavorites() {

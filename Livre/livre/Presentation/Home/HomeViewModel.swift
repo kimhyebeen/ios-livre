@@ -13,27 +13,27 @@ class HomeViewModel {
     private let disposeBag = DisposeBag()
     
     func requestRecentSearchString() {
-        RecentSearchConfig.shared.replayRelay.subscribe(onNext: { [weak self] value in
+        RecentSearchTextManager.shared.replayRelay.subscribe(onNext: { [weak self] value in
             self?.recentSearchList.append(value)
         }).disposed(by: disposeBag)
     }
     
     func saveRecentSearchString(value: String) {
-        RecentSearchConfig.shared.replayRelay.accept(value)
+        RecentSearchTextManager.shared.replayRelay.accept(value)
     }
     
     func getReward() -> Reward {
-        if RewardConfig.shared.isDataEmpty { RewardConfig.shared.initReward() }
+        if RewardService.shared.isDataEmpty { RewardService.shared.initReward() }
         
         return Reward(
-            level: RewardConfig.shared.getCurrentLevel(),
-            point: RewardConfig.shared.getCurrentPoint(),
-            points: RewardConfig.shared.getPointList()
+            level: RewardService.shared.getCurrentLevel(),
+            point: RewardService.shared.getCurrentPoint(),
+            points: RewardService.shared.getPointList()
         )
     }
     
     func addRewardPoint(value: String) {
-        RewardConfig.shared.addPoint(point: Float(value.count * 2))
+        RewardService.shared.addPoint(point: Float(value.count * 2))
     }
 }
 

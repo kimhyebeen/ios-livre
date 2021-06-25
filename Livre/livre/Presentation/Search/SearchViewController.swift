@@ -23,9 +23,7 @@ class SearchViewController: BaseViewController {
     let blogField = BlogField()
         
     private let disposeBag = DisposeBag()
-    var vm: SearchViewModel = SearchViewModel(networkService: NetworkService.shared, persistenceService: PersistenceService.shared)
-    var initSearchText = ""
-    var recentSearchList: [String] = []
+    let viewModel: SearchViewModel = SearchViewModel(networkService: NetworkService.shared, persistenceService: PersistenceService.shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +31,8 @@ class SearchViewController: BaseViewController {
         setupView()
         bindToViewModel()
         bindFromViewModel()
-        vm.requestBookItems(value: initSearchText)
-        vm.fetchFavorites()
+        viewModel.requestBookItems(value: viewModel.initSearchText)
+        viewModel.fetchFavorites()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,25 +67,25 @@ class SearchViewController: BaseViewController {
     
     private func bindToViewModel() {
         searchField.textfield.rx.text.orEmpty
-            .bind(to: vm.input.searchWord)
+            .bind(to: viewModel.input.searchWord)
             .disposed(by: disposeBag)
         
         searchField.button.rx.tap
-            .bind(to: vm.input.searchButton)
+            .bind(to: viewModel.input.searchButton)
             .disposed(by: disposeBag)
         
         favoriteEditButton.rx.tap
-            .bind(to: vm.input.favoriteEditButton)
+            .bind(to: viewModel.input.favoriteEditButton)
             .disposed(by: disposeBag)
     }
     
     private func bindFromViewModel() {
-        vm.output.executeToast.subscribe(onNext: { [weak self] text in
+        viewModel.output.executeToast.subscribe(onNext: { [weak self] text in
             guard let self = self else { return }
             self.showToast(view: self.view, message: text)
         }).disposed(by: disposeBag)
         
-        vm.output.booksResult.subscribe(onNext: { [weak self] items in
+        viewModel.output.booksResult.subscribe(onNext: { [weak self] items in
             guard let self = self else { return }
             if items.count == 0 {
                 self.emptyLabel.isHidden = false
@@ -95,28 +93,28 @@ class SearchViewController: BaseViewController {
                 self.showToast(view: self.view, message: "관련정보를 찾을 수 없습니다.")
             } else {
                 self.emptyLabel.isHidden = true
-                self.vm.updatePoint(value: self.searchField.getTextFromTextField())
-                self.vm.requestBlogItems(value: "책 \(self.searchField.getTextFromTextField())")
+                self.viewModel.updatePoint(value: self.searchField.getTextFromTextField())
+                self.viewModel.requestBlogItems(value: "책 \(self.searchField.getTextFromTextField())")
             }
             self.bookCardField.setBookItems(items: items)
         }).disposed(by: disposeBag)
         
-        vm.output.blogsResult.subscribe(onNext: { [weak self] item in
+        viewModel.output.blogsResult.subscribe(onNext: { [weak self] item in
             self?.blogField.setTableViewItem(items: item)
         }).disposed(by: disposeBag)
         
-        vm.output.recentSearchedText.subscribe(onNext: { [weak self] text in
+        viewModel.output.recentSearchedText.subscribe(onNext: { [weak self] text in
             guard let self = self else { return }
-            if self.recentSearchList.count == 5 { self.recentSearchList.removeFirst() }
-            self.recentSearchList.append(text)
+            if self.viewModel.recentSearchList.count == 5 { self.viewModel.recentSearchList.removeFirst() }
+            self.viewModel.recentSearchList.append(text)
         }).disposed(by: disposeBag)
         
-        vm.output.favoriteEditMode.subscribe(onNext: { [weak self] mode in
+        viewModel.output.favoriteEditMode.subscribe(onNext: { [weak self] mode in
             self?.favoriteField.isEditMode = mode
             self?.favoriteEditButton.isSelected = mode
         }).disposed(by: disposeBag)
         
-        vm.output.favoriteResult.subscribe(onNext: { books in
+        viewModel.output.favoriteResult.subscribe(onNext: { books in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.favoriteField.setFavoriteItems(books)

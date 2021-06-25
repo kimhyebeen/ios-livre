@@ -29,8 +29,8 @@ extension SearchViewController: UITextFieldDelegate {
             return true
         }
         
-        vm.requestBookItems(value: text)
-        vm.output.recentSearchedText.accept(text)
+        viewModel.requestBookItems(value: viewModel.initSearchText)
+        viewModel.output.recentSearchedText.accept(text)
         clickSearchButton(searchField.button)
         return true
     }
@@ -39,7 +39,7 @@ extension SearchViewController: UITextFieldDelegate {
 // MARK: TableView
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentSearchList.count
+        return viewModel.recentSearchList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,8 +47,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             print("recent search table cell을 불러올 수 없습니다.")
             return RecentSearchTableCell()
         }
-        let count = recentSearchList.count - 1
-        cell.setupCellInformation(value: recentSearchList[count - indexPath.row])
+        let count = viewModel.recentSearchList.count - 1
+        cell.setupCellInformation(value: viewModel.recentSearchList[count - indexPath.row])
         if (indexPath.row == count) {
             cell.layer.cornerRadius = 10
             cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -59,10 +59,10 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let count = recentSearchList.count - 1
-        searchField.textfield.text = recentSearchList[count - indexPath.row]
-        vm.requestBookItems(value: recentSearchList[count - indexPath.row])
-        vm.output.recentSearchedText.accept(recentSearchList[count - indexPath.row])
+        let count = viewModel.recentSearchList.count - 1
+        searchField.textfield.text = viewModel.recentSearchList[count - indexPath.row]
+        viewModel.requestBookItems(value: viewModel.recentSearchList[count - indexPath.row])
+        viewModel.output.recentSearchedText.accept(viewModel.recentSearchList[count - indexPath.row])
         clickSearchButton(searchField.button)
         self.view.endEditing(true)
         
@@ -73,7 +73,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: FavoriteCollectionView
 extension SearchViewController: FavoriteCollectionDelegate {
     func removeBookData(_ item: FavoriteBook) {
-        vm.deleteBook(item)
+        viewModel.deleteBook(item)
     }
 }
 
@@ -84,19 +84,19 @@ extension SearchViewController: BookCardCellDelegate {
             print("BookCardCell에 등록된 Book이 없어요.")
             return
         }
-        if status { vm.insertFavorite(book) }
+        if status { viewModel.insertFavorite(book) }
         else {
             if !isExistInFavorite(book.titleString) { return }
-            vm.deleteForTitle(book.titleString)
+            viewModel.deleteForTitle(book.titleString)
         }
     }
     
     func isExistInFavorite(_ title: String) -> Bool {
-        return vm.isExistInFavorite(title)
+        return viewModel.isExistInFavorite(title)
     }
     
     
     func requestTags(for text: String, _ handler: @escaping (String) -> ()) {
-        vm.requestKeywordItems(value: text, handler: handler)
+        viewModel.requestKeywordItems(value: text, handler: handler)
     }
 }

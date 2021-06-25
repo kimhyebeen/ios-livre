@@ -7,8 +7,8 @@
 
 import RxCocoa
 
-class RecentSearchConfig {
-    static let shared = RecentSearchConfig()
+class RecentSearchTextManager {
+    static let shared = RecentSearchTextManager()
     private init() {}
     
     let replayRelay = ReplayRelay<String>.create(bufferSize: 5)

@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct RewardConfig {
-    static let shared = RewardConfig()
+struct RewardService {
+    static let shared = RewardService()
+    private init() {}
+    
     private let currentLevel = "currentLevel"
     private let currentPoint = "currentPoint"
     private let points = "points"

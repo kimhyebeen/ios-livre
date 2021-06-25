@@ -91,7 +91,7 @@ class HomeViewController: BaseViewController {
     
     private func moveToSearchViewController() {
         let nextVC = SearchViewController()
-        nextVC.initSearchText = searchFieldView.textfield.text ?? ""
+        nextVC.viewModel.initSearchText = searchFieldView.textfield.text ?? ""
         nextVC.modalPresentationStyle = .fullScreen
         self.show(nextVC, sender: nil)
     }

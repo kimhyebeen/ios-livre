@@ -13,6 +13,7 @@ class SearchViewModel {
     let output = Output()
     private var editMode = false
     private var networkService: BaseNetworkService?
+    private var persistenceService: BasePersistenceService?
     private let disposeBag = DisposeBag()
     
     struct Input {
@@ -30,8 +31,9 @@ class SearchViewModel {
         let favoriteResult = PublishRelay<[FavoriteBook]>()
     }
     
-    init(networkService: BaseNetworkService) {
+    init(networkService: BaseNetworkService, persistenceService: BasePersistenceService) {
         self.networkService = networkService
+        self.persistenceService = persistenceService
         
         input.searchButton.withLatestFrom(input.searchWord)
             .filter { !$0.isEmpty }
@@ -73,16 +75,17 @@ class SearchViewModel {
     
     func fetchFavorites() {
         print("Search ViewModel - 즐겨찾기 목록을 가져와요.")
-        let result = PersistenceManager.shared.fetch(request: FavoriteBook.fetchRequest())
+        guard let result = persistenceService?.fetch(request: FavoriteBook.fetchRequest()) else { return }
         output.favoriteResult.accept(result)
     }
     
     func isExistInFavorite(_ title: String) -> Bool {
-        return PersistenceManager.shared.fetchBookForTitle(title).count > 0 ? true : false
+        guard let count = persistenceService?.fetchBookForTitle(title).count else { return false }
+        return count > 0 ? true : false
     }
     
     func deleteForTitle(_ title: String) {
-        let result = PersistenceManager.shared.deleteBookForTitle(title)
+        guard let result = persistenceService?.deleteBookForTitle(title) else { return }
         if !result {
             output.executeToast.accept("🚫 즐겨찾기 삭제 실패")
             return
@@ -92,7 +95,7 @@ class SearchViewModel {
     }
     
     func deleteBook(_ item: FavoriteBook) {
-        let result = PersistenceManager.shared.delete(object: item)
+        guard let result = persistenceService?.delete(object: item) else { return }
         if !result {
             output.executeToast.accept("🚫 즐겨찾기 삭제 실패")
             return
@@ -102,7 +105,7 @@ class SearchViewModel {
     }
     
     func insertFavorite(_ item: Book) {
-        let result = PersistenceManager.shared.insertBook(item)
+        guard let result = persistenceService?.insertBook(item) else { return }
         if !result {
             output.executeToast.accept("🚫 즐겨찾기에 등록 실패")
             return

@@ -8,9 +8,18 @@
 import UIKit
 import CoreData
 
-class PersistenceManager {
-    
-    static var shared: PersistenceManager = PersistenceManager()
+protocol BasePersistenceService: AnyObject {
+    func insertBook(_ item: Book) -> Bool
+    func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T]
+    func fetchBookForTitle(_ title: String) -> [FavoriteBook]
+    func delete(object: NSManagedObject) -> Bool
+    func deleteBookForTitle(_ title: String) -> Bool
+    func deleteAll<T: NSManagedObject>(request: NSFetchRequest<T>) -> Bool
+    func count<T: NSManagedObject>(request: NSFetchRequest<T>) -> Int
+}
+
+class PersistenceService: BasePersistenceService {
+    static var shared: PersistenceService = PersistenceService()
     private init() {}
     
     private lazy var persistentContainer: NSPersistentContainer = {

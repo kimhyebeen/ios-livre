@@ -36,3 +36,9 @@ class HomeViewModel {
         RewardConfig.shared.addPoint(point: Float(value.count * 2))
     }
 }
+
+extension HomeViewModel: RecentTableAdapterDataSource {
+    var numberOfItems: Int { recentSearchList.count }
+    
+    func getSearchedText(at index: Int) -> String { recentSearchList[index] }
+}

@@ -107,8 +107,6 @@ extension HomeViewController {
     func setupRecentSearchTable() {
         recentSearchTable.register(RecentSearchTableCell.self, forCellReuseIdentifier: RecentSearchTableCell.identifier)
         recentSearchTable.isHidden = true
-        recentSearchTable.delegate = self
-        recentSearchTable.dataSource = self
         recentSearchTable.separatorStyle = .none
         recentSearchTable.isScrollEnabled = false
         recentSearchTable.backgroundColor = .clear

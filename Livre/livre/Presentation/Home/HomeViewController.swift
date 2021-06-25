@@ -20,10 +20,12 @@ class HomeViewController: BaseViewController {
     let recentSearchTable = UITableView()
     
     private let viewModel = HomeViewModel()
+    private var recentTableAdapter: RecentTableAdapter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        recentTableAdapter = RecentTableAdapter(tableView: recentSearchTable, dataSource: viewModel, delegate: self)
         setupView()
     }
     
@@ -115,34 +117,10 @@ extension HomeViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: TableView Delegate
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.recentSearchList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: RecentSearchTableCell = tableView.dequeueReusableCell(withIdentifier: RecentSearchTableCell.identifier, for: indexPath) as? RecentSearchTableCell else {
-            print("recent search table cell을 불러올 수 없습니다.")
-            return RecentSearchTableCell()
-        }
-        let count = viewModel.recentSearchList.count - 1
-        cell.setupCellInformation(value: viewModel.recentSearchList[count - indexPath.row])
-        if (indexPath.row == count) {
-            cell.layer.cornerRadius = 10
-            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        } else {
-            cell.layer.cornerRadius = 0
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let count = viewModel.recentSearchList.count - 1
-        searchFieldView.textfield.text = viewModel.recentSearchList[count - indexPath.row]
+extension HomeViewController: RecentTableAdapterDelegate {
+    func onClickCell(at index: Int) {
+        searchFieldView.textfield.text = viewModel.recentSearchList[index]
         self.view.endEditing(true)
         clickSearchButton(searchFieldView.button)
-        
-        return indexPath
     }
 }

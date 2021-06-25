@@ -74,6 +74,7 @@
 		EEE4649526133F4700AF4A67 /* SearchViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */; };
 		EEE4649926134C2800AF4A67 /* BookImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649826134C2800AF4A67 /* BookImageCell.swift */; };
 		EEE4649C2613521F00AF4A67 /* FavoriteCollectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE4649B2613521F00AF4A67 /* FavoriteCollectionField.swift */; };
+		F4EA920626856E93007F6CCB /* RecentTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA920526856E93007F6CCB /* RecentTableAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,7 @@
 		EEE4649426133F4700AF4A67 /* SearchViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+Delegate.swift"; sourceTree = "<group>"; };
 		EEE4649826134C2800AF4A67 /* BookImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImageCell.swift; sourceTree = "<group>"; };
 		EEE4649B2613521F00AF4A67 /* FavoriteCollectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionField.swift; sourceTree = "<group>"; };
+		F4EA920526856E93007F6CCB /* RecentTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		EE22DD372618A90E00DEEDC4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F4EA920526856E93007F6CCB /* RecentTableAdapter.swift */,
 				EEBCE2E625F85ED900BA6749 /* RewardView.swift */,
 			);
 			path = View;
@@ -555,6 +558,7 @@
 				EEBCE2EF25F85ED900BA6749 /* String+.swift in Sources */,
 				EEBCE34E25F8603800BA6749 /* RewardConfig.swift in Sources */,
 				EEE4649926134C2800AF4A67 /* BookImageCell.swift in Sources */,
+				F4EA920626856E93007F6CCB /* RecentTableAdapter.swift in Sources */,
 				EEBCE31025F85F7D00BA6749 /* BlogViewController+UI.swift in Sources */,
 				EE22DD3D2619D06F00DEEDC4 /* RecentSearchConfig.swift in Sources */,
 				EEBCE2E925F85ED900BA6749 /* HomeIcon.swift in Sources */,
